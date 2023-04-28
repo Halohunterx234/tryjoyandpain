@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,11 +13,13 @@ public class Cultist : MonoBehaviour
     public GameObject player;
     Vector3 playerPos;
     Rigidbody2D rb;
+    SpriteRenderer sr;
 
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<Player>().gameObject;
+        sr = GetComponent<SpriteRenderer>();
     }
 
     protected void Chase()
@@ -51,14 +54,30 @@ public class Cultist : MonoBehaviour
         }
     }
 
+    private void getDamaged(int dmg)
+    {
+       health -= dmg;
+       CheckHealth();
+    }
+
     private void CheckHealth()
     {
+        sr.color = Color.red;
         if (health <= 0)
         {
             //Destroy this gameObject for now
             //add in death animations ltr when finished
             Destroy(this.gameObject);
         }
-    }
+        else
+        {
+            StartCoroutine(resetColor());
+        }
 
+    }
+    IEnumerator resetColor()
+    {
+        yield return new WaitForSeconds(1);
+        sr.color = Color.white;
+    }
 }

@@ -7,7 +7,9 @@ public class Weapons : MonoBehaviour
     //Template for all weapons
     //Include the necessary code like for shooting/reloading/updating/etc
     //Weapon Stats
-    protected float weaponCD, weaponCDMax;
+    protected float weaponCD;
+    [SerializeField]
+    protected float weaponCDMax;
     [SerializeField]
     protected GameObject weaponProjectile;
     [SerializeField]
@@ -40,6 +42,12 @@ public class Weapons : MonoBehaviour
 
     private void Fire()
     {
-        Instantiate(weaponProjectile, (Vector2)weaponFirePoint.position + new Vector2(player.transform.localScale.x, 0), Quaternion.identity);
+        Instantiate(weaponProjectile, (Vector2)weaponFirePoint.position + new Vector2(-Mathf.Sign(player.transform.localScale.x), 0), Quaternion.identity);
+    }
+
+    public void UpdateCD(float cd_red)
+    {
+        weaponCDMax = weaponCDMax * (1-cd_red);
+        print(weaponCDMax);
     }
 }

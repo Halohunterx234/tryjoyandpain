@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Projectiles : MonoBehaviour
@@ -43,7 +44,7 @@ public class Projectiles : MonoBehaviour
 
         //Move the projectile accordingly
         Rigidbody2D projectileRB = this.gameObject.GetComponent<Rigidbody2D>();
-        projectileRB.velocity = new Vector2(projectileSpeed * player.transform.localScale.x, projectileRB.velocity.y);
+        projectileRB.velocity = new Vector2(projectileSpeed * -player.transform.localScale.x, projectileRB.velocity.y);
     }
     //Auto Fire Method
     protected System.Action AutoFire()
@@ -54,8 +55,8 @@ public class Projectiles : MonoBehaviour
     //Collision Events
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.gameObject.isStatic)
-        {
+        if (!collision.gameObject.isStatic || !collision.gameObject.GetComponent<Player>())
+        { 
             Destroy(this.gameObject);
         }
     }
@@ -64,4 +65,5 @@ public class Projectiles : MonoBehaviour
     {
         yield return new WaitForSeconds(i); 
     }
+
 }

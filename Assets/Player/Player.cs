@@ -31,7 +31,14 @@ public class Player : MonoBehaviour
         if (hDir != 0)
         {
             rb.velocity = new Vector2(hDir * moveSpeed, rb.velocity.y);
-            transform.localScale = new Vector2(Mathf.Sign(hDir) * transform.localScale.x, transform.localScale.y);
+            if (transform.localScale.x >= 0 && hDir >= 0)
+            {
+                transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+            }
+            else if (transform.localScale.x <= 0 && hDir <= 0)
+            {
+                transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+            }
         }
         if (vDir != 0)
         {

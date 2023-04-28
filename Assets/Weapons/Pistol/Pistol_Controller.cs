@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Pistol_Controller : Weapons
 {
-    private void Awake()
+    
+    public void Awake()
     {
         weaponCDMax = 2f;
     }
