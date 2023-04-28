@@ -6,8 +6,9 @@ public class Projectiles : MonoBehaviour
 {
     //template stats
     //projectile stats
-    protected float projectileSpeed, projectileDamage, projectileKnockback;
-    protected float projectileRot;
+    public float projectileSpeed, projectileKnockback;
+    public int projectileDamage;
+    protected float projectileRot, projectileDespawnTime;
     protected int projectileMode;
     //References
     GameObject player;
@@ -20,6 +21,7 @@ public class Projectiles : MonoBehaviour
         projectileModes.Add(1, AutoFire());
         print(projectileModes[0]);
         projectileModes[projectileMode]();
+        StartCoroutine(DespawnTimer(projectileDespawnTime));
     }
     private void Update()
     {
@@ -47,5 +49,19 @@ public class Projectiles : MonoBehaviour
     protected System.Action AutoFire()
     {
         return null;
+    }
+
+    //Collision Events
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!collision.gameObject.isStatic)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    IEnumerator DespawnTimer(float i)
+    {
+        yield return new WaitForSeconds(i); 
     }
 }

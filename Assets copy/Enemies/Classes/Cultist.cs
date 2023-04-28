@@ -43,6 +43,22 @@ public class Cultist : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print(collision.gameObject.GetComponents<Projectiles>());
+        GameObject projectile = collision.gameObject;
+        if (collision.gameObject.GetComponent<Projectiles>())
+        {
+            health -= projectile.GetComponent<Projectiles>().projectileDamage;
+            CheckHealth();
+        }
     }
+
+    private void CheckHealth()
+    {
+        if (health <= 0)
+        {
+            //Destroy this gameObject for now
+            //add in death animations ltr when finished
+            Destroy(this.gameObject);
+        }
+    }
+
 }
