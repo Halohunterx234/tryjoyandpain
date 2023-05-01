@@ -1344,6 +1344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cultist
       objectReference: {fileID: 0}
+    - target: {fileID: 4905509171078055955, guid: adb2781490e7e4bce83782469f0eb58e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adb2781490e7e4bce83782469f0eb58e, type: 3}
 --- !u!1001 &7048539677943658275

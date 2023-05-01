@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4905509171078055958}
   - component: {fileID: 4905509171078055959}
   - component: {fileID: 4905509171078055957}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cultist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
