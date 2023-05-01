@@ -68,7 +68,7 @@ public class Cultist : MonoBehaviour
         }
     }
 
-    private void getDamaged(int dmg)
+    public void getDamaged(int dmg)
     {
        health -= dmg;
        CheckHealth(dmg);

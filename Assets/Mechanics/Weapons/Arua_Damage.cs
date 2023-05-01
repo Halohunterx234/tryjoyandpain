@@ -8,8 +8,8 @@ public class Arua_Damage : MonoBehaviour
     protected float fire = 0;
     protected float maxFire = 2;
     protected GameObject player;
-    protected float radiusCircle = 20f;
-    protected LayerMask whoIsEnemy;
+    protected float radiusCircle = 5f;
+    public LayerMask whoIsEnemy;
     protected int damage = 1;
 
     // Start is called before the first frame update
@@ -34,6 +34,7 @@ public class Arua_Damage : MonoBehaviour
         Collider2D[] enemyWithin = Physics2D.OverlapCircleAll(player.transform.position, radiusCircle, whoIsEnemy);
         foreach (Collider2D c in enemyWithin)
         {
+            print(c.name);
             c.GetComponent<Cultist>().getDamaged(damage);
             print("yes");
         }
