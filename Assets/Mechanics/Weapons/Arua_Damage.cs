@@ -34,6 +34,7 @@ public class Arua_Damage : MonoBehaviour
         Collider2D[] enemyWithin = Physics2D.OverlapCircleAll(player.transform.position, radiusCircle, whoIsEnemy);
         foreach (Collider2D c in enemyWithin)
         {
+            c.GetComponent<Cultist>().getDamaged(damage);
             print("yes");
         }
     }
