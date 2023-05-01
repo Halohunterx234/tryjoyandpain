@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d244f6442951749d581c40550ce33cf4, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.0625, y: 4.375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -98,8 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a791494c64fb84d6bad65a642f70c7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 8089972918072914973, guid: 8cf85133a9369479990700f46dd8bb30, type: 3}
-  firePoint: {x: 0, y: 0, z: 0}
+  weaponCDMax: 0
+  weaponProjectile: {fileID: 0}
+  weaponFirePoint: {fileID: 0}
 --- !u!1 &4277164137526010306
 GameObject:
   m_ObjectHideFlags: 0
