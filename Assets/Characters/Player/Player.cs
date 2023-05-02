@@ -7,7 +7,9 @@ public class Player : MonoBehaviour
     public float moveSpeed = 5f;
     public ArrayList weapons;
     public GameObject pistol;
-    public bool isMobile;
+    public bool isMobile, isPressed;
+    public Vector3 movePos;
+    public Camera mainCam;
 
     //For firing weapons
     Rigidbody2D rb;
@@ -17,38 +19,52 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         isMobile = true;
+        mainCam = Camera.main;
         //weapons.Add(pistol);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isMobile) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        else
-        {
+        //if (!isMobile) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        print(movePos);
             if (Input.touchCount > 0)
             {
+                if (isPressed)
+            {
+                movePos = Vector2.zero;
+                isPressed = false;
+            }
                 Touch touch = Input.GetTouch(0);
-                if (touch.phase == TouchPhase.Moved)
+                if (touch.phase == TouchPhase.Ended)
                 {
-                    Vector2 pos = touch.position;
-                    if (Vector2.Distance(pos, transform.position) > 0.001f)
-                    {
-                        var step = moveSpeed * Time.deltaTime;
-                        Vector2.MoveTowards(transform.position, pos, step);
-                        if (transform.localScale.x >= 0 && (pos.x > transform.position.x))
-                        {
-                            transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
-                        }
-                        else if (transform.localScale.x <= 0 && pos.x < transform.position.x)
-                        {
-                            transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
-                        }
-                    }
+                Vector2 pos = mainCam.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, mainCam.nearClipPlane));
+                movePos = pos;
+                isPressed = true;
                 }
             }
+          else if (isPressed)
+        {
 
+            if (Vector2.Distance(movePos, transform.position) > 0.001f)
+            {
+                print(movePos);
+                var step = moveSpeed * Time.deltaTime;
+                print(step);
+                transform.position = Vector2.MoveTowards(transform.position, movePos, step);
+
+                if (transform.localScale.x >= 0 && (movePos.x > transform.position.x))
+                {
+                    transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+                }
+                else if (transform.localScale.x <= 0 && movePos.x < transform.position.x)
+                {
+                    transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+                }
+            }
+            else isPressed = false;
         }
+        
         //Every two seconds, we fire all weapons that the player has
         FireWeapons();
     }
