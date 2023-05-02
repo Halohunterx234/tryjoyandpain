@@ -71,7 +71,9 @@ public class Projectiles : MonoBehaviour
 
     IEnumerator DespawnTimer(float i)
     {
-        yield return new WaitForSeconds(i); 
+        
+        yield return new WaitForSeconds(i);
+        Destroy(this.gameObject);
     }
 
 }

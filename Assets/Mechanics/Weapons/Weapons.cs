@@ -14,6 +14,8 @@ public class Weapons : MonoBehaviour
     protected GameObject weaponProjectile;
     [SerializeField]
     protected Transform weaponFirePoint;
+    protected Vector2 weaponOffset;
+
 
     //References
     GameObject player;
@@ -42,7 +44,7 @@ public class Weapons : MonoBehaviour
 
     private void Fire()
     {
-        Instantiate(weaponProjectile, (Vector2)weaponFirePoint.position, Quaternion.identity);
+        Instantiate(weaponProjectile, (Vector2)weaponFirePoint.position + weaponOffset*player.transform.localScale.x, Quaternion.identity);
     }
 
     public void UpdateCD(float cd_red)

@@ -6,11 +6,12 @@ public class Pistol_BulletController : Projectiles
 {
     private void Awake()
     {
-        projectileSpeed = 20f;
+        projectileSpeed = 40f;
         projectileRot = 90f;
         projectileDamage = 1;
         projectileKnockback = 0.25f;
         projectileDespawnTime = 2.5f;
         projectileMode = 0; //Bi-directional Firing
+        
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     GameObject player;
+    public Vector2 minVector, maxVector;
     // Start is called before the first frame update
     void Start()
     {
