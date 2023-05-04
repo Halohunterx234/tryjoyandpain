@@ -5,22 +5,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Cultist : MonoBehaviour
+public class Cultist : Entity
 {
     //Parent Class for Cultist Enemies
-    protected float moveSpeed;
-    protected int health, xp;
-    protected float damage;
-    protected float knockbackResistance;
-    public GameObject player, xpOrb, damageText;
+    public GameObject player;
     Vector3 playerPos;
-    Rigidbody2D rb;
-    SpriteRenderer sr;
 
     public void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<Player>().gameObject;
+        rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
     }
 
@@ -52,8 +46,7 @@ public class Cultist : MonoBehaviour
         if (collision.gameObject.GetComponent<Projectiles>())
         {
             int dmg = projectile.GetComponent<Projectiles>().projectileDamage;
-            health -= dmg;
-            CheckHealth(dmg);
+            GetDamaged(dmg);
         }
     }
 
@@ -63,39 +56,39 @@ public class Cultist : MonoBehaviour
         if (collision.gameObject.GetComponent<Projectiles>())
         {
             int dmg = projectile.GetComponent<Projectiles>().projectileDamage;
-            health -= dmg;
-            CheckHealth(dmg);
+            GetDamaged(dmg);
         }
     }
+    /*
+public void getDamaged(int dmg)
+{
+   health -= dmg;
+   CheckHealth(dmg);
+}
 
-    public void getDamaged(int dmg)
+private void CheckHealth(int dmg)
+{
+    sr.color = Color.red;
+    if (health <= 0)
     {
-       health -= dmg;
-       CheckHealth(dmg);
+        //Destroy this gameObject for now
+        //add in death animations ltr when finished
+        Instantiate(xpOrb, transform.position, Quaternion.identity);
+        xpOrb.gameObject.GetComponent<XpOrbController>().SetXP(xp);
+        GameObject damagetxt = Instantiate(damageText, transform.position + new Vector3(player.transform.localScale.x*4, -2f, 0), Quaternion.identity);
+        damagetxt.GetComponent<DamageTextController>().ChangeText(dmg.ToString());
+        Destroy(this.gameObject);
+    }
+    else
+    {
+        StartCoroutine(resetColor());
     }
 
-    private void CheckHealth(int dmg)
-    {
-        sr.color = Color.red;
-        if (health <= 0)
-        {
-            //Destroy this gameObject for now
-            //add in death animations ltr when finished
-            Instantiate(xpOrb, transform.position, Quaternion.identity);
-            xpOrb.gameObject.GetComponent<XpOrbController>().SetXP(xp);
-            GameObject damagetxt = Instantiate(damageText, transform.position + new Vector3(player.transform.localScale.x*4, -2f, 0), Quaternion.identity);
-            damagetxt.GetComponent<DamageTextController>().ChangeText(dmg.ToString());
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            StartCoroutine(resetColor());
-        }
-
-    }
-    IEnumerator resetColor()
-    {
-        yield return new WaitForSeconds(1);
-        sr.color = Color.white;
-    }
+}
+IEnumerator resetColor()
+{
+    yield return new WaitForSeconds(1);
+    sr.color = Color.white;
+}
+*/
 }

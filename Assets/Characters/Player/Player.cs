@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Entity
 {
-    public float moveSpeed = 5f;
+    //public float moveSpeed = 5f;
     public ArrayList weapons;
     public GameObject pistol;
     public bool isMobile, isPressed;
@@ -12,23 +12,29 @@ public class Player : MonoBehaviour
     public Camera mainCam;
 
     //For firing weapons
-    Rigidbody2D rb;
+    private void Awake()
+    {
+        moveSpeed = 5f;
+        maxHp = 10;
+        minHp = 0;
+        hp = maxHp;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         isMobile = false;
         mainCam = Camera.main;
         //weapons.Add(pistol);
+        rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!isMobile) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        print(movePos);
-            if (Input.touchCount > 0)
+        else if (Input.touchCount > 0)
             {
                 if (isPressed)
             {

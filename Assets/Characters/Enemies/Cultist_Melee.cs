@@ -7,7 +7,7 @@ public class Cultist_Melee : Cultist
     private void Awake()
     {
         moveSpeed = 2.5f;
-        health = 1;
+        hp = 2;
         xp = 1;
     }
 }

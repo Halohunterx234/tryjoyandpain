@@ -35,7 +35,7 @@ public class Arua_Damage : MonoBehaviour
         foreach (Collider2D c in enemyWithin)
         {
             print(c.name);
-            c.GetComponent<Cultist>().getDamaged(damage);
+            c.GetComponent<Entity>().GetDamaged(damage);
             print("yes");
         }
     }
