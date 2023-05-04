@@ -1273,7 +1273,7 @@ MonoBehaviour:
   whoIsEnemy:
     serializedVersion: 2
     m_Bits: 64
-  isOn: 1
+  isOn: 0
 --- !u!1 &899330142
 GameObject:
   m_ObjectHideFlags: 0
@@ -4072,7 +4072,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3630023971796002424, guid: 026a8429366094b7785ebab8f70625ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.511
+      value: -0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 3630023971796002424, guid: 026a8429366094b7785ebab8f70625ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 4277164137526010306, guid: 026a8429366094b7785ebab8f70625ca, type: 3}
       propertyPath: m_Name
@@ -4089,10 +4093,10 @@ PrefabInstance:
     - target: {fileID: 7584341687538182642, guid: 026a8429366094b7785ebab8f70625ca, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d244f6442951749d581c40550ce33cf4, type: 3}
+      objectReference: {fileID: 2036574440, guid: 9e6918513cc1346c8b32fca4548a6851, type: 3}
     - target: {fileID: 7584341687538182642, guid: 026a8429366094b7785ebab8f70625ca, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7584341687538182642, guid: 026a8429366094b7785ebab8f70625ca, type: 3}
       propertyPath: m_WasSpriteAssigned
@@ -4103,12 +4107,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8073286259929627789, guid: 026a8429366094b7785ebab8f70625ca, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1146938
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073286259929627789, guid: 026a8429366094b7785ebab8f70625ca, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0961695
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073286259929627789, guid: 026a8429366094b7785ebab8f70625ca, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.0208373
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073286259929627789, guid: 026a8429366094b7785ebab8f70625ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.66
+      value: -2.0542
       objectReference: {fileID: 0}
     - target: {fileID: 8073286259929627789, guid: 026a8429366094b7785ebab8f70625ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.052
+      value: -0.514
       objectReference: {fileID: 0}
     - target: {fileID: 8073286259929627789, guid: 026a8429366094b7785ebab8f70625ca, type: 3}
       propertyPath: m_LocalPosition.z

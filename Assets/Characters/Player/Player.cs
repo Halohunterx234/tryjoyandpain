@@ -110,7 +110,8 @@ public class Player : Entity
 
     protected override void OnCheckHealth()
     {
-        hpctrl.Set_Values(hp, maxHp, minHp);
+        //add a hp bar
+        //hpctrl.Set_Values(hp, maxHp, minHp);
         base.OnCheckHealth();
     }
 }
