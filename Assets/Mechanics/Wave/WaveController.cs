@@ -26,6 +26,7 @@ public class WaveController : MonoBehaviour
         if (waveTimer >= waveMaxTimer)
         {
             waveTimer = 0;
+            if (waveCount == 2) enemyCount += 1;
             SpawnWave();
         }
         else waveTimer += Time.deltaTime;
@@ -33,6 +34,7 @@ public class WaveController : MonoBehaviour
 
     protected void SpawnWave()
     {
+ 
         float indiv_c = enemyCount < 4 ? enemyCount : enemyCount / 4 ;
         float extra_c = enemyCount % 4 == 0 ? 0: enemyCount % 4;
         //Loop through each direction
@@ -45,6 +47,7 @@ public class WaveController : MonoBehaviour
               }
             extra_c -= 1;
         }
+        waveCount += 1;
     }
 
     private Vector3 getSpawnDir(int no)

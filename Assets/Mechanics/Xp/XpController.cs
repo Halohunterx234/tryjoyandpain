@@ -12,12 +12,14 @@ public class XpController : MonoBehaviour
     private int xplvl, xp, xpMax;
     Slider xpBar;
     TextMeshProUGUI xplvltext;
+    Arua_Damage ar;
 
     private void Awake()
     {
         xp = 0;
         xplvl = 1;
         xpMax = CalculateNextLvlXP(xplvl, xp);
+        ar = FindObjectOfType<Arua_Damage>();
     }
     private void Start()
     {
@@ -28,7 +30,10 @@ public class XpController : MonoBehaviour
     }
     private void Update()
     {
-
+        if (xplvl == 2 && !ar.isOn)
+        {
+            ar.isOn = true;
+        }
     }
     int CalculateNextLvlXP(int lvl, int xp)
     {
@@ -46,5 +51,6 @@ public class XpController : MonoBehaviour
             xpBar.maxValue = xpMax; xpBar.minValue = xp;
             xplvltext.text = xplvl.ToString();
         }
+        
     }
 }

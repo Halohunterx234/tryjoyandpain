@@ -39,7 +39,7 @@ public class Cultist : Entity
     {
         Chase();
     }
-
+    /*
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject projectile = collision.gameObject;
@@ -59,7 +59,7 @@ public class Cultist : Entity
             GetDamaged(dmg);
         }
     }
-    /*
+    
 public void getDamaged(int dmg)
 {
    health -= dmg;

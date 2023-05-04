@@ -6,8 +6,9 @@ public class Cultist_Melee : Cultist
 {
     private void Awake()
     {
-        moveSpeed = 2.5f;
+        moveSpeed = 2f;
         hp = 2;
         xp = 1;
+        collisionDmg = 1;
     }
 }

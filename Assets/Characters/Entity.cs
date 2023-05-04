@@ -7,7 +7,7 @@ public class Entity : MonoBehaviour
 {
     //Big daddy class for everyone that is alive
     protected List<Component> damageClasses; //a list of the classes that can deal damage to this child
-    protected int hp, maxHp, minHp, xp, collisionDmg;
+    public int hp, maxHp, minHp, xp, collisionDmg;
     protected float moveSpeed, knockbackResistance;
     //Components
     protected Rigidbody2D rb;
@@ -20,11 +20,14 @@ public class Entity : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        spawnsDamageTxt = this.gameObject.GetComponent<Player>() ? false : true;
-        spawnsXpOrb = spawnsDamageTxt; //player shldnt drop xp orbs either
+        
         minHp = 0;
     }
-
+    private void Start()
+    {
+        spawnsDamageTxt = this.gameObject.GetComponent<Player>() ? false : true;
+        spawnsXpOrb = spawnsDamageTxt; //player shldnt drop xp orbs either
+    }
     // Update is called once per frame
     void Update()
     {
@@ -66,6 +69,18 @@ public class Entity : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         sr.color = Color.white;
+    }
+
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Projectiles>() && !this.gameObject.GetComponent<Player>())
+        {
+            GetDamaged(collision.gameObject.GetComponent<Projectiles>().projectileDamage);
+        }
+        else if (collision.GetComponent<Entity>() && this.gameObject.GetComponent<Player>())
+        {
+            GetDamaged(collision.gameObject.GetComponent<Entity>().collisionDmg);
+        }
     }
 
 }

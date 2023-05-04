@@ -16,8 +16,8 @@ public class Player : Entity
     {
         moveSpeed = 5f;
         maxHp = 10;
-        minHp = 0;
         hp = maxHp;
+        collisionDmg = 0;
     }
 
     // Start is called before the first frame update
