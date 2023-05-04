@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        isMobile = true;
+        isMobile = false;
         mainCam = Camera.main;
         //weapons.Add(pistol);
     }
@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (!isMobile) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (!isMobile) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         print(movePos);
             if (Input.touchCount > 0)
             {
