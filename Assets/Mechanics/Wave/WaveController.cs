@@ -26,7 +26,11 @@ public class WaveController : MonoBehaviour
         if (waveTimer >= waveMaxTimer)
         {
             waveTimer = 0;
-            if (waveCount == 2) enemyCount += 1;
+            if (waveCount == 2)
+            {
+                enemyCount += 1;
+                waveCount = 0;
+            }
             SpawnWave();
         }
         else waveTimer += Time.deltaTime;

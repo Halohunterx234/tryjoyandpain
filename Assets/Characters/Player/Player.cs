@@ -11,6 +11,9 @@ public class Player : Entity
     public Vector3 movePos;
     public Camera mainCam;
 
+    //references
+    Player_HpController hpctrl;
+
     //For firing weapons
     private void Awake()
     {
@@ -28,6 +31,7 @@ public class Player : Entity
         //weapons.Add(pistol);
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        hpctrl = GetComponentInChildren<Player_HpController>();
     }
 
     // Update is called once per frame
@@ -102,5 +106,11 @@ public class Player : Entity
     protected void FireWeapons()
     {
 
+    }
+
+    protected override void OnCheckHealth()
+    {
+        hpctrl.Set_Values(hp, maxHp, minHp);
+        base.OnCheckHealth();
     }
 }

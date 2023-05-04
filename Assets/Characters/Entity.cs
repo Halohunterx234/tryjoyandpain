@@ -57,6 +57,7 @@ public class Entity : MonoBehaviour
                 Instantiate(xpOrb, transform.position, Quaternion.identity);
                 xpOrb.gameObject.GetComponent<XpOrbController>().SetXP(xp);
             }
+            OnCheckHealth();
             Destroy(this.gameObject);
         }
         else
@@ -64,6 +65,11 @@ public class Entity : MonoBehaviour
             StartCoroutine(ResetColor());
         }
     }
+
+    protected virtual void OnCheckHealth()
+    {
+
+    } 
 
     IEnumerator ResetColor()
     {

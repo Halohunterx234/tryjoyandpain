@@ -6,7 +6,7 @@ public class Arua_Damage : MonoBehaviour
 {//i might be put this into the cultist but tbh i am not too sure   
     [SerializeField]
     protected float fire = 0;
-    protected float maxFire = 5;
+    protected float maxFire = .5f;
     protected GameObject player;
     protected float radiusCircle = 5f;
     public LayerMask whoIsEnemy;
