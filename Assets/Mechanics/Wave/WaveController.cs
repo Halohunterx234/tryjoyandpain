@@ -23,6 +23,7 @@ public class WaveController : MonoBehaviour
 
     private void Update()
     {
+        if (player == null) return;
         if (waveTimer >= waveMaxTimer)
         {
             waveTimer = 0;

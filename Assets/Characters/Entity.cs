@@ -13,20 +13,19 @@ public class Entity : MonoBehaviour
     protected Rigidbody2D rb;
     protected SpriteRenderer sr;
     //Others
-    protected bool spawnsDamageTxt, spawnsXpOrb; //is true for all entiites except player
+    public bool spawnsDamageTxt, spawnsXpOrb; //is true for all entiites except player
     //References
     public GameObject dmgTxt, xpOrb;
 
     // Start is called before the first frame update
     void Awake()
     {
-        
         minHp = 0;
     }
-    private void Start()
+    protected void Start()
     {
-        spawnsDamageTxt = this.gameObject.GetComponent<Player>() ? false : true;
-        spawnsXpOrb = spawnsDamageTxt; //player shldnt drop xp orbs either
+        //spawnsDamageTxt = true;
+        //spawnsXpOrb = spawnsDamageTxt; //player shldnt drop xp orbs either
     }
     // Update is called once per frame
     void Update()
@@ -41,8 +40,8 @@ public class Entity : MonoBehaviour
         //spawn dmg
         if (spawnsDamageTxt)
         {
-            GameObject damagetxt = Instantiate(dmgTxt, transform.position + new Vector3(FindObjectOfType<Player>().gameObject.transform.localScale.x * 4, -2f, 0), Quaternion.identity);
-            damagetxt.GetComponent<DamageTextController>().ChangeText(dmg.ToString());
+            GameObject damagetxt = Instantiate(dmgTxt, transform.position + new Vector3(this.gameObject.transform.localScale.x * .25f, -2.5f, 0), Quaternion.identity);
+            damagetxt.GetComponent<DamageTextController>().ChangeText(dmg.ToString(), transform.position);
         }
         CheckHealth();
     }

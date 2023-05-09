@@ -15,13 +15,12 @@ public class DamageTextController : MonoBehaviour
         
     }
 
-    public void ChangeText(string dmg)
+    public void ChangeText(string dmg, Vector3 enemyPos)
     {
         txt = this.gameObject.GetComponent<TextMeshPro>();
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         txt.text = dmg;
-        rb.velocity = new Vector2(1, 1);
-        print(dmg);
-        //txt.text = dmg;
+        Vector3 movePos = new Vector2(-Mathf.Sign(FindObjectOfType<Player>().gameObject.transform.position.x - enemyPos.x), -1);
+        rb.velocity = movePos;
     }
 }

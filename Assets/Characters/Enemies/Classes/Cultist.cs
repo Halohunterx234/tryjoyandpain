@@ -11,16 +11,24 @@ public class Cultist : Entity
     public GameObject player;
     Vector3 playerPos;
 
+    private void Awake()
+    {
+
+    }
+
     public void Start()
     {
         player = FindObjectOfType<Player>().gameObject;
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        spawnsDamageTxt = true; spawnsXpOrb = spawnsDamageTxt;
+        print(spawnsXpOrb); print(spawnsDamageTxt);
     }
 
     protected void Chase()
     {
         //Move to player's position
+        if (player == null) return;
         playerPos = player.transform.position;
         Vector3 playerDir = playerPos - transform.position;
         rb.velocity = playerDir.normalized * moveSpeed;
