@@ -10,7 +10,10 @@ public class PlayerHealth : MonoBehaviour
     public Color high;
     public Vector3 offset;
 
-
+    private void Start()
+    {
+        offset = new Vector3(0, -.5f, 0);
+    }
     private void Update()
     {
         //allows the health bar to be visible
@@ -19,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
     //sets the health bar and updates it appropriately
     public void SetHealth(float health, float maxHealth, float minHealth)
     {
-        slide.gameObject.SetActive(health < maxHealth);
+        //slide.gameObject.SetActive(health < maxHealth);
         slide.value = health;
         slide.maxValue = maxHealth;
         slide.minValue = minHealth;

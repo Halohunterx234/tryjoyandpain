@@ -34,7 +34,6 @@ public class Player : Entity
         sr = GetComponent<SpriteRenderer>();
         hpctrl = GetComponentInChildren<Player_HpController>();
         ph = GetComponentInChildren<PlayerHealth>();
-        ph.SetHealth(hp, maxHp,minHp);
         
     }
 
