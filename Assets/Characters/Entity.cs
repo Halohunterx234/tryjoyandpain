@@ -52,7 +52,7 @@ public class Entity : MonoBehaviour
         if (hp <= minHp)
         {
             //drop xp orbs
-            if (!spawnsXpOrb)
+            if (spawnsXpOrb)
             {
                 Instantiate(xpOrb, transform.position, Quaternion.identity);
                 xpOrb.gameObject.GetComponent<XpOrbController>().SetXP(xp);
