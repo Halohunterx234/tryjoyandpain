@@ -48,6 +48,7 @@ public class Entity : MonoBehaviour
 
     protected void CheckHealth()
     {
+        OnCheckHealth();
         if (hp <= minHp)
         {
             //drop xp orbs
@@ -56,7 +57,7 @@ public class Entity : MonoBehaviour
                 Instantiate(xpOrb, transform.position, Quaternion.identity);
                 xpOrb.gameObject.GetComponent<XpOrbController>().SetXP(xp);
             }
-            OnCheckHealth();
+            
             Destroy(this.gameObject);
         }
         else

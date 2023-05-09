@@ -22,7 +22,6 @@ public class Cultist : Entity
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         spawnsDamageTxt = true; spawnsXpOrb = spawnsDamageTxt;
-        print(spawnsXpOrb); print(spawnsDamageTxt);
     }
 
     protected void Chase()

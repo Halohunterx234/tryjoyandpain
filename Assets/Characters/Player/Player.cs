@@ -13,6 +13,7 @@ public class Player : Entity
 
     //references
     Player_HpController hpctrl;
+    PlayerHealth ph;
 
     //For firing weapons
     private void Awake()
@@ -32,6 +33,9 @@ public class Player : Entity
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         hpctrl = GetComponentInChildren<Player_HpController>();
+        ph = GetComponentInChildren<PlayerHealth>();
+        ph.SetHealth(hp, maxHp,minHp);
+        
     }
 
     // Update is called once per frame
@@ -113,5 +117,6 @@ public class Player : Entity
         //add a hp bar
         //hpctrl.Set_Values(hp, maxHp, minHp);
         base.OnCheckHealth();
+        ph.SetHealth(hp, maxHp,minHp);
     }
 }

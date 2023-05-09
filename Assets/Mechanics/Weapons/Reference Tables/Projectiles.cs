@@ -20,7 +20,6 @@ public class Projectiles : MonoBehaviour
         player = FindObjectOfType<Player>().gameObject;
         projectileModes.Add(0, BiDirectionalFire);
         projectileModes.Add(1, AutoFire());
-        print(projectileModes[0]);
         projectileModes[projectileMode]();
         StartCoroutine(DespawnTimer(projectileDespawnTime));
     }
