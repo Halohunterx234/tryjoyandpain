@@ -40,7 +40,8 @@ public class Entity : MonoBehaviour
         //spawn dmg
         if (spawnsDamageTxt)
         {
-            GameObject damagetxt = Instantiate(dmgTxt, transform.position + new Vector3(this.gameObject.transform.localScale.x * .25f, -2.5f, 0), Quaternion.identity);
+            GameObject damagetxt = Instantiate(dmgTxt, transform.position, Quaternion.identity);
+            print(transform.position); print(damagetxt.transform.position);
             damagetxt.GetComponent<DamageTextController>().ChangeText(dmg.ToString(), transform.position);
         }
         CheckHealth();
