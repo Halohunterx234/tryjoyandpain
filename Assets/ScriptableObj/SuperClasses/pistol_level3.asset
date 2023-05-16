@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 561a064f46ce3427f970af9ced59b3fe, type: 3}
+  m_Name: pistol_level3
+  m_EditorClassIdentifier: 
+  level: 3
+  iProjectiledamage: 3
+  iProjectileknockBack: 0.25
+  iProjectileRot: 180
+  iGO: {fileID: 5008961574690699278, guid: 413e7ef3de43c4f79b3cecdc9c521a70, type: 3}
+  iProjectileGO: {fileID: 606303878426287567, guid: 94da3b58317d945aea708b87186962b9, type: 3}
+  CD: 0
+  CDMax: 0.5
+  canActiviate: 0
+  iProjectileXOffset: 1
+  iProjectileYOffset: 0
+  iProjectileDespawn: 2
+  iProjectileSpeed: 40
+  iProjectileMode: 0

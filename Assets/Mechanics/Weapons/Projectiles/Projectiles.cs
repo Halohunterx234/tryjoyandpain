@@ -9,8 +9,8 @@ public class Projectiles : MonoBehaviour
     //projectile stats
     public float projectileSpeed, projectileKnockback;
     public int projectileDamage;
-    protected float projectileRot, projectileDespawnTime;
-    protected int projectileMode;
+    public float projectileRot, projectileDespawnTime;
+    public int projectileMode;
     //References
     GameObject player;
     public Dictionary<int, System.Action> projectileModes = new Dictionary<int, System.Action>();

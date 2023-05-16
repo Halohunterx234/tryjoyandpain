@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Pistol_BulletController : Projectiles
 {
+    /*
     private void Awake()
     {
         projectileSpeed = 40f;
@@ -14,4 +15,5 @@ public class Pistol_BulletController : Projectiles
         projectileMode = 0; //Bi-directional Firing
         
     }
+    */
 }
