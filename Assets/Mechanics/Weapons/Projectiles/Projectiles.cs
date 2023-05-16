@@ -39,7 +39,7 @@ public class Projectiles : MonoBehaviour
     protected void BiDirectionalFire()
     {
         //Rotate the projectile
-        this.gameObject.transform.rotation = Quaternion.Euler(0, 0, projectileRot);
+        //this.gameObject.transform.rotation = Quaternion.Euler(0, 0, projectileRot);
 
         //Move the projectile accordingly
         Rigidbody2D projectileRB = this.gameObject.GetComponent<Rigidbody2D>();
@@ -74,5 +74,6 @@ public class Projectiles : MonoBehaviour
         yield return new WaitForSeconds(i);
         Destroy(this.gameObject);
     }
+
 
 }

@@ -30,6 +30,7 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         p.projectileMode = iSO.iProjectileMode;
         p.projectileDespawnTime = iSO.iProjectileDespawn;
         p.projectileRot = iSO.iProjectileRot;
+        if (player.transform.localScale.x >= 0) RotateProjectile(Projectile, p.projectileRot);
         print(Projectile.transform.position);
     }
     protected void init()
@@ -70,7 +71,11 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         CD = iSO.CD;
         print("updated the CD");
     }
+    public virtual void RotateProjectile(GameObject go, float angle)
+    {
+        print("rotatin");
+        go.transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
 
 
-    
 }

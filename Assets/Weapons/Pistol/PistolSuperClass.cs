@@ -20,4 +20,10 @@ public class PistolSuperClass : WeaponSuperClass
         base.OnFire();
     }
 
+    /* only if neccessary
+    public override void RotateProjectile(GameObject go, float angle)
+    {
+        base.RotateProjectile(go, angle);
+    }
+    */
 }
