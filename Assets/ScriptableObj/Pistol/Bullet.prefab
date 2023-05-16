@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 606303878426287566}
   - component: {fileID: 979917161355582268}
   m_Layer: 0
-  m_Name: Square (4)
+  m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -139460367, guid: 9e6918513cc1346c8b32fca4548a6851, type: 3}
   m_Color: {r: 1, g: 0.95554936, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,7 +125,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.6, y: 0.3}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -111,7 +111,7 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexZoom.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01.cs" />
     <Compile Include="Assets/ScriptableObj/SuperClasses/ItemSuperClassSO.cs" />
-    <Compile Include="Assets/ScriptableObj/SuperClasses/PistolSuperClass.cs" />
+    <Compile Include="Assets/ScriptableObj/Pistol/PistolSuperClass.cs" />
     <Compile Include="Assets/ScriptableObj/SuperClasses/IItemInterfaces.cs" />
     <Compile Include="Assets/ScriptableObj/SuperClasses/WeaponSuperClass.cs" />
   </ItemGroup>
