@@ -6,21 +6,30 @@ using UnityEngine;
 public class ItemSuperClassSO : ScriptableObject
 {
     //Variables needed for all items
-    public int level; public int iProjectiledamage; public float iProjectileknockBack;//if any
-    [Range(-360f, 360f)]
-    public float iProjectileRot;
-    public GameObject iGO; public GameObject iProjectileGO;
-    public float CD; public float CDMax;
-    public bool canActiviate;
-    //public Transform iPosition;
+    [Header("Item Level")]
+    public int level; 
+
+    [Header("GameObject References")]
+    public GameObject iGO;
+    public GameObject iProjectileGO;
+
+    [Header("Projectile Spawn Offsets")]
     [Range(-10f, 10f)]
     public float iProjectileXOffset;
     [Range(-10f, 10f)]
     public float iProjectileYOffset;
+
+    [Header("Projectile Stats")]
+    public int iProjectiledamage; public float iProjectileknockBack;//if any
+    public float CD; public float CDMax;
+    public bool canActiviate;
     [Range(1f, 10f)]
     public float iProjectileDespawn;
     [Range(1f, 100f)]
     public float iProjectileSpeed;
+    [Range(-360f, 360f)]
+    public float iProjectileRot;
     public int iProjectileMode;
+
 
 }
