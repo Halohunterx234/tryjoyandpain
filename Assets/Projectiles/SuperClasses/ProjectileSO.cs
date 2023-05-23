@@ -4,34 +4,51 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public enum projAI
-{
-    BiDirectional,
-    Auto
-};
-
 
 [CreateAssetMenu(menuName = "Create new projectile")]
 public class ProjectileSO : ScriptableObject
 {
     //template stats
-    //projectile stats
+    //projectile stats (to be referred from
+    float projectileSpeed;
+    [SerializeField]
+    float level;
 
     //References
-    GameObject player, projectile;
+
+    GameObject player;
+    public GameObject projectile;
+
+    public ItemSuperClassSO itemSC; //weaponsupperclass
 
     [Header("Projectile AI")]
-    public projAI aiMode = new projAI();
+    public projAI aiMode;
 
     public void init()
     {
-        player = FindObjectOfType<Player>().gameObject;
-        //projAI[projectileMode]();
-        // put this line in the projectile controller script
+        if (player == null) player = FindObjectOfType<Player>().gameObject;
         //StartCoroutine(DespawnTimer(projectileDespawnTime));
     }
 
-    private System.Action Horizontal()
+    public void StartAI()
+    {
+        //Update when neccessary
+        switch (aiMode)
+        {
+            case (projAI.Horizontal):
+                Horizontal();
+                break;
+            case (projAI.Vertical):
+                Vertical();
+                break;
+            case (projAI.Auto):
+                Auto();
+                break;
+            default:
+                return;
+        }
+    }
+    public System.Action Horizontal()
     {
         Rigidbody2D projectileRB = projectile.GetComponent<Rigidbody2D>();
         projectileRB.velocity = new Vector2(projectileSpeed * -player.transform.localScale.x, projectileRB.velocity.y);
@@ -39,9 +56,9 @@ public class ProjectileSO : ScriptableObject
         return null;
     }
 
-    private System.Action Vertical()
+    public System.Action Vertical()
     {
-
+        Debug.Log("Shoot up and down");
         return null;
     }
     private System.Action Auto()

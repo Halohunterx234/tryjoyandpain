@@ -8,7 +8,7 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
     private GameObject player;
     public List<ItemSuperClassSO> levels;
     [SerializeField]
-    private ItemSuperClassSO iSO;
+    public ItemSuperClassSO iSO;
     public int level;
     [SerializeField]
     private float CD;
@@ -17,21 +17,26 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
     [SerializeField]
     private Transform firePoint;
 
+    [Header("e")]
+    public ProjectileSO projectileSO;
+
     //To be inherited by items (all items)
     public virtual void OnFire()
     {
         print("fr firing");
         GameObject Projectile = Instantiate(iSO.iProjectileGO, (Vector2)firePoint.position + new Vector2(iSO.iProjectileXOffset, iSO.iProjectileYOffset) * player.transform.localScale.x, Quaternion.identity);
         Projectiles p = Projectile.GetComponent<Projectiles>();
-        //set references
         p.projectileDamage = iSO.iProjectiledamage;
         p.projectileKnockback = iSO.iProjectileknockBack;
         p.projectileSpeed = iSO.iProjectileSpeed;
         p.projectileMode = iSO.iProjectileMode;
         p.projectileDespawnTime = iSO.iProjectileDespawn;
         p.projectileRot = iSO.iProjectileRot;
+        //rotate by some rotation if person is facing the other way
         if (player.transform.localScale.x >= 0) RotateProjectile(Projectile, p.projectileRot);
         print(Projectile.transform.position);
+        
+        
     }
     protected void init()
     {
@@ -41,6 +46,7 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         print(levels[level-1]);
         CDMax = iSO.CDMax;
         CD = iSO.CD;
+        //projectileSO.init(iSO);
         //iSO.iPosition = firePoint;
     }
     protected void CDUpdate()
