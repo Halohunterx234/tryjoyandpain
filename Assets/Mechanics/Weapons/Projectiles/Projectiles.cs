@@ -23,6 +23,7 @@ public class Projectiles : MonoBehaviour
     {
         player = FindObjectOfType<Player>().gameObject;
         iso.StartAI(this.gameObject, player);
+        StartCoroutine(iso.DespawnTimer(projectileDespawnTime, this.gameObject));
         /*
         projectileModes.Add(0, BiDirectionalFire);
         projectileModes.Add(1, AutoFire());
@@ -75,13 +76,13 @@ public class Projectiles : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
+    /*
     IEnumerator DespawnTimer(float i)
     {
         
         yield return new WaitForSeconds(i);
         Destroy(this.gameObject);
     }
-
+    */
 
 }

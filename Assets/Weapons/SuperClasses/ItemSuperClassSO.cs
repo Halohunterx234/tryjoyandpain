@@ -78,7 +78,7 @@ public class ItemSuperClassSO : ScriptableObject
         return null;
     }
 
-    private IEnumerator DespawnTimer(float t, GameObject proj)
+    public IEnumerator DespawnTimer(float t, GameObject proj)
     {
         yield return new WaitForSeconds(t);
         Destroy(proj);

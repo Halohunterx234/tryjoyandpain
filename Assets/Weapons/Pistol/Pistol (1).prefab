@@ -108,6 +108,8 @@ MonoBehaviour:
   CD: 0
   CDMax: 0
   firePoint: {fileID: 5959165717948510001}
+  projectileSO: {fileID: 11400000, guid: 0c3430f313fb74979b446d4fa8059f0a, type: 2}
+  aiMode: 0
 --- !u!1 &6595750538230048907
 GameObject:
   m_ObjectHideFlags: 0
