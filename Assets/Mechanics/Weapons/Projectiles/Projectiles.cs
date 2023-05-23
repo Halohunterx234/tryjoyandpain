@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Projectiles : MonoBehaviour
 {
+    [Header("References")]
+    public ItemSuperClassSO iso;
+    public projAI aiMode;
+
     //template stats
     //projectile stats
     public float projectileSpeed, projectileKnockback;
@@ -18,10 +22,14 @@ public class Projectiles : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<Player>().gameObject;
+        iso.StartAI(this.gameObject, player);
+        /*
         projectileModes.Add(0, BiDirectionalFire);
         projectileModes.Add(1, AutoFire());
         projectileModes[projectileMode]();
         StartCoroutine(DespawnTimer(projectileDespawnTime));
+        */
+
     }
     private void Update()
     {

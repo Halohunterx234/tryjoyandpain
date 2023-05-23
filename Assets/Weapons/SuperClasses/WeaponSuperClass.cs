@@ -20,6 +20,9 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
     [Header("e")]
     public ProjectileSO projectileSO;
 
+    [Header("Projectile AI")]
+    public projAI aiMode;
+
     //To be inherited by items (all items)
     public virtual void OnFire()
     {
@@ -32,6 +35,8 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         p.projectileMode = iSO.iProjectileMode;
         p.projectileDespawnTime = iSO.iProjectileDespawn;
         p.projectileRot = iSO.iProjectileRot;
+        p.iso = iSO;
+        p.aiMode = aiMode;
         //rotate by some rotation if person is facing the other way
         if (player.transform.localScale.x >= 0) RotateProjectile(Projectile, p.projectileRot);
         print(Projectile.transform.position);
