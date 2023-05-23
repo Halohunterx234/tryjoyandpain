@@ -1687,7 +1687,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933949368}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4501,14 +4501,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4455091181657728697, guid: 413e7ef3de43c4f79b3cecdc9c521a70, type: 3}
-      propertyPath: aiMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4455091181657728697, guid: 413e7ef3de43c4f79b3cecdc9c521a70, type: 3}
-      propertyPath: projectileSO
-      value: 
-      objectReference: {fileID: 11400000, guid: 0c3430f313fb74979b446d4fa8059f0a, type: 2}
     - target: {fileID: 5008961574690699278, guid: 413e7ef3de43c4f79b3cecdc9c521a70, type: 3}
       propertyPath: m_Name
       value: Pistol (1)

@@ -67,6 +67,12 @@ public class ProjectileSO : ScriptableObject
         return null;
     }
 
+    private System.Action Quad()
+    {
+        Debug.Log("Quad method invoked");
+        return null;
+    }
+
     private IEnumerator DespawnTimer(float t, GameObject proj)
     {
         yield return new WaitForSeconds(t);
