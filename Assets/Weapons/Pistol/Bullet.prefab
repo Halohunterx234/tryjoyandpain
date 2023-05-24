@@ -147,6 +147,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e0a3b84d722f4a9c81ed956b9125053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iso: {fileID: 0}
+  aiMode: 0
+  projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
+  fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
   projectileSpeed: 0
   projectileKnockback: 0
   projectileDamage: 0

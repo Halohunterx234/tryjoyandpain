@@ -9,6 +9,11 @@ public class Projectiles : MonoBehaviour
     public ItemSuperClassSO iso;
     public projAI aiMode;
 
+    [Header("Scriptable Object References")]
+    public ProjectileAI projModes;
+    public FireAI fireModes;
+
+
     //template stats
     //projectile stats
     public float projectileSpeed, projectileKnockback;
@@ -22,8 +27,8 @@ public class Projectiles : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<Player>().gameObject;
-        iso.StartAI(this.gameObject, player);
-        StartCoroutine(iso.DespawnTimer(projectileDespawnTime, this.gameObject));
+        projModes.StartAI(this.gameObject, player, iso.iProjectileSpeed);
+        StartCoroutine(projModes.DespawnTimer(iso.iProjectileDespawn, this.gameObject));
         /*
         projectileModes.Add(0, BiDirectionalFire);
         projectileModes.Add(1, AutoFire());
