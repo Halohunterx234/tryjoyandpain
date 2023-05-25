@@ -42,6 +42,8 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         print(levels[level-1]);
         CDMax = iSO.CDMax;
         CD = iSO.CD;
+        projAIMode = iSO.projAIMode;
+        fireAIMode = iSO.fireMode;
         //projectileSO.init(iSO);
         //iSO.iPosition = firePoint;
     }

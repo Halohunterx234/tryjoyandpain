@@ -40,7 +40,7 @@ public class FireAI : ScriptableObject
                 Up(Projectile, player, p);
                 break;
             case enumfireAI.Down:
-                Down();
+                Down(Projectile, player, p);
                 break;
             case enumfireAI.Quad:
                 Quad();
@@ -76,12 +76,17 @@ public class FireAI : ScriptableObject
         Debug.Log("firing upwards");
         //shoot upwards
         projModes.StartAI(proj, player, p.projectileSpeed, new Vector3(0, Mathf.Abs(Mathf.Sign(player.transform.localScale.x)), 0));
+        RotateProjectile(proj, 90);
         return null;
     }
 
     //fires downwards
-    public System.Action Down()
+    public System.Action Down(GameObject proj, GameObject player, Projectiles p)
     {
+        Debug.Log("firing downwards");
+        //shoot upwards
+        projModes.StartAI(proj, player, p.projectileSpeed, new Vector3(0, -Mathf.Abs(Mathf.Sign(player.transform.localScale.x)), 0));
+        RotateProjectile(proj, -90);
         return null;
     }
     public System.Action Quad()
