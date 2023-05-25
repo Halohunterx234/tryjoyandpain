@@ -21,8 +21,12 @@ public class ItemSuperClassSO : ScriptableObject
     public float iProjectileYOffset;
 
     [Header("Projectile Stats")]
-    public int iProjectiledamage; public float iProjectileknockBack;//if any
+    [Range(0f, 20f)]
+    public int iProjectiledamage;
+
+    public float iProjectileknockBack;//if any
     public float CD; public float CDMax;
+
     public bool canActiviate;
     [Range(1f, 10f)]
     public float iProjectileDespawn;
@@ -30,7 +34,7 @@ public class ItemSuperClassSO : ScriptableObject
     public float iProjectileSpeed;
     [Range(-360f, 360f)]
     public float iProjectileRot;
-    public int iProjectileMode;
+    private int iProjectileMode;
 
     [Header("Projectile AI")]
     public projAI projAIMode;

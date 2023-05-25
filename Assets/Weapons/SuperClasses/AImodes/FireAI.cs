@@ -110,7 +110,7 @@ public class FireAI : ScriptableObject
         p.projectileDamage = iSO.iProjectiledamage;
         p.projectileKnockback = iSO.iProjectileknockBack;
         p.projectileSpeed = iSO.iProjectileSpeed;
-        p.projectileMode = iSO.iProjectileMode;
+//        p.projectileMode = iSO.iProjectileMode;
         p.projectileDespawnTime = iSO.iProjectileDespawn;
         p.projectileRot = iSO.iProjectileRot;
         p.iso = iSO;

@@ -36,6 +36,7 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
     }
     protected void init()
     {
+        //update its values with the first level's values
         player = FindObjectOfType<Player>().gameObject;
         level = 1;
         iSO = levels[level-1];
@@ -47,6 +48,8 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         //projectileSO.init(iSO);
         //iSO.iPosition = firePoint;
     }
+
+    //cd manager
     protected void CDUpdate()
     {
         if (CD >= CDMax)
@@ -61,6 +64,7 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         
     }
 
+    //updates the data 
     public void UpdateLevel()
     {
         print("levelled");
@@ -72,6 +76,7 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         UpdateData();
     }
 
+    //updates only cd idk why and i kinda forgot why
     public void UpdateData()
     {
         CDMax = iSO.CDMax;
