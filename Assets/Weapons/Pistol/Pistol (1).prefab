@@ -110,7 +110,8 @@ MonoBehaviour:
   firePoint: {fileID: 5959165717948510001}
   projectileSO: {fileID: 11400000, guid: 0c3430f313fb74979b446d4fa8059f0a, type: 2}
   projAIMode: 0
-  fireAIMode: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
+  fireAIMode: 0
+  fireAI: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
 --- !u!1 &6595750538230048907
 GameObject:
   m_ObjectHideFlags: 0

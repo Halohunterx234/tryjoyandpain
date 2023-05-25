@@ -26,4 +26,7 @@ MonoBehaviour:
   iProjectileSpeed: 40
   iProjectileRot: 180
   iProjectileMode: 0
-  aiMode: 2
+  projAIMode: 1
+  fireMode: 1
+  projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
+  fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}

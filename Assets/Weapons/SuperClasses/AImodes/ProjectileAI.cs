@@ -12,15 +12,16 @@ public enum projAI
 [CreateAssetMenu(menuName="Create new ProjectileAI (For Reference)")]
 public class ProjectileAI : ScriptableObject
 {
+    [Header("Projectile AI Modes (FOR REFERENCE ONLY)s")]
     public projAI projMode;
 
-    public void StartAI(GameObject projectile, GameObject player, float pSpeed)
+    public void StartAI(GameObject projectile, GameObject player, float pSpeed, Vector3 dir)
     {
         //Update when neccessary
         switch (projMode)
         {
             case (projAI.Straight):
-                Straight(projectile, player, pSpeed);
+                Straight(projectile, pSpeed, dir);
                 break;
             case (projAI.Curved):
                 Curved();
@@ -32,11 +33,18 @@ public class ProjectileAI : ScriptableObject
                 return;
         }
     }
-    public System.Action Straight(GameObject proj, GameObject player, float iProjectileSpeed)
+
+    //make the bullet move in a desired Vector which is given to it by FireAI
+    //with current data of the player and the weapon's ISO
+
+    public System.Action Straight(GameObject proj, float iProjectileSpeed, Vector3 dir)
     {
-        Rigidbody2D projectileRB = proj.GetComponent<Rigidbody2D>();
-        projectileRB.velocity = new Vector2(iProjectileSpeed * -player.transform.localScale.x, projectileRB.velocity.y);
-        Debug.Log("Bi-Directional Projectile AI -> Fired");
+        //get the projectile object & its speed from the ISO
+        //the projectile direction will be calculated through fireAI with info
+        //from the player
+        Debug.Log("firing straight");
+        Rigidbody2D projRB = proj.GetComponent<Rigidbody2D>();
+        projRB.velocity = (dir * iProjectileSpeed);
         return null;
     }
 

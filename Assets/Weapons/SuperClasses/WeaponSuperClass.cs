@@ -22,22 +22,17 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
 
     [Header("AI")]
     public projAI projAIMode;
-    public enumfireAI fireAI;
+    public enumfireAI fireAIMode;
 
     [Header("Fire AI (Reference)")]
-    public FireAI fireAIMode;
+    public FireAI fireAI;
 
 
     //To be inherited by items (all items)
     public virtual void OnFire()
     {
-        //rotate by some rotation if person is facing the other way
-        //if (player.transform.localScale.x >= 0) RotateProjectile(Projectile, p.projectileRot);
-        //print(Projectile.transform.position);
-
         //pass all information about the projectile to the fireAI method 
-        fireAIMode.StartFire(iSO, firePoint, projAIMode, player);
-        
+        fireAI.StartFire(iSO, firePoint, projAIMode, player, fireAIMode);     
     }
     protected void init()
     {
@@ -70,7 +65,8 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         level = (level >= levels.Count) ? level : level + 1;
         iSO = levels[level-1];
         projAIMode = iSO.projAIMode;
-        fireAI = iSO.fireMode;
+        fireAIMode = iSO.fireMode;
+        print(fireAI);
         UpdateData();
     }
 

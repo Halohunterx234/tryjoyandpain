@@ -29,7 +29,7 @@ public class Projectiles : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<Player>().gameObject;
-        projModes.StartAI(this.gameObject, player, iso.iProjectileSpeed);
+       // projModes.StartAI(this.gameObject, player, iso.iProjectileSpeed);
         StartCoroutine(projModes.DespawnTimer(iso.iProjectileDespawn, this.gameObject));
         /*
         projectileModes.Add(0, BiDirectionalFire);
