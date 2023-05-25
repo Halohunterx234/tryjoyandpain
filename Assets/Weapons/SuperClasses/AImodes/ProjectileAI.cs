@@ -4,9 +4,9 @@ using UnityEngine;
 
 public enum projAI
 {
-    Horizontal,
-    Vertical,
-    Auto
+    Straight,
+    Curved,
+    Homing
 }
 
 [CreateAssetMenu(menuName="Create new ProjectileAI (For Reference)")]
@@ -19,20 +19,20 @@ public class ProjectileAI : ScriptableObject
         //Update when neccessary
         switch (projMode)
         {
-            case (projAI.Horizontal):
-                Horizontal(projectile, player, pSpeed);
+            case (projAI.Straight):
+                Straight(projectile, player, pSpeed);
                 break;
-            case (projAI.Vertical):
-                Vertical();
+            case (projAI.Curved):
+                Curved();
                 break;
-            case (projAI.Auto):
-                Auto();
+            case (projAI.Homing):
+                Homing();
                 break;
             default:
                 return;
         }
     }
-    public System.Action Horizontal(GameObject proj, GameObject player, float iProjectileSpeed)
+    public System.Action Straight(GameObject proj, GameObject player, float iProjectileSpeed)
     {
         Rigidbody2D projectileRB = proj.GetComponent<Rigidbody2D>();
         projectileRB.velocity = new Vector2(iProjectileSpeed * -player.transform.localScale.x, projectileRB.velocity.y);
@@ -40,12 +40,12 @@ public class ProjectileAI : ScriptableObject
         return null;
     }
 
-    public System.Action Vertical()
+    public System.Action Curved()
     {
         Debug.Log("Shoot up and down");
         return null;
     }
-    private System.Action Auto()
+    private System.Action Homing()
     {
         Debug.Log("Auto method invoked");
         return null;

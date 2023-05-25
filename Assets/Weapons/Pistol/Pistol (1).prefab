@@ -103,13 +103,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4614c5123a8994691834106477b57850, type: 2}
   - {fileID: 11400000, guid: 51f4692d0a4224612a284dce133e9484, type: 2}
   - {fileID: 11400000, guid: 2bf451162c233450898e4bce88aad709, type: 2}
-  iSO: {fileID: 0}
-  level: 0
+  iSO: {fileID: 11400000, guid: 4614c5123a8994691834106477b57850, type: 2}
+  level: 1
   CD: 0
-  CDMax: 0
+  CDMax: 0.8
   firePoint: {fileID: 5959165717948510001}
   projectileSO: {fileID: 11400000, guid: 0c3430f313fb74979b446d4fa8059f0a, type: 2}
-  aiMode: 0
+  projAIMode: 0
+  fireAIMode: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
 --- !u!1 &6595750538230048907
 GameObject:
   m_ObjectHideFlags: 0

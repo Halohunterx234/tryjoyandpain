@@ -33,10 +33,10 @@ public class ItemSuperClassSO : ScriptableObject
     public int iProjectileMode;
 
     [Header("Projectile AI")]
-    public projAI aiMode;
+    public projAI projAIMode;
 
     [Header("Weapon Firing AI")]
-    public fireAI fireMode;
+    public enumfireAI fireMode;
 
     [Header("Scriptable Object References")]
     public ScriptableObject projModes;

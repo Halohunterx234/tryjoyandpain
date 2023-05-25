@@ -7,6 +7,8 @@ public class Projectiles : MonoBehaviour
 {
     [Header("References")]
     public ItemSuperClassSO iso;
+
+    [Header("Current AI Mode")]
     public projAI aiMode;
 
     [Header("Scriptable Object References")]

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PistolProjectileController : ProjectileSuperClass
 {
+    /*
     PistolSuperClass psc;
 
     GameObject player;
@@ -24,4 +25,5 @@ public class PistolProjectileController : ProjectileSuperClass
     {
         //call the
     }
+    */
 }

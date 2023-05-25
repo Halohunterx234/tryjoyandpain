@@ -20,27 +20,23 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
     [Header("e")]
     public ProjectileSO projectileSO;
 
-    [Header("Projectile AI")]
-    public projAI aiMode;
+    [Header("AI")]
+    public projAI projAIMode;
+    public enumfireAI fireAI;
+
+    [Header("Fire AI (Reference)")]
+    public FireAI fireAIMode;
+
 
     //To be inherited by items (all items)
     public virtual void OnFire()
     {
-        print("fr firing");
-        GameObject Projectile = Instantiate(iSO.iProjectileGO, (Vector2)firePoint.position + new Vector2(iSO.iProjectileXOffset, iSO.iProjectileYOffset) * player.transform.localScale.x, Quaternion.identity);
-        Projectiles p = Projectile.GetComponent<Projectiles>();
-        p.projectileDamage = iSO.iProjectiledamage;
-        p.projectileKnockback = iSO.iProjectileknockBack;
-        p.projectileSpeed = iSO.iProjectileSpeed;
-        p.projectileMode = iSO.iProjectileMode;
-        p.projectileDespawnTime = iSO.iProjectileDespawn;
-        p.projectileRot = iSO.iProjectileRot;
-        p.iso = iSO;
-        p.aiMode = aiMode;
         //rotate by some rotation if person is facing the other way
-        if (player.transform.localScale.x >= 0) RotateProjectile(Projectile, p.projectileRot);
-        print(Projectile.transform.position);
-        
+        //if (player.transform.localScale.x >= 0) RotateProjectile(Projectile, p.projectileRot);
+        //print(Projectile.transform.position);
+
+        //pass all information about the projectile to the fireAI method 
+        fireAIMode.StartFire(iSO, firePoint, projAIMode, player);
         
     }
     protected void init()
@@ -73,6 +69,8 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         print("levelled");
         level = (level >= levels.Count) ? level : level + 1;
         iSO = levels[level-1];
+        projAIMode = iSO.projAIMode;
+        fireAI = iSO.fireMode;
         UpdateData();
     }
 
@@ -82,11 +80,4 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         CD = iSO.CD;
         print("updated the CD");
     }
-    public virtual void RotateProjectile(GameObject go, float angle)
-    {
-        print("rotatin");
-        go.transform.rotation = Quaternion.Euler(0, 0, angle);
-    }
-
-
 }
