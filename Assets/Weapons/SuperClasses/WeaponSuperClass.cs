@@ -2,14 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class levelproj
+{
+    public List<ItemSuperClassSO> projectile;
+    public List<ItemSuperClassSO> get_projectiles()
+    {
+        return projectile;
+    }
+}
+
 public abstract class WeaponSuperClass : MonoBehaviour, Attack
 {
     [SerializeField]
     private GameObject player;
-    public List<ItemSuperClassSO> levels;
+    public List<ItemSuperClassSO> level;
     [SerializeField]
     public ItemSuperClassSO iSO;
-    public int level;
+    public int levelNum;
     [SerializeField]
     private float CD;
     [SerializeField]
@@ -27,24 +37,33 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
     [Header("Fire AI (Reference)")]
     public FireAI fireAI;
 
+    [Header("Levels ")]
+    public List<levelproj> levels = new List<levelproj>();
 
     //To be inherited by items (all items)
     public virtual void OnFire()
     {
-        //pass all information about the projectile to the fireAI method 
-        fireAI.StartFire(iSO, firePoint, projAIMode, player, fireAIMode);     
+        //run through each projectile under the levels
+        levelproj currentlevel = levels[levelNum-1];
+        foreach (ItemSuperClassSO projectile in currentlevel.get_projectiles())
+        {
+            print(projectile);
+            //pass all information about the projectile to the fireAI method
+            fireAI.StartFire(projectile, firePoint, projectile.projAIMode, player, projectile.fireMode);
+        }
+        
     }
     protected void init()
     {
         //update its values with the first level's values
         player = FindObjectOfType<Player>().gameObject;
-        level = 1;
-        iSO = levels[level-1];
-        print(levels[level-1]);
-        CDMax = iSO.CDMax;
-        CD = iSO.CD;
-        projAIMode = iSO.projAIMode;
-        fireAIMode = iSO.fireMode;
+        levelNum = 1;
+        //iSO = level[levelNum-1];
+        //print(level[levelNum-1]);
+        //CDMax = iSO.CDMax;
+        //CD = iSO.CD;
+        //projAIMode = iSO.projAIMode;
+        //fireAIMode = iSO.fireMode;
         //projectileSO.init(iSO);
         //iSO.iPosition = firePoint;
     }
@@ -68,12 +87,12 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
     public void UpdateLevel()
     {
         print("levelled");
-        level = (level >= levels.Count) ? level : level + 1;
-        iSO = levels[level-1];
-        projAIMode = iSO.projAIMode;
-        fireAIMode = iSO.fireMode;
+        levelNum = (levelNum >= level.Count) ? levelNum : levelNum + 1;
+        //iSO = level[levelNum-1];
+        //projAIMode = iSO.projAIMode;
+        //fireAIMode = iSO.fireMode;
         print(fireAI);
-        UpdateData();
+        //UpdateData();
     }
 
     //updates only cd idk why and i kinda forgot why
