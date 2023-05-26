@@ -2,13 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//create a class thats basically is a nested list -> list<list<itemsuperclassSO>> levelproj
+//cuz unity cant serialize nested list (aka cant show nested stuff in inspector)
+//so we convert it into a class that then can be shown
+//dont ask me why but i think classes r more dynamic and memory safe
 [System.Serializable]
 public class levelproj
 {
-    public List<ItemSuperClassSO> projectile;
+    //so each level is a list of projectile scriptable objects
+    //thus, if you wanna make a new projectile for a specific level
+    //you js gotta make it as a scritpable object n then add it
+    //probabbly should make it as a folder for each level
+    //cuz each individual projectile most likely will be different
+    //so i will also do a big renaming change
+    //pistol_level1 will become a folder and inside will be like 
+    //bullet_up or bullet_up_fast or some shit like that
+    //basically each SO will be a unique type with unique behaviour
+    [Header("List of Projectiles (Per Level)")]
+    public List<ItemSuperClassSO> projectilesList;
+
+    
     public List<ItemSuperClassSO> get_projectiles()
     {
-        return projectile;
+        return projectilesList;
     }
 }
 
@@ -49,7 +65,7 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         {
             print(projectile);
             //pass all information about the projectile to the fireAI method
-            fireAI.StartFire(projectile, firePoint, projectile.projAIMode, player, projectile.fireMode);
+            StartCoroutine(fireAI.StartFire(projectile, firePoint, projectile.projAIMode, player, projectile.fireMode, projectile.iProjectileSpawnDelay));
         }
         
     }

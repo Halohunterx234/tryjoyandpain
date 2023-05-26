@@ -20,6 +20,10 @@ public class ItemSuperClassSO : ScriptableObject
     [Range(-10f, 10f)]
     public float iProjectileYOffset;
 
+    [Header("Projectile Spawn Delay (ie For Stacking Projectiles)")]
+    [Range(0f, 2f)]
+    public float iProjectileSpawnDelay;
+
     [Header("Projectile Stats")]
     [Range(0f, 20f)]
     public int iProjectiledamage;

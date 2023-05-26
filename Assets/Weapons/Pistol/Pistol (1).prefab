@@ -111,9 +111,9 @@ MonoBehaviour:
   fireAIMode: 0
   fireAI: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
   levels:
-  - projectile:
+  - projectilesList:
     - {fileID: 11400000, guid: 4614c5123a8994691834106477b57850, type: 2}
-    - {fileID: 11400000, guid: 51f4692d0a4224612a284dce133e9484, type: 2}
+    - {fileID: 11400000, guid: 2bf451162c233450898e4bce88aad709, type: 2}
 --- !u!1 &6595750538230048907
 GameObject:
   m_ObjectHideFlags: 0

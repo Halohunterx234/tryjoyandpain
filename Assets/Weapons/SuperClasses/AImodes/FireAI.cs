@@ -21,15 +21,15 @@ public class FireAI : ScriptableObject
     [Header("Reference to its best buddy")]
     public ProjectileAI projModes;
 
-    public void StartFire(ItemSuperClassSO iSO, Transform firePoint, projAI projAIMode, GameObject player, enumfireAI fireAIMode)
+    public IEnumerator StartFire(ItemSuperClassSO iSO, Transform firePoint, projAI projAIMode, GameObject player, enumfireAI fireAIMode, float delay)
     {
         Debug.Log(iSO.projAIMode);
         //Spawn the projectile and then update its initalized data with
         //the corresponding level weapon's Scriptable Object
+        yield return new WaitForSeconds(delay);
         GameObject Projectile = Instantiate(iSO.iProjectileGO, (Vector2)firePoint.position + new Vector2(iSO.iProjectileXOffset, iSO.iProjectileYOffset) * player.transform.localScale.x, Quaternion.identity);
         Projectiles p = Projectile.GetComponent<Projectiles>();
         insert_data(p, iSO);
-
         //now, give the projectile a different AI depending on which is assigned to it
         switch (fireAIMode)
         {
@@ -49,14 +49,15 @@ public class FireAI : ScriptableObject
                 Auto();
                 break;  
             default:
-                return;
+                yield break;
         }
     }
+
 
     //below are the different AI mode for a projectile,
     //if the direction has (alt), it means it has a additional rotation
     //when the player is facing the other way or another direction
- 
+
 
     //fire left, and then right (alt)
     public System.Action Horizontal(GameObject proj, GameObject player, float alt_rot, Projectiles p)
