@@ -40,6 +40,12 @@ public class ItemSuperClassSO : ScriptableObject
     public float iProjectileRot;
     private int iProjectileMode;
 
+    [Header("Rotation Difference (For Multi-Projectile Types)")]
+    public float iProjectileRotDiff;
+
+    [Header("Projectile Count (For Stacking)")]
+    public float iProjectileSpawnCount;
+
     [Header("Projectile AI")]
     public projAI projAIMode;
 

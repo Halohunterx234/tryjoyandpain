@@ -15,8 +15,9 @@ MonoBehaviour:
   level: 1
   iGO: {fileID: 5008961574690699278, guid: 413e7ef3de43c4f79b3cecdc9c521a70, type: 3}
   iProjectileGO: {fileID: 606303878426287567, guid: 94da3b58317d945aea708b87186962b9, type: 3}
-  iProjectileXOffset: 1
+  iProjectileXOffset: 2
   iProjectileYOffset: 0
+  iProjectileSpawnDelay: 0
   iProjectiledamage: 1
   iProjectileknockBack: 0.25
   CD: 0
@@ -25,7 +26,9 @@ MonoBehaviour:
   iProjectileDespawn: 2
   iProjectileSpeed: 40
   iProjectileRot: 180
+  iProjectileRotDiff: 0
+  iProjectileSpawnCount: 4
   projAIMode: 0
-  fireMode: 0
+  fireMode: 4
   projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
   fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
