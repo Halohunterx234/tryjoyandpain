@@ -111,11 +111,16 @@ public class FireAI : ScriptableObject
     {
         Vector2 dir = new Vector2(1, 1);
         float theta = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        theta += 90 * count;
-        theta -= 70;
+        if (count >= 1)
+        {
+            theta += 90 * count;
+            theta -= 90;
+        }
+        else theta -= 45;
         Vector2 newDir = new Vector2(dir.x*Mathf.Cos(theta)-dir.y*Mathf.Sin(theta), dir.x*Mathf.Sin(theta)+dir.y*Mathf.Cos(theta));
         proj.transform.position = (Vector2)proj.transform.position + newDir;
         RotateProjectile(proj, 45 + count * 90);
+        projModes.StartAI(proj, player, p.projectileSpeed, newDir.normalized);
         /*
         Vector3 dir = new Vector3(1, 1, 0).normalized;
         dir.Normalize();
