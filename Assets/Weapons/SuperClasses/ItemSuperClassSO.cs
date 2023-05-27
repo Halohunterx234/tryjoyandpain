@@ -32,12 +32,15 @@ public class ItemSuperClassSO : ScriptableObject
     public float CD; public float CDMax;
 
     public bool canActiviate;
-    [Range(1f, 10f)]
+    [Range(0.1f, 10f)]
     public float iProjectileDespawn;
     [Range(1f, 100f)]
     public float iProjectileSpeed;
     [Range(-360f, 360f)]
     public float iProjectileRot;
+    [Range(0.1f, 10f)]
+    public float iProjectileSize;
+
     private int iProjectileMode;
 
     [Header("Rotation Difference (For Multi-Projectile Types)")]
@@ -56,4 +59,6 @@ public class ItemSuperClassSO : ScriptableObject
     public ScriptableObject projModes;
     public ScriptableObject fireModes;
 
+    [Header("Is Projectile Facing Left? (By Default Right)")]
+    public bool facingLeft = false;
 }

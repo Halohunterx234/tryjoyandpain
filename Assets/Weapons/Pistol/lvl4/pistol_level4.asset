@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 561a064f46ce3427f970af9ced59b3fe, type: 3}
-  m_Name: pistol_level2
+  m_Name: pistol_level4
   m_EditorClassIdentifier: 
-  level: 2
+  level: 4
   iGO: {fileID: 5008961574690699278, guid: 413e7ef3de43c4f79b3cecdc9c521a70, type: 3}
   iProjectileGO: {fileID: 606303878426287567, guid: 94da3b58317d945aea708b87186962b9, type: 3}
   iProjectileXOffset: 1
   iProjectileYOffset: 0
-  iProjectileSpawnDelay: 0
-  iProjectiledamage: 1
+  iProjectileSpawnDelay: 0.2
+  iProjectiledamage: 3
   iProjectileknockBack: 0.25
   CD: 0
   CDMax: 0.5
@@ -27,8 +27,8 @@ MonoBehaviour:
   iProjectileSpeed: 10
   iProjectileRot: 180
   iProjectileRotDiff: 0
-  iProjectileSpawnCount: 1
+  iProjectileSpawnCount: 2
   projAIMode: 0
-  fireMode: 0
+  fireMode: 4
   projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
   fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}

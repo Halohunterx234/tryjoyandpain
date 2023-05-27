@@ -34,6 +34,7 @@ public class FireAI : ScriptableObject
         //the corresponding level weapon's Scriptable Object
         yield return new WaitForSeconds(delay);
         GameObject Projectile = Instantiate(iSO.iProjectileGO, (Vector2)firePoint.position + new Vector2(iSO.iProjectileXOffset, iSO.iProjectileYOffset) * player.transform.localScale.x, Quaternion.identity);
+        Projectile.GetComponent<Transform>().localScale *= iSO.iProjectileSize;
         Projectiles p = Projectile.GetComponent<Projectiles>();
         insert_data(p, iSO);
         //now, give the projectile a different AI depending on which is assigned to it
@@ -72,7 +73,6 @@ public class FireAI : ScriptableObject
     //fire left, and then right (alt)
     public System.Action Horizontal(GameObject proj, GameObject player, float alt_rot, Projectiles p)
     {
-        Debug.Log("firing horizontally");
         //make it move in the direction of the player
         projModes.StartAI(proj, player, p.projectileSpeed, Vector3.left * Mathf.Sign(player.transform.localScale.x));
         //Rotate the projectile by (set rotation) if the player turns the other way
@@ -91,7 +91,6 @@ public class FireAI : ScriptableObject
     //fires upwards
     public System.Action Up(GameObject proj, GameObject player, Projectiles p)
     {
-        Debug.Log("firing upwards");
         //shoot upwards
         projModes.StartAI(proj, player, p.projectileSpeed, Vector3.up);
         RotateProjectile(proj, 90);
@@ -101,7 +100,6 @@ public class FireAI : ScriptableObject
     //fires downwards
     public System.Action Down(GameObject proj, GameObject player, Projectiles p)
     {
-        Debug.Log("firing downwards");
         //shoot upwards
         projModes.StartAI(proj, player, p.projectileSpeed, Vector3.down);
         RotateProjectile(proj, -90);
@@ -133,8 +131,6 @@ public class FireAI : ScriptableObject
         RotateProjectile(proj, currentAngle);
 
         //start its relevant AI, given its new rotated direction
-        Debug.Log(p.projectileSpeed);
-        Debug.Log(dir.normalized);
         projModes.StartAI(proj, player, p.projectileSpeed, dir.normalized);
         return null;
     }

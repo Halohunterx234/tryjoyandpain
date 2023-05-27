@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEditor;
 
 
-[CustomEditor(typeof(PistolSuperClass))]
+[CustomEditor(typeof(AxeSuperClass))]
 public class ItemLevelButton : Editor
 {
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
-        PistolSuperClass eventChannel = (PistolSuperClass)target;
+        AxeSuperClass eventChannel = (AxeSuperClass)target;
         if(GUILayout.Button("Raise Event")) { eventChannel.UpdateLevel(); }
-
     }
 }
+

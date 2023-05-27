@@ -113,7 +113,6 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         iSO = levels[levelNum-1].get_projectiles()[0];
         //projAIMode = iSO.projAIMode;
         //fireAIMode = iSO.fireMode;
-        print(fireAI);
         UpdateData();
     }
 
@@ -122,6 +121,5 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
     {
         CDMax = iSO.CDMax;
         CD = iSO.CD;
-        print("updated the CD");
     }
 }
