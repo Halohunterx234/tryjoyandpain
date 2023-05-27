@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 621888661789291599}
   - component: {fileID: 621888661789291592}
+  - component: {fileID: -7370049804343377490}
   m_Layer: 0
   m_Name: IceStaff
   m_TagString: Untagged
@@ -116,3 +117,35 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-7370049804343377490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621888661789291593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bcd51774b84fab43b9c2d04e3be91eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  level: []
+  iSO: {fileID: 0}
+  levelNum: 0
+  CD: 0
+  CDMax: 0
+  firePoint: {fileID: 0}
+  projectileSO: {fileID: 0}
+  projAIMode: 0
+  fireAIMode: 0
+  fireAI: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
+  levels:
+  - projectilesList:
+    - {fileID: 11400000, guid: 34b283fd011a45749a194544eb4a16f7, type: 2}
+  - projectilesList:
+    - {fileID: 11400000, guid: 3dc3f00ebed097742950f845c66f09d0, type: 2}
+  - projectilesList:
+    - {fileID: 11400000, guid: 76b66c7f65429f1459b653fbb7f7aaf2, type: 2}
+  - projectilesList:
+    - {fileID: 11400000, guid: 86c70edb703934147b51a3f9827ee78f, type: 2}

@@ -1,5 +1,6 @@
 using System.Collections;
 using Unity.VisualScripting;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -128,7 +129,7 @@ public class FireAI : ScriptableObject
         proj.transform.position = (Vector2)player.transform.position + dir * distance;
 
         //rotate it accordingly to face the correct direction
-        RotateProjectile(proj, currentAngle);
+        RotateProjectile(proj, currentAngle + p.projectileRot);
 
         //start its relevant AI, given its new rotated direction
         projModes.StartAI(proj, player, p.projectileSpeed, dir.normalized);
