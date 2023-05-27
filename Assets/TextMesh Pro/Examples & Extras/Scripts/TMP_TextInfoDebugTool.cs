@@ -79,13 +79,13 @@ namespace TMPro.Examples
                 DrawLinkBounds();
             #endregion
 
-            // Draw Quad around the bounds of the text
+            // Draw Multi around the bounds of the text
             #region Draw Bounds
             if (ShowMeshBounds)
                 DrawBounds();
             #endregion
 
-            // Draw Quad around the rendered region of the text.
+            // Draw Multi around the rendered region of the text.
             #region Draw Text Bounds
             if (ShowTextBounds)
                 DrawTextBounds();

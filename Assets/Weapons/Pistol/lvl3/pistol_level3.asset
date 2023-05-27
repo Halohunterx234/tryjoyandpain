@@ -24,8 +24,10 @@ MonoBehaviour:
   CDMax: 0.5
   canActiviate: 0
   iProjectileDespawn: 2
-  iProjectileSpeed: 40
+  iProjectileSpeed: 10
   iProjectileRot: 180
+  iProjectileRotDiff: 0
+  iProjectileSpawnCount: 1
   projAIMode: 0
   fireMode: 0
   projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
