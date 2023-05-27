@@ -26,9 +26,11 @@ MonoBehaviour:
   iProjectileDespawn: 2
   iProjectileSpeed: 10
   iProjectileRot: 180
+  iProjectileSize: 1
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 2
   projAIMode: 0
   fireMode: 4
   projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
   fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
+  facingLeft: 0

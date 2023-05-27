@@ -15,22 +15,22 @@ MonoBehaviour:
   level: 4
   iGO: {fileID: 621888661789291593, guid: 20d0b30392d5e18499a32a1252fd4b2e, type: 3}
   iProjectileGO: {fileID: 543913414337466045, guid: 3d331d199ea7c394083e451ca5c90b53, type: 3}
-  iProjectileXOffset: 1
-  iProjectileYOffset: 0
+  iProjectileXOffset: -3
+  iProjectileYOffset: 1
   iProjectileSpawnDelay: 0
-  iProjectiledamage: 6
+  iProjectiledamage: 4
   iProjectileknockBack: 0.25
   CD: 0
-  CDMax: 2
+  CDMax: 5
   canActiviate: 0
-  iProjectileDespawn: 2
-  iProjectileSpeed: 10
-  iProjectileRot: 180
-  iProjectileSize: 1.6
-  iProjectileRotDiff: 0
-  iProjectileSpawnCount: 1
+  iProjectileDespawn: 3
+  iProjectileSpeed: 7.5
+  iProjectileRot: -45
+  iProjectileSize: 1.74
+  iProjectileRotDiff: 45
+  iProjectileSpawnCount: 8
   projAIMode: 0
-  fireMode: 0
+  fireMode: 4
   projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
   fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
   facingLeft: 0

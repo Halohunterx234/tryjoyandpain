@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum returnTo
+{
+    Player,
+    Enemy,
+}
 
 [CreateAssetMenu(menuName = "Create new Item")]
 public class ItemSuperClassSO : ScriptableObject
@@ -39,7 +44,7 @@ public class ItemSuperClassSO : ScriptableObject
     [Range(-360f, 360f)]
     public float iProjectileRot;
     [Range(0.1f, 10f)]
-    public float iProjectileSize;
+    public float iProjectileSize = 1f;
 
     private int iProjectileMode;
 
@@ -55,10 +60,9 @@ public class ItemSuperClassSO : ScriptableObject
     [Header("Weapon Firing AI")]
     public enumfireAI fireMode;
 
+    
+
     [Header("Scriptable Object References")]
     public ScriptableObject projModes;
     public ScriptableObject fireModes;
-
-    [Header("Is Projectile Facing Left? (By Default Right)")]
-    public bool facingLeft = false;
 }

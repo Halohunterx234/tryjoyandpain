@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class Projectiles : MonoBehaviour
 {
@@ -22,6 +23,27 @@ public class Projectiles : MonoBehaviour
     public int projectileDamage;
     public float projectileRot, projectileDespawnTime;
     public int projectileMode;
+
+    private float return_after;
+
+    [SerializeField]
+    private bool Constant_Rotate;
+    [SerializeField]
+    [Range(-1000f, 1000f)]
+    float Constant_RotationSpeed;
+
+    [Header("Return To __")]
+    public bool returning;
+    public returnTo return_to;
+    //return to specific position after ___ of time
+    public float return_to_after;
+    [Range(0f, 100f)]
+    public float returning_rate;
+    [Range(0f, 10f)]
+    public float returning_distance;
+
+    private float time;
+
     //References
     GameObject player;
     public Dictionary<int, System.Action> projectileModes = new Dictionary<int, System.Action>();
@@ -37,11 +59,44 @@ public class Projectiles : MonoBehaviour
         projectileModes[projectileMode]();
         StartCoroutine(DespawnTimer(projectileDespawnTime));
         */
-
+        time = Time.time;
+        
     }
     private void Update()
     {
-        
+        if (Constant_Rotate)
+        {
+            fireModes.RotateProjectile(this.gameObject, -Constant_RotationSpeed * time);
+        }
+        if (returning) StartCoroutine(return_proj());
+        time += Time.deltaTime;
+    }
+
+    private bool CheckIfClose(Vector3 projPos, Vector3 targetPos, float dist)
+    {
+        if (Vector3.Distance(projPos, targetPos) < dist)
+        {
+            return true;
+        }
+        else return false;
+    }
+    private IEnumerator return_proj()
+    {
+        yield return new WaitForSeconds(return_after);
+        switch (return_to)
+        {
+            case returnTo.Player:
+                if (CheckIfClose(this.gameObject.transform.position, player.transform.position, returning_distance))
+                {
+                    //returning = false;
+                    //Destroy(this.gameObject);
+                    //yield break;
+                }
+                StartCoroutine(fireModes.ReturnToPlayer(player, this.gameObject, returning_rate * Time.deltaTime));
+                break;
+            default:
+                yield break;
+        }
     }
     //Pistol Bullet Stats
     //public float pistolBulletSpeed = 7.5f;

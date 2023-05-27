@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 561a064f46ce3427f970af9ced59b3fe, type: 3}
-  m_Name: icestaff_level3
+  m_Name: Hammer_lvl2
   m_EditorClassIdentifier: 
-  level: 3
-  iGO: {fileID: 621888661789291593, guid: 20d0b30392d5e18499a32a1252fd4b2e, type: 3}
-  iProjectileGO: {fileID: 543913414337466045, guid: 3d331d199ea7c394083e451ca5c90b53, type: 3}
-  iProjectileXOffset: -3
-  iProjectileYOffset: 1
+  level: 1
+  iGO: {fileID: 7879636733754015044, guid: ead46e15b6349804c93083b1b9f9001a, type: 3}
+  iProjectileGO: {fileID: 2501627978220943909, guid: f40e79a5d02cf024c857ba989698c4c2, type: 3}
+  iProjectileXOffset: 0
+  iProjectileYOffset: 0
   iProjectileSpawnDelay: 0
   iProjectiledamage: 4
-  iProjectileknockBack: 0.25
+  iProjectileknockBack: 0
   CD: 0
-  CDMax: 5
+  CDMax: 3
   canActiviate: 0
   iProjectileDespawn: 3
-  iProjectileSpeed: 7.5
-  iProjectileRot: -45
-  iProjectileSize: 1.74
-  iProjectileRotDiff: 45
-  iProjectileSpawnCount: 6
+  iProjectileSpeed: 10
+  iProjectileRot: -145
+  iProjectileSize: 1
+  iProjectileRotDiff: 0
+  iProjectileSpawnCount: 1
   projAIMode: 0
-  fireMode: 4
+  fireMode: 6
   projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
   fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
   facingLeft: 0

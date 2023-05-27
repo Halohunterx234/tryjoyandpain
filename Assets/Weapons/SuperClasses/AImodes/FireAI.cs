@@ -12,6 +12,7 @@ public enum enumfireAI
     Down, // duh
     Multi, // all four
     Auto, // auto aim annd shoots at closest enemy
+    Random, //random direction cuz why not
 }
 
 [CreateAssetMenu(menuName = "Create FireAI (reference)")]
@@ -29,15 +30,23 @@ public class FireAI : ScriptableObject
     GameObject current_player;
     enumfireAI curent_fireAIMode;
     float current_delay;
-    public IEnumerator StartFire(float projTotalCount, float projCount, ItemSuperClassSO iSO, Transform firePoint, projAI projAIMode, GameObject player, enumfireAI fireAIMode, float delay)
+    GameObject Projectile;
+    public IEnumerator StartFire(float levels, float currentlevel, float projTotalCount, float projCount, ItemSuperClassSO iSO, Transform firePoint, projAI projAIMode, GameObject player, enumfireAI fireAIMode, float delay)
     {
         //Spawn the projectile and then update its initalized data with
         //the corresponding level weapon's Scriptable Object
         yield return new WaitForSeconds(delay);
-        GameObject Projectile = Instantiate(iSO.iProjectileGO, (Vector2)firePoint.position + new Vector2(iSO.iProjectileXOffset, iSO.iProjectileYOffset) * player.transform.localScale.x, Quaternion.identity);
+        GameObject Projectile = Instantiate(iSO.iProjectileGO, (Vector2)firePoint.position + new Vector2(iSO.iProjectileXOffset, iSO.iProjectileYOffset) * player.transform.localScale.x, Quaternion.identity); 
         Projectile.GetComponent<Transform>().localScale *= iSO.iProjectileSize;
         Projectiles p = Projectile.GetComponent<Projectiles>();
         insert_data(p, iSO);
+        //give it animation if its maxed
+        Animator anim = Projectile.GetComponent<Animator>();
+        anim.enabled = false;
+        if (currentlevel == levels)
+        {
+            anim.enabled = true;
+        }
         //now, give the projectile a different AI depending on which is assigned to it
         switch (fireAIMode)
         {
@@ -58,11 +67,13 @@ public class FireAI : ScriptableObject
                 break;
             case enumfireAI.Auto:
                 Auto();
-                break;  
+                break;
+            case enumfireAI.Random:
+                RandomAim(Projectile, player, p);
+                break;
             default:
                 yield break;
         }
-
     }
 
 
@@ -78,7 +89,8 @@ public class FireAI : ScriptableObject
         projModes.StartAI(proj, player, p.projectileSpeed, Vector3.left * Mathf.Sign(player.transform.localScale.x));
         //Rotate the projectile by (set rotation) if the player turns the other way
         //Set rotation can be changed through the inspector -> projectileRot
-        if (player.transform.localScale.x >= 0) RotateProjectile(proj, alt_rot);
+        if (player.transform.localScale.x >= 0) RotateProjectile(proj, alt_rot+p.projectileRot);
+        else RotateProjectile(proj, p.projectileRot);
         return null;
     }
     //fire the opposite of where the player is looking at
@@ -86,7 +98,8 @@ public class FireAI : ScriptableObject
     {
         //shoot in the opposite direction of the player's looking
         projModes.StartAI(proj, player, p.projectileSpeed, Vector3.left * Mathf.Sign(-player.transform.localScale.x));
-        if (player.transform.localScale.x < 0) RotateProjectile(proj, alt_rot);
+        if (player.transform.localScale.x < 0) RotateProjectile(proj, alt_rot+p.projectileRot);
+        else RotateProjectile(proj, p.projectileRot);
         return null;
     }
     //fires upwards
@@ -141,6 +154,13 @@ public class FireAI : ScriptableObject
         return null;
     }
 
+    public System.Action RandomAim(GameObject proj, GameObject player, Projectiles p)
+    {
+        Vector2 randomDir = new Vector2(Random.Range(-100, 100), Random.Range(-100, 100));
+        projModes.StartAI(proj, player, p.projectileSpeed, randomDir.normalized);
+        RotateProjectile(proj, p.projectileRot+(Mathf.Atan2(randomDir.y, randomDir.x)*Mathf.Rad2Deg));
+        return null;
+    }
     public virtual void RotateProjectile(GameObject go, float angle)
     {
         go.transform.rotation = Quaternion.Euler(0, 0, angle);
@@ -179,5 +199,15 @@ public class FireAI : ScriptableObject
         p.iso = iSO;
         p.aiMode = iSO.projAIMode;
         
+    }
+
+    //Function to return projectile to player
+    public IEnumerator ReturnToPlayer(GameObject player, GameObject proj, float rate)
+    {
+        Debug.Log("returnin");
+        Rigidbody2D projRB = proj.GetComponent<Rigidbody2D>();
+        Debug.Log(projRB.velocity);
+        projRB.velocity = projRB.velocity + (Vector2)(rate * (player.transform.position - proj.transform.position));
+        yield return null;
     }
 }

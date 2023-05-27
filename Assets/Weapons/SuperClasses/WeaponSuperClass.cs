@@ -32,6 +32,8 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
 {
     [SerializeField]
     private GameObject player;
+    private Animator anim;
+
     public List<ItemSuperClassSO> level;
     [SerializeField]
     public ItemSuperClassSO iSO;
@@ -68,7 +70,8 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
             for (int i = 0; i <= projectile.iProjectileSpawnCount-1 ;i++)
             {
                 //pass all information about the projectile to the fireAI method
-                StartCoroutine(fireAI.StartFire(projectile.iProjectileSpawnCount, i, projectile, firePoint, projectile.projAIMode, player, projectile.fireMode, projectile.iProjectileSpawnDelay));
+                StartCoroutine(fireAI.StartFire(levels.Count, levelNum, projectile.iProjectileSpawnCount, i, projectile, firePoint, projectile.projAIMode, player, projectile.fireMode, projectile.iProjectileSpawnDelay));
+               
             }
          
         }

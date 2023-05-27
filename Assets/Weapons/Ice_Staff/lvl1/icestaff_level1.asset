@@ -18,16 +18,16 @@ MonoBehaviour:
   iProjectileXOffset: -3
   iProjectileYOffset: 1
   iProjectileSpawnDelay: 0
-  iProjectiledamage: 4
+  iProjectiledamage: 3
   iProjectileknockBack: 0.25
   CD: 0
   CDMax: 5
   canActiviate: 0
-  iProjectileDespawn: 0.5
+  iProjectileDespawn: 3
   iProjectileSpeed: 7.5
-  iProjectileRot: 180
+  iProjectileRot: -45
   iProjectileSize: 1.74
-  iProjectileRotDiff: 0
+  iProjectileRotDiff: 45
   iProjectileSpawnCount: 4
   projAIMode: 0
   fireMode: 4
