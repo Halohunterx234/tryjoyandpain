@@ -26,7 +26,7 @@ MonoBehaviour:
   iProjectileDespawn: 0.5
   iProjectileSpeed: 7.5
   iProjectileRot: 180
-  iProjectileSize: 1
+  iProjectileSize: 1.74
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0
