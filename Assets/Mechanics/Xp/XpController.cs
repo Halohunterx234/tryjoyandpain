@@ -37,6 +37,7 @@ public class XpController : MonoBehaviour
     }
     int CalculateNextLvlXP(int lvl, int xp)
     {
+        //formula
         return Mathf.RoundToInt(lvl*10+Mathf.Log10(Mathf.Pow(lvl, 2)))+xp;
     }
 

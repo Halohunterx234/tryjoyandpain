@@ -8,6 +8,7 @@ using UnityEditor;
 [CreateAssetMenu(menuName = "Create new projectile")]
 public class ProjectileSO : ScriptableObject
 {
+    /*
     //template stats
     //projectile stats (to be referred from
     float projectileSpeed;
@@ -35,11 +36,11 @@ public class ProjectileSO : ScriptableObject
         //Update when neccessary
         switch (aiMode)
         {
-            case (projAI.Horizontal):
+            case (projAI.Straight):
                 Horizontal();
                 break;
-            case (projAI.Vertical):
-                Vertical();
+            case (projAI.Curved):
+                Curved();
                 break;
             case (projAI.Auto):
                 Auto();
@@ -67,9 +68,16 @@ public class ProjectileSO : ScriptableObject
         return null;
     }
 
+    private System.Action Quad()
+    {
+        Debug.Log("Quad method invoked");
+        return null;
+    }
+
     private IEnumerator DespawnTimer(float t, GameObject proj)
     {
         yield return new WaitForSeconds(t);
         Destroy(proj);
     }
+    */
 }

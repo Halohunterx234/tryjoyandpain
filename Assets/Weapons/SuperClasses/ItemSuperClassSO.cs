@@ -2,12 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum projAI
-{
-    Horizontal,
-    Vertical,
-    Auto
-}
 
 [CreateAssetMenu(menuName = "Create new Item")]
 public class ItemSuperClassSO : ScriptableObject
@@ -26,9 +20,17 @@ public class ItemSuperClassSO : ScriptableObject
     [Range(-10f, 10f)]
     public float iProjectileYOffset;
 
+    [Header("Projectile Spawn Delay (ie For Stacking Projectiles)")]
+    [Range(0f, 2f)]
+    public float iProjectileSpawnDelay;
+
     [Header("Projectile Stats")]
-    public int iProjectiledamage; public float iProjectileknockBack;//if any
+    [Range(0f, 20f)]
+    public int iProjectiledamage;
+
+    public float iProjectileknockBack;//if any
     public float CD; public float CDMax;
+
     public bool canActiviate;
     [Range(1f, 10f)]
     public float iProjectileDespawn;
@@ -36,52 +38,16 @@ public class ItemSuperClassSO : ScriptableObject
     public float iProjectileSpeed;
     [Range(-360f, 360f)]
     public float iProjectileRot;
-    public int iProjectileMode;
+    private int iProjectileMode;
 
     [Header("Projectile AI")]
-    public projAI aiMode;
+    public projAI projAIMode;
 
-    public void StartAI(GameObject projectile, GameObject player)
-    {
-        //Update when neccessary
-        switch (aiMode)
-        {
-            case (projAI.Horizontal):
-                Horizontal(projectile, player);
-                break;
-            case (projAI.Vertical):
-                Vertical();
-                break;
-            case (projAI.Auto):
-                Auto();
-                break;
-            default:
-                return;
-        }
-    }
-    public System.Action Horizontal(GameObject proj, GameObject player)
-    {
-        Rigidbody2D projectileRB = proj.GetComponent<Rigidbody2D>();
-        projectileRB.velocity = new Vector2(iProjectileSpeed * -player.transform.localScale.x, projectileRB.velocity.y);
-        Debug.Log("Bi-Directional Projectile AI -> Fired");
-        return null;
-    }
+    [Header("Weapon Firing AI")]
+    public enumfireAI fireMode;
 
-    public System.Action Vertical()
-    {
-        Debug.Log("Shoot up and down");
-        return null;
-    }
-    private System.Action Auto()
-    {
-        Debug.Log("Auto method invoked");
-        return null;
-    }
-
-    public IEnumerator DespawnTimer(float t, GameObject proj)
-    {
-        yield return new WaitForSeconds(t);
-        Destroy(proj);
-    }
+    [Header("Scriptable Object References")]
+    public ScriptableObject projModes;
+    public ScriptableObject fireModes;
 
 }
