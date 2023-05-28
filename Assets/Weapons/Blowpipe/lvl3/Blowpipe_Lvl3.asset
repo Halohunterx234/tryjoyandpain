@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 561a064f46ce3427f970af9ced59b3fe, type: 3}
-  m_Name: pistol_level1
+  m_Name: Blowpipe_Lvl3
   m_EditorClassIdentifier: 
-  level: 1
-  iGO: {fileID: 5008961574690699278, guid: 413e7ef3de43c4f79b3cecdc9c521a70, type: 3}
-  iProjectileGO: {fileID: 606303878426287567, guid: 94da3b58317d945aea708b87186962b9, type: 3}
-  maxlvlSprite: {fileID: 0}
-  iProjectileXOffset: 1.4
-  iProjectileYOffset: -0.3
+  level: 3
+  iGO: {fileID: 677593006743426640, guid: d544293e9818f42158fa27cd3d5332b4, type: 3}
+  iProjectileGO: {fileID: 4317138156931102669, guid: 87faf13e0bc464936a58f4cc8cf5e356, type: 3}
+  maxlvlSprite: {fileID: 21300000, guid: 05b3e678dcf93444d9d1c6ed625b1eeb, type: 3}
+  iProjectileXOffset: 0
+  iProjectileYOffset: 0
   iProjectileSpawnDelay: 0
-  iProjectiledamage: 1
-  iProjectileknockBack: 0.25
+  iProjectiledamage: 5
+  iProjectileknockBack: 0
   CD: 0
-  CDMax: 0.8
+  CDMax: 3
   canActiviate: 0
-  iProjectileDespawn: 2
-  iProjectileSpeed: 10
-  iProjectileRot: 180
+  iProjectileDespawn: 2.5
+  iProjectileSpeed: 15
+  iProjectileRot: 0
   iProjectileSize: 1
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0
-  fireMode: 0
+  fireMode: 5
   projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
   fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}

@@ -23,7 +23,7 @@ MonoBehaviour:
   CD: 0
   CDMax: 3
   canActiviate: 0
-  iProjectileDespawn: 7.95
+  iProjectileDespawn: 3
   iProjectileSpeed: 10
   iProjectileRot: -145
   iProjectileSize: 1

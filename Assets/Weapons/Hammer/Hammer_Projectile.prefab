@@ -114,8 +114,8 @@ MonoBehaviour:
   Constant_RotationSpeed: 315
   returning: 1
   return_to: 0
-  return_to_after: 0.5
-  returning_rate: 2.9
+  return_to_after: 2
+  returning_rate: 3
   returning_distance: 5
 --- !u!50 &2501627978220943929
 Rigidbody2D:

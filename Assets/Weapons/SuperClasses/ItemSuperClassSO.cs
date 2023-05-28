@@ -19,6 +19,9 @@ public class ItemSuperClassSO : ScriptableObject
     public GameObject iGO;
     public GameObject iProjectileGO;
 
+    [Header("Sprites")]
+    public Sprite maxlvlSprite;
+
     [Header("Projectile Spawn Offsets")]
     [Range(-10f, 10f)]
     public float iProjectileXOffset;
@@ -63,6 +66,6 @@ public class ItemSuperClassSO : ScriptableObject
     
 
     [Header("Scriptable Object References")]
-    public ScriptableObject projModes;
-    public ScriptableObject fireModes;
+    public ProjectileAI projModes;
+    public FireAI fireModes;
 }

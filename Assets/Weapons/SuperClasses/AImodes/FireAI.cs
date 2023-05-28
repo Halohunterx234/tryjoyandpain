@@ -24,6 +24,9 @@ public class FireAI : ScriptableObject
     [Header("Reference to its best buddy")]
     public ProjectileAI projModes;
 
+    [Header("Layers")]
+    public LayerMask enemy;
+
     ItemSuperClassSO current_iSO;
     Transform current_firePoint;
     projAI current_projAIMode;
@@ -42,19 +45,30 @@ public class FireAI : ScriptableObject
         insert_data(p, iSO);
         //give it animation if its maxed
         Animator anim = Projectile.GetComponent<Animator>();
-        anim.enabled = false;
-        if (currentlevel == levels)
+        if (anim != null)
         {
-            anim.enabled = true;
+            anim.enabled = false;
+            if (currentlevel == levels)
+            {
+                anim.enabled = true;
+            }
+        }
+        if (iSO.maxlvlSprite != null)
+        {
+            if (currentlevel == levels)
+            {
+                SpriteRenderer sr = Projectile.GetComponent<SpriteRenderer>();
+                sr.sprite = iSO.maxlvlSprite;
+            }
         }
         //now, give the projectile a different AI depending on which is assigned to it
         switch (fireAIMode)
         {
             case enumfireAI.Horizontal:
-                Horizontal(Projectile, player, iSO.iProjectileRot, p);
+                Horizontal(Projectile, player, p);
                 break;
             case enumfireAI.Horizontal_Backwards:
-                Horizontal_Backwards(Projectile, player, iSO.iProjectileRot, p);
+                Horizontal_Backwards(Projectile, player, p);
                 break;
             case enumfireAI.Up:
                 Up(Projectile, player, p);
@@ -66,7 +80,7 @@ public class FireAI : ScriptableObject
                 Multi(Projectile, player, p, projCount, projTotalCount, iSO.iProjectileRotDiff);
                 break;
             case enumfireAI.Auto:
-                Auto();
+                Auto(Projectile, player, enemy, p);
                 break;
             case enumfireAI.Random:
                 RandomAim(Projectile, player, p);
@@ -83,23 +97,21 @@ public class FireAI : ScriptableObject
 
 
     //fire left, and then right (alt)
-    public System.Action Horizontal(GameObject proj, GameObject player, float alt_rot, Projectiles p)
+    public System.Action Horizontal(GameObject proj, GameObject player, Projectiles p)
     {
         //make it move in the direction of the player
         projModes.StartAI(proj, player, p.projectileSpeed, Vector3.left * Mathf.Sign(player.transform.localScale.x));
         //Rotate the projectile by (set rotation) if the player turns the other way
         //Set rotation can be changed through the inspector -> projectileRot
-        if (player.transform.localScale.x >= 0) RotateProjectile(proj, alt_rot+p.projectileRot);
-        else RotateProjectile(proj, p.projectileRot);
+        if (player.transform.localScale.x >= 0) RotateProjectile(proj, p.projectileRot);
         return null;
     }
     //fire the opposite of where the player is looking at
-    public System.Action Horizontal_Backwards(GameObject proj, GameObject player, float alt_rot, Projectiles p)
+    public System.Action Horizontal_Backwards(GameObject proj, GameObject player, Projectiles p)
     {
         //shoot in the opposite direction of the player's looking
         projModes.StartAI(proj, player, p.projectileSpeed, Vector3.left * Mathf.Sign(-player.transform.localScale.x));
-        if (player.transform.localScale.x < 0) RotateProjectile(proj, alt_rot+p.projectileRot);
-        else RotateProjectile(proj, p.projectileRot);
+        if (player.transform.localScale.x < 0) RotateProjectile(proj, p.projectileRot);
         return null;
     }
     //fires upwards
@@ -149,8 +161,18 @@ public class FireAI : ScriptableObject
         return null;
     }
 
-    public System.Action Auto()
+    public System.Action Auto(GameObject proj, GameObject player, LayerMask enemyLayer, Projectiles p)
     {
+        Collider2D ClosestEnemy = Physics2D.OverlapCircle(player.transform.position, 20, enemyLayer);
+        if (ClosestEnemy == null)
+        {
+            Destroy(proj);
+            return null;
+        }
+        Vector2 autoDir = (ClosestEnemy.transform.position - player.transform.position);
+        autoDir = autoDir.normalized;
+        RotateProjectile(proj, p.projectileRot + (Mathf.Atan2(autoDir.y, autoDir.x) * Mathf.Rad2Deg));
+        projModes.StartAI(proj, player, p.projectileSpeed, autoDir);
         return null;
     }
 

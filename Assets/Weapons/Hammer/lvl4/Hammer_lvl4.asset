@@ -10,27 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 561a064f46ce3427f970af9ced59b3fe, type: 3}
-  m_Name: pistol_level1
+  m_Name: Hammer_lvl4
   m_EditorClassIdentifier: 
-  level: 1
-  iGO: {fileID: 5008961574690699278, guid: 413e7ef3de43c4f79b3cecdc9c521a70, type: 3}
-  iProjectileGO: {fileID: 606303878426287567, guid: 94da3b58317d945aea708b87186962b9, type: 3}
-  maxlvlSprite: {fileID: 0}
-  iProjectileXOffset: 1.4
-  iProjectileYOffset: -0.3
+  level: 4
+  iGO: {fileID: 7879636733754015044, guid: ead46e15b6349804c93083b1b9f9001a, type: 3}
+  iProjectileGO: {fileID: 2501627978220943909, guid: f40e79a5d02cf024c857ba989698c4c2, type: 3}
+  iProjectileXOffset: 0
+  iProjectileYOffset: 0
   iProjectileSpawnDelay: 0
-  iProjectiledamage: 1
-  iProjectileknockBack: 0.25
+  iProjectiledamage: 4
+  iProjectileknockBack: 0
   CD: 0
-  CDMax: 0.8
+  CDMax: 3
   canActiviate: 0
-  iProjectileDespawn: 2
+  iProjectileDespawn: 3
   iProjectileSpeed: 10
-  iProjectileRot: 180
+  iProjectileRot: -145
   iProjectileSize: 1
   iProjectileRotDiff: 0
-  iProjectileSpawnCount: 1
+  iProjectileSpawnCount: 4
   projAIMode: 0
-  fireMode: 0
+  fireMode: 6
   projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
   fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}

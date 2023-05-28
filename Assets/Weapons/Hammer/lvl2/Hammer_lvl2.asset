@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 561a064f46ce3427f970af9ced59b3fe, type: 3}
   m_Name: Hammer_lvl2
   m_EditorClassIdentifier: 
-  level: 1
+  level: 2
   iGO: {fileID: 7879636733754015044, guid: ead46e15b6349804c93083b1b9f9001a, type: 3}
   iProjectileGO: {fileID: 2501627978220943909, guid: f40e79a5d02cf024c857ba989698c4c2, type: 3}
   iProjectileXOffset: 0
@@ -28,9 +28,8 @@ MonoBehaviour:
   iProjectileRot: -145
   iProjectileSize: 1
   iProjectileRotDiff: 0
-  iProjectileSpawnCount: 1
+  iProjectileSpawnCount: 2
   projAIMode: 0
   fireMode: 6
   projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
   fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
-  facingLeft: 0
