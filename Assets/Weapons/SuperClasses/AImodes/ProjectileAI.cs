@@ -45,6 +45,7 @@ public class ProjectileAI : ScriptableObject
         Debug.Log("firing straight");
         Rigidbody2D projRB = proj.GetComponent<Rigidbody2D>();
         projRB.velocity = (dir * iProjectileSpeed);
+        Debug.Log(projRB.velocity);
         return null;
     }
 

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 561a064f46ce3427f970af9ced59b3fe, type: 3}
+  m_Name: icestaff_level3
+  m_EditorClassIdentifier: 
+  level: 3
+  iGO: {fileID: 621888661789291593, guid: 20d0b30392d5e18499a32a1252fd4b2e, type: 3}
+  iProjectileGO: {fileID: 543913414337466045, guid: 3d331d199ea7c394083e451ca5c90b53, type: 3}
+  iProjectileXOffset: -3
+  iProjectileYOffset: 1
+  iProjectileSpawnDelay: 0
+  iProjectiledamage: 4
+  iProjectileknockBack: 0.25
+  CD: 0
+  CDMax: 5
+  canActiviate: 0
+  iProjectileDespawn: 3
+  iProjectileSpeed: 7.5
+  iProjectileRot: -45
+  iProjectileSize: 1.74
+  iProjectileRotDiff: 45
+  iProjectileSpawnCount: 6
+  projAIMode: 0
+  fireMode: 4
+  projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
+  fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
+  facingLeft: 0

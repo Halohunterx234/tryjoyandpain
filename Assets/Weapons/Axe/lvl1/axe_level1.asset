@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 561a064f46ce3427f970af9ced59b3fe, type: 3}
+  m_Name: axe_level1
+  m_EditorClassIdentifier: 
+  level: 1
+  iGO: {fileID: 7901250013883294700, guid: 76df51ab6820aea439b0be95bda9a799, type: 3}
+  iProjectileGO: {fileID: 1228462753197426797, guid: 16758ceb59088284294af456571545ef, type: 3}
+  iProjectileXOffset: -3
+  iProjectileYOffset: 1
+  iProjectileSpawnDelay: 0
+  iProjectiledamage: 4
+  iProjectileknockBack: 0.25
+  CD: 0
+  CDMax: 3
+  canActiviate: 0
+  iProjectileDespawn: 0.5
+  iProjectileSpeed: 7.5
+  iProjectileRot: 180
+  iProjectileSize: 1.74
+  iProjectileRotDiff: 0
+  iProjectileSpawnCount: 1
+  projAIMode: 0
+  fireMode: 0
+  projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
+  fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
+  facingLeft: 0

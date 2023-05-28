@@ -100,9 +100,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6dc2716d0d14dbca24e48025efa8eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 0
+  maxHp: 0
+  minHp: 0
+  xp: 0
+  collisionDmg: 0
+  moveSpeed: 0
+  spawnsDamageTxt: 0
+  spawnsXpOrb: 0
   dmgTxt: {fileID: 927180895340560702, guid: 69a2125715ff05c46937114dc83fd516, type: 3}
   xpOrb: {fileID: 5607117518481939413, guid: cec8b4e111b7e014a9a89bd4f3bc2aca, type: 3}
-  player: {fileID: 0}
+  aiSO: {fileID: 11400000, guid: 80ccb0989d0e7b145a4fd056c14d1520, type: 2}
+  eSO: {fileID: 11400000, guid: ece8fe5103098e846ae22b4de8b4032b, type: 2}
 --- !u!50 &4905509171078055958
 Rigidbody2D:
   serializedVersion: 4

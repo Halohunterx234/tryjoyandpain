@@ -32,6 +32,8 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
 {
     [SerializeField]
     private GameObject player;
+    private Animator anim;
+
     public List<ItemSuperClassSO> level;
     [SerializeField]
     public ItemSuperClassSO iSO;
@@ -61,11 +63,17 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
     {
         //run through each projectile under the levels
         levelproj currentlevel = levels[levelNum-1];
+        iSO = levels[levelNum-1].get_projectiles()[0];
         foreach (ItemSuperClassSO projectile in currentlevel.get_projectiles())
         {
             print(projectile);
-            //pass all information about the projectile to the fireAI method
-            StartCoroutine(fireAI.StartFire(projectile, firePoint, projectile.projAIMode, player, projectile.fireMode, projectile.iProjectileSpawnDelay));
+            for (int i = 0; i <= projectile.iProjectileSpawnCount-1 ;i++)
+            {
+                //pass all information about the projectile to the fireAI method
+                StartCoroutine(fireAI.StartFire(levels.Count, levelNum, projectile.iProjectileSpawnCount, i, projectile, firePoint, projectile.projAIMode, player, projectile.fireMode, projectile.iProjectileSpawnDelay));
+               
+            }
+         
         }
         
     }
@@ -74,10 +82,11 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         //update its values with the first level's values
         player = FindObjectOfType<Player>().gameObject;
         levelNum = 1;
+        iSO = levels[levelNum-1].get_projectiles()[0];
         //iSO = level[levelNum-1];
         //print(level[levelNum-1]);
-        //CDMax = iSO.CDMax;
-        //CD = iSO.CD;
+        CDMax = iSO.CDMax;
+        CD = iSO.CD;
         //projAIMode = iSO.projAIMode;
         //fireAIMode = iSO.fireMode;
         //projectileSO.init(iSO);
@@ -103,12 +112,11 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
     public void UpdateLevel()
     {
         print("levelled");
-        levelNum = (levelNum >= level.Count) ? levelNum : levelNum + 1;
-        //iSO = level[levelNum-1];
+        levelNum = (levelNum >= levels.Count) ? levelNum : levelNum + 1;
+        iSO = levels[levelNum-1].get_projectiles()[0];
         //projAIMode = iSO.projAIMode;
         //fireAIMode = iSO.fireMode;
-        print(fireAI);
-        //UpdateData();
+        UpdateData();
     }
 
     //updates only cd idk why and i kinda forgot why
@@ -116,6 +124,5 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
     {
         CDMax = iSO.CDMax;
         CD = iSO.CD;
-        print("updated the CD");
     }
 }

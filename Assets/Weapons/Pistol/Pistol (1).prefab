@@ -101,10 +101,10 @@ MonoBehaviour:
   player: {fileID: 0}
   level:
   - {fileID: 0}
-  iSO: {fileID: 11400000, guid: 4614c5123a8994691834106477b57850, type: 2}
-  levelNum: 0
+  iSO: {fileID: 11400000, guid: 53bcca55fac42d64abf51ea5185e5f1d, type: 2}
+  levelNum: 4
   CD: 0
-  CDMax: 0.8
+  CDMax: 0.5
   firePoint: {fileID: 5959165717948510001}
   projectileSO: {fileID: 11400000, guid: 0c3430f313fb74979b446d4fa8059f0a, type: 2}
   projAIMode: 0
@@ -113,7 +113,12 @@ MonoBehaviour:
   levels:
   - projectilesList:
     - {fileID: 11400000, guid: 4614c5123a8994691834106477b57850, type: 2}
+  - projectilesList:
+    - {fileID: 11400000, guid: 51f4692d0a4224612a284dce133e9484, type: 2}
+  - projectilesList:
     - {fileID: 11400000, guid: 2bf451162c233450898e4bce88aad709, type: 2}
+  - projectilesList:
+    - {fileID: 11400000, guid: 53bcca55fac42d64abf51ea5185e5f1d, type: 2}
 --- !u!1 &6595750538230048907
 GameObject:
   m_ObjectHideFlags: 0

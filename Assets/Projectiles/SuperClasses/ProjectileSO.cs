@@ -68,9 +68,9 @@ public class ProjectileSO : ScriptableObject
         return null;
     }
 
-    private System.Action Quad()
+    private System.Action Multi()
     {
-        Debug.Log("Quad method invoked");
+        Debug.Log("Multi method invoked");
         return null;
     }
 

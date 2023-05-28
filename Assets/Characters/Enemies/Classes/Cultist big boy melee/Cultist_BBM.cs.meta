@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 041cb830b844eb147955407e6ac166ae
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - dmgTxt: {instanceID: 0}
+  - xpOrb: {instanceID: 0}
+  - aiSO: {fileID: 11400000, guid: 178cea06e1043644eb67644dd6fef193, type: 2}
+  - eSO: {fileID: 11400000, guid: 0250fabfcb4ece24487383c820db4ff2, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

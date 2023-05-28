@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireModes: 0
   projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
+  enemy:
+    serializedVersion: 2
+    m_Bits: 64

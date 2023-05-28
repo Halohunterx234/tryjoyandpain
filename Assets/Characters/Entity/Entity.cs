@@ -8,7 +8,8 @@ public class Entity : MonoBehaviour
     //Big daddy class for everyone that is alive
     protected List<Component> damageClasses; //a list of the classes that can deal damage to this child
     public int hp, maxHp, minHp, xp, collisionDmg;
-    protected float moveSpeed, knockbackResistance;
+    protected float knockbackResistance;
+    public float moveSpeed;
     //Components
     protected Rigidbody2D rb;
     protected SpriteRenderer sr;
@@ -22,11 +23,11 @@ public class Entity : MonoBehaviour
     {
         minHp = 0;
     }
-    protected void Start()
-    {
+    //protected void Start()
+    //{
         //spawnsDamageTxt = true;
         //spawnsXpOrb = spawnsDamageTxt; //player shldnt drop xp orbs either
-    }
+    //}
     // Update is called once per frame
     void Update()
     {
