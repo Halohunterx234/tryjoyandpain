@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: cc6dc2716d0d14dbca24e48025efa8eb
+guid: c3c181b9a3a55cd4eb6b553028560eff
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
   - dmgTxt: {instanceID: 0}
   - xpOrb: {instanceID: 0}
-  - aiSO: {fileID: 11400000, guid: 80ccb0989d0e7b145a4fd056c14d1520, type: 2}
-  - eSO: {fileID: 11400000, guid: ece8fe5103098e846ae22b4de8b4032b, type: 2}
+  - aiSO: {fileID: 11400000, guid: 246b6d65210dba44297ed3f04e9d1a85, type: 2}
+  - eSO: {fileID: 11400000, guid: c69570c66422c7343844bd381653a7da, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

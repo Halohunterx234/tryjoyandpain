@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cultist_Melee : Cultist
+public class Cultist_BBM : Cultist
 {
-    private void Awake()
-    {
 
-    }
 }

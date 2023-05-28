@@ -5,26 +5,28 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Cultist : Entity
+public abstract class Cultist : Entity
 {
     //Parent Class for Cultist Enemies
-    public GameObject player;
+    protected GameObject player;
     Vector3 playerPos;
+    //public EnemiesSuperClassSO eSO;
+    public AiSuperClassSO aiSO;
+    public EnemiesSuperClassSO eSO;
+    protected Cultist c;
 
-    private void Awake()
-    {
-
-    }
 
     public void Start()
     {
         player = FindObjectOfType<Player>().gameObject;
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        c = GetComponent<Cultist>();
         spawnsDamageTxt = true; spawnsXpOrb = spawnsDamageTxt;
+        aiSO.insertData(c,eSO);
     }
 
-    protected void Chase()
+    /*protected void Chase()
     {
         //Move to player's position
         if (player == null) return;
@@ -40,12 +42,14 @@ public class Cultist : Entity
         {
             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y);
         }
-    }
+    }*/
 
     private void Update()
     {
-        Chase();
+        aiSO.StartAi(player, moveSpeed, this.gameObject);
+        //Chase();
     }
+
     /*
     private void OnCollisionEnter2D(Collision2D collision)
     {

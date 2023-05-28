@@ -2387,6 +2387,7 @@ MonoBehaviour:
   minHp: 0
   xp: 0
   collisionDmg: 0
+  moveSpeed: 0
   spawnsDamageTxt: 0
   spawnsXpOrb: 0
   dmgTxt: {fileID: 0}
