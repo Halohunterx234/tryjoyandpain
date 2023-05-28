@@ -12,7 +12,7 @@ public class PistolLevelButton : Editor
     {
         DrawDefaultInspector();
         PistolSuperClass eventChannel = (PistolSuperClass)target;
-        if(GUILayout.Button("Level Up")) { eventChannel.UpdateLevel(); }
+        if(GUILayout.Button("Level Up")) { eventChannel.DirectUpdate(); }
     }
 
 }

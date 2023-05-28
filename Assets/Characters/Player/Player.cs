@@ -45,7 +45,7 @@ public class Player : Entity
         if (Application.isMobilePlatform) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         else
         {
-            print(rb.velocity.x);
+            //print(rb.velocity.x);
             rb.velocity =new Vector2(VirtualJoystick.GetAxis("Horizontal"),
                 VirtualJoystick.GetAxis("Vertical"))  * moveSpeed;
             

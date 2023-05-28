@@ -70,14 +70,14 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
             for (int i = 0; i <= projectile.iProjectileSpawnCount-1 ;i++)
             {
                 //pass all information about the projectile to the fireAI method
-                StartCoroutine(fireAI.StartFire(levels.Count, levelNum, projectile.iProjectileSpawnCount, i, projectile, firePoint, projectile.projAIMode, player, projectile.fireMode, projectile.iProjectileSpawnDelay));
+                StartCoroutine(fireAI.StartFire(levels.Count, levelNum, projectile.iProjectileSpawnCount, i, projectile, player.transform, projectile.projAIMode, player, projectile.fireMode, projectile.iProjectileSpawnDelay));
                
             }
          
         }
         
     }
-    protected void init()
+    public void init()
     {
         //update its values with the first level's values
         player = FindObjectOfType<Player>().gameObject;
@@ -109,13 +109,13 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
     }
 
     //updates the data 
-    public void UpdateLevel()
+    public void DirectUpdate()
     {
         print("levelled");
         levelNum = (levelNum >= levels.Count) ? levelNum : levelNum + 1;
+        print(levelNum);
         iSO = levels[levelNum-1].get_projectiles()[0];
-        //projAIMode = iSO.projAIMode;
-        //fireAIMode = iSO.fireMode;
+        print(iSO);
         UpdateData();
     }
 
@@ -124,5 +124,15 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
     {
         CDMax = iSO.CDMax;
         CD = iSO.CD;
+    }
+
+    public void UpdateLevel()
+    {
+        print("levelled");
+        levelNum = (levelNum >= levels.Count) ? levelNum : levelNum + 1;
+        print(levelNum);
+        iSO = levels[levelNum - 1].get_projectiles()[0];
+        print(iSO);
+        UpdateData();
     }
 }

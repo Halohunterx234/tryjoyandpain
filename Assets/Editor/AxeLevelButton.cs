@@ -12,7 +12,7 @@ public class AxeLevelButton : Editor
     {
         DrawDefaultInspector();
         AxeSuperClass eventChannel = (AxeSuperClass)target;
-        if(GUILayout.Button("Level Up")) { eventChannel.UpdateLevel(); }
+        if(GUILayout.Button("Level Up")) { eventChannel.DirectUpdate(); }
     }
 
 }

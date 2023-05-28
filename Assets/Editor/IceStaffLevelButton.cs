@@ -12,6 +12,6 @@ public class IceStaffLevelButton : Editor
     {
         DrawDefaultInspector();
         IceStaffSuperClass eventChannel = (IceStaffSuperClass)target;
-        if (GUILayout.Button("Level Up")) { eventChannel.UpdateLevel(); }
+        if (GUILayout.Button("Level Up")) { eventChannel.DirectUpdate(); }
     }
 }

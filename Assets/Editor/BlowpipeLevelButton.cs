@@ -12,7 +12,7 @@ public class BlowpipeLevelButton : Editor
     {
         DrawDefaultInspector();
         BlowpipeSuperClass eventChannel = (BlowpipeSuperClass)target;
-        if(GUILayout.Button("Level Up")) { eventChannel.UpdateLevel(); }
+        if(GUILayout.Button("Level Up")) { eventChannel.DirectUpdate(); }
     }
 
 }

@@ -12,7 +12,7 @@ public class HammerLevelButton : Editor
     {
         DrawDefaultInspector();
         HammerSuperClass eventChannel = (HammerSuperClass)target;
-        if(GUILayout.Button("Level Up")) { eventChannel.UpdateLevel(); }
+        if(GUILayout.Button("Level Up")) { eventChannel.DirectUpdate(); }
     }
 
 }

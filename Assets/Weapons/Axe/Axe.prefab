@@ -131,10 +131,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   level: []
-  iSO: {fileID: 0}
+  iSO: {fileID: 11400000, guid: 49cbbf96902d6fc4dab6973ba59e3303, type: 2}
   levelNum: 0
   CD: 0
-  CDMax: 0
+  CDMax: 2
   firePoint: {fileID: 3432661458546473397}
   projectileSO: {fileID: 0}
   projAIMode: 0

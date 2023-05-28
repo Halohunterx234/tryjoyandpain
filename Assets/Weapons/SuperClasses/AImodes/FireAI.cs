@@ -163,13 +163,13 @@ public class FireAI : ScriptableObject
 
     public System.Action Auto(GameObject proj, GameObject player, LayerMask enemyLayer, Projectiles p)
     {
-        Collider2D ClosestEnemy = Physics2D.OverlapCircle(player.transform.position, 20, enemyLayer);
-        if (ClosestEnemy == null)
+        Collider2D RandomEnemy = Physics2D.OverlapCircle(player.transform.position, 20, enemyLayer);
+        if (RandomEnemy == null)
         {
             Destroy(proj);
             return null;
         }
-        Vector2 autoDir = (ClosestEnemy.transform.position - player.transform.position);
+        Vector2 autoDir = (RandomEnemy.transform.position - player.transform.position);
         autoDir = autoDir.normalized;
         RotateProjectile(proj, p.projectileRot + (Mathf.Atan2(autoDir.y, autoDir.x) * Mathf.Rad2Deg));
         projModes.StartAI(proj, player, p.projectileSpeed, autoDir);
