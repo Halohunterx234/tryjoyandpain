@@ -226,9 +226,9 @@ public class FireAI : ScriptableObject
     //Function to return projectile to player
     public IEnumerator ReturnToPlayer(GameObject player, GameObject proj, float rate)
     {
-        Debug.Log("returnin");
+        //Debug.Log("returnin");
         Rigidbody2D projRB = proj.GetComponent<Rigidbody2D>();
-        Debug.Log(projRB.velocity);
+        //Debug.Log(projRB.velocity);
         projRB.velocity = projRB.velocity + (Vector2)(rate * (player.transform.position - proj.transform.position));
         yield return null;
     }

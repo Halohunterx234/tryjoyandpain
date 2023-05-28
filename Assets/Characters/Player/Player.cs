@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Terresquall;
 
 public class Player : Entity
 {
@@ -40,8 +41,24 @@ public class Player : Entity
     // Update is called once per frame
     void Update()
     {
-        if (!isMobile) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        else if (Input.touchCount > 0)
+        
+        if (Application.isMobilePlatform) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        else
+        {
+            print(rb.velocity.x);
+            rb.velocity =new Vector2(VirtualJoystick.GetAxis("Horizontal"),
+                VirtualJoystick.GetAxis("Vertical"))  * moveSpeed;
+            
+            if (rb.velocity.x > 0.01 && transform.localScale.x > 0.01)
+            {
+            transform.localScale = new Vector2(transform.localScale.x *-1,  transform.localScale.y);
+            }else if(rb.velocity.x < -0.01 && transform.localScale.x < -0.01)
+            {
+                transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+            }
+
+        }
+        /*else if (Input.touchCount > 0)
             {
                 if (isPressed)
             {
@@ -79,7 +96,9 @@ public class Player : Entity
         }
         
         //Every two seconds, we fire all weapons that the player has
-        FireWeapons();
+        FireWeapons();*/
+
+        
     }
 
     void Move(float hDir, float vDir)
