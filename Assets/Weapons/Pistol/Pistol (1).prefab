@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1214081977819968964}
   - component: {fileID: 690076178675556539}
   - component: {fileID: 4455091181657728697}
+  - component: {fileID: 1198083097748390126}
   m_Layer: 0
   m_Name: Pistol (1)
   m_TagString: Untagged
@@ -93,7 +94,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5008961574690699278}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90552bd75384749d48201020b754561a, type: 3}
   m_Name: 
@@ -107,6 +108,38 @@ MonoBehaviour:
   CDMax: 0.5
   firePoint: {fileID: 5959165717948510001}
   projectileSO: {fileID: 11400000, guid: 0c3430f313fb74979b446d4fa8059f0a, type: 2}
+  projAIMode: 0
+  fireAIMode: 0
+  fireAI: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
+  levels:
+  - projectilesList:
+    - {fileID: 11400000, guid: 4614c5123a8994691834106477b57850, type: 2}
+  - projectilesList:
+    - {fileID: 11400000, guid: 51f4692d0a4224612a284dce133e9484, type: 2}
+  - projectilesList:
+    - {fileID: 11400000, guid: 2bf451162c233450898e4bce88aad709, type: 2}
+  - projectilesList:
+    - {fileID: 11400000, guid: 53bcca55fac42d64abf51ea5185e5f1d, type: 2}
+--- !u!114 &1198083097748390126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5008961574690699278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c7307ef9eb3fe44ca9c97551e89f625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  level: []
+  iSO: {fileID: 0}
+  levelNum: 0
+  CD: 0
+  CDMax: 0
+  firePoint: {fileID: 0}
+  projectileSO: {fileID: 0}
   projAIMode: 0
   fireAIMode: 0
   fireAI: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}

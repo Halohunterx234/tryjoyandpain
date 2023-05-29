@@ -16,9 +16,11 @@ public class WaveController : MonoBehaviour
 
     public GameObject player, enemy;
 
+    float extra_c;
     private void Start()
     {
         player = FindObjectOfType<Player>().gameObject;
+        waveTimer = waveMaxTimer;
     }
 
     private void Update()
@@ -32,6 +34,7 @@ public class WaveController : MonoBehaviour
                 enemyCount += 1;
                 waveCount = 0;
             }
+            waveMaxTimer = Random.Range(7.5f, 10f);
             SpawnWave();
         }
         else waveTimer += Time.deltaTime;
@@ -39,9 +42,8 @@ public class WaveController : MonoBehaviour
 
     protected void SpawnWave()
     {
- 
-        float indiv_c = enemyCount < 4 ? enemyCount : enemyCount / 4 ;
-        float extra_c = enemyCount % 4 == 0 ? 0: enemyCount % 4;
+        float indiv_c = enemyCount < 4 ? 1 : enemyCount / 4 ;
+        if (enemyCount > 5) extra_c = enemyCount % 4 == 0 ? 0: enemyCount % 4;
         //Loop through each direction
         for (int i = 0; i < 4; i++)
         {

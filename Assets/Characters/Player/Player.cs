@@ -19,7 +19,7 @@ public class Player : Entity
     //For firing weapons
     private void Awake()
     {
-        moveSpeed = 5f;
+        moveSpeed = 3.5f;
         maxHp = 10;
         hp = maxHp;
         collisionDmg = 0;
