@@ -29,27 +29,30 @@ public class InventoryManager : MonoBehaviour
     }
     public void SpawnWeapons()
     {
-        gacha_itemList.Clear();
         levelGUI.SetActive(true);
+        Time.timeScale = 0;
         for (int i = 0; i < itemSlots.Count-1 || i < items.Count-1; i++)
         {
-            Debug.Log(i);
-            int randomNum = Mathf.RoundToInt(Random.Range(0, items.Count - 1));
+            int randomNum = Mathf.RoundToInt(Random.Range(0, items.Count - .49f));
             GameObject item = items[randomNum];
             while (gacha_itemList.Contains(item))
             {
-                randomNum = Mathf.RoundToInt(Random.Range(0, items.Count - 1));
+                randomNum = Mathf.RoundToInt(Random.Range(0, items.Count - .49f));
+                Debug.Log(items[randomNum]);
                 item = items[randomNum];
             }
+            Debug.Log(randomNum);
             GameObject itemSlot = itemSlots[i];
             ItemSlotManager ism = itemSlot.GetComponent<ItemSlotManager>();
             ism.SetData(item);
             gacha_itemList.Add(item);
         }
+        gacha_itemList.Clear();
     }
     public void SelectWeapon(GameObject weapon)
     {
         levelGUI.SetActive(false);
+        Time.timeScale = 1;
         if (weaponPair.ContainsValue(weapon)) UpgradeWeapon(weapon);
         else AddWeapon(weapon);
     }
@@ -64,6 +67,7 @@ public class InventoryManager : MonoBehaviour
     {
         WeaponController wc = weapon.GetComponent<WeaponController>();
         wc.UpdateWeaponLevel();
+        Debug.Log("WeaponLvl:" + wc.levelNum);
         if (wc.levelNum == wc.levels.Count)
         {
             items.Remove(weapon);

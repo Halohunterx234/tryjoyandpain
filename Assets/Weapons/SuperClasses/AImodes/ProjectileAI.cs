@@ -42,10 +42,8 @@ public class ProjectileAI : ScriptableObject
         //get the projectile object & its speed from the ISO
         //the projectile direction will be calculated through fireAI with info
         //from the player
-        Debug.Log("firing straight");
         Rigidbody2D projRB = proj.GetComponent<Rigidbody2D>();
         projRB.velocity = (dir * iProjectileSpeed);
-        Debug.Log(projRB.velocity);
         return null;
     }
 

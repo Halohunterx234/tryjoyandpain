@@ -64,12 +64,8 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         //run through each projectile under the levels
         levelproj currentlevel = levels[levelNum-1];
         iSO = levels[levelNum-1].get_projectiles()[0];
-        Debug.Log(levelNum);
-        Debug.Log(iSO);
-        print(this.gameObject);
         foreach (ItemSuperClassSO projectile in currentlevel.get_projectiles())
         {
-            print(projectile);
             for (int i = 0; i <= projectile.iProjectileSpawnCount-1 ;i++)
             {
                 //pass all information about the projectile to the fireAI method
@@ -112,9 +108,7 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
     //updates the data 
     public void DirectUpdate()
     {
-        print("levelled");
         levelNum = (levelNum >= levels.Count) ? levelNum : levelNum + 1;
-        print(levelNum);
         iSO = levels[levelNum-1].get_projectiles()[0];
         print(iSO);
         UpdateData();
@@ -129,12 +123,8 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
 
     public virtual void UpdateLevel()
     {
-        print("levelled");
         levelNum = (levelNum >= levels.Count) ? levelNum : levelNum + 1;
-        print(levelNum);
-        print(this.gameObject);
         iSO = levels[levelNum - 1].get_projectiles()[0];
-        print(iSO);
         UpdateData();
     }
 }
