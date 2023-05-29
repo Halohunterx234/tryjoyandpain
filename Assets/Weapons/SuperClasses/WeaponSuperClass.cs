@@ -69,11 +69,10 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         {
             for (int i = 0; i <= projectile.iProjectileSpawnCount-1 ;i++)
             {
-                aSource.clip = iSO.fireEffect;
-                aSource.Play();
+                //aSource.clip = iSO.fireEffect;
+                //aSource.Play();
                 //pass all information about the projectile to the fireAI method
                 StartCoroutine(fireAI.StartFire(levels.Count, levelNum, projectile.iProjectileSpawnCount, i, projectile, player.transform, projectile.projAIMode, player, projectile.fireMode, projectile.iProjectileSpawnDelay));
-               
             }
          
         }
@@ -84,6 +83,7 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
     public void init()
     {
         player = FindObjectOfType<Player>().gameObject;
+        aSource = GetComponent<AudioSource>();
         levelNum = 1;
         iSO = levels[levelNum - 1].get_projectiles()[0];
         CDMax = iSO.CDMax;

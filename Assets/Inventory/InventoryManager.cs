@@ -31,8 +31,30 @@ public class InventoryManager : MonoBehaviour
     {
         levelGUI.SetActive(true);
         Time.timeScale = 0;
+        foreach (GameObject item in items)
+        {
+            gacha_itemList.Add(item);
+        }
+        for (int i = 0; i < items.Count-1 || i < itemSlots.Count-1; i++)
+        {
+            int randomNum = Mathf.RoundToInt(Random.Range(0, gacha_itemList.Count));
+            print(randomNum);
+            print(gacha_itemList[randomNum]);
+            GameObject item = gacha_itemList[randomNum];
+            foreach (GameObject islot in itemSlots)
+            {
+                if (item == islot) return;
+            }
+            GameObject itemSlot = itemSlots[i];
+            ItemSlotManager ism = itemSlot.GetComponent<ItemSlotManager>();
+            ism.SetData(item);
+            gacha_itemList.Remove(item);
+        }
+        gacha_itemList.Clear();
+        /*
         for (int i = 0; i < itemSlots.Count-1 || i < items.Count-1; i++)
         {
+            print(i);
             int randomNum = Mathf.RoundToInt(Random.Range(0, items.Count - .49f));
             GameObject item = items[randomNum];
             while (gacha_itemList.Contains(item))
@@ -41,12 +63,14 @@ public class InventoryManager : MonoBehaviour
                 Debug.Log(items[randomNum]);
                 item = items[randomNum];
             }
+            print(items[randomNum]);
             GameObject itemSlot = itemSlots[i];
             ItemSlotManager ism = itemSlot.GetComponent<ItemSlotManager>();
             ism.SetData(item);
             gacha_itemList.Add(item);
         }
         gacha_itemList.Clear();
+        */
     }
     public void SelectWeapon(GameObject weapon)
     {
