@@ -14,11 +14,10 @@ public class WeaponController : WeaponSuperClass
         if (this.gameObject.activeSelf && this.gameObject.name != "Pistol") this.gameObject.SetActive(false);
         else
         {
-            init();
+            //init();
             InventoryManager im = FindObjectOfType<InventoryManager>();
             print(im);
             im.AddWeapon(this.gameObject);
-
         }
     }
     private void Update()

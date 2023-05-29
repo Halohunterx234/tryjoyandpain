@@ -35,6 +35,7 @@ public class ItemSlotManager : MonoBehaviour
 
     public void SetData(GameObject weapon)
     {
+        this.gameObject.SetActive(true);
         currentweapon = weapon;
         WeaponController wc = weapon.GetComponent<WeaponController>();
         Button button = itemButton.GetComponent<Button>();
@@ -54,5 +55,10 @@ public class ItemSlotManager : MonoBehaviour
         }
         TextMeshProUGUI description = itemDesc.GetComponent<TextMeshProUGUI>();
         description.text = wc.levels[wc.levelNum].get_projectiles()[0].item_Desc;
+    }
+
+    public void ClearData()
+    {
+        this.gameObject.SetActive(false);
     }
 }
