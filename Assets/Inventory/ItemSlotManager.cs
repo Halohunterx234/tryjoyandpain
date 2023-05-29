@@ -52,5 +52,7 @@ public class ItemSlotManager : MonoBehaviour
             string nextLevel = (wc.levelNum + 1).ToString();
             name.text += ": LVL " + nextLevel;
         }
+        TextMeshProUGUI description = itemDesc.GetComponent<TextMeshProUGUI>();
+        description.text = wc.levels[wc.levelNum].get_projectiles()[0].item_Desc;
     }
 }

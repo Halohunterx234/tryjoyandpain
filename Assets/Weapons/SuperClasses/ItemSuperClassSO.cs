@@ -49,7 +49,8 @@ public class ItemSuperClassSO : ScriptableObject
     [Range(0.1f, 10f)]
     public float iProjectileSize = 1f;
 
-    private int iProjectileMode;
+    [Header("Description")]
+    public string item_Desc;
 
     [Header("Rotation Difference (For Multi-Projectile Types)")]
     public float iProjectileRotDiff;

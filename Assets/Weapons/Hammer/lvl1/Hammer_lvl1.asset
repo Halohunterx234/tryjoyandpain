@@ -15,6 +15,7 @@ MonoBehaviour:
   level: 1
   iGO: {fileID: 7879636733754015044, guid: ead46e15b6349804c93083b1b9f9001a, type: 3}
   iProjectileGO: {fileID: 2501627978220943909, guid: f40e79a5d02cf024c857ba989698c4c2, type: 3}
+  maxlvlSprite: {fileID: 0}
   iProjectileXOffset: 0
   iProjectileYOffset: 0
   iProjectileSpawnDelay: 0
@@ -27,9 +28,11 @@ MonoBehaviour:
   iProjectileSpeed: 10
   iProjectileRot: -145
   iProjectileSize: 1
+  item_Desc: test
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0
   fireMode: 6
+  fireEffect: {fileID: 0}
   projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
   fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}

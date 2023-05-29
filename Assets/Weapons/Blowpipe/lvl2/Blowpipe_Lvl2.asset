@@ -28,9 +28,11 @@ MonoBehaviour:
   iProjectileSpeed: 14
   iProjectileRot: 0
   iProjectileSize: 1
+  item_Desc: teerg
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0
   fireMode: 5
+  fireEffect: {fileID: 0}
   projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
   fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}

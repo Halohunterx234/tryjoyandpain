@@ -7,7 +7,12 @@ public class WeaponController : WeaponSuperClass
     private void Awake()
     {
         if (this.gameObject.activeSelf && this.gameObject.name != "Pistol") this.gameObject.SetActive(false);
-        else init();
+        else
+        {
+            InventoryManager im = FindObjectOfType<InventoryManager>();
+            im.AddWeapon(this.gameObject);
+            init();
+        }
     }
 
     private void Update()
@@ -22,7 +27,6 @@ public class WeaponController : WeaponSuperClass
 
     public void UpdateWeaponLevel()
     {
-        Debug.Log(levelNum);
         if (levelNum == 0 )
         {
             init();

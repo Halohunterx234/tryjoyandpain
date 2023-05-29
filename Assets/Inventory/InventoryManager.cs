@@ -41,7 +41,6 @@ public class InventoryManager : MonoBehaviour
                 Debug.Log(items[randomNum]);
                 item = items[randomNum];
             }
-            Debug.Log(randomNum);
             GameObject itemSlot = itemSlots[i];
             ItemSlotManager ism = itemSlot.GetComponent<ItemSlotManager>();
             ism.SetData(item);
@@ -61,13 +60,28 @@ public class InventoryManager : MonoBehaviour
         if (weaponPair.Count == weaponSlots.Count) return;
         weaponPair.Add(weaponSlots[weaponPair.Count], weapon);
         UpgradeWeapon(weapon);
+        AddWeaponToInventory(weapon);
     }
+    
+    public void AddWeaponToInventory(GameObject weapon)
+    {
+        for (int i = 0; i < weaponSlots.Count; i++)
+        {
+            if (inventorySlots.Count < 10 && weaponSlots[i].GetComponentInChildren<InventorySlotManager>().icon.enabled == false)
+            {
+                InventorySlotManager ism = weaponSlots[i].GetComponent<InventorySlotManager>();
+                print(ism);
+                ism.SetIcon(weapon);
+                inventorySlots.Add(weapon);
+                break;
+            }
 
+        }
+    }
     public void UpgradeWeapon(GameObject weapon)
     {
         WeaponController wc = weapon.GetComponent<WeaponController>();
         wc.UpdateWeaponLevel();
-        Debug.Log("WeaponLvl:" + wc.levelNum);
         if (wc.levelNum == wc.levels.Count)
         {
             items.Remove(weapon);
