@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 7901250013883294701}
   - component: {fileID: 7901250013883294702}
   - component: {fileID: 2861209952547235880}
+  - component: {fileID: 3897213312030421077}
   m_Layer: 0
   m_Name: Axe
   m_TagString: Untagged
@@ -124,9 +125,41 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7901250013883294700}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5241b9dddc4496540aa84b7aa82c900f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  level: []
+  iSO: {fileID: 11400000, guid: 7244d6a75d684a14ca27c8379ff29a18, type: 2}
+  levelNum: 1
+  CD: 0
+  CDMax: 3
+  firePoint: {fileID: 3432661458546473397}
+  projectileSO: {fileID: 0}
+  projAIMode: 0
+  fireAIMode: 0
+  fireAI: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
+  levels:
+  - projectilesList:
+    - {fileID: 11400000, guid: 7244d6a75d684a14ca27c8379ff29a18, type: 2}
+  - projectilesList:
+    - {fileID: 11400000, guid: 2ae0effa3610d4b4e91b527908c00dd4, type: 2}
+  - projectilesList:
+    - {fileID: 11400000, guid: 09fd48cfaf11c93429f1cb36dbaf48f3, type: 2}
+  - projectilesList:
+    - {fileID: 11400000, guid: 49cbbf96902d6fc4dab6973ba59e3303, type: 2}
+--- !u!114 &3897213312030421077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7901250013883294700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c7307ef9eb3fe44ca9c97551e89f625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
@@ -135,7 +168,7 @@ MonoBehaviour:
   levelNum: 0
   CD: 0
   CDMax: 2
-  firePoint: {fileID: 3432661458546473397}
+  firePoint: {fileID: 0}
   projectileSO: {fileID: 0}
   projAIMode: 0
   fireAIMode: 0

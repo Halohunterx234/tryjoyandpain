@@ -64,6 +64,9 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         //run through each projectile under the levels
         levelproj currentlevel = levels[levelNum-1];
         iSO = levels[levelNum-1].get_projectiles()[0];
+        Debug.Log(levelNum);
+        Debug.Log(iSO);
+        print(this.gameObject);
         foreach (ItemSuperClassSO projectile in currentlevel.get_projectiles())
         {
             print(projectile);
@@ -77,20 +80,18 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         }
         
     }
+
+  
     public void init()
     {
-        //update its values with the first level's values
         player = FindObjectOfType<Player>().gameObject;
         levelNum = 1;
-        iSO = levels[levelNum-1].get_projectiles()[0];
-        //iSO = level[levelNum-1];
-        //print(level[levelNum-1]);
+        iSO = levels[levelNum - 1].get_projectiles()[0];
         CDMax = iSO.CDMax;
         CD = iSO.CD;
-        //projAIMode = iSO.projAIMode;
-        //fireAIMode = iSO.fireMode;
-        //projectileSO.init(iSO);
-        //iSO.iPosition = firePoint;
+        this.gameObject.SetActive(true);
+        //update its values with the first level's values
+       
     }
 
     //cd manager
@@ -126,11 +127,12 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         CD = iSO.CD;
     }
 
-    public void UpdateLevel()
+    public virtual void UpdateLevel()
     {
         print("levelled");
         levelNum = (levelNum >= levels.Count) ? levelNum : levelNum + 1;
         print(levelNum);
+        print(this.gameObject);
         iSO = levels[levelNum - 1].get_projectiles()[0];
         print(iSO);
         UpdateData();

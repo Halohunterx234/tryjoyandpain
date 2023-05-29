@@ -13,6 +13,7 @@ public class XpController : MonoBehaviour
     Slider xpBar;
     TextMeshProUGUI xplvltext;
     Arua_Damage ar;
+    InventoryManager im;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class XpController : MonoBehaviour
         xplvl = 1;
         xpMax = CalculateNextLvlXP(xplvl, xp);
         ar = FindObjectOfType<Arua_Damage>();
+        im = FindObjectOfType<InventoryManager>();
     }
     private void Start()
     {
@@ -51,6 +53,7 @@ public class XpController : MonoBehaviour
             xpMax = CalculateNextLvlXP(xplvl, xp);
             xpBar.maxValue = xpMax; xpBar.minValue = xp;
             xplvltext.text = xplvl.ToString();
+            im.SpawnWeapons();
         }
         
     }
