@@ -7,6 +7,9 @@ public class XpOrbController : MonoBehaviour
     CircleCollider2D circleCollider;
     public int xp;
 
+    public AudioSource aSource;
+    public AudioClip boop;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +26,9 @@ public class XpOrbController : MonoBehaviour
     {
         if (collision != null && collision.gameObject.GetComponent<Player>())
         {
+            aSource.clip = boop;
+            aSource.Play();
+
             XpController xpC = FindObjectOfType<XpController>();
             xpC.AddXP(xp);
             Destroy(this.gameObject);
