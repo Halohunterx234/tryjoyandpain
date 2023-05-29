@@ -46,16 +46,17 @@ public class XpController : MonoBehaviour
     public void AddXP(int newXP)
     {
         xp += newXP;
-        xpBar.value = xp;
-        if (xp > xpMax)
+        if (xp >= xpMax)
         {
             xplvl++;
             xpMax = CalculateNextLvlXP(xplvl, xp);
             xpBar.maxValue = xpMax; xpBar.minValue = xp;
             xplvltext.text = xplvl.ToString();
             im.SpawnWeapons();
+            //play sound effect
+
         }
-        
+        xpBar.value = xp;
     }
 
 }
