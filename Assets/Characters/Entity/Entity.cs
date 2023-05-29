@@ -42,7 +42,6 @@ public class Entity : MonoBehaviour
         if (spawnsDamageTxt)
         {
             GameObject damagetxt = Instantiate(dmgTxt, transform.position, Quaternion.identity);
-            print(transform.position); print(damagetxt.transform.position);
             damagetxt.GetComponent<DamageTextController>().ChangeText(dmg.ToString(), transform.position);
         }
         CheckHealth();

@@ -45,11 +45,12 @@ public class ItemSlotManager : MonoBehaviour
         name.text = wc.gameObject.name;
         if (wc.levelNum == 0)
         {
-            name.text += " 'NEW'" ;
+            name.text += " 'NEW!'" ;
         }
         else if (wc.levelNum > 0)
         {
-            name.text += ": " + wc.levelNum;
+            string nextLevel = (wc.levelNum + 1).ToString();
+            name.text += ": LVL " + nextLevel;
         }
     }
 }

@@ -63,7 +63,8 @@ public class ItemSuperClassSO : ScriptableObject
     [Header("Weapon Firing AI")]
     public enumfireAI fireMode;
 
-    
+    [Header("Sound Effects")]
+    public AudioClip fireEffect;
 
     [Header("Scriptable Object References")]
     public ProjectileAI projModes;

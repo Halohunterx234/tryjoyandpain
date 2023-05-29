@@ -39,6 +39,12 @@ public class FireAI : ScriptableObject
         //Spawn the projectile and then update its initalized data with
         //the corresponding level weapon's Scriptable Object
         yield return new WaitForSeconds(delay);
+        /*
+         * putting audio stuff and play them here
+         * put the audioclips reference in the itemsuperclassSO
+        AudioClip clip = iSO.fireEffect;
+        AudioSource audioSource = player.GetComponent<AudioSource>();
+        */
         GameObject Projectile = Instantiate(iSO.iProjectileGO, (Vector2)firePoint.position + new Vector2(iSO.iProjectileXOffset, iSO.iProjectileYOffset) * player.transform.localScale.x, Quaternion.identity); 
         Projectile.GetComponent<Transform>().localScale *= iSO.iProjectileSize;
         Projectiles p = Projectile.GetComponent<Projectiles>();

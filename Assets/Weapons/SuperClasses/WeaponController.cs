@@ -6,7 +6,7 @@ public class WeaponController : WeaponSuperClass
 {
     private void Awake()
     {
-        if (this.gameObject.activeSelf && this.gameObject.name != "Pistol (1)") this.gameObject.SetActive(false);
+        if (this.gameObject.activeSelf && this.gameObject.name != "Pistol") this.gameObject.SetActive(false);
         else init();
     }
 
