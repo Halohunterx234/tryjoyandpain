@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WaveController : MonoBehaviour
@@ -26,13 +27,16 @@ public class WaveController : MonoBehaviour
     public GameObject switcher;
 
 
+    [Header("GUI")]
+    public TextMeshProUGUI TimeText;
+
     float extra_c;
     private void Start()
     {
         player = FindObjectOfType<Player>().gameObject;
         waveTimer = waveMaxTimer;
         switcher = enemy;
-
+        TimeText = GameObject.Find("Time").GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()
@@ -58,7 +62,9 @@ public class WaveController : MonoBehaviour
             SwitchEnemy();
         }
         timer += Time.deltaTime;
-
+        string minutes = (Mathf.RoundToInt(timer) / 60) >= 10 ? (Mathf.RoundToInt(timer) / 60).ToString() : "0" + (Mathf.RoundToInt(timer) / 60).ToString();
+        string seconds = (Mathf.RoundToInt(timer) % 60) >= 10 ? (Mathf.RoundToInt(timer) % 60).ToString() : "0" + (Mathf.RoundToInt(timer) % 60).ToString();
+        TimeText.text = minutes + ":" + seconds;
     }
 
     protected void SpawnWave()
