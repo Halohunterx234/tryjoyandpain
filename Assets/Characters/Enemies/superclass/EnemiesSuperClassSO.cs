@@ -16,4 +16,23 @@ public class EnemiesSuperClassSO : ScriptableObject
     public int collisionDmg;
     [Range(0f, 30f)]
     public int exp;
+
+
+    [Header("Projectile Spawn Offsets")]
+    [Range(-10f, 10f)]
+    public float iProjectileXOffset;
+    [Range(-10f, 10f)]
+    public float iProjectileYOffset;
+
+    [Header("Projectile Spawn Delay (ie For Stacking Projectiles)")]
+    [Range(0f, 2f)]
+    public float iProjectileSpawnDelay;
+
+    [Header("Projectile Stats")]
+    [Range(0f, 20f)]
+    public int iProjectiledamage;
+
+    [Header("GameObject References")]
+    public GameObject eProjectileGO;
+
 }

@@ -89,6 +89,10 @@ public class Entity : MonoBehaviour
         {
             GetDamaged(collision.gameObject.GetComponent<Entity>().collisionDmg);
         }
+        else if(collision.GetComponent<EnemyProjectile>() && this.gameObject.GetComponent<Player>())
+        {
+            GetDamaged(collision.gameObject.GetComponent<EnemyProjectile>().dmg);
+        }
     }
 
 }

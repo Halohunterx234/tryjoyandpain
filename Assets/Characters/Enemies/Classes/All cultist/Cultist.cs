@@ -14,6 +14,7 @@ public abstract class Cultist : Entity
     public AiSuperClassSO aiSO;
     public EnemiesSuperClassSO eSO;
     protected Cultist c;
+    protected float CD, CDMax;
 
 
     public void Start()
@@ -26,6 +27,38 @@ public abstract class Cultist : Entity
         aiSO.insertData(c,eSO);
     }
 
+    /*public void StartingFire()
+    {
+        StartCoroutine(aiSO.StartFire());
+    }*/
+
+    protected void CDUpdate()
+    {
+        if (CD >= CDMax)
+        {
+            CD = 0;
+            OnFire();
+        }
+        else CD += Time.deltaTime;
+    }
+
+    public virtual void OnFire()
+    {
+        //run through each projectile under the levels
+        
+        /*foreach (ItemSuperClassSO projectile)
+        {
+            print(projectile);
+            for (int i = 0; i <= projectile.iProjectileSpawnCount - 1; i++)
+            {
+                //pass all information about the projectile to the fireAI method
+                StartCoroutine(fireAI.StartFire(levels.Count, levelNum, projectile.iProjectileSpawnCount, i, projectile, player.transform, projectile.projAIMode, player, projectile.fireMode, projectile.iProjectileSpawnDelay));
+
+            }
+
+        }*/
+
+    }
     /*protected void Chase()
     {
         //Move to player's position
