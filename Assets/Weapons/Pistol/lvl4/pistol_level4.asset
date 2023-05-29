@@ -33,6 +33,6 @@ MonoBehaviour:
   iProjectileSpawnCount: 2
   projAIMode: 0
   fireMode: 4
-  fireEffect: {fileID: 8300000, guid: 21feef2562057a24fb26aacf8af534b3, type: 3}
+  fireEffect: {fileID: 8300000, guid: 512369d66db8b3d4bac8f3cd7189d55f, type: 3}
   projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
   fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
