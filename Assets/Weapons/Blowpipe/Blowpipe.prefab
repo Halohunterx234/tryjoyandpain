@@ -133,7 +133,7 @@ MonoBehaviour:
   player: {fileID: 0}
   level: []
   iSO: {fileID: 11400000, guid: 66276714115904e6fab08a2d0a7f8ea1, type: 2}
-  levelNum: 2
+  levelNum: 0
   CD: 0
   CDMax: 3
   firePoint: {fileID: 0}

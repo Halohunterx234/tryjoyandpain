@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7947867803627736193}
   - component: {fileID: 7947867803627736194}
   - component: {fileID: 7947867803627736195}
+  - component: {fileID: 1698601411}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -40,17 +41,23 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7947867803627736192}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80a6a89e981aa4ac7b3ac98d37106a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   waveCount: 0
-  enemyCount: 5
+  enemyCount: 2
   waveTimer: 0
-  waveMaxTimer: 5
+  waveMaxTimer: 7.5
+  timer: 0
+  waveSwitched: 0
   player: {fileID: 0}
   enemy: {fileID: 4905509171078055955, guid: adb2781490e7e4bce83782469f0eb58e, type: 3}
+  fastBoi: {fileID: 6924869932545276992, guid: f7902ab562b4d3b47a651033c898dbf4, type: 3}
+  bBM: {fileID: 384422082934420416, guid: 7ff02d355dc0f3940b2eaaa33bbcf460, type: 3}
+  bigBoi: {fileID: 922853541515137635, guid: 210929b0bceb18846994277990d6be82, type: 3}
+  switcher: {fileID: 0}
 --- !u!114 &7947867803627736195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,3 +70,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652c966531a062b489871395e434c8f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1698601411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7947867803627736192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32389bf6ddcf3f48a91e1c46e0e5719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  supportSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  levelGUI: {fileID: 0}
+  inventory: {fileID: 0}
+  itemSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  gacha_itemList: []
+  inventorySlots: []

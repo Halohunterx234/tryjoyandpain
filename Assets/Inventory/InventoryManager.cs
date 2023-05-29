@@ -67,7 +67,7 @@ public class InventoryManager : MonoBehaviour
     {
         for (int i = 0; i < weaponSlots.Count; i++)
         {
-            if (inventorySlots.Count < 10 && weaponSlots[i].GetComponentInChildren<InventorySlotManager>().icon.enabled == false)
+            if (inventorySlots.Count < 10 && weaponSlots[i].GetComponent<InventorySlotManager>().icon.enabled == false)
             {
                 InventorySlotManager ism = weaponSlots[i].GetComponent<InventorySlotManager>();
                 print(ism);

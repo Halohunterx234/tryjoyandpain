@@ -135,7 +135,7 @@ MonoBehaviour:
   player: {fileID: 0}
   level: []
   iSO: {fileID: 0}
-  levelNum: 1
+  levelNum: 0
   CD: 0
   CDMax: 0
   firePoint: {fileID: 0}

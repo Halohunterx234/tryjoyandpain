@@ -13,7 +13,9 @@ public class WaveController : MonoBehaviour
     protected float waveTimer, waveMaxTimer;
     protected float distance = 10f;
     protected float maxDistance = 20f;
+    [SerializeField]
     protected float timer=0;
+    [SerializeField]
     protected int waveSwitched=0;
 
 
@@ -49,8 +51,9 @@ public class WaveController : MonoBehaviour
             SpawnWave();
         }
         else waveTimer += Time.deltaTime;
-        if (Mathf.RoundToInt(timer) % 300 == 0)
+        if (Mathf.RoundToInt(timer) % 300 == 0 && timer >= 1)
         {
+            print(Mathf.RoundToInt(timer));
             waveSwitched += 1;
             SwitchEnemy();
         }

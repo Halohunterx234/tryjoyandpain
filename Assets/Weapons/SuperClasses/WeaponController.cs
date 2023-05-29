@@ -6,15 +6,21 @@ public class WeaponController : WeaponSuperClass
 {
     private void Awake()
     {
+        
+    }
+
+    private void Start()
+    {
         if (this.gameObject.activeSelf && this.gameObject.name != "Pistol") this.gameObject.SetActive(false);
         else
         {
-            InventoryManager im = FindObjectOfType<InventoryManager>();
-            im.AddWeapon(this.gameObject);
             init();
+            InventoryManager im = FindObjectOfType<InventoryManager>();
+            print(im);
+            im.AddWeapon(this.gameObject);
+
         }
     }
-
     private void Update()
     {
         CDUpdate();
