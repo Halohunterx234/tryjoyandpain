@@ -16,7 +16,7 @@ MonoBehaviour:
   iGO: {fileID: 5008961574690699278, guid: 413e7ef3de43c4f79b3cecdc9c521a70, type: 3}
   iProjectileGO: {fileID: 606303878426287567, guid: 94da3b58317d945aea708b87186962b9, type: 3}
   maxlvlSprite: {fileID: 0}
-  iProjectileXOffset: 1
+  iProjectileXOffset: 2
   iProjectileYOffset: 0
   iProjectileSpawnDelay: 0
   iProjectiledamage: 1

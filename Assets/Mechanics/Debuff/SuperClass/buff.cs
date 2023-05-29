@@ -27,7 +27,7 @@ public class buff : ScriptableObject
     public void init(GameObject tobebuffed, Component buff_script)
     {
         entity_go = tobebuffed;
-        Entity entity = entity_go.GetComponent<Entity>();
+        entity = entity_go.GetComponent<Entity>();
         buff_cd = 0; buff_currentLength = 0;
         sr = entity_go.GetComponent<SpriteRenderer>();
         sr.color = buff_color;

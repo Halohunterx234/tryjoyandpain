@@ -58,7 +58,11 @@ public class Entity : MonoBehaviour
                 Instantiate(xpOrb, transform.position, Quaternion.identity);
                 xpOrb.gameObject.GetComponent<XpOrbController>().SetXP(xp);
             }
-            
+            if (this.gameObject.GetComponent<Player>())
+            {
+                LevelManagerController lmc = FindObjectOfType<LevelManagerController>();
+                lmc.GameIsOver();
+            }
             Destroy(this.gameObject);
         }
         else

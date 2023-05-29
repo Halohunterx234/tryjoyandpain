@@ -80647,7 +80647,7 @@ GameObject:
   m_Component:
   - component: {fileID: 780717439}
   m_Layer: 5
-  m_Name: game over screen
+  m_Name: GameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145122,6 +145122,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069593672}
   m_CullTransparentMesh: 1
+--- !u!1 &2079322739 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7947867803627736192, guid: e19ec54ccecaf1341be5e35c2df5a6b0, type: 3}
+  m_PrefabInstance: {fileID: 1630721154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2079322743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079322739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bb758b190a4864793489e63cec62c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2091466590 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3915066708183080533, guid: b2e7f7ff2c489fb40a223f15c1626617, type: 3}
@@ -145264,7 +145281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1260156069476371926, guid: 8559c6441e2faf342a5cdef5b54dfb9f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2.399994
+      value: -2.4000244
       objectReference: {fileID: 0}
     - target: {fileID: 1260156069874992247, guid: 8559c6441e2faf342a5cdef5b54dfb9f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -145516,11 +145533,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4905509171078055952, guid: adb2781490e7e4bce83782469f0eb58e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.073
+      value: 6.05
       objectReference: {fileID: 0}
     - target: {fileID: 4905509171078055952, guid: adb2781490e7e4bce83782469f0eb58e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.15
+      value: -1.13
       objectReference: {fileID: 0}
     - target: {fileID: 4905509171078055952, guid: adb2781490e7e4bce83782469f0eb58e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -145675,6 +145692,10 @@ PrefabInstance:
     - target: {fileID: 621888661789291599, guid: 20d0b30392d5e18499a32a1252fd4b2e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2122299717058003857, guid: 20d0b30392d5e18499a32a1252fd4b2e, type: 3}
+      propertyPath: levels.Array.data[0].projectilesList.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d0b30392d5e18499a32a1252fd4b2e, type: 3}
