@@ -17,4 +17,10 @@ public class InventorySlotManager : MonoBehaviour
         icon.sprite = weapon.GetComponent<SpriteRenderer>().sprite;
 
     }
+
+    public void ClearIcon()
+    {
+        icon.enabled = false;
+        icon.sprite=null;
+    }
 }

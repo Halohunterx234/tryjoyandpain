@@ -37,13 +37,21 @@ public class InventoryManager : MonoBehaviour
         }
         if (items.Count <= 4)
         {
-            for (int i = 0; i < items.Count; i++)
+            for (int i = 0; i < itemSlots.Count; i++)
             {
-                GameObject item = items[i];
-                GameObject itemSlot = itemSlots[i];
-                ItemSlotManager ism = itemSlot.GetComponent<ItemSlotManager>();
-                ism.SetData(item);
-
+                if (i+1 <= items.Count)
+                {
+                    GameObject item = items[i];
+                    GameObject itemSlot = itemSlots[i];
+                    ItemSlotManager ism = itemSlot.GetComponent<ItemSlotManager>();
+                    ism.SetData(item);
+                }
+                else
+                {
+                    GameObject itemSlot = itemSlots[i];
+                    ItemSlotManager ism = itemSlot.gameObject.GetComponent<ItemSlotManager>();
+                    ism.ClearData();
+                }
             }
         }
         else
