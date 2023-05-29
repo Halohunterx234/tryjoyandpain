@@ -35,20 +35,30 @@ public class InventoryManager : MonoBehaviour
         {
             gacha_itemList.Add(item);
         }
-        for (int i = 0; i < items.Count-1 || i < itemSlots.Count-1; i++)
+        if (items.Count <= 4)
         {
-            int randomNum = Mathf.RoundToInt(Random.Range(0, gacha_itemList.Count));
-            print(randomNum);
-            print(gacha_itemList[randomNum]);
-            GameObject item = gacha_itemList[randomNum];
-            foreach (GameObject islot in itemSlots)
+            for (int i = 0; i < items.Count; i++)
             {
-                if (item == islot) return;
+                GameObject item = items[i];
+                GameObject itemSlot = itemSlots[i];
+                ItemSlotManager ism = itemSlot.GetComponent<ItemSlotManager>();
+                ism.SetData(item);
+
             }
-            GameObject itemSlot = itemSlots[i];
-            ItemSlotManager ism = itemSlot.GetComponent<ItemSlotManager>();
-            ism.SetData(item);
-            gacha_itemList.Remove(item);
+        }
+        else
+        {
+            for (int i = 0; i < items.Count - 1 || i < itemSlots.Count - 1; i++)
+            {
+                int randomNum = Mathf.RoundToInt(Random.Range(0, gacha_itemList.Count));
+                print(randomNum);
+                print(gacha_itemList[randomNum]);
+                GameObject item = gacha_itemList[randomNum];
+                GameObject itemSlot = itemSlots[i];
+                ItemSlotManager ism = itemSlot.GetComponent<ItemSlotManager>();
+                ism.SetData(item);
+                gacha_itemList.Remove(item);
+            }
         }
         gacha_itemList.Clear();
         /*
