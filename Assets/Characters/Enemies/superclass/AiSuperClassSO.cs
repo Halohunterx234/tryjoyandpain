@@ -77,12 +77,6 @@ public class AiSuperClassSO : ScriptableObject
         GameObject Projectile = Instantiate(eISO.eProjectileGO, (Vector2)firePoint.position + new Vector2(eISO.iProjectileXOffset, eISO.iProjectileYOffset) * Mathf.Sign(enemy.transform.localScale.x), Quaternion.identity);
         EnemyProjectile p = Projectile.GetComponent<EnemyProjectile>();
 
-
-
-
-
-
-
     }
     
 
