@@ -63,12 +63,13 @@ public class AiSuperClassSO : ScriptableObject
         {
             enemy.transform.localScale = new Vector3(enemy.transform.localScale.x * -1, enemy.transform.localScale.y);
         }
-        StartingFire();
+
+
         return null;
     }
 
 
-    public IEnumerator StartFire(float delay, bool canfire, EnemiesSuperClassSO eISO, Transform firePoint,GameObject enemy,)
+    public IEnumerator StartFire(float delay, bool canfire, EnemiesSuperClassSO eISO, Transform firePoint,GameObject enemy)
     {
         if (canfire == false) yield break;
         canfire = false;
@@ -83,6 +84,7 @@ public class AiSuperClassSO : ScriptableObject
 
 
     }
+    
 
     public void insertData(Cultist c, EnemiesSuperClassSO eSO)
     {

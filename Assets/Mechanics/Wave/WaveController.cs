@@ -13,18 +13,29 @@ public class WaveController : MonoBehaviour
     protected float waveTimer, waveMaxTimer;
     protected float distance = 10f;
     protected float maxDistance = 20f;
+    protected float timer=0;
+    protected int waveSwitched=0;
+
 
     public GameObject player, enemy;
+    public GameObject fastBoi;
+    public GameObject bBM;
+    public GameObject bigBoi;
+    public GameObject switcher;
+
 
     float extra_c;
     private void Start()
     {
         player = FindObjectOfType<Player>().gameObject;
         waveTimer = waveMaxTimer;
+        switcher = enemy;
+
     }
 
     private void Update()
     {
+        
         if (player == null) return;
         if (waveTimer >= waveMaxTimer)
         {
@@ -38,6 +49,13 @@ public class WaveController : MonoBehaviour
             SpawnWave();
         }
         else waveTimer += Time.deltaTime;
+        if (Mathf.RoundToInt(timer) % 300 == 0)
+        {
+            waveSwitched += 1;
+            SwitchEnemy();
+        }
+        timer += Time.deltaTime;
+
     }
 
     protected void SpawnWave()
@@ -50,7 +68,7 @@ public class WaveController : MonoBehaviour
             for (int j = extra_c <= 0 ? 0: -1; j < indiv_c; j++)
               {
                 Vector3 spawn = getSpawnDir(i);
-                Instantiate(enemy, spawn, Quaternion.identity);
+                Instantiate(switcher, spawn, Quaternion.identity);
               }
             extra_c -= 1;
         }
@@ -68,5 +86,12 @@ public class WaveController : MonoBehaviour
     protected void FillWave()
     {
         //fills up a arraylist with 
+    }
+
+    protected void SwitchEnemy()
+    {
+        if (waveSwitched % 4 == 1) switcher = fastBoi;
+        if (waveSwitched % 4 == 2) switcher = bBM;
+        if (waveSwitched % 4 == 3) switcher = bigBoi;
     }
 }
