@@ -14,6 +14,8 @@ public class XpController : MonoBehaviour
     TextMeshProUGUI xplvltext;
     Arua_Damage ar;
     InventoryManager im;
+    public AudioSource aSource;
+    public AudioClip dingDing;
 
     private void Awake()
     {
@@ -26,6 +28,7 @@ public class XpController : MonoBehaviour
     private void Start()
     {
         xpBar = GetComponent<Slider>();
+        aSource = GetComponent<AudioSource>();
         xpBar.maxValue = xpMax; xpBar.minValue = xp; xpBar.value = xp;
         xplvltext = GameObject.Find("XpLvl").GetComponent<TextMeshProUGUI>();
         xplvltext.text = xplvl.ToString();
@@ -50,6 +53,10 @@ public class XpController : MonoBehaviour
         if (xp > xpMax)
         {
             xplvl++;
+
+            aSource.clip = dingDing;
+            aSource.Play();
+
             xpMax = CalculateNextLvlXP(xplvl, xp);
             xpBar.maxValue = xpMax; xpBar.minValue = xp;
             xplvltext.text = xplvl.ToString();
