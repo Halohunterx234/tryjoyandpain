@@ -22,13 +22,13 @@ MonoBehaviour:
   iProjectiledamage: 3
   iProjectileknockBack: 0.25
   CD: 0
-  CDMax: 0.5
+  CDMax: 0.4
   canActiviate: 0
   iProjectileDespawn: 2
   iProjectileSpeed: 10
   iProjectileRot: 180
   iProjectileSize: 1
-  item_Desc: 
+  item_Desc: Shoots 2 projectiles in each direction, decreases cooldown
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 2
   projAIMode: 0

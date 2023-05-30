@@ -28,7 +28,7 @@ MonoBehaviour:
   iProjectileSpeed: 12
   iProjectileRot: 0
   iProjectileSize: 1
-  item_Desc: test
+  item_Desc: Shoots a dart at a nearby enemy
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0

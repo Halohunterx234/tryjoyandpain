@@ -28,7 +28,7 @@ MonoBehaviour:
   iProjectileSpeed: 10
   iProjectileRot: 180
   iProjectileSize: 1
-  item_Desc: rgrgrt
+  item_Desc: Decreases cooldown
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0

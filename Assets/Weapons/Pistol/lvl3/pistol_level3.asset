@@ -28,7 +28,7 @@ MonoBehaviour:
   iProjectileSpeed: 10
   iProjectileRot: 180
   iProjectileSize: 1
-  item_Desc: 
+  item_Desc: Increases damage and shoots another projectile in the opposite direction
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0

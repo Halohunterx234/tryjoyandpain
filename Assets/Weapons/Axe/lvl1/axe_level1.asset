@@ -27,8 +27,8 @@ MonoBehaviour:
   iProjectileDespawn: 0.5
   iProjectileSpeed: 7.5
   iProjectileRot: 180
-  iProjectileSize: 1.74
-  item_Desc: test
+  iProjectileSize: 1.15
+  item_Desc: Swings in a large arc in the direction you are facing
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0

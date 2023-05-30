@@ -28,7 +28,7 @@ MonoBehaviour:
   iProjectileSpeed: 7.5
   iProjectileRot: -45
   iProjectileSize: 1.74
-  item_Desc: test
+  item_Desc: FIres multiple icicles around you that slows enemies hit
   iProjectileRotDiff: 45
   iProjectileSpawnCount: 4
   projAIMode: 0

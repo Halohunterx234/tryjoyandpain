@@ -28,7 +28,7 @@ MonoBehaviour:
   iProjectileSpeed: 10
   iProjectileRot: 180
   iProjectileSize: 1
-  item_Desc: test
+  item_Desc: Fires a projectile in direction you are facing
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0

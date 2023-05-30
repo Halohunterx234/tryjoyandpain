@@ -22,13 +22,13 @@ MonoBehaviour:
   iProjectiledamage: 5
   iProjectileknockBack: 0
   CD: 0
-  CDMax: 3
+  CDMax: 2.5
   canActiviate: 0
   iProjectileDespawn: 2.5
   iProjectileSpeed: 15
   iProjectileRot: 0
   iProjectileSize: 1
-  item_Desc: 
+  item_Desc: increases projectile speed and damage
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0

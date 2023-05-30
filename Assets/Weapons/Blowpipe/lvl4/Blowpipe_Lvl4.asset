@@ -19,16 +19,16 @@ MonoBehaviour:
   iProjectileXOffset: 0
   iProjectileYOffset: 0
   iProjectileSpawnDelay: 0
-  iProjectiledamage: 5
+  iProjectiledamage: 7
   iProjectileknockBack: 0
   CD: 0
-  CDMax: 3
+  CDMax: 2
   canActiviate: 0
   iProjectileDespawn: 2.5
   iProjectileSpeed: 15
   iProjectileRot: 0
   iProjectileSize: 1
-  item_Desc: 
+  item_Desc: Increases damage and decrease cooldown
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 2
   projAIMode: 0

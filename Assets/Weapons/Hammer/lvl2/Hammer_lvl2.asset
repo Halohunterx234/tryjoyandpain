@@ -28,7 +28,7 @@ MonoBehaviour:
   iProjectileSpeed: 10
   iProjectileRot: -145
   iProjectileSize: 1
-  item_Desc: wddq
+  item_Desc: Throws an additional hammer
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 2
   projAIMode: 0

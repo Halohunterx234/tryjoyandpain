@@ -27,8 +27,8 @@ MonoBehaviour:
   iProjectileDespawn: 0.5
   iProjectileSpeed: 7.5
   iProjectileRot: 180
-  iProjectileSize: 1.28
-  item_Desc: wdwdad
+  iProjectileSize: 1.3
+  item_Desc: Increases damage and size of slash
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0

@@ -28,7 +28,8 @@ MonoBehaviour:
   iProjectileSpeed: 10
   iProjectileRot: -145
   iProjectileSize: 1
-  item_Desc: test
+  item_Desc: Throws a hammer in a random direction that pierces enemies before returning
+    to you
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0

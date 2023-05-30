@@ -28,7 +28,7 @@ MonoBehaviour:
   iProjectileSpeed: 7.5
   iProjectileRot: 180
   iProjectileSize: 1.5
-  item_Desc: 
+  item_Desc: increases slash range and size
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0

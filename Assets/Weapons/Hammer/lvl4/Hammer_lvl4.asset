@@ -19,7 +19,7 @@ MonoBehaviour:
   iProjectileXOffset: 0
   iProjectileYOffset: 0
   iProjectileSpawnDelay: 0
-  iProjectiledamage: 4
+  iProjectiledamage: 5
   iProjectileknockBack: 0
   CD: 0
   CDMax: 3
@@ -28,7 +28,8 @@ MonoBehaviour:
   iProjectileSpeed: 10
   iProjectileRot: -145
   iProjectileSize: 1
-  item_Desc: 
+  item_Desc: Throws an additional hammer and lightning strikes enemies on hit, stunning
+    them
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 4
   projAIMode: 0

@@ -145191,7 +145191,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -145402,6 +145402,10 @@ PrefabInstance:
       propertyPath: aSource
       value: 
       objectReference: {fileID: 2105098968}
+    - target: {fileID: 1260156069476371924, guid: 8559c6441e2faf342a5cdef5b54dfb9f, type: 3}
+      propertyPath: dingDing
+      value: 
+      objectReference: {fileID: 8300000, guid: a016bce5e2ff739418d0ff8227d46b0d, type: 3}
     - target: {fileID: 1260156069476371926, guid: 8559c6441e2faf342a5cdef5b54dfb9f, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.94696
