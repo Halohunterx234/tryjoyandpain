@@ -70,4 +70,8 @@ public class ItemSuperClassSO : ScriptableObject
     [Header("Scriptable Object References")]
     public ProjectileAI projModes;
     public FireAI fireModes;
+
+    [Header("Add Buff On Impact")]
+    public buff buff;
+    
 }

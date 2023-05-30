@@ -127,6 +127,12 @@ public class Projectiles : MonoBehaviour
     {
         if (!collision.gameObject.isStatic && !collision.gameObject.GetComponent<Player>() && !collision.gameObject.GetComponent<Projectiles>())
         { 
+            if (iso.buff != null)
+            {
+                collision.gameObject.AddComponent<BuffSuperClass>();
+                BuffSuperClass bsc = collision.gameObject.GetComponent<BuffSuperClass>();
+                bsc.init_buff(iso.buff);
+            }
             Destroy(this.gameObject);
         }
     }
@@ -135,6 +141,12 @@ public class Projectiles : MonoBehaviour
     {
         if (!collision.gameObject.isStatic && !collision.gameObject.GetComponent<Player>() && !collision.gameObject.GetComponent<Projectiles>() && !collision.gameObject.GetComponent<XpOrbController>())
         {
+            if (iso.buff != null && collision.GetComponent<Entity>())
+            {
+                collision.gameObject.AddComponent<BuffSuperClass>();
+                BuffSuperClass bsc = collision.gameObject.GetComponent<BuffSuperClass>();
+                bsc.init_buff(iso.buff);
+            }
             Destroy(this.gameObject);
         }
     }

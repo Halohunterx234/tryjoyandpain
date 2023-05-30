@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1412adf2ed93ba4aaff21f974541d70, type: 3}
   m_Name: IceDebuff
   m_EditorClassIdentifier: 
-  buff_length: 2
-  buff_cd: 0
+  buff_length: 3
+  buff_cd: 1.0029548
   buff_cdMax: 1
-  buff_damage: 1
+  buff_damage: 0
   buff_speedScale: 0.5
-  buff_color: {r: 0, g: 0.88063455, b: 1, a: 0}
+  buff_color: {r: 0, g: 0.88063455, b: 1, a: 1}
