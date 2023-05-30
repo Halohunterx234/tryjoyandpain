@@ -42,7 +42,7 @@ public class Player : Entity
     void Update()
     {
         
-        if (Application.isMobilePlatform) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (!Application.isMobilePlatform) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         else
         {
             //print(rb.velocity.x);
