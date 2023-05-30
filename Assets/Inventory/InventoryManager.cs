@@ -29,6 +29,7 @@ public class InventoryManager : MonoBehaviour
     }
     public void SpawnWeapons()
     {
+        if (items.Count == 0) return;
         levelGUI.SetActive(true);
         Time.timeScale = 0;
         foreach (GameObject item in items)
