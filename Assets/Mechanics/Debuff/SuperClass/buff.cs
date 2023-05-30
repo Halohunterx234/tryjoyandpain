@@ -9,6 +9,7 @@ public class buff : ScriptableObject
     //each child then will be attached to a entity 
     [Range(0f, 10f)]
     public float buff_length;
+    [SerializeField]
     private float buff_currentLength;
     public float buff_cd;
     [Range(0f, 5f)]
@@ -45,6 +46,7 @@ public class buff : ScriptableObject
         }
         buff_cd += time;
         buff_currentLength += time;
+        Debug.Log(buff_currentLength);
         if (buff_currentLength >= buff_length)
         {
             Debug.Log("disable");

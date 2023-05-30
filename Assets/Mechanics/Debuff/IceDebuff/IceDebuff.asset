@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: IceDebuff
   m_EditorClassIdentifier: 
   buff_length: 3
-  buff_cd: 1.0029548
+  buff_currentLength: 127.57696
+  buff_cd: 0.035154
   buff_cdMax: 1
   buff_damage: 0
   buff_speedScale: 0.5
