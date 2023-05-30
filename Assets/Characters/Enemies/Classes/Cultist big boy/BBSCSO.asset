@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: BBSCSO
   m_EditorClassIdentifier: 
   moveSpeed: 0.5
-  health: 15
+  health: 25
   collisionDmg: 3
   exp: 3
+  iProjectileXOffset: 0
+  iProjectileYOffset: 0
+  iProjectileSpawnDelay: 0
+  iProjectiledamage: 0
+  eProjectileGO: {fileID: 0}
