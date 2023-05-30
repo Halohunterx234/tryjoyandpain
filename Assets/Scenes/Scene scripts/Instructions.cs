@@ -18,7 +18,7 @@ public class Instructions : MonoBehaviour
     }
     public void MainMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
 }
