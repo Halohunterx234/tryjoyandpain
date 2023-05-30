@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e883a828e2cf77443b87335f8c833f31
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - IceDebuff: {fileID: 11400000, guid: 9a61ea4486fe69d4da73bd053f0002be, type: 2}
+  - PoisonDebuff: {instanceID: 0}
+  - ShockedDebuff: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

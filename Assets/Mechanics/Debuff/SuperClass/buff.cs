@@ -23,8 +23,8 @@ public class buff : ScriptableObject
     private GameObject entity_go;
     private Entity entity;
     private SpriteRenderer sr;
-    private Component buff_component;
-    public void init(GameObject tobebuffed, Component buff_script)
+    private BuffSuperClass buff_component;
+    public void init(GameObject tobebuffed, BuffSuperClass buff_script)
     {
         entity_go = tobebuffed;
         entity = entity_go.GetComponent<Entity>();
@@ -33,27 +33,34 @@ public class buff : ScriptableObject
         sr.color = buff_color;
         buff_component = buff_script;
     }
-    public void CD_Update()
+    public void CD_Update(float time)
     {
+        Debug.Log(buff_cd);
+        Debug.Log(buff_cdMax);
         if (buff_cd >= buff_cdMax)
         {
+            Debug.Log("end");
             buff_cd = 0;
             buff_Proc();
         }
-        buff_cd += Time.deltaTime;
-        buff_currentLength += Time.deltaTime;
+        buff_cd += time;
+        buff_currentLength += time;
         if (buff_currentLength >= buff_length)
         {
+            Debug.Log("disable");
             Disable(buff_component);
         }
     }
 
     public void buff_Proc()
     {
+        Debug.Log("Proc");
+        Debug.Log(sr);
+        Debug.Log(buff_color);
         sr.color = buff_color;
         if (buff_damage > 0)
         {
-            entity.GetDamaged(buff_damage);
+            entity.GetDamaged_ByBuff(buff_damage, buff_color);
         }
         if (buff_speedScale != 1)
         {
@@ -62,8 +69,9 @@ public class buff : ScriptableObject
         }
     }
 
-    public void Disable(Component buff)
+    public void Disable(BuffSuperClass buff)
     {
+        Debug.Log("disabled");
         if (buff_speedScale != 1)
         {
             entity.moveSpeed = og_speed;

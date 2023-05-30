@@ -47,6 +47,18 @@ public class Entity : MonoBehaviour
         CheckHealth();
     }
 
+    public void GetDamaged_ByBuff(int dmg, Color debuff_color)
+    {
+        sr.color = debuff_color;
+        hp -= dmg;
+        //spawn dmg
+        if (spawnsDamageTxt)
+        {
+            GameObject damagetxt = Instantiate(dmgTxt, transform.position, Quaternion.identity);
+            damagetxt.GetComponent<DamageTextController>().ChangeText(dmg.ToString(), transform.position);
+        }
+        CheckHealth();
+    }
     protected void CheckHealth()
     {
         OnCheckHealth();
