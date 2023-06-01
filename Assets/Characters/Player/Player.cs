@@ -46,15 +46,23 @@ public class Player : Entity
         else
         {
             //print(rb.velocity.x);
-            rb.velocity =new Vector2(VirtualJoystick.GetAxis("Horizontal"),
-                VirtualJoystick.GetAxis("Vertical"))  * moveSpeed;
-            
-            if (rb.velocity.x > 0.01 && transform.localScale.x > 0.01)
+            if (VirtualJoystick.GetAxis("Horizontal") != 0 || VirtualJoystick.GetAxis("Vertical") != 0)
             {
-            transform.localScale = new Vector2(transform.localScale.x *-1,  transform.localScale.y);
-            }else if(rb.velocity.x < -0.01 && transform.localScale.x < -0.01)
+                rb.velocity = new Vector2(VirtualJoystick.GetAxis("Horizontal"),
+                VirtualJoystick.GetAxis("Vertical")) * moveSpeed;
+
+                if (rb.velocity.x > 0.01 && transform.localScale.x > 0.01)
+                {
+                    transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+                }
+                else if (rb.velocity.x < -0.01 && transform.localScale.x < -0.01)
+                {
+                    transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+                }
+            }
+            else
             {
-                transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+                rb.velocity = new Vector2(0, 0);
             }
 
         }
