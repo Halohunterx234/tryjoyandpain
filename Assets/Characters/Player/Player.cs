@@ -28,7 +28,7 @@ public class Player : Entity
     // Start is called before the first frame update
     void Start()
     {
-        isMobile = false;
+        isMobile = true;
         mainCam = Camera.main;
         //weapons.Add(pistol);
         rb = GetComponent<Rigidbody2D>();
@@ -45,9 +45,10 @@ public class Player : Entity
         if (!Application.isMobilePlatform && !isMobile) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         else
         {
-            //print(rb.velocity.x);
+            //Check if the player is moving the joystick
             if (VirtualJoystick.GetAxis("Horizontal") != 0 || VirtualJoystick.GetAxis("Vertical") != 0)
             {
+                //If yes, assign the RigidBody the corresponding velocity
                 rb.velocity = new Vector2(VirtualJoystick.GetAxis("Horizontal"),
                 VirtualJoystick.GetAxis("Vertical")) * moveSpeed;
 
@@ -60,6 +61,8 @@ public class Player : Entity
                     transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
                 }
             }
+            //If not, set the current velocity to 0
+            //This removes friction and gives the player finer movement control
             else
             {
                 rb.velocity = new Vector2(0, 0);

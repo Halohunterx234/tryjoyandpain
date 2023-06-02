@@ -61,7 +61,12 @@ public class ItemSuperClassSO : ScriptableObject
     [Header("Projectile AI")]
     public projAI projAIMode;
 
-    [Header("Weapon Firing AI")]
+    [Header("[Projectile AI] Curve Angle (in degrees)")]
+    public double projCurveAngle;
+    [Header("[Projectile AI] Curve Scaling Factor")]
+    public float projCurveScale;
+
+    [Header("[FireAI]")]
     public enumfireAI fireMode;
 
     [Header("Sound Effects")]

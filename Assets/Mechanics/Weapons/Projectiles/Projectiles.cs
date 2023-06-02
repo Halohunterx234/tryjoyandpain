@@ -23,7 +23,6 @@ public class Projectiles : MonoBehaviour
     public float projectileRot, projectileDespawnTime;
     public int projectileMode;
 
-    private float return_after;
 
     [SerializeField]
     private bool Constant_Rotate;
@@ -32,6 +31,7 @@ public class Projectiles : MonoBehaviour
     float Constant_RotationSpeed;
 
     [Header("Return To __")]
+    private float return_after;
     public bool returning;
     public returnTo return_to;
     //return to specific position after ___ of time
@@ -41,15 +41,24 @@ public class Projectiles : MonoBehaviour
     [Range(0f, 10f)]
     public float returning_distance;
 
+    [Header("Curve")]
+    public bool isCurving;
+    public double curveAngle;
+    public float curveScale;
+    public Vector3 curveDir;
+    public Vector3 originalDir;
+
     private float time;
 
     //References
     GameObject player;
+    Rigidbody2D rb;
     public Dictionary<int, System.Action> projectileModes = new Dictionary<int, System.Action>();
 
     private void Start()
     {
         player = FindObjectOfType<Player>().gameObject;
+        rb = GetComponent<Rigidbody2D>();
        // projModes.StartAI(this.gameObject, player, iso.iProjectileSpeed);
         StartCoroutine(projModes.DespawnTimer(iso.iProjectileDespawn, this.gameObject));
         /*
@@ -68,6 +77,7 @@ public class Projectiles : MonoBehaviour
             fireModes.RotateProjectile(this.gameObject, -Constant_RotationSpeed * time);
         }
         if (returning) StartCoroutine(return_proj());
+        if (isCurving) Curve();
         time += Time.deltaTime;
     }
 
@@ -96,6 +106,18 @@ public class Projectiles : MonoBehaviour
             default:
                 yield break;
         }
+    }
+
+    private void Curve()
+    {
+        if (curveDir.normalized != originalDir.normalized)
+        {
+            float newangle = Mathf.LerpAngle(Mathf.Atan2(originalDir.normalized.y, originalDir.normalized.x) * Mathf.Rad2Deg, Mathf.Atan2(curveDir.normalized.y, curveDir.normalized.x) * Mathf.Rad2Deg, time * curveScale);
+            float newangleradians = newangle * Mathf.Deg2Rad;
+            Vector3 newDir = new Vector2(Mathf.Cos(newangleradians), Mathf.Sin(newangleradians));
+            rb.velocity = newDir * projectileSpeed;
+        }
+        else isCurving = false;
     }
     //Pistol Bullet Stats
     //public float pistolBulletSpeed = 7.5f;

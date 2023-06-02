@@ -3052,7 +3052,7 @@ GameObject:
   - component: {fileID: 3915066709033383017}
   - component: {fileID: 3915066709033383018}
   m_Layer: 0
-  m_Name: Slider
+  m_Name: Hp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3680,7 +3680,7 @@ MonoBehaviour:
   dmgTxt: {fileID: 0}
   xpOrb: {fileID: 5607117518481939413, guid: cec8b4e111b7e014a9a89bd4f3bc2aca, type: 3}
   pistol: {fileID: 0}
-  isMobile: 0
+  isMobile: 1
   isPressed: 0
   movePos: {x: 0, y: 0, z: 0}
   mainCam: {fileID: 0}
@@ -4329,7 +4329,7 @@ RectTransform:
   m_GameObject: {fileID: 3915066709493494005}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.075, y: 1, z: 1}
+  m_LocalScale: {x: 1.1533532, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3915066708294005735}
@@ -4338,7 +4338,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -0.69999695, y: 0}
+  m_AnchoredPosition: {x: -0.099998474, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3915066709512274861
