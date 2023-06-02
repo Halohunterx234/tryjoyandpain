@@ -19,6 +19,8 @@ public class WaveController : MonoBehaviour
     [SerializeField]
     protected int waveSwitched=0;
 
+    private bool onceOnly=true;
+    private float timeOfActivation;
 
     public GameObject player, enemy;
     public GameObject fastBoi;
@@ -38,8 +40,7 @@ public class WaveController : MonoBehaviour
     }
 
     private void Update()
-    {
-        
+    {        
         if (player == null) return;
         if (waveTimer >= waveMaxTimer)
         {
@@ -53,17 +54,25 @@ public class WaveController : MonoBehaviour
             SpawnWave();
         }
         else waveTimer += Time.deltaTime;
-        if (Mathf.RoundToInt(timer) % 300 == 0 && timer >= 1)
+        if (Mathf.RoundToInt(timer) % 300 == 0 )
         {
+            if (!onceOnly) return;
             print(Mathf.RoundToInt(timer));
             waveSwitched += 1;
             SwitchEnemy();
+            onceOnly = false;
+            timeOfActivation = Time.time;
         }
         timer += Time.deltaTime;
         string minutes = (Mathf.RoundToInt(timer) / 60) >= 10 ? (Mathf.RoundToInt(timer) / 60).ToString() : "0" + (Mathf.RoundToInt(timer) / 60).ToString();
         string seconds = (Mathf.RoundToInt(timer) % 60) >= 10 ? (Mathf.RoundToInt(timer) % 60).ToString() : "0" + (Mathf.RoundToInt(timer) % 60).ToString();
         time_text.text = minutes + ":" + seconds;
-    
+        if (!onceOnly) CheckingActivation();  
+    }
+
+    protected void CheckingActivation()
+    {
+        if (Time.time >= timeOfActivation + 1f) onceOnly = true;
     }
 
     protected void SpawnWave()
@@ -102,4 +111,6 @@ public class WaveController : MonoBehaviour
         if (waveSwitched % 4 == 2) switcher = bBM;
         if (waveSwitched % 4 == 3) switcher = bigBoi;
     }
+
+
 }
