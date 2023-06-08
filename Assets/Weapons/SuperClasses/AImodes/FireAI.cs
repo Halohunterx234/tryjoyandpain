@@ -226,7 +226,7 @@ public class FireAI : ScriptableObject
         p.projectileRot = iSO.iProjectileRot;
         p.iso = iSO;
         p.aiMode = iSO.projAIMode;
-        
+        Debug.Log(p.aiMode);
     }
 
     //Function to return projectile to player

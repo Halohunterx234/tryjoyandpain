@@ -59,7 +59,6 @@ public class Projectiles : MonoBehaviour
     {
         player = FindObjectOfType<Player>().gameObject;
         rb = GetComponent<Rigidbody2D>();
-       // projModes.StartAI(this.gameObject, player, iso.iProjectileSpeed);
         StartCoroutine(projModes.DespawnTimer(iso.iProjectileDespawn, this.gameObject));
         /*
         projectileModes.Add(0, BiDirectionalFire);
