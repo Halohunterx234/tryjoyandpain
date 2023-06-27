@@ -21,6 +21,8 @@ public class XpOrbController : MonoBehaviour
     public void SetXP(int xp)
     {
         this.xp = xp;
+        XpController xpC = FindObjectOfType<XpController>();
+        xpC.AddXP(xp);
     }
 
     // Update is called once per frame

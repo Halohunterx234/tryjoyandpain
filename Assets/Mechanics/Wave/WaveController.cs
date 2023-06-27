@@ -42,6 +42,10 @@ public class WaveController : MonoBehaviour
     private void Update()
     {        
         if (player == null) return;
+        timer += Time.deltaTime;
+        string minutes = (Mathf.RoundToInt(timer) / 60) >= 10 ? (Mathf.RoundToInt(timer) / 60).ToString() : "0" + (Mathf.RoundToInt(timer) / 60).ToString();
+        string seconds = (Mathf.RoundToInt(timer) % 60) >= 10 ? (Mathf.RoundToInt(timer) % 60).ToString() : "0" + (Mathf.RoundToInt(timer) % 60).ToString();
+        time_text.text = minutes + ":" + seconds;
         if (waveTimer >= waveMaxTimer)
         {
             waveTimer = 0;
@@ -54,19 +58,21 @@ public class WaveController : MonoBehaviour
             SpawnWave();
         }
         else waveTimer += Time.deltaTime;
-        if (Mathf.RoundToInt(timer) % 300 == 0 )
+
+        print(Mathf.RoundToInt(timer));
+        if (Mathf.RoundToInt(timer) % 300 == 0 && Mathf.RoundToInt(timer) != 0 )
         {
-            if (!onceOnly) return;
+
+            if (!onceOnly)
+            {
+                return;
+            }
+            onceOnly = false;
             print(Mathf.RoundToInt(timer));
             waveSwitched += 1;
             SwitchEnemy();
-            onceOnly = false;
             timeOfActivation = Time.time;
         }
-        timer += Time.deltaTime;
-        string minutes = (Mathf.RoundToInt(timer) / 60) >= 10 ? (Mathf.RoundToInt(timer) / 60).ToString() : "0" + (Mathf.RoundToInt(timer) / 60).ToString();
-        string seconds = (Mathf.RoundToInt(timer) % 60) >= 10 ? (Mathf.RoundToInt(timer) % 60).ToString() : "0" + (Mathf.RoundToInt(timer) % 60).ToString();
-        time_text.text = minutes + ":" + seconds;
         if (!onceOnly) CheckingActivation();  
     }
 
@@ -107,9 +113,11 @@ public class WaveController : MonoBehaviour
 
     protected void SwitchEnemy()
     {
+        
         if (waveSwitched % 4 == 1) switcher = fastBoi;
         if (waveSwitched % 4 == 2) switcher = bBM;
         if (waveSwitched % 4 == 3) switcher = bigBoi;
+        Debug.Log(waveSwitched);
     }
 
 
