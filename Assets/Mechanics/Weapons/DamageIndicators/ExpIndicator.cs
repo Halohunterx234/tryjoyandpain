@@ -21,15 +21,15 @@ public class ExpIndicator : MonoBehaviour
         alpha -= Time.deltaTime*200;
         expColor.a = alpha;
         txt.color = expColor;
-
+        
     }
 
     public void ChangeText(string exp)
     {
         txt = this.gameObject.GetComponent<TextMeshPro>();
         rb = this.gameObject.GetComponent<Rigidbody2D>();
-        txt.text = exp;
-        Vector3 movePos = new Vector2(0, -1);
+        txt.text = "+" + exp + " " + "XP!";
+        Vector3 movePos = new Vector2(0, -0.5f);
         rb.velocity = movePos;
     }
 }

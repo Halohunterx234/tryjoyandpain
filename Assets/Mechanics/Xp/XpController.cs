@@ -50,7 +50,7 @@ public class XpController : MonoBehaviour
     public void AddXP(int newXP)
     {
         xp += newXP;
-        GameObject expText = Instantiate(exptxt, FindObjectOfType<Player>().transform.position - new  Vector3(0,0.5f,0), Quaternion.identity);
+        GameObject expText = Instantiate(exptxt, FindObjectOfType<Player>().transform.position - new  Vector3(0.5f,1f,0), Quaternion.identity);
         expText.GetComponent<ExpIndicator>().ChangeText(newXP.ToString());
         xpBar.value = xp;
         if (xp > xpMax)
