@@ -22,6 +22,7 @@ public class Entity : MonoBehaviour
     void Awake()
     {
         minHp = 0;
+        
     }
     //protected void Start()
     //{

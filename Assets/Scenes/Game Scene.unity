@@ -80657,6 +80657,79 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3915066708061776563, guid: b2e7f7ff2c489fb40a223f15c1626617, type: 3}
   m_PrefabInstance: {fileID: 528026096}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &765896826
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1311190364}
+    m_Modifications:
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.2883253
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.8089676
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.32165083
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.59314716
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.010566634
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0077151926
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.8049877
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 1.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 107.237
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291869, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_Name
+      value: Dust left particle effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291869, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eebcd2e2e10fea94a873633455404492, type: 3}
 --- !u!1 &780717438
 GameObject:
   m_ObjectHideFlags: 0
@@ -81254,6 +81327,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215608466}
   m_CullTransparentMesh: 1
+--- !u!1001 &1278161983
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1311190364}
+    m_Modifications:
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.32165083
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291864, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291869, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: m_Name
+      value: Dust particle effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644561450704291871, guid: eebcd2e2e10fea94a873633455404492, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eebcd2e2e10fea94a873633455404492, type: 3}
 --- !u!1 &1293554154 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3915066707914784395, guid: b2e7f7ff2c489fb40a223f15c1626617, type: 3}
