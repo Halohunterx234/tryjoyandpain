@@ -69,6 +69,7 @@ public class WaveController : MonoBehaviour
             }
             onceOnly = false;
             print(Mathf.RoundToInt(timer));
+            enemyCount = 1;
             waveSwitched += 1;
             SwitchEnemy();
             timeOfActivation = Time.time;
