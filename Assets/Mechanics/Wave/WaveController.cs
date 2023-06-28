@@ -59,7 +59,6 @@ public class WaveController : MonoBehaviour
         }
         else waveTimer += Time.deltaTime;
 
-        print(Mathf.RoundToInt(timer));
         if (Mathf.RoundToInt(timer) % 300 == 0 && Mathf.RoundToInt(timer) != 0 )
         {
 

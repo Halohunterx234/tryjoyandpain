@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+[RequireComponent(typeof(TextMeshPro))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class ExpIndicator : MonoBehaviour
 {
     Rigidbody2D rb;

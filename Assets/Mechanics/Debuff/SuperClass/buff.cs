@@ -40,7 +40,6 @@ public class buff : ScriptableObject
         Debug.Log(buff_cdMax);
         if (buff_cd >= buff_cdMax)
         {
-            Debug.Log("end");
             buff_cd = 0;
             buff_Proc();
         }
@@ -66,7 +65,7 @@ public class buff : ScriptableObject
         }
         if (buff_speedScale != 1)
         {
-            og_speed = entity.moveSpeed;
+            //og_speed = entity.moveSpeed;
             entity.moveSpeed *= buff_speedScale;
         }
     }
@@ -76,7 +75,8 @@ public class buff : ScriptableObject
         Debug.Log("disabled");
         if (buff_speedScale != 1)
         {
-            entity.moveSpeed = og_speed;
+            //entity.moveSpeed = og_speed;
+            entity.moveSpeed *= -buff_speedScale;
         }
         Destroy(buff);
     }
