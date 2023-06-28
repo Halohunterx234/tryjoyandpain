@@ -9,13 +9,15 @@ public class XpOrbController : MonoBehaviour
 
     public AudioSource aSource;
     public AudioClip beep;
-    
+
+    bool isPickedUp;
 
     // Start is called before the first frame update
     void Start()
     {
         circleCollider = GetComponent<CircleCollider2D>();
         aSource = GetComponent<AudioSource>();
+        isPickedUp = false;
     }
 
     public void SetXP(int xp)
@@ -28,6 +30,7 @@ public class XpOrbController : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isPickedUp) return;
         if (collision != null && collision.gameObject.GetComponent<Player>())
         {
             
@@ -41,6 +44,7 @@ public class XpOrbController : MonoBehaviour
 
     IEnumerator beepbeepboopboop()
     {
+        isPickedUp = true;
         SpriteRenderer sr;
         sr = GetComponent<SpriteRenderer>();
 

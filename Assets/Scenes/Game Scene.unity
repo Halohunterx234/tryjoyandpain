@@ -145561,6 +145561,10 @@ PrefabInstance:
       value: -21.499985
       objectReference: {fileID: 0}
     - target: {fileID: 1260156069476371924, guid: 8559c6441e2faf342a5cdef5b54dfb9f, type: 3}
+      propertyPath: exptxt
+      value: 
+      objectReference: {fileID: 2237490011412164817, guid: 09af35fb5cfbff043b7c1a14a625e688, type: 3}
+    - target: {fileID: 1260156069476371924, guid: 8559c6441e2faf342a5cdef5b54dfb9f, type: 3}
       propertyPath: aSource
       value: 
       objectReference: {fileID: 2105098968}

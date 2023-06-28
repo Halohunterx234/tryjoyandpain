@@ -16,7 +16,7 @@ public class XpController : MonoBehaviour
     InventoryManager im;
     public AudioSource aSource;
     public AudioClip dingDing;
-    //public GameObject exptxt;
+    public GameObject exptxt;
     //References
     GameObject player;
 
@@ -53,14 +53,20 @@ public class XpController : MonoBehaviour
     public void AddXP(int newXP)
     {
         xp += newXP;
-        GameObject expText = new GameObject("ExpText");
+        /*
+         * GameObject expText = new GameObject("ExpText");
         expText.transform.position = player.transform.position - new Vector3(0.5f, 1f, 0);
         expText.transform.SetParent(player.transform);
-        //expText = Instantiate(expText, FindObjectOfType<Player>().transform.position - new  Vector3(0.5f,1f,0), Quaternion.identity);
         ExpIndicator expInd = expText.AddComponent<ExpIndicator>();
         expInd.ChangeText(newXP.ToString());
         TextMeshPro tmp= expText.GetComponent<TextMeshPro>();
         tmp.fontSize = 8;
+        tmp.alignment = TextAlignmentOptions.Center;
+        */
+        print("exp");
+        GameObject expText = Instantiate(exptxt, player.transform.position - new Vector3(0.5f, 1f, 0), Quaternion.identity);
+        expText.GetComponent<ExpIndicator>().ChangeText(newXP.ToString());
+        //expText.transform.SetParent(player.transform);
         xpBar.value = xp;
         if (xp > xpMax)
         {

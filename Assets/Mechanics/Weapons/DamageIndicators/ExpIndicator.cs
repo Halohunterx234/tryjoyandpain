@@ -20,7 +20,7 @@ public class ExpIndicator : MonoBehaviour
     }
     private void Update()
     {
-        alpha -= Time.deltaTime*200;
+        alpha -= Time.deltaTime;
         expColor.a = alpha;
         txt.color = expColor;
         
