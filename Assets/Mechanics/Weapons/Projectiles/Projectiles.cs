@@ -22,7 +22,7 @@ public class Projectiles : MonoBehaviour
     public int projectileDamage;
     public float projectileRot, projectileDespawnTime;
     public int projectileMode;
-
+    public int projectilePenMax; private int projectilePenCount;
 
     [SerializeField]
     private bool Constant_Rotate;
@@ -60,6 +60,7 @@ public class Projectiles : MonoBehaviour
         player = FindObjectOfType<Player>().gameObject;
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine(projModes.DespawnTimer(iso.iProjectileDespawn, this.gameObject));
+        projectilePenCount = 0;
         /*
         projectileModes.Add(0, BiDirectionalFire);
         projectileModes.Add(1, AutoFire());
@@ -153,7 +154,11 @@ public class Projectiles : MonoBehaviour
                 BuffSuperClass bsc = collision.gameObject.GetComponent<BuffSuperClass>();
                 bsc.init_buff(iso.buff);
             }
-            Destroy(this.gameObject);
+            projectilePenCount++;
+            if (projectilePenCount >= projectilePenMax)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 
@@ -167,7 +172,11 @@ public class Projectiles : MonoBehaviour
                 BuffSuperClass bsc = collision.gameObject.GetComponent<BuffSuperClass>();
                 bsc.init_buff(iso.buff);
             }
-            Destroy(this.gameObject);
+            projectilePenCount++;
+            if (projectilePenCount >= projectilePenMax)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
     /*

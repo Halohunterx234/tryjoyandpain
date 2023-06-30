@@ -28,11 +28,15 @@ MonoBehaviour:
   iProjectileSpeed: 10
   iProjectileRot: 180
   iProjectileSize: 1
+  iProjectilePenetration: 1
   item_Desc: Increases damage and shoots another projectile in the opposite direction
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0
+  projCurveAngle: 0
+  projCurveScale: 0
   fireMode: 0
   fireEffect: {fileID: 8300000, guid: 21feef2562057a24fb26aacf8af534b3, type: 3}
   projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
   fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
+  buff: {fileID: 0}

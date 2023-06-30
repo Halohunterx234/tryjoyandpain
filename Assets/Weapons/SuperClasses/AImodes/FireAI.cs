@@ -226,6 +226,7 @@ public class FireAI : ScriptableObject
         p.projectileRot = iSO.iProjectileRot;
         p.iso = iSO;
         p.aiMode = iSO.projAIMode;
+        p.projectilePenMax = iSO.iProjectilePenetration;
         Debug.Log(p.aiMode);
     }
 

@@ -28,11 +28,15 @@ MonoBehaviour:
   iProjectileSpeed: 10
   iProjectileRot: -145
   iProjectileSize: 1
+  iProjectilePenetration: 2
   item_Desc: Throws an additional hammer and increases damage dealt
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 3
   projAIMode: 0
+  projCurveAngle: 0
+  projCurveScale: 0
   fireMode: 6
   fireEffect: {fileID: 8300000, guid: 6ddac64f73ad8a94db95eb4bb765138d, type: 3}
   projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
   fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
+  buff: {fileID: 0}

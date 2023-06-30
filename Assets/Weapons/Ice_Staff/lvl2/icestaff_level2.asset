@@ -28,10 +28,13 @@ MonoBehaviour:
   iProjectileSpeed: 7.5
   iProjectileRot: -45
   iProjectileSize: 1.74
+  iProjectilePenetration: 1
   item_Desc: Gains an additional icicle and increases damage dealt
   iProjectileRotDiff: 45
   iProjectileSpawnCount: 5
   projAIMode: 0
+  projCurveAngle: 0
+  projCurveScale: 0
   fireMode: 4
   fireEffect: {fileID: 0}
   projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}

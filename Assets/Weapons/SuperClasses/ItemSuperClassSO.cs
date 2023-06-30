@@ -48,6 +48,8 @@ public class ItemSuperClassSO : ScriptableObject
     public float iProjectileRot;
     [Range(0.1f, 10f)]
     public float iProjectileSize = 1f;
+    [Range(1f, 100f)]
+    public int iProjectilePenetration;
 
     [Header("Description")]
     public string item_Desc;
