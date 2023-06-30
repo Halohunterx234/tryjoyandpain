@@ -49,7 +49,7 @@ public class WaveController : MonoBehaviour
         if (waveTimer >= waveMaxTimer)
         {
             waveTimer = 0;
-            if (waveCount == 5)
+            if (waveCount == 3)
             {
                 enemyCount += 1;
                 waveCount = 0;
