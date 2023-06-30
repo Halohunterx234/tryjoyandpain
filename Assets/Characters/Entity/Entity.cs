@@ -17,12 +17,12 @@ public class Entity : MonoBehaviour
     public bool spawnsDamageTxt, spawnsXpOrb; //is true for all entiites except player
     //References
     public GameObject dmgTxt, xpOrb;
+    private Color dmgColor = Color.red; //usual color for getting damaged
 
     // Start is called before the first frame update
     void Awake()
     {
         minHp = 0;
-        
     }
     //protected void Start()
     //{
@@ -35,12 +35,18 @@ public class Entity : MonoBehaviour
 
     }
 
+    //When damaged, change color and spawn text
     public void GetDamaged(int dmg)
     {
-        sr.color = Color.red;
+        GetDamaged(dmg, dmgColor);
+    }
+    public void GetDamaged(int dmg, Color debuff_color)
+    {
+        print("color:" + " " + debuff_color);
+        sr.color = debuff_color;
         hp -= dmg;
         //spawn dmg
-        if (spawnsDamageTxt)
+        if (spawnsDamageTxt && dmg != 0)
         {
             GameObject damagetxt = Instantiate(dmgTxt, transform.position, Quaternion.identity);
             damagetxt.GetComponent<DamageTextController>().ChangeText(dmg.ToString(), transform.position);
@@ -50,6 +56,8 @@ public class Entity : MonoBehaviour
 
     public void GetDamaged_ByBuff(int dmg, Color debuff_color)
     {
+        GetDamaged(dmg, debuff_color);
+        /*
         sr.color = debuff_color;
         hp -= dmg;
         //spawn dmg
@@ -59,6 +67,7 @@ public class Entity : MonoBehaviour
             damagetxt.GetComponent<DamageTextController>().ChangeText(dmg.ToString(), transform.position);
         }
         CheckHealth();
+        */
     }
     protected void CheckHealth()
     {

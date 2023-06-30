@@ -2,25 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//type of buff
+//DoT -> Damage Over Time -> Buff will only proc every CD till end of duration
+//Constant -> Buff will be constant till end of duration
+public enum BuffType
+{
+    DoT,
+    Constant
+}
 [CreateAssetMenu(menuName = "Create new Buff AI (For Reference)")]
 public class buff : ScriptableObject
 {
     //each individual debuff will be a unique child of this class
     //each child then will be attached to a entity 
+    private float og_speed;
+    public Color buff_color;
+    public BuffType buff_type;
+
+    [Header("Stats")]
     [Range(0f, 10f)]
     public float buff_length;
     [SerializeField]
     private float buff_currentLength;
-    public float buff_cd;
-    [Range(0f, 5f)]
-    public float buff_cdMax;
-    [Range(0f, 5f)]
+    [Range(0f, 10f)]
     public int buff_damage;
     [Range(0f, 2f)]
     public float buff_speedScale;
-    private float og_speed;
-    public Color buff_color;
 
+    [Header("FOR DoT BUFFS")]
+    [Range(0f, 10f)]
+    public float buff_effectDuration;
+    private float buff_cd;
+    [Range(0f, 5f)]
+    public float buff_cdMax;
+
+
+
+    /*
     private GameObject entity_go;
     private Entity entity;
     private SpriteRenderer sr;
@@ -36,8 +55,6 @@ public class buff : ScriptableObject
     }
     public void CD_Update(float time)
     {
-        Debug.Log(buff_cd);
-        Debug.Log(buff_cdMax);
         if (buff_cd >= buff_cdMax)
         {
             buff_cd = 0;
@@ -55,9 +72,6 @@ public class buff : ScriptableObject
 
     public void buff_Proc()
     {
-        Debug.Log("Proc");
-        Debug.Log(sr);
-        Debug.Log(buff_color);
         sr.color = buff_color;
         if (buff_damage > 0)
         {
@@ -67,17 +81,19 @@ public class buff : ScriptableObject
         {
             //og_speed = entity.moveSpeed;
             entity.moveSpeed *= buff_speedScale;
+            Debug.Log("entity" + entity.moveSpeed);
         }
     }
 
     public void Disable(BuffSuperClass buff)
     {
-        Debug.Log("disabled");
         if (buff_speedScale != 1)
         {
             //entity.moveSpeed = og_speed;
-            entity.moveSpeed *= -buff_speedScale;
+            entity.moveSpeed /= buff_speedScale;
+            Debug.Log("entity" + entity.moveSpeed);
         }
         Destroy(buff);
     }
+    */
 }

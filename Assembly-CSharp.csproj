@@ -61,6 +61,7 @@
     <Compile Include="Assets\Characters\Enemies\Classes\Cultist melee\Cultist_Melee.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
+    <Compile Include="Assets\Mechanics\Debuff\SuperClass\BuffController.cs" />
     <Compile Include="Assets\Characters\Player\Hp\Player_HpController.cs" />
     <Compile Include="Assets\Weapons\SuperClasses\WeaponSuperClass.cs" />
     <Compile Include="Assets\Inventory\InventorySlotManager.cs" />
