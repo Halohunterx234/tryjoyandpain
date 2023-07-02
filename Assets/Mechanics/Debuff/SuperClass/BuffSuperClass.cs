@@ -99,6 +99,7 @@ public class BuffSuperClass : MonoBehaviour
     //activates the effects of the buff;
     public void buff_Proc()
     {
+        print(buff_type);
         sr = this.gameObject.GetComponent<SpriteRenderer>();
         //if (sr.color != buff_color) sr.color = buff_color;
         if (buff_type == BuffType.DoT)

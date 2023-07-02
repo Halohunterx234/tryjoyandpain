@@ -40,4 +40,4 @@ MonoBehaviour:
   fireEffect: {fileID: 8300000, guid: 6ddac64f73ad8a94db95eb4bb765138d, type: 3}
   projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
   fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
-  buff: {fileID: 0}
+  buff: {fileID: 11400000, guid: 672b83d6218f1f541a6612562863d3ad, type: 2}

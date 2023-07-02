@@ -148,18 +148,23 @@ public class Projectiles : MonoBehaviour
     {
         if (!collision.gameObject.isStatic && !collision.gameObject.GetComponent<Player>() && !collision.gameObject.GetComponent<Projectiles>())
         { 
-            if (iso.buff != null)
+            if (iso.buff != null && collision.gameObject.GetComponent<Entity>())
             {
-                BuffSuperClass bsc = collision.gameObject.GetComponent<BuffSuperClass>();
-                if (bsc != null && bsc == iso.buff)
+                bool isPresent = false;
+                BuffSuperClass[] bscs = collision.gameObject.GetComponents<BuffSuperClass>();
+                foreach (BuffSuperClass bsc in bscs)
                 {
-                    bsc.ResetCD();
+                    if (bsc != null && bsc.currentBuff == iso.buff)
+                    {
+                        bsc.ResetCD();
+                        isPresent = true;
+                        break;
+                    }
                 }
-                else
+                if (!isPresent)
                 {
-                    collision.gameObject.AddComponent<BuffSuperClass>();
-                    bsc = collision.gameObject.GetComponent<BuffSuperClass>();
-                    bsc.init_buff(iso.buff);
+                    BuffSuperClass newBSC = collision.gameObject.AddComponent<BuffSuperClass>();
+                    newBSC.init_buff(iso.buff);
                 }
             }
             projectilePenCount++;
@@ -174,21 +179,23 @@ public class Projectiles : MonoBehaviour
     {
         if (!collision.gameObject.isStatic && !collision.gameObject.GetComponent<Player>() && !collision.gameObject.GetComponent<Projectiles>() && !collision.gameObject.GetComponent<XpOrbController>())
         {
-            if (iso.buff != null && collision.GetComponent<Entity>())
+            if (iso.buff != null && collision.gameObject.GetComponent<Entity>())
             {
-                if (iso.buff != null)
+                bool isPresent = false;
+                BuffSuperClass[] bscs = collision.gameObject.GetComponents<BuffSuperClass>();
+                foreach (BuffSuperClass bsc in bscs)
                 {
-                    BuffSuperClass bsc = collision.gameObject.GetComponent<BuffSuperClass>();
-                    if (bsc != null && bsc == iso.buff)
+                    if (bsc != null && bsc.currentBuff == iso.buff)
                     {
                         bsc.ResetCD();
+                        isPresent = true;
+                        break;
                     }
-                    else
-                    {
-                        collision.gameObject.AddComponent<BuffSuperClass>();
-                        bsc = collision.gameObject.GetComponent<BuffSuperClass>();
-                        bsc.init_buff(iso.buff);
-                    }
+                }
+                if (!isPresent)
+                {
+                    BuffSuperClass newBSC = collision.gameObject.AddComponent<BuffSuperClass>();
+                    newBSC.init_buff(iso.buff);
                 }
             }
             projectilePenCount++;
