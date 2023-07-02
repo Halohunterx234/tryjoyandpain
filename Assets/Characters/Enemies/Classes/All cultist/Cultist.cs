@@ -25,6 +25,7 @@ public abstract class Cultist : Entity
         c = GetComponent<Cultist>();
         spawnsDamageTxt = true; spawnsXpOrb = spawnsDamageTxt;
         aiSO.insertData(c,eSO);
+        xp = eSO.exp;
     }
 
     /*public void StartingFire()

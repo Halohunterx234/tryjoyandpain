@@ -77,8 +77,9 @@ public class Entity : MonoBehaviour
             //drop xp orbs
             if (spawnsXpOrb)
             {
-                Instantiate(xpOrb, transform.position, Quaternion.identity);
-                xpOrb.gameObject.GetComponent<XpOrbController>().SetXP(xp);
+                GameObject xpOrbGO = Instantiate(xpOrb, transform.position, Quaternion.identity);
+                print(xp); 
+                xpOrbGO.gameObject.GetComponent<XpOrbController>().SetXP(xp);
             }
             if (this.gameObject.GetComponent<Player>())
             {
