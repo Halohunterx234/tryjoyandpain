@@ -106,7 +106,7 @@ public class BuffSuperClass : MonoBehaviour
             entity.GetDamaged(buff_damage, buff_color);
             StartCoroutine(resetBuff(buff_effectDuration));
         }
-        if (buff_speedScale != 1)
+        if (buff_speedScale != 0 && buff_speedScale != 1)
         {
             //og_speed = entity.moveSpeed;
             entity.moveSpeed *= buff_speedScale;
@@ -132,5 +132,12 @@ public class BuffSuperClass : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         Disable(this);
+    }
+
+    //if the same buff were to be applied on the entity again, dont stack 
+    //instead, just restart the buff length
+    public void ResetCD()
+    {
+        buff_currentLength = 0;
     }
 }

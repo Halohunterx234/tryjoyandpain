@@ -150,9 +150,17 @@ public class Projectiles : MonoBehaviour
         { 
             if (iso.buff != null)
             {
-                collision.gameObject.AddComponent<BuffSuperClass>();
                 BuffSuperClass bsc = collision.gameObject.GetComponent<BuffSuperClass>();
-                bsc.init_buff(iso.buff);
+                if (bsc != null && bsc == iso.buff)
+                {
+                    bsc.ResetCD();
+                }
+                else
+                {
+                    collision.gameObject.AddComponent<BuffSuperClass>();
+                    bsc = collision.gameObject.GetComponent<BuffSuperClass>();
+                    bsc.init_buff(iso.buff);
+                }
             }
             projectilePenCount++;
             if (projectilePenCount >= projectilePenMax)
@@ -168,9 +176,20 @@ public class Projectiles : MonoBehaviour
         {
             if (iso.buff != null && collision.GetComponent<Entity>())
             {
-                collision.gameObject.AddComponent<BuffSuperClass>();
-                BuffSuperClass bsc = collision.gameObject.GetComponent<BuffSuperClass>();
-                bsc.init_buff(iso.buff);
+                if (iso.buff != null)
+                {
+                    BuffSuperClass bsc = collision.gameObject.GetComponent<BuffSuperClass>();
+                    if (bsc != null && bsc == iso.buff)
+                    {
+                        bsc.ResetCD();
+                    }
+                    else
+                    {
+                        collision.gameObject.AddComponent<BuffSuperClass>();
+                        bsc = collision.gameObject.GetComponent<BuffSuperClass>();
+                        bsc.init_buff(iso.buff);
+                    }
+                }
             }
             projectilePenCount++;
             if (projectilePenCount >= projectilePenMax)

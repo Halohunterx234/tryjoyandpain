@@ -29,7 +29,7 @@ MonoBehaviour:
   iProjectileRot: 0
   iProjectileSize: 1
   iProjectilePenetration: 1
-  item_Desc: increases projectile speed and damage
+  item_Desc: increases projectile speed and damage, applies poison upon hit
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0
@@ -39,4 +39,4 @@ MonoBehaviour:
   fireEffect: {fileID: 8300000, guid: 47fcb98e6f63dc945b242428d79e2fc8, type: 3}
   projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
   fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
-  buff: {fileID: 0}
+  buff: {fileID: 11400000, guid: 203940813a32b904b97e43aec11f4592, type: 2}
