@@ -18,11 +18,13 @@ public class Entity : MonoBehaviour
     //References
     public GameObject dmgTxt, xpOrb;
     private Color dmgColor = Color.red; //usual color for getting damaged
+    public ScoreManager scoreManager;
 
     // Start is called before the first frame update
     void Awake()
     {
         minHp = 0;
+
     }
     //protected void Start()
     //{
@@ -83,9 +85,12 @@ public class Entity : MonoBehaviour
             }
             if (this.gameObject.GetComponent<Player>())
             {
+                scoreManager.Calc_TimeScore();
                 LevelManagerController lmc = FindObjectOfType<LevelManagerController>();
                 lmc.GameIsOver();
             }
+            scoreManager = FindObjectOfType<ScoreManager>();
+            scoreManager.Calc_KillCount(1);
             Destroy(this.gameObject);
         }
         else

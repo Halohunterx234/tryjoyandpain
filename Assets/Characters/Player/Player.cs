@@ -12,9 +12,11 @@ public class Player : Entity
     public Vector3 movePos;
     public Camera mainCam;
 
+
     //references
     Player_HpController hpctrl;
     PlayerHealth ph;
+    public GameObject leftDust, rightDust;
 
     //For firing weapons
     private void Awake()
@@ -55,10 +57,14 @@ public class Player : Entity
                 if (rb.velocity.x > 0.01 && transform.localScale.x > 0.01)
                 {
                     transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+                    leftDust.SetActive(true);
+                    rightDust.SetActive(false);
                 }
                 else if (rb.velocity.x < -0.01 && transform.localScale.x < -0.01)
                 {
                     transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+                    leftDust.SetActive(false);
+                    rightDust.SetActive(true);
                 }
             }
             //If not, set the current velocity to 0
@@ -66,6 +72,8 @@ public class Player : Entity
             else
             {
                 rb.velocity = new Vector2(0, 0);
+                leftDust.SetActive(false);
+                rightDust.SetActive(false);
             }
 
         }
