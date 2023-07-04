@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Terresquall;
+using UnityEngine.Device;
 
 public class Player : Entity
 {
     //public float moveSpeed = 5f;
     public ArrayList weapons;
     public GameObject pistol;
-    public bool isPressed;
+    public bool isPressed, isMobile;
     public Vector3 movePos;
     public Camera mainCam;
 
@@ -43,7 +44,8 @@ public class Player : Entity
     // Update is called once per frame
     void Update()
     {
-        if (!Application.isMobilePlatform) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+        if (!isMobile) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         else
         {
             //Check if the player is moving the joystick
