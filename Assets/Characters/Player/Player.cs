@@ -43,7 +43,8 @@ public class Player : Entity
     // Update is called once per frame
     void Update()
     {
-        if (!Application.isMobilePlatform) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        
+        if (!UnityEngine.Device.Application.isMobilePlatform) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         else
         {
             //Check if the player is moving the joystick
