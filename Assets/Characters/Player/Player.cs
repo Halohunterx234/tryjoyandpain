@@ -8,7 +8,7 @@ public class Player : Entity
     //public float moveSpeed = 5f;
     public ArrayList weapons;
     public GameObject pistol;
-    public bool isMobile, isPressed;
+    public bool isPressed;
     public Vector3 movePos;
     public Camera mainCam;
 
@@ -30,7 +30,7 @@ public class Player : Entity
     // Start is called before the first frame update
     void Start()
     {
-        isMobile = true;
+      
         mainCam = Camera.main;
         //weapons.Add(pistol);
         rb = GetComponent<Rigidbody2D>();
@@ -43,8 +43,7 @@ public class Player : Entity
     // Update is called once per frame
     void Update()
     {
-        
-        if (!Application.isMobilePlatform && !isMobile) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (!Application.isMobilePlatform) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         else
         {
             //Check if the player is moving the joystick
