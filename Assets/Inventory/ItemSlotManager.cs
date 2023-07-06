@@ -36,24 +36,41 @@ public class ItemSlotManager : MonoBehaviour
     {
         this.gameObject.SetActive(true);
         currentweapon = weapon;
-        WeaponController wc = weapon.GetComponent<WeaponController>();
         Button button = itemButton.GetComponent<Button>();
         Image icon = itemIcon.GetComponent<Image>();
         Sprite sprite = weapon.GetComponent<SpriteRenderer>().sprite;
         icon.sprite = sprite;
         TextMeshProUGUI name = itemName.GetComponent<TextMeshProUGUI>();
-        name.text = wc.gameObject.name;
-        if (wc.levelNum == 0)
-        {
-            name.text += " 'NEW!'" ;
-        }
-        else if (wc.levelNum > 0)
-        {
-            string nextLevel = (wc.levelNum + 1).ToString();
-            name.text += ": LVL " + nextLevel;
-        }
+        name.text = weapon.name;
         TextMeshProUGUI description = itemDesc.GetComponent<TextMeshProUGUI>();
-        description.text = wc.levels[wc.levelNum].get_projectiles()[0].item_Desc;
+        if (weapon.GetComponent<WeaponController>())
+        {
+            WeaponController wc = weapon.GetComponent<WeaponController>();
+            if (wc.levelNum == 0)
+            {
+                name.text += " 'NEW!'";
+            }
+            else if (wc.levelNum > 0)
+            {
+                string nextLevel = (wc.levelNum + 1).ToString();
+                name.text += ": LVL " + nextLevel;
+            }
+            description.text = wc.levels[wc.levelNum].get_projectiles()[0].item_Desc;
+        }
+        else if (weapon.GetComponent<SupportSuperClass>())
+        {
+            SupportSuperClass ssc = weapon.GetComponent<SupportSuperClass>();
+            if (ssc.level == 0)
+            {
+                name.text += " 'NEW!' ";
+            }
+            else if (ssc.level > 0)
+            {
+                string nextLevel = (ssc.level + 1).ToString();
+                name.text += ": LVL " + nextLevel;
+            }
+            description.text = ssc.supportDesc;
+        }
     }
 
     public void ClearData()

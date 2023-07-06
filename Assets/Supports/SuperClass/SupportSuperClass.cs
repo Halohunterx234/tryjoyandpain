@@ -32,11 +32,16 @@ public class SupportSuperClass : MonoBehaviour
     //Max level
     public bool isMax;
 
+    //Description
+    public string supportDesc;
+
     // Start is called before the first frame update
     void Start()
     {
+        level = 0;
+        this.gameObject.SetActive(false);
         player = FindObjectOfType<Player>().gameObject;
-        in_it();
+        //in_it();
         isMax = false;
     }
 
@@ -51,7 +56,7 @@ public class SupportSuperClass : MonoBehaviour
     {
         if (isMax) return;
         level++;
-        if (level > Get_MaxLvl())
+        if (level == Get_MaxLvl())
         {
             isMax = true;
             return;
@@ -63,7 +68,7 @@ public class SupportSuperClass : MonoBehaviour
     //Initialize level x stats
     public virtual void in_it()
     {
-        
+        this.gameObject.SetActive(true);
     }
 
     //Reset the effect of the item

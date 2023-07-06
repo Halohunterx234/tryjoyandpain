@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class FlurryBootsController : SupportSuperClass
 {
-    //References
-    GameObject player;
 
     //Stats
     [Header("Increase Movement Speed")]
@@ -14,9 +12,10 @@ public class FlurryBootsController : SupportSuperClass
 
     public override void in_it()
     {
-        Reset();
+        //Reset();
         //modify the speed of the player here
-        print("movement buff =" + " " + movementSpeedLevels[level]);
+        print("movement buff =" + " " + movementSpeedLevels[level-1]);
+        this.gameObject.SetActive(true);
     }
 
     public override void Reset()

@@ -29,13 +29,20 @@ public class InventoryManager : MonoBehaviour
     }
     public void SpawnWeapons()
     {
+        //if somehow someone manages to get all upgrades for all items, dont pop-up at all to prevent lock
         if (items.Count == 0) return;
+
+        //freeze and turn on GUI
         levelGUI.SetActive(true);
         Time.timeScale = 0;
+
+        //we have a list of all possible upgradeable/unlockabl items
         foreach (GameObject item in items)
         {
             gacha_itemList.Add(item);
         }
+        //if there happens to be 4 or less possible items
+        //let the limit be the number of itemslots
         if (items.Count <= 4)
         {
             for (int i = 0; i < itemSlots.Count; i++)
@@ -55,6 +62,7 @@ public class InventoryManager : MonoBehaviour
                 }
             }
         }
+        //else, go by the number of weapons left and spawn item slots accordingly.
         else
         {
             for (int i = 0; i < items.Count - 1 || i < itemSlots.Count - 1; i++)
@@ -91,12 +99,21 @@ public class InventoryManager : MonoBehaviour
         gacha_itemList.Clear();
         */
     }
+
+    //Determine if the weapon chosen is to be added for the first time or to be upgraded
     public void SelectWeapon(GameObject weapon)
     {
         levelGUI.SetActive(false);
         Time.timeScale = 1;
-        if (weaponPair.ContainsValue(weapon)) UpgradeWeapon(weapon);
-        else AddWeapon(weapon);
+        if (weapon.GetComponent<WeaponController>())
+        {
+            if (weaponPair.ContainsValue(weapon)) UpgradeWeapon(weapon);
+            else AddWeapon(weapon);
+        }
+        else if (weapon.GetComponent<SupportSuperClass>())
+        {
+           
+        }
     }
     public void AddWeapon(GameObject weapon)
     {
