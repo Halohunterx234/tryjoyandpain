@@ -63,7 +63,6 @@ public class XpController : MonoBehaviour
         tmp.fontSize = 8;
         tmp.alignment = TextAlignmentOptions.Center;
         */
-        print("exp");
         GameObject expText = Instantiate(exptxt, player.transform.position - new Vector3(0.5f, 1f, 0), Quaternion.identity);
         expText.GetComponent<ExpIndicator>().ChangeText(newXP.ToString());
         //expText.transform.SetParent(player.transform);

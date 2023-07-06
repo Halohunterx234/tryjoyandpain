@@ -44,7 +44,6 @@ public class Entity : MonoBehaviour
     }
     public void GetDamaged(int dmg, Color debuff_color)
     {
-        print("color:" + " " + debuff_color);
         sr.color = debuff_color;
         hp -= dmg;
         //spawn dmg
@@ -80,7 +79,6 @@ public class Entity : MonoBehaviour
             if (spawnsXpOrb)
             {
                 GameObject xpOrbGO = Instantiate(xpOrb, transform.position, Quaternion.identity);
-                print(xp); 
                 xpOrbGO.gameObject.GetComponent<XpOrbController>().SetXP(xp);
             }
             if (this.gameObject.GetComponent<Player>())

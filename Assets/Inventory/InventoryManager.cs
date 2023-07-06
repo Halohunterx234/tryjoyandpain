@@ -5,10 +5,17 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    //Lists to keep track of the slots and all items
+    //Inventoy slots
     public List<GameObject> weaponSlots;
     public List<GameObject> supportSlots;
+
+    //All items possible to be upgraded/obtained
     public List<GameObject> items;
+
+    //A dictionary to keep track of which slot is assigned to obtained items
     public Dictionary<GameObject, GameObject> weaponPair = new Dictionary<GameObject, GameObject>();
+    public Dictionary<GameObject, GameObject> supportPair = new Dictionary<GameObject, GameObject>();
 
     [Header("GUI")]
     public GameObject levelGUI;
@@ -16,7 +23,7 @@ public class InventoryManager : MonoBehaviour
     public List<GameObject> itemSlots;
     [SerializeField]
     private List<GameObject> gacha_itemList;
-    public List<GameObject> inventorySlots;   
+    public List<GameObject> inventorySlots;
 
     float i;
     private void Awake()
@@ -25,7 +32,7 @@ public class InventoryManager : MonoBehaviour
     }
     private void Start()
     {
-        
+
     }
     public void SpawnWeapons()
     {
@@ -47,7 +54,7 @@ public class InventoryManager : MonoBehaviour
         {
             for (int i = 0; i < itemSlots.Count; i++)
             {
-                if (i+1 <= items.Count)
+                if (i + 1 <= items.Count)
                 {
                     GameObject item = items[i];
                     GameObject itemSlot = itemSlots[i];
@@ -65,12 +72,13 @@ public class InventoryManager : MonoBehaviour
         //else, go by the number of weapons left and spawn item slots accordingly.
         else
         {
-            for (int i = 0; i < items.Count - 1 || i < itemSlots.Count - 1; i++)
+            for (int i = 0; i < itemSlots.Count; i++)
             {
+                if (i >= items.Count) return;
                 int randomNum = Mathf.RoundToInt(Random.Range(0, gacha_itemList.Count));
-                print(randomNum);
-                print(gacha_itemList[randomNum]);
                 GameObject item = gacha_itemList[randomNum];
+                print(item);
+                print(gacha_itemList);
                 GameObject itemSlot = itemSlots[i];
                 ItemSlotManager ism = itemSlot.GetComponent<ItemSlotManager>();
                 ism.SetData(item);
@@ -107,47 +115,77 @@ public class InventoryManager : MonoBehaviour
         Time.timeScale = 1;
         if (weapon.GetComponent<WeaponController>())
         {
-            if (weaponPair.ContainsValue(weapon)) UpgradeWeapon(weapon);
-            else AddWeapon(weapon);
+            WeaponController wc = weapon.GetComponent<WeaponController>();
+            if (weaponPair.ContainsValue(weapon)) UpgradeItem(wc);
+            else AddItem(wc);
         }
         else if (weapon.GetComponent<SupportSuperClass>())
         {
-           
+            SupportSuperClass ssc = weapon.GetComponent<SupportSuperClass>();
+            if (supportPair.ContainsValue(weapon)) UpgradeItem(ssc); else AddItem(ssc);
         }
     }
-    public void AddWeapon(GameObject weapon)
+
+    public void AddItem(WeaponController wc)
     {
         if (weaponPair.Count == weaponSlots.Count) return;
-        weaponPair.Add(weaponSlots[weaponPair.Count], weapon);
-        UpgradeWeapon(weapon);
-        AddWeaponToInventory(weapon);
+        weaponPair.Add(weaponSlots[weaponPair.Count], wc.gameObject);
+        UpgradeItem(wc);
+        AddItemToInventory(wc);
     }
-    
-    public void AddWeaponToInventory(GameObject weapon)
+
+    public void AddItem(SupportSuperClass ssc)
+    {
+        if (supportPair.Count == supportSlots.Count) return;
+        supportPair.Add(supportSlots[supportPair.Count], ssc.gameObject);
+        UpgradeItem(ssc);
+        AddItemToInventory(ssc);
+    }
+
+    public void AddItemToInventory(WeaponController wc)
     {
         for (int i = 0; i < weaponSlots.Count; i++)
         {
             if (inventorySlots.Count < 10 && weaponSlots[i].GetComponent<InventorySlotManager>().icon.enabled == false)
             {
                 InventorySlotManager ism = weaponSlots[i].GetComponent<InventorySlotManager>();
-                print(ism);
-                ism.SetIcon(weapon);
-                inventorySlots.Add(weapon);
+                ism.SetIcon(wc.gameObject);
+                inventorySlots.Add(wc.gameObject);
                 break;
             }
-
         }
     }
-    public void UpgradeWeapon(GameObject weapon)
+
+    public void AddItemToInventory(SupportSuperClass ssc)
     {
-        WeaponController wc = weapon.GetComponent<WeaponController>();
+        for (int i = 0; i < supportSlots.Count; i++)
+        {
+            if (inventorySlots.Count < 10 && supportSlots[i].GetComponent<InventorySlotManager>().icon.enabled == false)
+            {
+                InventorySlotManager ism = supportSlots[i].GetComponent<InventorySlotManager>();
+                ism.SetIcon(ssc.gameObject);
+                inventorySlots.Add(ssc.gameObject);
+                break;
+            }
+        }
+    }
+    public void UpgradeItem(WeaponController wc)
+    {
         wc.UpdateWeaponLevel();
         if (wc.levelNum == wc.levels.Count)
         {
-            items.Remove(weapon);
+            items.Remove(wc.gameObject);
         }
     }
 
+    public void UpgradeItem(SupportSuperClass ssc)
+    {
+        ssc.LevelUp();
+        if (ssc.isMax)
+        {
+            items.Remove(ssc.gameObject);
+        }
+    }
     IEnumerator wa()
     {
         yield return new WaitForSeconds(2);

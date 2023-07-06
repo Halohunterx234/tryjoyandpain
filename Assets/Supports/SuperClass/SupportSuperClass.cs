@@ -33,7 +33,7 @@ public class SupportSuperClass : MonoBehaviour
     public bool isMax;
 
     //Description
-    public string supportDesc;
+    public List<string> supportDescriptions;
 
     // Start is called before the first frame update
     void Start()
@@ -78,8 +78,8 @@ public class SupportSuperClass : MonoBehaviour
     }
 
     //Get the max level of the item according to the length of the stats array
-    public virtual int Get_MaxLvl()
+    public int Get_MaxLvl()
     {
-        return 0;
+        return supportDescriptions.Count;
     }
 }

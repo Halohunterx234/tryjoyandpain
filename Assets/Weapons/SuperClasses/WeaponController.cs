@@ -17,7 +17,7 @@ public class WeaponController : WeaponSuperClass
             //init();
             InventoryManager im = FindObjectOfType<InventoryManager>();
             print(im);
-            im.AddWeapon(this.gameObject);
+            im.AddItem(this.gameObject.GetComponent<WeaponController>());
         }
     }
     private void Update()

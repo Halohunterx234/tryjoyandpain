@@ -227,7 +227,6 @@ public class FireAI : ScriptableObject
         p.iso = iSO;
         p.aiMode = iSO.projAIMode;
         p.projectilePenMax = iSO.iProjectilePenetration;
-        Debug.Log(p.aiMode);
     }
 
     //Function to return projectile to player

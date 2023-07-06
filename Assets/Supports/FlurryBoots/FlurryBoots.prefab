@@ -294,6 +294,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   isMax: 0
+  supportDescriptions:
+  - Increases movement speed by 10%
+  - Further increases movement speed by 20%
   movementSpeedLevels:
   - 1.1
   - 1.2

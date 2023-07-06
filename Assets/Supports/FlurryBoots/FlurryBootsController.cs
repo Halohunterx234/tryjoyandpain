@@ -8,7 +8,7 @@ public class FlurryBootsController : SupportSuperClass
     //Stats
     [Header("Increase Movement Speed")]
     [Range(1f, 2f)]
-    public List<float> movementSpeedLevels; 
+    public List<float> movementSpeedLevels;
 
     public override void in_it()
     {
@@ -22,10 +22,5 @@ public class FlurryBootsController : SupportSuperClass
     {
         //undo the movement modifier on the player
         print("movement buff removed");
-    }
-
-    public override int Get_MaxLvl()
-    {
-        return movementSpeedLevels.Count;
     }
 }

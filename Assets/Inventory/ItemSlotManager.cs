@@ -69,7 +69,7 @@ public class ItemSlotManager : MonoBehaviour
                 string nextLevel = (ssc.level + 1).ToString();
                 name.text += ": LVL " + nextLevel;
             }
-            description.text = ssc.supportDesc;
+            description.text = ssc.supportDescriptions[ssc.level];
         }
     }
 

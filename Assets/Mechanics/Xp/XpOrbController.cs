@@ -23,7 +23,6 @@ public class XpOrbController : MonoBehaviour
     public void SetXP(int xp)
     {
         this.xp = xp;
-        print(xp);
         transform.localScale = (Vector3.one*0.15f) + Vector3.one*(xp * 0.1f);
         XpController xpC = FindObjectOfType<XpController>();
         xpC.AddXP(xp);
