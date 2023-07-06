@@ -10,7 +10,7 @@ public class SupportSuperClass : MonoBehaviour
     // Differently. As such, each Support will be more modular.
     // I don't think Scriptable Objects are required either, so each Support will be 
     // Contained within its' controller script.
-    
+
     // 2. Update the Inventory Manager to include Supports within the gachaList
     // However, make new methods that are specially curated for adding and upgrading Supports Respectively
     // This should be easy enough, as existing methods are made for Weapons only.
@@ -21,15 +21,60 @@ public class SupportSuperClass : MonoBehaviour
     // 4. Empty gameobject that hosts the SupportController(s) instead of the Weapon gameObject way
 
     // 5. 
+
+
+    //References
+    GameObject player;
+
+    //The current level of the support
+    public int level;
+
+    //Max level
+    public bool isMax;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = FindObjectOfType<Player>().gameObject;
+        in_it();
+        isMax = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    // Levelling Method
+    public void LevelUp()
+    {
+        if (isMax) return;
+        level++;
+        if (level > Get_MaxLvl())
+        {
+            isMax = true;
+            return;
+        }
+        Reset();
+        in_it();
+    }
+
+    //Initialize level x stats
+    public virtual void in_it()
+    {
+        
+    }
+
+    //Reset the effect of the item
+    public virtual void Reset()
+    {
+        
+    }
+
+    //Get the max level of the item according to the length of the stats array
+    public virtual int Get_MaxLvl()
+    {
+        return 0;
     }
 }
