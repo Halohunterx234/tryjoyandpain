@@ -165,6 +165,11 @@ public class Player : Entity
         ph.SetHealth(hp, maxHp,minHp);
     }
 
+    public void publicCheckHealth()
+    {
+        CheckHealth();
+    }
+
     //function to set the stats of the player to be as updated as possible
     public void SetStats(bool updateHP=false)
     {
@@ -182,6 +187,13 @@ public class Player : Entity
         //dmg
         //cd - base cd is 0% duh
         cd_red = 0 + perma.cdModifier + item.cdModifier;
+        //life regen
+        if (item.lifeRegenTrue == 1)
+        {
+            LifeRegen lr = GetComponent<LifeRegen>();
+            lr.cd = item.lifeRegenRateModifier;
+            lr.lifeAmt = item.lifeRegenAmtModifier;
+        }
     }
 
     //function to clear the stats of the item modifiers for the start of each game
@@ -191,5 +203,8 @@ public class Player : Entity
         item.cdModifier = 0;
         item.speedModifier = 0;
         item.damageModifier = 0;
+        item.lifeRegenAmtModifier = 0;
+        item.lifeRegenTrue = 0;
+        item.lifeRegenRateModifier = 0;
     }
 }
