@@ -18,9 +18,23 @@ public class Modifiers : ScriptableObject
 
 
     //Modifiers (float convert to percentage, i.e 0.1f modifier = +10%)
+    //Speed
     public float speedModifier = 0f;
-    public float damageModifier = 0f;
-    public int healthModifier = 0; //add to both maxhp and currenthp
-    public float cdModifier = 0f; 
 
+    //Damage
+    public float damageModifier = 0f;
+
+    //Health
+    public int maxHealthModifier = 0; //add to both maxhp and currenthp
+
+    //Cooldown Reduction
+    public float cdModifier = 0f;
+
+    //Life Regeneration
+    public int lifeRegenTrue = 0, lifeRegenAmtModifier = 0; //whether life regen is enabled, how much life to regen per regen
+    public float lifeRegenRateModifier = 0f; //the time period for each regen
+
+    //Shield
+    public int shieldEnabledTrue = 0, shieldAmtModifier = 0; //whether shield is enabled, how much shield shield shields LOL
+    public float shieldRegenRateModifier = 0f; //the time period between each shield regens back to full
 }

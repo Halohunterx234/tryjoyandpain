@@ -24,6 +24,8 @@ public class Player : Entity
     //For firing weapons
     private void Awake()
     {
+        //health reference
+        ph = GetComponentInChildren<PlayerHealth>();
         //clear the temp stats
         ClearStats();
         //set base stats
@@ -32,27 +34,26 @@ public class Player : Entity
         hp = maxHp;
         //no collision damage for player
         collisionDmg = 0;
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-      
         mainCam = Camera.main;
         //weapons.Add(pistol);
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         hpctrl = GetComponentInChildren<Player_HpController>();
-        ph = GetComponentInChildren<PlayerHealth>();
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if (!UnityEngine.Device.Application.isMobilePlatform) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        else
+
+        //if (!UnityEngine.Device.Application.isMobilePlatform) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        //else
         {
             //Check if the player is moving the joystick
             if (VirtualJoystick.GetAxis("Horizontal") != 0 || VirtualJoystick.GetAxis("Vertical") != 0)
@@ -172,8 +173,11 @@ public class Player : Entity
         moveSpeed = 3.5f * (1 + perma.speedModifier + item.speedModifier);
         //max health and add the xtra hp to current hp
         prevMaxHP = maxHp;
-        maxHp = 10 + perma.healthModifier + item.healthModifier;
+        maxHp = 10 + perma.maxHealthModifier + item.maxHealthModifier;
+        print(maxHp);
+        print(prevMaxHP);
         hp += maxHp - prevMaxHP;
+        ph.SetHealth(hp, maxHp, minHp);
         //dmg
         //cd - base cd is 0% duh
         cd_red = 0 + perma.cdModifier + item.cdModifier;
@@ -182,7 +186,7 @@ public class Player : Entity
     //function to clear the stats of the item modifiers for the start of each game
     public void ClearStats()
     {
-        item.healthModifier = 0;
+        item.maxHealthModifier = 0;
         item.cdModifier = 0;
         item.speedModifier = 0;
         item.damageModifier = 0;

@@ -25,6 +25,7 @@ public class SupportSuperClass : MonoBehaviour
 
     //References
     protected GameObject player;
+    protected Player playerController;
     public Modifiers mod; //The itemupgrade_modifier SO to be updated with the corresponding support's buff
 
     //The current level of the support
@@ -42,6 +43,7 @@ public class SupportSuperClass : MonoBehaviour
         level = 0;
         this.gameObject.SetActive(false);
         player = FindObjectOfType<Player>().gameObject;
+        playerController = player.GetComponent<Player>();
         //in_it();
         isMax = false;
     }
