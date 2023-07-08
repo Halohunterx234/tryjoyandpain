@@ -24,10 +24,9 @@ public class PlayerHealth : MonoBehaviour
     {
         //slide.gameObject.SetActive(health < maxHealth);
         print("health = " + health + maxHealth + minHealth);
-        slide.value = health;
         slide.maxValue = maxHealth;
         slide.minValue = minHealth;
-
+        slide.value = health;
         slide.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(low, high, slide.normalizedValue);
     }
 }

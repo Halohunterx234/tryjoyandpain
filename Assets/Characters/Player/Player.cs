@@ -29,7 +29,7 @@ public class Player : Entity
         //clear the temp stats
         ClearStats();
         //set base stats
-        SetStats();
+        SetStats(true);
         //set health to full
         hp = maxHp;
         //no collision damage for player
@@ -166,18 +166,19 @@ public class Player : Entity
     }
 
     //function to set the stats of the player to be as updated as possible
-    public void SetStats()
+    public void SetStats(bool updateHP=false)
     {
         //player base stats (at start of game -> default values) * (perma-upgrade SO + item-upgrade SO + 1)
         //speed
         moveSpeed = 3.5f * (1 + perma.speedModifier + item.speedModifier);
         //max health and add the xtra hp to current hp
-        prevMaxHP = maxHp;
-        maxHp = 10 + perma.maxHealthModifier + item.maxHealthModifier;
-        print(maxHp);
-        print(prevMaxHP);
-        hp += maxHp - prevMaxHP;
-        ph.SetHealth(hp, maxHp, minHp);
+        if (updateHP)
+        {
+            prevMaxHP = maxHp;
+            maxHp = 10 + perma.maxHealthModifier + item.maxHealthModifier;
+            hp += maxHp - prevMaxHP;
+            CheckHealth();
+        }
         //dmg
         //cd - base cd is 0% duh
         cd_red = 0 + perma.cdModifier + item.cdModifier;

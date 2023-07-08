@@ -21,7 +21,7 @@ public class HeartCanisterController : SupportSuperClass
         this.gameObject.SetActive(true);
         mod.maxHealthModifier += (additionalHPLevels[level - 1]);
         print("hp buff =" + " " + mod.maxHealthModifier);
-        player.GetComponent<Player>().SetStats();
+        player.GetComponent<Player>().SetStats(true);
     }
 
     public override void Reset()
