@@ -12,18 +12,25 @@ public class Player : Entity
     public Vector3 movePos;
     public Camera mainCam;
 
+    //base stats
+    private int prevMaxHP; //the previous maxhp before update of stats
+    public float cd_red; //cd reduction %
 
     //references
     Player_HpController hpctrl;
     PlayerHealth ph;
     public GameObject leftDust, rightDust;
-
+    public Modifiers item, perma;
     //For firing weapons
     private void Awake()
     {
-        moveSpeed = 3.5f;
-        maxHp = 10;
+        //clear the temp stats
+        ClearStats();
+        //set base stats
+        SetStats();
+        //set health to full
         hp = maxHp;
+        //no collision damage for player
         collisionDmg = 0;
     }
 
@@ -155,5 +162,29 @@ public class Player : Entity
         //hpctrl.Set_Values(hp, maxHp, minHp);
         base.OnCheckHealth();
         ph.SetHealth(hp, maxHp,minHp);
+    }
+
+    //function to set the stats of the player to be as updated as possible
+    public void SetStats()
+    {
+        //player base stats (at start of game -> default values) * (perma-upgrade SO + item-upgrade SO + 1)
+        //speed
+        moveSpeed = 3.5f * (1 + perma.speedModifier + item.speedModifier);
+        //max health and add the xtra hp to current hp
+        prevMaxHP = maxHp;
+        maxHp = 10 + perma.healthModifier + item.healthModifier;
+        hp += maxHp - prevMaxHP;
+        //dmg
+        //cd - base cd is 0% duh
+        cd_red = 0 + perma.cdModifier + item.cdModifier;
+    }
+
+    //function to clear the stats of the item modifiers for the start of each game
+    public void ClearStats()
+    {
+        item.healthModifier = 0;
+        item.cdModifier = 0;
+        item.speedModifier = 0;
+        item.damageModifier = 0;
     }
 }

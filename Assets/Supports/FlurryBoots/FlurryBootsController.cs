@@ -12,14 +12,24 @@ public class FlurryBootsController : SupportSuperClass
 
     public override void in_it()
     {
-        //Reset();
+        print(mod.speedModifier);
+        //if the level of the current support is > 0 -> weapon is to be upgraded, remove its original buff, and add its upgraded one
+        if (level > 1)
+        {
+            Reset();
+        }
+        print(mod.speedModifier);
         //modify the speed of the player here
         print("movement buff =" + " " + movementSpeedLevels[level-1]);
         this.gameObject.SetActive(true);
+        mod.speedModifier += (movementSpeedLevels[level - 1] - 1);
+        print(mod.speedModifier);
+        player.GetComponent<Player>().SetStats();
     }
 
     public override void Reset()
     {
+        mod.speedModifier -= (movementSpeedLevels[level-1]-1);
         //undo the movement modifier on the player
         print("movement buff removed");
     }

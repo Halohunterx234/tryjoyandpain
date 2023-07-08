@@ -3706,11 +3706,16 @@ MonoBehaviour:
   spawnsXpOrb: 0
   dmgTxt: {fileID: 0}
   xpOrb: {fileID: 5607117518481939413, guid: cec8b4e111b7e014a9a89bd4f3bc2aca, type: 3}
+  scoreManager: {fileID: 0}
   pistol: {fileID: 0}
-  isMobile: 1
   isPressed: 0
   movePos: {x: 0, y: 0, z: 0}
   mainCam: {fileID: 0}
+  cd_red: 0
+  leftDust: {fileID: 0}
+  rightDust: {fileID: 0}
+  item: {fileID: 11400000, guid: a1da97ae9ed8b10418641ff26df34c58, type: 2}
+  perma: {fileID: 11400000, guid: 7803b61e7d7cb3e41b03db370d959389, type: 2}
 --- !u!95 &3915066709142711883
 Animator:
   serializedVersion: 4

@@ -24,7 +24,8 @@ public class SupportSuperClass : MonoBehaviour
 
 
     //References
-    GameObject player;
+    protected GameObject player;
+    public Modifiers mod; //The itemupgrade_modifier SO to be updated with the corresponding support's buff
 
     //The current level of the support
     public int level;
@@ -61,7 +62,6 @@ public class SupportSuperClass : MonoBehaviour
             isMax = true;
             return;
         }
-        Reset();
         in_it();
     }
 
