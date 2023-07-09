@@ -23,7 +23,7 @@ public class HeartCanisterController : SupportSuperClass
 
     public override void Reset()
     {
-        mod.maxHealthModifier -= (additionalHPLevels[level - 1]);
+        mod.maxHealthModifier -= (additionalHPLevels[level - 2]);
         //undo the movement modifier on the player
     }
 }

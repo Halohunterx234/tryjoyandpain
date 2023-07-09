@@ -28,7 +28,7 @@ public class FlurryBootsController : SupportSuperClass
 
     public override void Reset()
     {
-        mod.speedModifier -= (movementSpeedLevels[level-1]-1);
+        mod.speedModifier -= (movementSpeedLevels[level-2]-1);
         //undo the movement modifier on the player
         print("movement buff removed");
     }

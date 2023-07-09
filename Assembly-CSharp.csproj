@@ -64,11 +64,11 @@
     <Compile Include="Assets\Mechanics\Debuff\SuperClass\BuffController.cs" />
     <Compile Include="Assets\Characters\Player\Hp\Player_HpController.cs" />
     <Compile Include="Assets\Weapons\SuperClasses\WeaponSuperClass.cs" />
-    <Compile Include="Assets\Supports\VoodooDoll\VoodooController.cs" />
+    <Compile Include="Assets\Supports\ShieldRing\VoodooController.cs" />
     <Compile Include="Assets\Supports\SuperClass\SupportSuperClass.cs" />
     <Compile Include="Assets\Inventory\InventorySlotManager.cs" />
     <Compile Include="Assets\Mechanics\Weapons\Bible\cdReduceItem.cs" />
-    <Compile Include="Assets\Supports\VoodooDoll\ShieldController.cs" />
+    <Compile Include="Assets\Supports\ShieldRing\ShieldController.cs" />
     <Compile Include="Assets\Projectiles\SuperClasses\ProjectileSO.cs" />
     <Compile Include="Assets\Scenes\Scene scripts\StartScene.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
@@ -153,6 +153,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
+    <Compile Include="Assets\Supports\HolyBible\HolyBibleController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
