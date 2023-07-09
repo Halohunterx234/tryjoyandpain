@@ -80,13 +80,13 @@ public class SupportSuperClass : MonoBehaviour
         level = 0;
     }
 
-    //Reset the effect of the item
+    //Reset the effect of the itemMod
     public virtual void Reset()
     {
         
     }
 
-    //Get the max level of the item according to the length of the stats array
+    //Get the max level of the itemMod according to the length of the stats array
     public int Get_MaxLvl()
     {
         return supportDescriptions.Count;

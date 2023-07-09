@@ -20,7 +20,6 @@ public class Player : Entity
     Player_HpController hpctrl;
     PlayerHealth ph;
     public GameObject leftDust, rightDust;
-    public Modifiers item, perma;
     //For firing weapons
     private void Awake()
     {
@@ -173,38 +172,47 @@ public class Player : Entity
     //function to set the stats of the player to be as updated as possible
     public void SetStats(bool updateHP=false)
     {
-        //player base stats (at start of game -> default values) * (perma-upgrade SO + item-upgrade SO + 1)
+        //player base stats (at start of game -> default values) * (permaMod-upgrade SO + itemMod-upgrade SO + 1)
         //speed
-        moveSpeed = 3.5f * (1 + perma.speedModifier + item.speedModifier);
+        moveSpeed = 3.5f * (1 + permaMod.speedModifier + itemMod.speedModifier);
         //max health and add the xtra hp to current hp
         if (updateHP)
         {
             prevMaxHP = maxHp;
-            maxHp = 10 + perma.maxHealthModifier + item.maxHealthModifier;
+            maxHp = 10 + permaMod.maxHealthModifier + itemMod.maxHealthModifier;
             hp += maxHp - prevMaxHP;
             CheckHealth();
         }
         //dmg
         //cd - base cd is 0% duh
-        cd_red = 0 + perma.cdModifier + item.cdModifier;
+        cd_red = 0 + permaMod.cdModifier + itemMod.cdModifier;
         //life regen
-        if (item.lifeRegenTrue == 1)
+        if (itemMod.lifeRegenTrue == 1)
         {
             LifeRegen lr = GetComponent<LifeRegen>();
-            lr.maxcd = item.lifeRegenRateModifier;
-            lr.lifeAmt = item.lifeRegenAmtModifier;
+            lr.maxcd = itemMod.lifeRegenRateModifier;
+            lr.lifeAmt = itemMod.lifeRegenAmtModifier;
+        }
+        if (itemMod.shieldEnabledTrue == 1)
+        {
+            ShieldController sc = GetComponent<ShieldController>();
+            sc.maxCD = itemMod.shieldRegenRateModifier;
+            sc.maxShield = itemMod.shieldRegenAmtModifier;
         }
     }
 
-    //function to clear the stats of the item modifiers for the start of each game
+    //function to clear the stats of the itemMod modifiers for the start of each game
     public void ClearStats()
     {
-        item.maxHealthModifier = 0;
-        item.cdModifier = 0;
-        item.speedModifier = 0;
-        item.damageModifier = 0;
-        item.lifeRegenAmtModifier = 0;
-        item.lifeRegenTrue = 0;
-        item.lifeRegenRateModifier = 0;
+        itemMod.maxHealthModifier = 0;
+        itemMod.cdModifier = 0;
+        itemMod.speedModifier = 0;
+        itemMod.damageModifier = 0;
+        itemMod.lifeRegenAmtModifier = 0;
+        itemMod.lifeRegenTrue = 0;
+        itemMod.lifeRegenRateModifier = 0;
+        itemMod.shieldEnabledTrue = 0;
+        itemMod.shieldRegenAmtModifier= 0;
+        itemMod.shieldRegenRateModifier= 0;
     }
 }

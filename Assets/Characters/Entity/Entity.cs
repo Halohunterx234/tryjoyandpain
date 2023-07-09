@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,7 +20,7 @@ public class Entity : MonoBehaviour
     public GameObject dmgTxt, xpOrb;
     private Color dmgColor = Color.red; //usual color for getting damaged
     public ScoreManager scoreManager;
-
+    public Modifiers itemMod, permaMod;
     // Start is called before the first frame update
     void Awake()
     {
@@ -45,6 +46,25 @@ public class Entity : MonoBehaviour
     public void GetDamaged(int dmg, Color debuff_color)
     {
         sr.color = debuff_color;
+        if (this.gameObject.GetComponent<Player>() && itemMod.shieldEnabledTrue == 1)
+        {
+            ShieldController sc = this.gameObject.GetComponentInChildren<ShieldController>();
+            if (sc.shield > 0)
+            {
+                if (sc.shield < dmg)
+                {
+                    dmg -= sc.shield;
+                    sc.shield = 0;
+                    sc.SetShield();
+                }
+                else
+                {
+                    sc.shield -= dmg;
+                    dmg = 0;
+                    sc.SetShield();
+                }
+            }
+        }
         hp -= dmg;
         //spawn dmg
         if (spawnsDamageTxt && dmg != 0)

@@ -86,7 +86,7 @@ public class InventoryManager : MonoBehaviour
                 }
             }
         }
-        //else, go by the number of weapons left and spawn item slots accordingly.
+        //else, go by the number of weapons left and spawn itemMod slots accordingly.
         else
         {
             for (int i = 0; i < itemSlots.Count; i++)
@@ -108,18 +108,18 @@ public class InventoryManager : MonoBehaviour
         {
             print(i);
             int randomNum = Mathf.RoundToInt(Random.Range(0, items.Count - .49f));
-            GameObject item = items[randomNum];
-            while (gacha_itemList.Contains(item))
+            GameObject itemMod = items[randomNum];
+            while (gacha_itemList.Contains(itemMod))
             {
                 randomNum = Mathf.RoundToInt(Random.Range(0, items.Count - .49f));
                 Debug.Log(items[randomNum]);
-                item = items[randomNum];
+                itemMod = items[randomNum];
             }
             print(items[randomNum]);
             GameObject itemSlot = itemSlots[i];
             ItemSlotManager ism = itemSlot.GetComponent<ItemSlotManager>();
-            ism.SetData(item);
-            gacha_itemList.Add(item);
+            ism.SetData(itemMod);
+            gacha_itemList.Add(itemMod);
         }
         gacha_itemList.Clear();
         */

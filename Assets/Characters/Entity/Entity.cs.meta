@@ -3,7 +3,12 @@ guid: bcad2a6d3959945cb913ecbfeda87b6e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - dmgTxt: {instanceID: 0}
+  - xpOrb: {instanceID: 0}
+  - scoreManager: {instanceID: 0}
+  - itemMod: {fileID: 11400000, guid: a1da97ae9ed8b10418641ff26df34c58, type: 2}
+  - permaMod: {fileID: 11400000, guid: 7803b61e7d7cb3e41b03db370d959389, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
