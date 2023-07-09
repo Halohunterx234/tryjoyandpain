@@ -16,8 +16,10 @@ public class VoodooController : SupportSuperClass
     [Range(1, 30)]
     public List<float> shieldRegenPeriodLevels;
 
+    
     //References
     public UnityEngine.UI.Slider shield_ui; //shield bar to use
+    public GameObject shieldimage;
     public void Awake()
     {
 
@@ -33,6 +35,7 @@ public class VoodooController : SupportSuperClass
         {
             ShieldController sc = player.AddComponent<ShieldController>();
             sc.slide = shield_ui;
+            sc.shieldImg = shieldimage.GetComponent<SpriteRenderer>();
             print(player.GetComponent<ShieldController>());
         }
         //modify the health of the player here

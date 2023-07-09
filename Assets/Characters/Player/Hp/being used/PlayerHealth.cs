@@ -18,7 +18,6 @@ public class PlayerHealth : MonoBehaviour
     {
         //allows the health bar to be visible
         slide.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + offset);
-        print(transform.parent);
     }
     //sets the health bar and updates it appropriately
     public void SetHealth(float health, float maxHealth, float minHealth)

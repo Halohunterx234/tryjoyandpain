@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7947867803627736194}
   - component: {fileID: 7947867803627736195}
   - component: {fileID: 1698601411}
+  - component: {fileID: 2079322743}
+  - component: {fileID: 2079322747}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -58,6 +60,7 @@ MonoBehaviour:
   bBM: {fileID: 384422082934420416, guid: 7ff02d355dc0f3940b2eaaa33bbcf460, type: 3}
   bigBoi: {fileID: 922853541515137635, guid: 210929b0bceb18846994277990d6be82, type: 3}
   switcher: {fileID: 0}
+  time_text: {fileID: 0}
 --- !u!114 &7947867803627736195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,7 +102,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   levelGUI: {fileID: 0}
   inventory: {fileID: 0}
   itemSlots:
@@ -109,3 +111,29 @@ MonoBehaviour:
   - {fileID: 0}
   gacha_itemList: []
   inventorySlots: []
+--- !u!114 &2079322743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7947867803627736192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bb758b190a4864793489e63cec62c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2079322747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7947867803627736192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cf6f86ede9b074591859016ea6c5b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Score: 0
+  ScoreMultiplier: 0

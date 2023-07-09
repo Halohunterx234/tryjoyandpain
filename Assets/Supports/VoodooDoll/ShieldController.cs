@@ -10,6 +10,8 @@ public class ShieldController : MonoBehaviour
     public Color low, high;
     public Vector3 offset;
 
+    public SpriteRenderer shieldImg; 
+
     public int maxShield, shield;
     public float maxCD, cd;
 
@@ -20,6 +22,7 @@ public class ShieldController : MonoBehaviour
         //start off with a maxed out shield
         cd = maxCD;
         slide.gameObject.SetActive(true);
+        shieldImg.gameObject.SetActive(true);
         low = Color.cyan; high = Color.cyan;
         player = this.gameObject.transform;
     }
@@ -28,7 +31,6 @@ public class ShieldController : MonoBehaviour
     {
         //allow the shield bar to be visible
         slide.transform.position = Camera.main.WorldToScreenPoint(player.position + offset);
-        print(transform.parent);
         //regen shield if cd is up
         if (cd >= maxCD)
         {
@@ -45,13 +47,22 @@ public class ShieldController : MonoBehaviour
         if (shield <= 0)
         {
             slide.gameObject.SetActive(false);
+            shieldImg.gameObject.SetActive(false);
             return;
         }
-        else if (slide.gameObject.activeSelf == false) slide.gameObject.SetActive(true);
+        else if (slide.gameObject.activeSelf == false)
+        {
+            slide.gameObject.SetActive(true);
+            shieldImg.gameObject.SetActive(true);
+            print(shieldImg.gameObject);
+        }
         slide.maxValue = maxShield;
         slide.minValue = 0;
         slide.value = shield;
         slide.fillRect.GetComponentInChildren<Image>().color = low;
+        Color shieldColor = shieldImg.color;
+        shieldColor.a = (float)shield / (float)maxShield;
+        shieldImg.color = shieldColor;
         //slide.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(low, high, slide.normalizedValue);
     }
 }

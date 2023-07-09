@@ -112,3 +112,4 @@ MonoBehaviour:
   - 15
   - 15
   shield_ui: {fileID: 0}
+  shieldimage: {fileID: 0}
