@@ -9,18 +9,15 @@ public class HeartCanisterController : SupportSuperClass
     [Range(1, 50)]
     public List<int> additionalHPLevels;
 
-    public override void in_it()
+    public override void EnableStats()
     {
-        
         //if the level of the current support is > 0 -> weapon is to be upgraded, remove its original buff, and add its upgraded one
         if (level > 1)
         {
             Reset();
         }
         //modify the health of the player here
-        this.gameObject.SetActive(true);
         mod.maxHealthModifier += (additionalHPLevels[level - 1]);
-        print("hp buff =" + " " + mod.maxHealthModifier);
         player.GetComponent<Player>().SetStats(true);
     }
 
@@ -28,6 +25,5 @@ public class HeartCanisterController : SupportSuperClass
     {
         mod.maxHealthModifier -= (additionalHPLevels[level - 1]);
         //undo the movement modifier on the player
-        print("hp buff removed");
     }
 }

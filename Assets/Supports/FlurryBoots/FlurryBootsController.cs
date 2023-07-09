@@ -9,8 +9,11 @@ public class FlurryBootsController : SupportSuperClass
     [Header("Increase Movement Speed")]
     [Range(1f, 2f)]
     public List<float> movementSpeedLevels;
-
-    public override void in_it()
+    private void Awake()
+    {
+        print(player);
+    }
+    public override void EnableStats()
     {
         //if the level of the current support is > 0 -> weapon is to be upgraded, remove its original buff, and add its upgraded one
         if (level > 1)
@@ -19,7 +22,6 @@ public class FlurryBootsController : SupportSuperClass
         }
         //modify the speed of the player here
         print("movement buff =" + " " + movementSpeedLevels[level-1]);
-        this.gameObject.SetActive(true);
         mod.speedModifier += (movementSpeedLevels[level - 1] - 1);
         playerController.SetStats();
     }

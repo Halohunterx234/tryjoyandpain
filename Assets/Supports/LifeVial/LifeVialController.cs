@@ -12,10 +12,12 @@ public class LifeVialController : SupportSuperClass
     [Header("Life Regen Period")]
     [Range(1, 30)]
     public List<float> hpRegenPeriodLevels;
-
-    public override void in_it()
+    public void Awake()
     {
-        if (player != null) player = FindObjectOfType<Player>().gameObject;
+        print(player);
+    }
+    public override void EnableStats()
+    {
         //if the level of the current support is > 0 -> weapon is to be upgraded, remove its original buff, and add its upgraded one
         if (level > 1)
         {
@@ -27,19 +29,17 @@ public class LifeVialController : SupportSuperClass
             print(player.GetComponent<LifeRegen>());
         }
         //modify the health of the player here
-        this.gameObject.SetActive(true);
         mod.lifeRegenTrue = 1;
         mod.lifeRegenRateModifier = hpRegenPeriodLevels[level - 1];
         mod.lifeRegenAmtModifier = hpRegenAmtLevels[level - 1];
-        print(player);
-        print(player.GetComponent<Player>());
+        print(hpRegenAmtLevels[level - 1]);
         player.GetComponent<Player>().SetStats();
     }
 
     public override void Reset()
     {
-        mod.lifeRegenRateModifier -= hpRegenPeriodLevels[level - 1];
-        mod.lifeRegenAmtModifier -= hpRegenAmtLevels[level - 1];
+        mod.lifeRegenRateModifier -= hpRegenPeriodLevels[level - 2];
+        mod.lifeRegenAmtModifier -= hpRegenAmtLevels[level - 2];
         //undo the movement modifier on the player
     }
 }

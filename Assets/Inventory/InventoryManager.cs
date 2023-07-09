@@ -26,13 +26,30 @@ public class InventoryManager : MonoBehaviour
     public List<GameObject> inventorySlots;
 
     float i;
+    GameObject p;
     private void Awake()
     {
         levelGUI.gameObject.SetActive(false);
+        ResetSupportLevel();
     }
     private void Start()
     {
+        p = FindObjectOfType<Player>().gameObject;
+    }
 
+    //reset the levels of all supports
+    private void ResetSupportLevel()
+    {
+        foreach (GameObject item in items)
+        {
+            item.gameObject.SetActive(true);
+            SupportSuperClass ssc = item.GetComponent<SupportSuperClass>();
+            if (ssc == null) return;
+            ssc.level = 0;
+            ssc.player = p;
+            ssc.playerController = p.GetComponent<Player>();
+            item.gameObject.SetActive(false);
+        }
     }
     public void SpawnWeapons()
     {
@@ -138,6 +155,8 @@ public class InventoryManager : MonoBehaviour
     {
         if (supportPair.Count == supportSlots.Count) return;
         supportPair.Add(supportSlots[supportPair.Count], ssc.gameObject);
+        ssc.in_it();
+        print(ssc.level);
         UpgradeItem(ssc);
         AddItemToInventory(ssc);
     }

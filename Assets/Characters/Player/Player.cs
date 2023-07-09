@@ -191,7 +191,7 @@ public class Player : Entity
         if (item.lifeRegenTrue == 1)
         {
             LifeRegen lr = GetComponent<LifeRegen>();
-            lr.cd = item.lifeRegenRateModifier;
+            lr.maxcd = item.lifeRegenRateModifier;
             lr.lifeAmt = item.lifeRegenAmtModifier;
         }
     }

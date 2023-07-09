@@ -292,8 +292,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45cc706a775969d44908def9f5025454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  playerController: {fileID: 0}
   mod: {fileID: 11400000, guid: a1da97ae9ed8b10418641ff26df34c58, type: 2}
-  level: 0
+  level: 1
   isMax: 0
   supportDescriptions:
   - Increases movement speed by 10%

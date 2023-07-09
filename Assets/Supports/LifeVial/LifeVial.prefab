@@ -97,9 +97,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c010a979f88c9a8428f1eb4c86b74eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  playerController: {fileID: 0}
   mod: {fileID: 11400000, guid: a1da97ae9ed8b10418641ff26df34c58, type: 2}
-  level: 3
-  isMax: 1
+  level: 1
+  isMax: 0
   supportDescriptions:
   - Regenerates +1 hp per 30 seconds
   - Reduce regen period to 20 seconds

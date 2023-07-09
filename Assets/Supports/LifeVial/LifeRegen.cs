@@ -6,7 +6,8 @@ public class LifeRegen : MonoBehaviour
 {
     //Stats
     public int lifeAmt;
-    public float cd, maxcd;
+    public float cd;
+    public float maxcd;
     Player player;
 
     private void Awake()

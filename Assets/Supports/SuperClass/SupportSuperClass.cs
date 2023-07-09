@@ -24,8 +24,8 @@ public class SupportSuperClass : MonoBehaviour
 
 
     //References
-    protected GameObject player;
-    protected Player playerController;
+    public GameObject player;
+    public Player playerController;
     public Modifiers mod; //The itemupgrade_modifier SO to be updated with the corresponding support's buff
 
     //The current level of the support
@@ -37,17 +37,16 @@ public class SupportSuperClass : MonoBehaviour
     //Description
     public List<string> supportDescriptions;
 
+
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         level = 0;
+        print(level);
+        playerController = FindObjectOfType<Player>();
+        player = playerController.gameObject;
         this.gameObject.SetActive(false);
-        player = FindObjectOfType<Player>().gameObject;
-        playerController = player.GetComponent<Player>();
-        //in_it();
-        isMax = false;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -62,15 +61,23 @@ public class SupportSuperClass : MonoBehaviour
         if (level == Get_MaxLvl())
         {
             isMax = true;
-            return;
         }
-        in_it();
+        EnableStats();
     }
 
     //Initialize level x stats
+    public virtual void EnableStats()
+    {
+
+    }
+    //init
     public virtual void in_it()
     {
+        print("turning on");
         this.gameObject.SetActive(true);
+        playerController = FindObjectOfType<Player>();
+        player = playerController.gameObject;
+        level = 0;
     }
 
     //Reset the effect of the item
