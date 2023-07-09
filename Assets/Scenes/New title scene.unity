@@ -847,15 +847,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecbb4444bd11c6e4da3dd4f0933c16ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instruction: {fileID: 566014378}
-  profile: {fileID: 1533315624}
   profileRect: {fileID: 1533315623}
-  settings: {fileID: 446689675}
   startingSceneSprites:
   - {fileID: 21300000, guid: de193ac6f1f3c2d4baff4955a714fcdd, type: 3}
   - {fileID: 1045787423, guid: 36d03cc663cae4559a4da3a4521b86dc, type: 3}
   - {fileID: 21300000, guid: 0211ec002ee0a234aa97397756324cbc, type: 3}
   - {fileID: 21300000, guid: d38f0c93649659149a92116e48ceaff7, type: 3}
+  ima:
+  - {fileID: 566014378}
+  - {fileID: 1533315624}
+  - {fileID: 446689675}
   credits: {fileID: 1859531292}
   creditsWords: {fileID: 1829760089}
 --- !u!1 &343478415

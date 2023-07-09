@@ -5,50 +5,50 @@ using UnityEngine.UI;
 
 public class NewStartingScene : MonoBehaviour
 {
-    public Image instruction;
-    public Image profile;
     public RectTransform profileRect;
-    public Image settings;
-    public Sprite[] startingSceneSprites= new Sprite[4];
+    public Sprite[] startingSceneSprites = new Sprite[4];
+    public Image[] ima= new Image[3];
 
     public GameObject credits;
     public GameObject creditsWords;
 
     public void Instruction()
     {
-        if(instruction.sprite == startingSceneSprites[0])
+        if(ima[0].sprite == startingSceneSprites[0])
         {
-            instruction.sprite = startingSceneSprites[3];
+            Restart(0);
+            RestartCredit();
         }
         else
         {
-            instruction.sprite = startingSceneSprites[0];
+            Interaction(2, 2);
         }
     }
 
     public void Profiles()
     {
-        if(profile.sprite == startingSceneSprites[1])
+        if(ima[1].sprite == startingSceneSprites[1])
         {
-            profileRect.sizeDelta = new Vector2(15, 15);
-            profile.sprite = startingSceneSprites[3];
+            Restart(1);
+            RestartCredit();
         }
         else
         {
+            Interaction(1,1);
             profileRect.sizeDelta = new Vector2(10, 10);
-            profile.sprite = startingSceneSprites[1];
         }
     }
 
     public void Settings()
     {
-        if (settings.sprite == startingSceneSprites[2])
+        if (ima[2].sprite == startingSceneSprites[2])
         {
-            settings.sprite = startingSceneSprites[3];
+            Restart(2);
+            RestartCredit();
         }
         else
         {
-            settings.sprite = startingSceneSprites[2];
+            Interaction(2, 2);
         }
     }
 
@@ -56,15 +56,43 @@ public class NewStartingScene : MonoBehaviour
     {
         if (!credits.activeInHierarchy)
         {
+            ima[0].sprite = startingSceneSprites[0];
+            ima[1].sprite = startingSceneSprites[1];
+            ima[2].sprite = startingSceneSprites[2];
+            profileRect.sizeDelta = new Vector2(10, 10);
             credits.SetActive(true);
             creditsWords.SetActive(false);
         }
         else
         {
-            credits.SetActive(false);
-            creditsWords.SetActive(true);
+            RestartCredit();
 
         }
+    }
+
+    void Restart(int num)
+    {
+        ima[0].sprite = startingSceneSprites[0];
+        ima[1].sprite = startingSceneSprites[1];
+        ima[2].sprite = startingSceneSprites[2];
+        credits.SetActive(false);
+        creditsWords.SetActive(true);
+        profileRect.sizeDelta = new Vector2(10,10);
+        ima[num].sprite = startingSceneSprites[3];
+        if (num == 1)
+        {
+            profileRect.sizeDelta = new Vector2(15, 15);
+        }
+    }
+
+    void Interaction(int imag, int sprit)
+    {
+        ima[imag].sprite= startingSceneSprites[sprit];        
+    }
+    void RestartCredit()
+    {
+        credits.SetActive(false);
+        creditsWords.SetActive(true);
     }
 
 
