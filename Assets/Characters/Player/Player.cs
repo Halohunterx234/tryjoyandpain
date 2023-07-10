@@ -166,8 +166,10 @@ public class Player : Entity
         ph.SetHealth(hp, maxHp,minHp);
     }
 
-    public void publicCheckHealth()
+    //public method to update the player's health from external sources
+    public void ModifyHp(int newhp)
     {
+        hp += newhp;
         CheckHealth();
     }
 

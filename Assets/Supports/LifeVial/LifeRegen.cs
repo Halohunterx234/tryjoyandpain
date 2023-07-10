@@ -27,8 +27,7 @@ public class LifeRegen : MonoBehaviour
         cd = 0;
         if (player.hp < player.maxHp)
         {
-            player.hp += lifeAmt;
-            player.publicCheckHealth();
+            player.ModifyHp(lifeAmt);
         }
     }
 }

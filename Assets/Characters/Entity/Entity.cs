@@ -17,7 +17,7 @@ public class Entity : MonoBehaviour
     //Others
     public bool spawnsDamageTxt, spawnsXpOrb; //is true for all entiites except player
     //References
-    public GameObject dmgTxt, xpOrb;
+    public GameObject dmgTxt, xpOrb, hpPickUp;
     private Color dmgColor = Color.red; //usual color for getting damaged
     public ScoreManager scoreManager;
     public Modifiers itemMod, permaMod;
@@ -100,6 +100,11 @@ public class Entity : MonoBehaviour
             {
                 GameObject xpOrbGO = Instantiate(xpOrb, transform.position, Quaternion.identity);
                 xpOrbGO.gameObject.GetComponent<XpOrbController>().SetXP(xp);
+                int determineHPDrop = Random.Range(0, 100);
+                if (determineHPDrop <= 10)
+                {
+                    Instantiate(hpPickUp, transform.position, Quaternion.identity);
+                }
             }
             if (this.gameObject.GetComponent<Player>())
             {
