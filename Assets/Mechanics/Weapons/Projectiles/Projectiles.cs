@@ -177,7 +177,7 @@ public class Projectiles : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.gameObject.isStatic && !collision.gameObject.GetComponent<Player>() && !collision.gameObject.GetComponent<Projectiles>() && !collision.gameObject.GetComponent<XpOrbController>())
+        if (!collision.gameObject.isStatic && !collision.gameObject.GetComponent<Player>() && !collision.gameObject.GetComponent<Projectiles>() && !collision.gameObject.CompareTag("Pickups"))
         {
             if (iso.buff != null && collision.gameObject.GetComponent<Entity>())
             {
