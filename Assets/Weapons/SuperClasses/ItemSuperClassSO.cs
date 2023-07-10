@@ -11,7 +11,7 @@ public enum returnTo
 [CreateAssetMenu(menuName = "Create new Item")]
 public class ItemSuperClassSO : ScriptableObject
 {
-    //Variables needed for all items
+    //Variables needed for all unmaxedItems
     [Header("Item Level")]
     public int level; 
 

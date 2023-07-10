@@ -15,7 +15,7 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         Score = 0; //start of the game
-        ScoreMultiplier = 1; //base multipler, is changed by permaMod-upgrades, items, etc
+        ScoreMultiplier = 1; //base multipler, is changed by permaMod-upgrades, unmaxedItems, etc
     }
 
     //Get time played in seconds and convert it to score

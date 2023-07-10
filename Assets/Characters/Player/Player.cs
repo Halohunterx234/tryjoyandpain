@@ -20,11 +20,13 @@ public class Player : Entity
     Player_HpController hpctrl;
     PlayerHealth ph;
     public GameObject leftDust, rightDust;
+    InventoryManager im;
     //For firing weapons
     private void Awake()
     {
         //health reference
         ph = GetComponentInChildren<PlayerHealth>();
+        im = FindObjectOfType<InventoryManager>();
         //clear the temp stats
         ClearStats();
         //set base stats
@@ -186,6 +188,7 @@ public class Player : Entity
         //dmg
         //cd - base cd is 0% duh
         cd_red = 0 + permaMod.cdModifier + itemMod.cdModifier;
+        im.CDReduce();
         //life regen
         if (itemMod.lifeRegenTrue == 1)
         {

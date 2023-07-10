@@ -43,6 +43,8 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
     [SerializeField]
     private float CDMax;
     [SerializeField]
+    private float CDMaxNoCDReduction; //cd that is not affected by cooldown reduction -> original cd
+    [SerializeField]
     private Transform firePoint;
 
     [Header("e")]
@@ -59,7 +61,10 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
     public List<levelproj> levels = new List<levelproj>();
 
     public AudioSource aSource;
-    //To be inherited by items (all items)
+
+    //references
+    public Modifiers itemMod, permaMod;
+    //To be inherited by unmaxedItems (all unmaxedItems)
     public virtual void OnFire()
     {
         //run through each projectile under the levels
@@ -88,6 +93,7 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         iSO = levels[levelNum - 1].get_projectiles()[0];
         CDMax = iSO.CDMax;
         CD = iSO.CD;
+        CDMaxNoCDReduction = CDMax;
         this.gameObject.SetActive(true);
         //update its values with the first level's values
        
@@ -121,6 +127,11 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
     public void UpdateData()
     {
         CDMax = iSO.CDMax;
+        CDMaxNoCDReduction = CDMax;
+        if (itemMod.cdModifier != 0 || permaMod.cdModifier != 0)
+        {
+            CooldownReduce();
+        }
         CD = iSO.CD;
     }
 
@@ -129,5 +140,14 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
         levelNum = (levelNum >= levels.Count) ? levelNum : levelNum + 1;
         iSO = levels[levelNum - 1].get_projectiles()[0];
         UpdateData();
+    }
+
+    //method to reduce one's cd
+    public void CooldownReduce()
+    {
+        CDMax = CDMaxNoCDReduction;
+        print(1 - itemMod.cdModifier - permaMod.cdModifier);
+        print(CDMax * (1 - itemMod.cdModifier - permaMod.cdModifier));
+        CDMax *= 1 - itemMod.cdModifier - permaMod.cdModifier;
     }
 }

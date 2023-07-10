@@ -17,13 +17,13 @@ public class HolyBibleController : SupportSuperClass
             Reset();
         }
         //modify the health of the player here
-        mod.cdModifier += (cdReductionLevels[level - 1]);
+        mod.cdModifier += (cdReductionLevels[level - 1] - 1);
         player.GetComponent<Player>().SetStats();
     }
 
     public override void Reset()
     {
-        mod.cdModifier -= (cdReductionLevels[level - 2]);
+        mod.cdModifier -= (cdReductionLevels[level - 2] - 1);
         //undo the movement modifier on the player
     }
 }

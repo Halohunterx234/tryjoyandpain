@@ -153,6 +153,8 @@ MonoBehaviour:
   - projectilesList:
     - {fileID: 11400000, guid: 49cbbf96902d6fc4dab6973ba59e3303, type: 2}
   aSource: {fileID: 0}
+  itemMod: {fileID: 0}
+  permaMod: {fileID: 0}
 --- !u!114 &3897213312030421077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +188,8 @@ MonoBehaviour:
   - projectilesList:
     - {fileID: 11400000, guid: 49cbbf96902d6fc4dab6973ba59e3303, type: 2}
   aSource: {fileID: 0}
+  itemMod: {fileID: 11400000, guid: a1da97ae9ed8b10418641ff26df34c58, type: 2}
+  permaMod: {fileID: 11400000, guid: 7803b61e7d7cb3e41b03db370d959389, type: 2}
 --- !u!82 &1363290459
 AudioSource:
   m_ObjectHideFlags: 0

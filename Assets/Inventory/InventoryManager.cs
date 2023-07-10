@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    //Lists to keep track of the slots and all items
+    //Lists to keep track of the slots and all unmaxedItems
     //Inventoy slots
     public List<GameObject> weaponSlots;
     public List<GameObject> supportSlots;
 
-    //All items possible to be upgraded/obtained
-    public List<GameObject> items;
+    //All unmaxedItems possible to be upgraded/obtained
+    public List<GameObject> allItems;
+    public List<GameObject> unmaxedItems;
 
-    //A dictionary to keep track of which slot is assigned to obtained items
+    //A dictionary to keep track of which slot is assigned to obtained unmaxedItems
     public Dictionary<GameObject, GameObject> weaponPair = new Dictionary<GameObject, GameObject>();
     public Dictionary<GameObject, GameObject> supportPair = new Dictionary<GameObject, GameObject>();
 
@@ -25,22 +27,33 @@ public class InventoryManager : MonoBehaviour
     private List<GameObject> gacha_itemList;
     public List<GameObject> inventorySlots;
 
+    //references
     float i;
     GameObject p;
+    Modifiers itemMod;
     private void Awake()
     {
         levelGUI.gameObject.SetActive(false);
+        LoadItems();
         ResetSupportLevel();
     }
     private void Start()
     {
         p = FindObjectOfType<Player>().gameObject;
     }
-
+    //load items from all items into unmaxed items
+    private void LoadItems()
+    {
+        foreach (GameObject item in allItems)
+        {
+            print(item);
+            unmaxedItems.Add(item);
+        }
+    }
     //reset the levels of all supports
     private void ResetSupportLevel()
     {
-        foreach (GameObject item in items)
+        foreach (GameObject item in unmaxedItems)
         {
             item.gameObject.SetActive(true);
             SupportSuperClass ssc = item.GetComponent<SupportSuperClass>();
@@ -53,27 +66,27 @@ public class InventoryManager : MonoBehaviour
     }
     public void SpawnWeapons()
     {
-        //if somehow someone manages to get all upgrades for all items, dont pop-up at all to prevent lock
-        if (items.Count == 0) return;
+        //if somehow someone manages to get all upgrades for all unmaxedItems, dont pop-up at all to prevent lock
+        if (unmaxedItems.Count == 0) return;
 
         //freeze and turn on GUI
         levelGUI.SetActive(true);
         Time.timeScale = 0;
 
-        //we have a list of all possible upgradeable/unlockabl items
-        foreach (GameObject item in items)
+        //we have a list of all possible upgradeable/unlockabl unmaxedItems
+        foreach (GameObject item in unmaxedItems)
         {
             gacha_itemList.Add(item);
         }
-        //if there happens to be 4 or less possible items
+        //if there happens to be 4 or less possible unmaxedItems
         //let the limit be the number of itemslots
-        if (items.Count <= 4)
+        if (unmaxedItems.Count <= 4)
         {
             for (int i = 0; i < itemSlots.Count; i++)
             {
-                if (i + 1 <= items.Count)
+                if (i + 1 <= unmaxedItems.Count)
                 {
-                    GameObject item = items[i];
+                    GameObject item = unmaxedItems[i];
                     GameObject itemSlot = itemSlots[i];
                     ItemSlotManager ism = itemSlot.GetComponent<ItemSlotManager>();
                     ism.SetData(item);
@@ -91,7 +104,7 @@ public class InventoryManager : MonoBehaviour
         {
             for (int i = 0; i < itemSlots.Count; i++)
             {
-                if (i >= items.Count) return;
+                if (i >= unmaxedItems.Count) return;
                 int randomNum = Mathf.RoundToInt(Random.Range(0, gacha_itemList.Count));
                 GameObject item = gacha_itemList[randomNum];
                 print(item);
@@ -104,18 +117,18 @@ public class InventoryManager : MonoBehaviour
         }
         gacha_itemList.Clear();
         /*
-        for (int i = 0; i < itemSlots.Count-1 || i < items.Count-1; i++)
+        for (int i = 0; i < itemSlots.Count-1 || i < unmaxedItems.Count-1; i++)
         {
             print(i);
-            int randomNum = Mathf.RoundToInt(Random.Range(0, items.Count - .49f));
-            GameObject itemMod = items[randomNum];
+            int randomNum = Mathf.RoundToInt(Random.Range(0, unmaxedItems.Count - .49f));
+            GameObject itemMod = unmaxedItems[randomNum];
             while (gacha_itemList.Contains(itemMod))
             {
-                randomNum = Mathf.RoundToInt(Random.Range(0, items.Count - .49f));
-                Debug.Log(items[randomNum]);
-                itemMod = items[randomNum];
+                randomNum = Mathf.RoundToInt(Random.Range(0, unmaxedItems.Count - .49f));
+                Debug.Log(unmaxedItems[randomNum]);
+                itemMod = unmaxedItems[randomNum];
             }
-            print(items[randomNum]);
+            print(unmaxedItems[randomNum]);
             GameObject itemSlot = itemSlots[i];
             ItemSlotManager ism = itemSlot.GetComponent<ItemSlotManager>();
             ism.SetData(itemMod);
@@ -193,7 +206,7 @@ public class InventoryManager : MonoBehaviour
         wc.UpdateWeaponLevel();
         if (wc.levelNum == wc.levels.Count)
         {
-            items.Remove(wc.gameObject);
+            unmaxedItems.Remove(wc.gameObject);
         }
     }
 
@@ -202,14 +215,21 @@ public class InventoryManager : MonoBehaviour
         ssc.LevelUp();
         if (ssc.isMax)
         {
-            items.Remove(ssc.gameObject);
+            unmaxedItems.Remove(ssc.gameObject);
         }
     }
-    IEnumerator wa()
+    
+    //method to update the max CDs of the weapons due to holy doll
+    public void CDReduce()
     {
-        yield return new WaitForSeconds(2);
-        SelectWeapon(items[2]);
-        yield return new WaitForSeconds(2);
-        SelectWeapon(items[2]);
+        foreach(GameObject item in allItems)
+        {
+            WeaponController wc = item.GetComponent<WeaponController>();
+            if (wc != null)
+            {
+                wc.CooldownReduce();
+            }
+        }
     }
+
 }
