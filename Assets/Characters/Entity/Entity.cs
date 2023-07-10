@@ -149,4 +149,37 @@ public class Entity : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //if enemy is still touching the player
+        if (collision.GetComponent<Entity>() && this.gameObject.GetComponent<Player>())
+        {
+            Player player = this.gameObject.GetComponent<Player>();
+            //if this is the first time player is tagged by a enemy, switch the state accordingly
+            if (!player.isTagged) { player.isTagged = true; }
+            //if this entity is newly tagged to the player, add it and stack its collision damage
+            if (!player.taggedEntities.Contains(collision.gameObject))
+            {
+                player.taggedEntities.Add(collision.gameObject);
+                player.taggedDamaged += collision.gameObject.GetComponent<Entity>().collisionDmg;
+                return;
+            }
+        }
+    }
+
+    //stop player tag when no entities
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Entity>() && this.gameObject.GetComponent<Player>())
+        {
+            Player player = this.gameObject.GetComponent<Player>();
+            player.taggedEntities.Remove(collision.gameObject);
+            player.taggedDamaged -= collision.gameObject.GetComponent<Entity>().collisionDmg;
+            if (player.taggedEntities.Count == 0)
+            {
+                player.isTagged = false;
+                player.tagCD = 0;
+            }
+        }
+    }
 }

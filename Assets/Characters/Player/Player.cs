@@ -24,6 +24,13 @@ public class Player : Entity
     InventoryManager im;
     public Image dmgOverlay;
 
+    //For managing constant damage
+    public bool isTagged;
+    public int taggedDamaged;
+    public List<GameObject> taggedEntities;
+    public float tagCD;
+    private float tagCDMax;
+
     //For firing weapons
     private void Awake()
     {
@@ -38,7 +45,8 @@ public class Player : Entity
         hp = maxHp;
         //no collision damage for player
         collisionDmg = 0;
-
+        taggedDamaged = 0;
+        tagCDMax = 1; tagCD = 0;
     }
 
     // Start is called before the first frame update
@@ -55,7 +63,17 @@ public class Player : Entity
     // Update is called once per frame
     void Update()
     {
-
+        //check if player is tagged
+        if (isTagged)
+        {
+            //if yes do the total damage of all enemies touching the player every 1 second
+            if (tagCD >= tagCDMax)
+            {
+                tagCD = 0;
+                GetDamaged(taggedDamaged);
+            }
+            else tagCD += Time.deltaTime;
+        }
         //if (!UnityEngine.Device.Application.isMobilePlatform) Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         //else
         {
