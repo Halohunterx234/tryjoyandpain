@@ -148,9 +148,11 @@ MonoBehaviour:
   dmgTxt: {fileID: 927180895340560702, guid: 69a2125715ff05c46937114dc83fd516, type: 3}
   xpOrb: {fileID: 5607117518481939413, guid: cec8b4e111b7e014a9a89bd4f3bc2aca, type: 3}
   hpPickUp: {fileID: 3180707872294438903, guid: feac4d7df149e234d886f5c99b129786, type: 3}
+  iceParticle: {fileID: 0}
   scoreManager: {fileID: 0}
   itemMod: {fileID: 0}
   permaMod: {fileID: 0}
+  iceDebuff: {fileID: 11400000, guid: 9a61ea4486fe69d4da73bd053f0002be, type: 2}
   aiSO: {fileID: 11400000, guid: 178cea06e1043644eb67644dd6fef193, type: 2}
   eSO: {fileID: 11400000, guid: 0250fabfcb4ece24487383c820db4ff2, type: 2}
 --- !u!95 &1446093514646237996
