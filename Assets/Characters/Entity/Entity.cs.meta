@@ -6,9 +6,12 @@ MonoImporter:
   defaultReferences:
   - dmgTxt: {instanceID: 0}
   - xpOrb: {instanceID: 0}
+  - hpPickUp: {instanceID: 0}
+  - iceParticle: {fileID: 362894008664879479, guid: 0837539bd4cacd24d8deebcaa89e12c7, type: 3}
   - scoreManager: {instanceID: 0}
   - itemMod: {fileID: 11400000, guid: a1da97ae9ed8b10418641ff26df34c58, type: 2}
   - permaMod: {fileID: 11400000, guid: 7803b61e7d7cb3e41b03db370d959389, type: 2}
+  - iceDebuff: {fileID: 11400000, guid: 9a61ea4486fe69d4da73bd053f0002be, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
