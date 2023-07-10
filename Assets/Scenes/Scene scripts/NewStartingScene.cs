@@ -21,7 +21,7 @@ public class NewStartingScene : MonoBehaviour
         }
         else
         {
-            Interaction(2, 2);
+            Interaction(0, 0);
         }
     }
 
