@@ -101,7 +101,7 @@ public class Entity : MonoBehaviour
                 GameObject xpOrbGO = Instantiate(xpOrb, transform.position, Quaternion.identity);
                 xpOrbGO.gameObject.GetComponent<XpOrbController>().SetXP(xp);
                 int determineHPDrop = Random.Range(0, 100);
-                if (determineHPDrop <= 10)
+                if (determineHPDrop <= 5)
                 {
                     Instantiate(hpPickUp, transform.position, Quaternion.identity);
                 }
