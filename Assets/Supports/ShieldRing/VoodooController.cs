@@ -16,6 +16,9 @@ public class VoodooController : SupportSuperClass
     [Range(1, 30)]
     public List<float> shieldRegenPeriodLevels;
 
+    //sound
+    public AudioSource audioS;
+    public AudioClip audioShieldBreak;
     
     //References
     public UnityEngine.UI.Slider shield_ui; //shield bar to use
@@ -34,6 +37,7 @@ public class VoodooController : SupportSuperClass
         else
         {
             ShieldController sc = player.AddComponent<ShieldController>();
+            sc.controller = this;
             sc.slide = shield_ui;
             sc.shieldImg = shieldimage.GetComponent<SpriteRenderer>();
             print(player.GetComponent<ShieldController>());
@@ -50,5 +54,11 @@ public class VoodooController : SupportSuperClass
         mod.lifeRegenRateModifier -= shieldRegenPeriodLevels[level - 2];
         mod.lifeRegenAmtModifier -= shieldRegenAmtLevels[level - 2];
         //undo the movement modifier on the player
+    }
+    
+    //play sound
+    public void ShieldBreak()
+    {
+        audioS.PlayOneShot(audioShieldBreak);
     }
 }

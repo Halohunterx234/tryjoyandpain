@@ -146,8 +146,6 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
     public void CooldownReduce()
     {
         CDMax = CDMaxNoCDReduction;
-        print(1 - itemMod.cdModifier - permaMod.cdModifier);
-        print(CDMax * (1 - itemMod.cdModifier - permaMod.cdModifier));
         CDMax *= 1 - itemMod.cdModifier - permaMod.cdModifier;
     }
 }

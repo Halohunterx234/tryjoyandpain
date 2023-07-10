@@ -23,7 +23,6 @@ public class PlayerHealth : MonoBehaviour
     public void SetHealth(float health, float maxHealth, float minHealth)
     {
         //slide.gameObject.SetActive(health < maxHealth);
-        print("health = " + health + maxHealth + minHealth);
         slide.maxValue = maxHealth;
         slide.minValue = minHealth;
         slide.value = health;

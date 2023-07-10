@@ -11,6 +11,7 @@ public class ShieldController : MonoBehaviour
     public Vector3 offset;
 
     public SpriteRenderer shieldImg; 
+    public VoodooController controller;
 
     public int maxShield, shield;
     public float maxCD, cd;
@@ -46,6 +47,7 @@ public class ShieldController : MonoBehaviour
     {
         if (shield <= 0)
         {
+            controller.ShieldBreak();
             slide.gameObject.SetActive(false);
             shieldImg.gameObject.SetActive(false);
             return;
