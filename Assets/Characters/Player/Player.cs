@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Terresquall;
 
 public class Player : Entity
@@ -21,6 +22,8 @@ public class Player : Entity
     PlayerHealth ph;
     public GameObject leftDust, rightDust;
     InventoryManager im;
+    public Image dmgOverlay;
+
     //For firing weapons
     private void Awake()
     {
@@ -163,6 +166,22 @@ public class Player : Entity
         //add a hp bar
         //hpctrl.Set_Values(hp, maxHp, minHp);
         base.OnCheckHealth();
+        //if hp is low, make the screen have a bloody red overlay
+        if (hp <= 0) return;
+        Color dmgColor = Color.red;
+        if ((maxHp / hp) >= 3)
+        {
+            if (hp == 1)
+            {
+                dmgColor.a = 0.4f;
+            }
+            else
+            {
+                dmgColor.a = 0.2f;
+            }
+        }
+        else dmgColor.a = 0;
+        dmgOverlay.color = dmgColor;
         ph.SetHealth(hp, maxHp,minHp);
     }
 
