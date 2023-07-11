@@ -107,8 +107,8 @@ MonoBehaviour:
   xp: 0
   collisionDmg: 0
   moveSpeed: 0
-  dyingAS: {fileID: 0}
-  bloodEffect: {fileID: 0}
+  dyingAS: {fileID: 3234406984489527716}
+  bloodEffect: {fileID: 1441233573392545097, guid: 8c71d66de17056942944f0822283f096, type: 3}
   spawnsDamageTxt: 0
   spawnsXpOrb: 0
   dmgTxt: {fileID: 927180895340560702, guid: 69a2125715ff05c46937114dc83fd516, type: 3}

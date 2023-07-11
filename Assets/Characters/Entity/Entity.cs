@@ -144,6 +144,17 @@ public class Entity : MonoBehaviour
         sr.color = Color.white;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!this.gameObject.GetComponent<Player>() && collision.gameObject.GetComponent<Entity>())
+        {
+            if (!collision.gameObject.GetComponent<BoxCollider2D>() && !collision.gameObject.GetComponent<CircleCollider2D>())
+            {
+                this.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
+            }
+            else this.gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
+        }
+    }
     protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Projectiles>() && !this.gameObject.GetComponent<Player>())
