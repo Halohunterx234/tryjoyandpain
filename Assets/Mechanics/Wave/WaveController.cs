@@ -29,7 +29,7 @@ public class WaveController : MonoBehaviour
     public GameObject switcher;
 
     public TextMeshProUGUI time_text;
-
+    public string time_text_string;
     float extra_c;
     private void Start()
     {
@@ -46,6 +46,7 @@ public class WaveController : MonoBehaviour
         string minutes = (Mathf.RoundToInt(timer) / 60) >= 10 ? (Mathf.RoundToInt(timer) / 60).ToString() : "0" + (Mathf.RoundToInt(timer) / 60).ToString();
         string seconds = (Mathf.RoundToInt(timer) % 60) >= 10 ? (Mathf.RoundToInt(timer) % 60).ToString() : "0" + (Mathf.RoundToInt(timer) % 60).ToString();
         time_text.text = minutes + ":" + seconds;
+        time_text_string = minutes + ":" + seconds;
         if (waveTimer >= waveMaxTimer)
         {
             waveTimer = 0;

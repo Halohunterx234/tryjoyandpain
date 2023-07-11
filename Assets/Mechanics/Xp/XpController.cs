@@ -9,7 +9,7 @@ public class XpController : MonoBehaviour
     //to be attached to the xp bar
     //is to control the xp levels of the player
     [SerializeField]
-    private int xplvl, xp, xpMax;
+    public int xplvl, xp, xpMax;
     Slider xpBar;
     TextMeshProUGUI xplvltext;
     Arua_Damage ar;

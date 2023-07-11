@@ -77,6 +77,7 @@ public abstract class WeaponSuperClass : MonoBehaviour, Attack
                 aSource.clip = iSO.fireEffect;
                 aSource.Play();
                 //pass all information about the projectile to the fireAI method
+                if (player == null) return;
                 StartCoroutine(fireAI.StartFire(levels.Count, levelNum, projectile.iProjectileSpawnCount, i, projectile, player.transform, projectile.projAIMode, player, projectile.fireMode, projectile.iProjectileSpawnDelay));
             }
          
