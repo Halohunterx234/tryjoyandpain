@@ -21,6 +21,7 @@ public class Entity : MonoBehaviour
     private Color dmgColor = Color.red; //usual color for getting damaged
     public ScoreManager scoreManager;
     public Modifiers itemMod, permaMod;
+    public GameObject iceParticle;
     // Start is called before the first frame update
     void Awake()
     {

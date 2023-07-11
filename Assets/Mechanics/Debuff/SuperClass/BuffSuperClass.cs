@@ -38,6 +38,9 @@ public class BuffSuperClass : MonoBehaviour
     private Color buff_color;
     private BuffType buff_type;
 
+    //Particles
+    public GameObject iceParticle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +73,14 @@ public class BuffSuperClass : MonoBehaviour
         //input extracted data into this script's variables
         //reset cooldowns
         entity_go = tobebuffed;
+        print(iceParticle);
+        if (currentBuff.buff_color == new Color(0, 1, 1, 1))
+        {
+            print("got debuffed");
+            iceParticle = entity_go.GetComponent<Entity>().iceParticle;
+            GameObject iceDebuffParticle = Instantiate(iceParticle, entity_go.transform.position, Quaternion.identity);
+            iceDebuffParticle.transform.SetParent(entity_go.transform);
+        }
         entity = entity_go.GetComponent<Entity>();
         buff_cd = 0; buff_currentLength = 0;
         //start the debuff immediately from t=0s if buff type is constant;

@@ -9,6 +9,7 @@ MonoImporter:
   - ShockedDebuff: {fileID: 11400000, guid: 672b83d6218f1f541a6612562863d3ad, type: 2}
   - currentBuff: {instanceID: 0}
   - sr: {instanceID: 0}
+  - iceParticle: {fileID: 362894008664879479, guid: 0837539bd4cacd24d8deebcaa89e12c7, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

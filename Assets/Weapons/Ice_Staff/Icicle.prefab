@@ -130,6 +130,7 @@ MonoBehaviour:
   aiMode: 0
   projModes: {fileID: 11400000, guid: 1769d559ffd1c4ebea1dea96dc3a424f, type: 2}
   fireModes: {fileID: 11400000, guid: 2f50ab9d336114bcd9792656b31dd8f6, type: 2}
+  iceDebuffParticle: {fileID: 696307994989301221, guid: 0837539bd4cacd24d8deebcaa89e12c7, type: 3}
   projectileSpeed: 0
   projectileKnockback: 0
   projectileDamage: 0
