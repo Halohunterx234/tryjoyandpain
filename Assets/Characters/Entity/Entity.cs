@@ -4,6 +4,7 @@ using System.Net;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AudioSource))]
 public class Entity : MonoBehaviour
 {
     //Big daddy class for everyone that is alive
@@ -14,6 +15,9 @@ public class Entity : MonoBehaviour
     //Components
     protected Rigidbody2D rb;
     protected SpriteRenderer sr;
+    public AudioSource dyingAS;
+    //Particles
+    public GameObject bloodEffect;
     //Others
     public bool spawnsDamageTxt, spawnsXpOrb; //is true for all entiites except player
     //References
@@ -26,7 +30,7 @@ public class Entity : MonoBehaviour
     void Awake()
     {
         minHp = 0;
-
+        dyingAS = GetComponent <AudioSource>();
     }
     //protected void Start()
     //{
@@ -106,6 +110,12 @@ public class Entity : MonoBehaviour
                 {
                     Instantiate(hpPickUp, transform.position, Quaternion.identity);
                 }
+                GameObject dying_vfx = Instantiate(bloodEffect, transform.position, Quaternion.identity);
+                AudioSource dyingVFXAS = dying_vfx.AddComponent<AudioSource>();
+                dyingVFXAS.clip = dyingAS.clip;
+                dyingVFXAS.playOnAwake = false;
+                dyingVFXAS.Play();
+                Destroy(dying_vfx, 0.7f);
             }
             if (this.gameObject.GetComponent<Player>())
             {
