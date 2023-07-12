@@ -50,12 +50,12 @@ public class WaveController : MonoBehaviour
         if (waveTimer >= waveMaxTimer)
         {
             waveTimer = 0;
-            if (waveCount == 3)
+            if (waveCount == 2)
             {
                 enemyCount += 1;
                 waveCount = 0;
             }
-            waveMaxTimer = Random.Range(7.5f, 10f);
+            waveMaxTimer = Random.Range(12f, 16f);
             SpawnWave();
         }
         else waveTimer += Time.deltaTime;

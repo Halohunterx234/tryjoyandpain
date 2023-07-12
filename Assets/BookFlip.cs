@@ -7,7 +7,7 @@ public class BookFlip : MonoBehaviour
 {
     public GameObject book;
     public GameObject bookFlipping;
-    public GameObject playerHP;
+    public GameObject playerHP, shieldHP;
     public MenuController mc;
 
     //data
@@ -19,7 +19,10 @@ public class BookFlip : MonoBehaviour
     public GameObject TimeTxt, Level, Health, CD, Speed, LifeRegen;
 
     //text
-
+    public void Awake()
+    {
+        book.SetActive(false);
+    }
     // Start is called before the first frame update
     public void deactivate()
     {
@@ -30,7 +33,9 @@ public class BookFlip : MonoBehaviour
 
     public void activate()
     {
+        if (book.activeSelf) return;
         playerHP.SetActive(false);
+        shieldHP.SetActive(false);
         bookFlipping.SetActive(true);
         book.SetActive(false);
     }
@@ -39,6 +44,7 @@ public class BookFlip : MonoBehaviour
     {
         Time.timeScale = 1;
         playerHP.SetActive(true);
+        shieldHP.SetActive(false);
         book.SetActive(false);
     }
     
