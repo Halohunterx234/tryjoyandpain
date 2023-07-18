@@ -30,6 +30,7 @@ public class InventoryManager : MonoBehaviour
     float i;
     GameObject p;
     Modifiers itemMod;
+    public GameObject joystick;
     private void Awake()
     {
         levelGUI.gameObject.SetActive(false);
@@ -142,6 +143,7 @@ public class InventoryManager : MonoBehaviour
     {
         levelGUI.SetActive(false);
         Time.timeScale = 1;
+        joystick.SetActive(true);
         if (weapon.GetComponent<WeaponController>())
         {
             WeaponController wc = weapon.GetComponent<WeaponController>();

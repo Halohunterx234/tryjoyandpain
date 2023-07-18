@@ -12,6 +12,7 @@ public class Entity : MonoBehaviour
     public int hp, maxHp, minHp, xp, collisionDmg;
     protected float knockbackResistance;
     public float moveSpeed;
+    public float particleSize;
     //Components
     protected Rigidbody2D rb;
     protected SpriteRenderer sr;
@@ -111,6 +112,7 @@ public class Entity : MonoBehaviour
                     Instantiate(hpPickUp, transform.position, Quaternion.identity);
                 }
                 GameObject dying_vfx = Instantiate(bloodEffect, transform.position, Quaternion.identity);
+                dying_vfx.transform.localScale *= particleSize;
                 AudioSource dyingVFXAS = dying_vfx.AddComponent<AudioSource>();
                 dyingVFXAS.clip = dyingAS.clip;
                 dyingVFXAS.playOnAwake = false;

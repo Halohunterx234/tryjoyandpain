@@ -26,6 +26,7 @@ public abstract class Cultist : Entity
         spawnsDamageTxt = true; spawnsXpOrb = spawnsDamageTxt;
         aiSO.insertData(c,eSO);
         xp = eSO.exp;
+        particleSize = eSO.particleSize;
     }
 
     /*public void StartingFire()

@@ -16,6 +16,7 @@ MonoBehaviour:
   health: 25
   collisionDmg: 3
   exp: 3
+  particleSize: 2
   iProjectileXOffset: 0
   iProjectileYOffset: 0
   iProjectileSpawnDelay: 0

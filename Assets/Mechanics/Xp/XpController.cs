@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Terresquall;
+using UnityEngine.EventSystems;
 
 public class XpController : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class XpController : MonoBehaviour
     //is to control the xp levels of the player
     [SerializeField]
     public int xplvl, xp, xpMax;
+    public GameObject joystick;
     Slider xpBar;
     TextMeshProUGUI xplvltext;
     Arua_Damage ar;
@@ -19,6 +22,7 @@ public class XpController : MonoBehaviour
     public GameObject exptxt;
     //References
     GameObject player;
+    VirtualJoystick vjoy;
 
     private void Awake()
     {
@@ -28,6 +32,7 @@ public class XpController : MonoBehaviour
         ar = FindObjectOfType<Arua_Damage>();
         im = FindObjectOfType<InventoryManager>();
         player = FindObjectOfType<Player>().gameObject;
+        vjoy = FindObjectOfType<VirtualJoystick>();
     }
     private void Start()
     {
@@ -77,6 +82,9 @@ public class XpController : MonoBehaviour
             xpMax = CalculateNextLvlXP(xplvl, xp);
             xpBar.maxValue = xpMax; xpBar.minValue = xp;
             xplvltext.text = xplvl.ToString();
+            vjoy.OnPointerUp(new PointerEventData(EventSystem.current));
+            joystick.SetActive(false);
+ 
             im.SpawnWeapons();
         }
         

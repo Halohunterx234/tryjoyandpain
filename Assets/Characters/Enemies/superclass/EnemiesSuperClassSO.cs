@@ -17,6 +17,9 @@ public class EnemiesSuperClassSO : ScriptableObject
     [Range(0f, 30f)]
     public int exp;
 
+    [Header("Particle Effect")]
+    [Range(0.5f,2f)]
+    public float particleSize=1f;
 
     [Header("Projectile Spawn Offsets")]
     [Range(-10f, 10f)]

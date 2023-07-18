@@ -12,6 +12,7 @@ public class Player : Entity
     public bool isPressed;
     public Vector3 movePos;
     public Camera mainCam;
+    private bool turnbool;
 
     //base stats
     private int prevMaxHP; //the previous maxhp before update of stats
@@ -83,6 +84,15 @@ public class Player : Entity
                 //If yes, assign the RigidBody the corresponding velocity
                 rb.velocity = new Vector2(VirtualJoystick.GetAxis("Horizontal"),
                 VirtualJoystick.GetAxis("Vertical")) * moveSpeed;
+                if (VirtualJoystick.GetAxis("Vertical") > 0.1 && turnbool==false)
+                {
+                    turnbool = true;
+                    rb.velocity = new Vector2(0, rb.velocity.y);
+                }else if (VirtualJoystick.GetAxis("Vertical") <-0.1 && turnbool == true)
+                {
+                    turnbool = false;
+                    rb.velocity = new Vector2(0, rb.velocity.y);
+                }
 
                 if (rb.velocity.x > 0.01 && transform.localScale.x > 0.01)
                 {

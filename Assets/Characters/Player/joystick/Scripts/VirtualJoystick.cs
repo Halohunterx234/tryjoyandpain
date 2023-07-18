@@ -64,6 +64,7 @@ namespace Terresquall {
 
         // Hook this to the EndDrag event of an EventTrigger.
         public void OnPointerUp(PointerEventData data) {
+            transform.position = origin;
             desiredPosition = transform.position;
             control.color = originalColor;
             currentPointerId = -2;

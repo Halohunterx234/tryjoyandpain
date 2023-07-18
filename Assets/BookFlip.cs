@@ -34,6 +34,7 @@ public class BookFlip : MonoBehaviour
     public void activate()
     {
         if (book.activeSelf) return;
+
         playerHP.SetActive(false);
         shieldHP.SetActive(false);
         bookFlipping.SetActive(true);
