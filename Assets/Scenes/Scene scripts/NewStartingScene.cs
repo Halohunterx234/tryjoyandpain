@@ -8,20 +8,24 @@ public class NewStartingScene : MonoBehaviour
     public RectTransform profileRect;
     public Sprite[] startingSceneSprites = new Sprite[4];
     public Image[] ima= new Image[3];
+    public GameObject[] screen = new GameObject[5];
 
     public GameObject credits;
     public GameObject creditsWords;
+
 
     public void Instruction()
     {
         if(ima[0].sprite == startingSceneSprites[0])
         {
-            Restart(0);
+            ChangeSprite(0);
             RestartCredit();
+            CheckingScreen(0);
         }
         else
         {
             Interaction(0, 0);
+            CheckingScreen(4);
         }
     }
 
@@ -29,13 +33,15 @@ public class NewStartingScene : MonoBehaviour
     {
         if(ima[1].sprite == startingSceneSprites[1])
         {
-            Restart(1);
+            ChangeSprite(1);
             RestartCredit();
+            CheckingScreen(1);
         }
         else
         {
             Interaction(1,1);
-            profileRect.sizeDelta = new Vector2(10, 10);
+            profileRect.sizeDelta = new Vector2(30, 30);
+            CheckingScreen(4);
         }
     }
 
@@ -43,11 +49,13 @@ public class NewStartingScene : MonoBehaviour
     {
         if (ima[2].sprite == startingSceneSprites[2])
         {
-            Restart(2);
+            ChangeSprite(2);
             RestartCredit();
+            CheckingScreen(2);
         }
         else
         {
+            CheckingScreen(4);
             Interaction(2, 2);
         }
     }
@@ -59,29 +67,47 @@ public class NewStartingScene : MonoBehaviour
             ima[0].sprite = startingSceneSprites[0];
             ima[1].sprite = startingSceneSprites[1];
             ima[2].sprite = startingSceneSprites[2];
-            profileRect.sizeDelta = new Vector2(10, 10);
+            profileRect.sizeDelta = new Vector2(30, 30);
             credits.SetActive(true);
             creditsWords.SetActive(false);
+            CheckingScreen(3);
+
         }
         else
         {
+            CheckingScreen(4);
             RestartCredit();
 
         }
     }
 
-    void Restart(int num)
+    void ChangeSprite(int num)
     {
         ima[0].sprite = startingSceneSprites[0];
         ima[1].sprite = startingSceneSprites[1];
         ima[2].sprite = startingSceneSprites[2];
         credits.SetActive(false);
         creditsWords.SetActive(true);
-        profileRect.sizeDelta = new Vector2(10,10);
+        profileRect.sizeDelta = new Vector2(30,30);
         ima[num].sprite = startingSceneSprites[3];
         if (num == 1)
         {
-            profileRect.sizeDelta = new Vector2(15, 15);
+            profileRect.sizeDelta = new Vector2(30, 30);
+        }       
+    }
+
+    void CheckingScreen(int chosenScreen)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            if (i == chosenScreen)
+            {
+                screen[i].SetActive(true);
+            }
+            else
+            {
+                screen[i].SetActive(false);
+            }
         }
     }
 
@@ -89,6 +115,7 @@ public class NewStartingScene : MonoBehaviour
     {
         ima[imag].sprite= startingSceneSprites[sprit];        
     }
+
     void RestartCredit()
     {
         credits.SetActive(false);
