@@ -10,7 +10,8 @@ public class Bookmarks : MonoBehaviour
     public GameObject creditsScreen;
     public GameObject charSelectScreen;
     public GameObject settingsScreen;
-    
+
+
 
     bool instructionsActive;
     bool creditsActive;

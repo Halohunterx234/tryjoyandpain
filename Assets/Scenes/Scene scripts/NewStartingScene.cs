@@ -9,6 +9,9 @@ public class NewStartingScene : MonoBehaviour
     public Sprite[] startingSceneSprites = new Sprite[4];
     public Image[] ima= new Image[3];
     public GameObject[] screen = new GameObject[5];
+    public Image[] imageBehindIcon = new Image[4];
+    public Color color;
+    public Color originalColor;
 
     public GameObject credits;
     public GameObject creditsWords;
@@ -102,12 +105,28 @@ public class NewStartingScene : MonoBehaviour
         {
             if (i == chosenScreen)
             {
+                if (i < 4)
+                {
+                    imageBehindIcon[i].color = color;
+                }
                 screen[i].SetActive(true);
             }
-            else
+            else 
             {
+                if (i < 4)
+                {
+                    imageBehindIcon[i].color = originalColor;
+                }
+                else if(chosenScreen==4 )
+                {
+                    imageBehindIcon[0].color = originalColor;
+                    imageBehindIcon[1].color = originalColor;
+                    imageBehindIcon[2].color = originalColor;
+                    imageBehindIcon[3].color = originalColor;
+                }
                 screen[i].SetActive(false);
-            }
+
+            }           
         }
     }
 

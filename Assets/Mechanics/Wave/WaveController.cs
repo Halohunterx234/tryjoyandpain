@@ -26,6 +26,7 @@ public class WaveController : MonoBehaviour
     public GameObject fastBoi;
     public GameObject bBM;
     public GameObject bigBoi;
+    public GameObject rangeBoi;
     public GameObject switcher;
 
     public TextMeshProUGUI time_text;
@@ -115,9 +116,10 @@ public class WaveController : MonoBehaviour
     protected void SwitchEnemy()
     {
         
-        if (waveSwitched % 4 == 1) switcher = fastBoi;
-        if (waveSwitched % 4 == 2) switcher = bBM;
-        if (waveSwitched % 4 == 3) switcher = bigBoi;
+        if (waveSwitched % 5 == 1) switcher = fastBoi;
+        if (waveSwitched % 5 == 2) switcher = rangeBoi;
+        if (waveSwitched % 5 == 3) switcher = bBM;
+        if (waveSwitched % 5 == 4) switcher = bigBoi;
         Debug.Log(waveSwitched);
     }
 
