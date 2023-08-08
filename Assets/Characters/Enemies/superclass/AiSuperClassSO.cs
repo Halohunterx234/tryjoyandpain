@@ -63,20 +63,20 @@ public class AiSuperClassSO : ScriptableObject
         {
             enemy.transform.localScale = new Vector3(enemy.transform.localScale.x * -1, enemy.transform.localScale.y);
         }
-
-
         return null;
     }
 
 
-    public IEnumerator StartFire(float delay, bool canfire, EnemiesSuperClassSO eISO, Transform firePoint,GameObject enemy)
+    public IEnumerator StartFire(float delay, bool canfire, EnemiesSuperClassSO eISO, Transform firePoint,GameObject enemy, Vector3 playerDir)
     {
         if (canfire == false) yield break;
         canfire = false;
         yield return new WaitForSeconds(delay);
         GameObject Projectile = Instantiate(eISO.eProjectileGO, (Vector2)firePoint.position + new Vector2(eISO.iProjectileXOffset, eISO.iProjectileYOffset) * Mathf.Sign(enemy.transform.localScale.x), Quaternion.identity);
         EnemyProjectile p = Projectile.GetComponent<EnemyProjectile>();
-
+        Rigidbody2D rb = Projectile.GetComponent<Rigidbody2D>();
+        rb.velocity = (playerDir * p.speed);
+        canfire = true;
     }
     
 
