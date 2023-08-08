@@ -146,6 +146,7 @@ public class Projectiles : MonoBehaviour
     //Collision Events
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.GetComponent<EnemyProjectile>()) return;   
         if (!collision.gameObject.isStatic && !collision.gameObject.GetComponent<Player>() && !collision.gameObject.GetComponent<Projectiles>())
         { 
             if (iso.buff != null && collision.gameObject.GetComponent<Entity>())
@@ -177,6 +178,7 @@ public class Projectiles : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.GetComponent<EnemyProjectile>()) return;
         if (!collision.gameObject.isStatic && !collision.gameObject.GetComponent<Player>() && !collision.gameObject.GetComponent<Projectiles>() && !collision.gameObject.CompareTag("Pickups"))
         {
             if (iso.buff != null && collision.gameObject.GetComponent<Entity>())

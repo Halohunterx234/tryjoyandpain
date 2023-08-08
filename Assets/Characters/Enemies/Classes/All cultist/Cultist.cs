@@ -14,6 +14,7 @@ public abstract class Cultist : Entity
     public AiSuperClassSO aiSO;
     public EnemiesSuperClassSO eSO;
     protected Cultist c;
+    [SerializeField]
     protected float CD, CDMax;
 
 
@@ -83,6 +84,7 @@ public abstract class Cultist : Entity
     {
         aiSO.StartAi(player, moveSpeed, this.gameObject);
         //Chase();
+        CDUpdate();
     }
 
     /*
