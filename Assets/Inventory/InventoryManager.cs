@@ -183,6 +183,7 @@ public class InventoryManager : MonoBehaviour
             {
                 InventorySlotManager ism = weaponSlots[i].GetComponent<InventorySlotManager>();
                 ism.SetIcon(wc.gameObject);
+                ism.obj = wc.gameObject;
                 inventorySlots.Add(wc.gameObject);
                 break;
             }
@@ -197,6 +198,7 @@ public class InventoryManager : MonoBehaviour
             {
                 InventorySlotManager ism = supportSlots[i].GetComponent<InventorySlotManager>();
                 ism.SetIcon(ssc.gameObject);
+                ism.obj = ssc.gameObject;
                 inventorySlots.Add(ssc.gameObject);
                 break;
             }

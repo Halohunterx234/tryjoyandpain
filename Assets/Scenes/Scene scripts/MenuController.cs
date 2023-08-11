@@ -7,12 +7,18 @@ using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour
 {
     public BookFlip bk;
+    //pause book pages
     public GameObject MainScreen, WeaponsScreen, ItemsScreen;
+    //bookmark slots to fill in with data
+    public List<GameObject> pItemSlots, pWeaponSlots;
+    //references
+    InventoryManager im;
 
     // Start is called before the first frame update
     void Start()
     {
         // bk.SetActive(false);
+        im = this.gameObject.GetComponent<InventoryManager>();
         GoToMain();
     }
 
@@ -62,6 +68,7 @@ public class MenuController : MonoBehaviour
         }
         UnActivePages();
         WeaponsScreen.SetActive(true);
+        PauseMenuSetData();
     }
     public void GoToItems()
     {
@@ -75,4 +82,25 @@ public class MenuController : MonoBehaviour
         ItemsScreen.SetActive(true);
     }
     
+    //method to set data of the slots
+    public void PauseMenuSetData()
+    {
+        //set data of all items
+        if (ItemsScreen.activeSelf)
+        {
+            for (int i = 0; i < im.supportPair.Count; i++)
+            {
+                ItemSlotManager p_ism = pItemSlots[i].GetComponent<ItemSlotManager>();
+                p_ism.SetData(im.supportSlots[i].GetComponent<InventorySlotManager>().obj);
+            }
+        }
+        else if (WeaponsScreen.activeSelf)
+        {
+            for (int i = 0; i < im.weaponPair.Count; i++)
+            {
+                ItemSlotManager p_ism = pWeaponSlots[i].GetComponent<ItemSlotManager>();
+                p_ism.SetData(im.weaponSlots[i].GetComponent<InventorySlotManager>().obj);
+            }
+        }
+    }
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class InventorySlotManager : MonoBehaviour
 {
     public Image icon;
+    public GameObject obj;
     private void Awake()
     {
         icon = GetComponentsInChildren<Image>()[1];
