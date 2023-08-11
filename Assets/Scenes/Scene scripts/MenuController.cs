@@ -54,11 +54,23 @@ public class MenuController : MonoBehaviour
     }
     public void GoToWeapon()
     {
+        //if weapon page is already active, go back to main
+        if (WeaponsScreen.activeSelf)
+        {
+            GoToMain();
+            return;
+        }
         UnActivePages();
         WeaponsScreen.SetActive(true);
     }
     public void GoToItems()
     {
+        //iif items page is already active, go back to main
+        if (ItemsScreen.activeSelf)
+        {
+            GoToMain();
+            return;
+        }
         UnActivePages();
         ItemsScreen.SetActive(true);
     }

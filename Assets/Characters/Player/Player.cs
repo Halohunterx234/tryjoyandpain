@@ -195,7 +195,12 @@ public class Player : Entity
         //hpctrl.Set_Values(hp, maxHp, minHp);
         base.OnCheckHealth();
         //if hp is low, make the screen have a bloody red overlay
-        if (hp <= 0) return;
+        //if hp is zero or lower, pause the game and activiate the game over overlay
+        if (hp <= 0)
+        {
+            Time.timeScale = 0;
+            return;
+        }
         Color dmgColor = Color.red;
         if ((maxHp / hp) >= 3)
         {
