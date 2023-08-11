@@ -241,7 +241,7 @@ MonoBehaviour:
   moveSpeed: 0
   particleSize: 0
   dyingAS: {fileID: 579010311402184385}
-  bloodEffect: {fileID: 8681183842894675884, guid: ac5b44f6bdce33d478e2a302ac164d05, type: 3}
+  bloodEffect: {fileID: 1441233573392545097, guid: 8c71d66de17056942944f0822283f096, type: 3}
   spawnsDamageTxt: 0
   spawnsXpOrb: 0
   dmgTxt: {fileID: 927180895340560702, guid: 69a2125715ff05c46937114dc83fd516, type: 3}
@@ -253,4 +253,6 @@ MonoBehaviour:
   iceParticle: {fileID: 362894008664879479, guid: 0837539bd4cacd24d8deebcaa89e12c7, type: 3}
   aiSO: {fileID: 11400000, guid: 31915adff3985c448902a1917446ebfe, type: 2}
   eSO: {fileID: 11400000, guid: 4d91218103f2b83429f68296633ded98, type: 2}
+  CD: 0
+  CDMax: 0
   enemyProjectile: {fileID: 6633657437012144077, guid: 36860575e477b9142ac45bae3cf58101, type: 3}
