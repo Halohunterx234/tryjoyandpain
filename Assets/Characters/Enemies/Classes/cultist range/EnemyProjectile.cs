@@ -6,6 +6,7 @@ public class EnemyProjectile : MonoBehaviour
 {
     public int dmg;
     public float speed;
+    public float despawnTime;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,5 +16,14 @@ public class EnemyProjectile : MonoBehaviour
         }
     }
 
-    
+    private void Start()
+    {
+        StartCoroutine(Despawn(despawnTime));
+    }
+
+    private IEnumerator Despawn(float t)
+    {
+        yield return new WaitForSeconds(t);
+        Destroy(this);
+    }
 }

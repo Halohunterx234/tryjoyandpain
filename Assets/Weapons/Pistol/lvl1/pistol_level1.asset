@@ -19,7 +19,7 @@ MonoBehaviour:
   iProjectileXOffset: -2
   iProjectileYOffset: -0.3
   iProjectileSpawnDelay: 0
-  iProjectiledamage: 20
+  iProjectiledamage: 1
   iProjectileknockBack: 0.25
   CD: 0
   CDMax: 0.8
