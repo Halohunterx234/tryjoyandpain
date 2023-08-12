@@ -140,7 +140,7 @@ public class Entity : MonoBehaviour
 
     } 
 
-    IEnumerator ResetColor()
+    public IEnumerator ResetColor()
     {
         yield return new WaitForSeconds(1);
         sr.color = Color.white;

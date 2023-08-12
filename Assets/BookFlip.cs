@@ -44,6 +44,7 @@ public class BookFlip : MonoBehaviour
     public void Exit()
     {
         Time.timeScale = 1;
+        StartCoroutine(player.ResetColor());
         playerHP.SetActive(true);
         shieldHP.SetActive(false);
         book.SetActive(false);

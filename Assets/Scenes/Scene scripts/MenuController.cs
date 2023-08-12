@@ -46,6 +46,7 @@ public class MenuController : MonoBehaviour
         ChangeColor(0, false);
         WeaponsScreen.SetActive(false);
         ItemsScreen.SetActive(false);
+        MainScreen.SetActive(true);
         Time.timeScale = 1;
         bk.Exit();
     }
