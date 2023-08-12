@@ -40,7 +40,8 @@ public class MenuController : MonoBehaviour
     //unpause game and go back to the level
     public void BackToGame()
     {
-        UnActivePages();
+        WeaponsScreen.SetActive(false);
+        ItemsScreen.SetActive(false);
         Time.timeScale = 1;
         bk.Exit();
     }

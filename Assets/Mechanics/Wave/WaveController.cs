@@ -11,13 +11,11 @@ public class WaveController : MonoBehaviour
     protected int enemyCount;
     protected ArrayList waveList;
     [SerializeField]
-    protected float waveTimer, waveMaxTimer;
+    protected float waveTimer, waveMaxTimer;//float used for timer of the wave
     protected float distance = 10f;
     protected float maxDistance = 20f;
     [SerializeField]
     protected float timer=0;
-    [SerializeField]
-    protected int waveSwitched=0;
 
     private bool onceOnly=true;
     private float timeOfActivation;
@@ -63,7 +61,6 @@ public class WaveController : MonoBehaviour
 
         if (Mathf.RoundToInt(timer) % 300 == 0 && Mathf.RoundToInt(timer) != 0 )
         {
-
             if (!onceOnly)
             {
                 return;
@@ -71,8 +68,6 @@ public class WaveController : MonoBehaviour
             onceOnly = false;
             print(Mathf.RoundToInt(timer));
             enemyCount = 1;
-            waveSwitched += 1;
-            SwitchEnemy();
             timeOfActivation = Time.time;
         }
         if (!onceOnly) CheckingActivation();  
@@ -93,7 +88,8 @@ public class WaveController : MonoBehaviour
             for (int j = extra_c <= 0 ? 0: -1; j < indiv_c; j++)
               {
                 Vector3 spawn = getSpawnDir(i);
-                Instantiate(switcher, spawn, Quaternion.identity);
+                GameObject selectedEnemy = EnemySpawned();
+                Instantiate(selectedEnemy, spawn, Quaternion.identity);
               }
             extra_c -= 1;
         }
@@ -113,15 +109,26 @@ public class WaveController : MonoBehaviour
         //fills up a arraylist with 
     }
 
-    protected void SwitchEnemy()
+    GameObject EnemySpawned()
     {
-        
-        if (waveSwitched % 5 == 1) switcher = fastBoi;
-        if (waveSwitched % 5 == 2) switcher = rangeBoi;
-        if (waveSwitched % 5 == 3) switcher = bBM;
-        if (waveSwitched % 5 == 4) switcher = bigBoi;
-        Debug.Log(waveSwitched);
+        int value=10;
+        int minutes = Mathf.RoundToInt(Mathf.RoundToInt(timer)/60);
+        int addvalue = minutes % 5 == 0 ? 1 : minutes % 5;
+        GameObject selectedEnemy;
+        if (minutes < 5) value = 10;
+        else if (minutes < 10) value += 1 * addvalue;
+        else if (minutes < 15) value += 10 + 1 * addvalue;
+        else if (minutes < 20) value += 20 + 1 * addvalue;
+        else if (minutes < 25) value += 30 + 1 * addvalue;
+        else value += 40;
+
+        int enemyNo = Random.Range(1, value);
+        if (enemyNo <= 10) selectedEnemy = enemy;
+        else if (enemyNo <= 20) selectedEnemy = fastBoi;
+        else if (enemyNo <= 30) selectedEnemy = rangeBoi;
+        else if (enemyNo <= 40) selectedEnemy = bBM;
+        else { selectedEnemy = bigBoi; }
+
+        return selectedEnemy;
     }
-
-
 }
