@@ -13,6 +13,9 @@ public class MenuController : MonoBehaviour
     public List<GameObject> pItemSlots, pWeaponSlots;
     //references
     InventoryManager im;
+    public List<Image> button;
+    public Color original;
+    public Color changed;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +43,7 @@ public class MenuController : MonoBehaviour
     //unpause game and go back to the level
     public void BackToGame()
     {
+        ChangeColor(0, false);
         WeaponsScreen.SetActive(false);
         ItemsScreen.SetActive(false);
         Time.timeScale = 1;
@@ -58,7 +62,9 @@ public class MenuController : MonoBehaviour
     {
         UnActivePages();
         MainScreen.SetActive(true);
+        ChangeColor(0,false);
     }
+
     public void GoToWeapon()
     {
         //if weapon page is already active, go back to main
@@ -70,6 +76,7 @@ public class MenuController : MonoBehaviour
         UnActivePages();
         WeaponsScreen.SetActive(true);
         PauseMenuSetData();
+        ChangeColor(1);
     }
     public void GoToItems()
     {
@@ -81,8 +88,21 @@ public class MenuController : MonoBehaviour
         }
         UnActivePages();
         ItemsScreen.SetActive(true);
+        ChangeColor(0);
+
     }
     
+    private void ChangeColor(int i, bool changingColor=true)
+    {
+        button[0].color = original;
+        button[1].color = original;
+        if (changingColor)
+        {
+            button[i].color = changed;
+        }
+
+    }
+
     //method to set data of the slots
     public void PauseMenuSetData()
     {
