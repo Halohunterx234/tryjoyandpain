@@ -88,6 +88,7 @@ public class MenuController : MonoBehaviour
         }
         UnActivePages();
         ItemsScreen.SetActive(true);
+        PauseMenuSetData();
         ChangeColor(0);
 
     }
@@ -109,18 +110,30 @@ public class MenuController : MonoBehaviour
         //set data of all items
         if (ItemsScreen.activeSelf)
         {
+            foreach (GameObject slot in pItemSlots)
+            {
+                slot.gameObject.SetActive(false);
+            }
+            if (im.supportPair.Count <= 0) return;
             for (int i = 0; i < im.supportPair.Count; i++)
             {
                 ItemSlotManager p_ism = pItemSlots[i].GetComponent<ItemSlotManager>();
                 p_ism.SetData(im.supportSlots[i].GetComponent<InventorySlotManager>().obj);
+                pItemSlots[i].gameObject.SetActive(true);
             }
         }
         else if (WeaponsScreen.activeSelf)
         {
+            foreach (GameObject slot in pWeaponSlots)
+            {
+                slot.gameObject.SetActive(false);
+            }
+            if (im.weaponPair.Count <= 0) return;
             for (int i = 0; i < im.weaponPair.Count; i++)
             {
                 ItemSlotManager p_ism = pWeaponSlots[i].GetComponent<ItemSlotManager>();
                 p_ism.SetData(im.weaponSlots[i].GetComponent<InventorySlotManager>().obj);
+                pWeaponSlots[i].gameObject.SetActive(true);
             }
         }
     }
