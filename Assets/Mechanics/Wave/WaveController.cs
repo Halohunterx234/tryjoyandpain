@@ -8,12 +8,11 @@ public class WaveController : MonoBehaviour
     [SerializeField]
     protected int waveCount;
     [SerializeField]
-    protected int enemyCount;
-    protected ArrayList waveList;
+    protected int enemyCount;//amount of enemy spawned in a wave
     [SerializeField]
     protected float waveTimer, waveMaxTimer;//float used for timer of the wave
-    protected float distance = 10f;
-    protected float maxDistance = 20f;
+    protected float distance = 10f;//this is just distance variable for variable
+    protected float maxDistance = 20f;//this is just distance variable for variable
     [SerializeField]
     protected float timer=0;
 
@@ -25,7 +24,6 @@ public class WaveController : MonoBehaviour
     public GameObject bBM;
     public GameObject bigBoi;
     public GameObject rangeBoi;
-    public GameObject switcher;
 
     public TextMeshProUGUI time_text;
     public string time_text_string;
@@ -34,7 +32,6 @@ public class WaveController : MonoBehaviour
     {
         player = FindObjectOfType<Player>().gameObject;
         waveTimer = waveMaxTimer;
-        switcher = enemy;
         time_text = GameObject.Find("Timer").GetComponent<TextMeshProUGUI>();
     }
 
@@ -45,21 +42,21 @@ public class WaveController : MonoBehaviour
         string minutes = (Mathf.RoundToInt(timer) / 60) >= 10 ? (Mathf.RoundToInt(timer) / 60).ToString() : "0" + (Mathf.RoundToInt(timer) / 60).ToString();
         string seconds = (Mathf.RoundToInt(timer) % 60) >= 10 ? (Mathf.RoundToInt(timer) % 60).ToString() : "0" + (Mathf.RoundToInt(timer) % 60).ToString();
         time_text.text = minutes + ":" + seconds;
-        time_text_string = minutes + ":" + seconds;
+        time_text_string = minutes + ":" + seconds;//this is just timer text
         if (waveTimer >= waveMaxTimer)
         {
             waveTimer = 0;
-            if (waveCount == 2)
+            if (waveCount == 2)//for every 2 waves increase enemy count by 1
             {
                 enemyCount += 1;
-                waveCount = 0;
+                waveCount = 0;//reset wave count
             }
-            waveMaxTimer = Random.Range(12f, 16f);
-            SpawnWave();
+            waveMaxTimer = Random.Range(12f, 16f);//this is where the rate of the waves is at
+            SpawnWave();//this obviously spawn waves
         }
         else waveTimer += Time.deltaTime;
 
-        if (Mathf.RoundToInt(timer) % 300 == 0 && Mathf.RoundToInt(timer) != 0 )
+        if (Mathf.RoundToInt(timer) % 300 == 0 && Mathf.RoundToInt(timer) != 0 )//so for every 5 minutes the enemy count resets
         {
             if (!onceOnly)
             {
@@ -80,10 +77,10 @@ public class WaveController : MonoBehaviour
 
     protected void SpawnWave()
     {
-        float indiv_c = enemyCount < 4 ? 1 : enemyCount / 4 ;
+        float indiv_c = enemyCount < 4 ? 1 : enemyCount / 4 ;//indiv_c is the amount of enemy spawned
         if (enemyCount > 5) extra_c = enemyCount % 4 == 0 ? 0: enemyCount % 4;
-        //Loop through each direction
-        for (int i = 0; i < 4; i++)
+        //if the amount of enemy spawned in each directoin is not equal put the extra in one of the direction
+        for (int i = 0; i < 4; i++)//Loop through each direction
         {
             for (int j = extra_c <= 0 ? 0: -1; j < indiv_c; j++)
               {
@@ -96,24 +93,25 @@ public class WaveController : MonoBehaviour
         waveCount += 1;
     }
 
-    private Vector3 getSpawnDir(int no)
+    private Vector3 getSpawnDir(int no)//where the enemy will spawn
     {
         Vector3 playerPos = player.transform.position;
-        if (no == 0) return (playerPos + Vector3.up + new Vector3(Random.Range(-maxDistance, maxDistance), distance, 0));
-        else if (no == 1) return (playerPos + Vector3.right + new Vector3(distance, Random.Range(-maxDistance, maxDistance), 0));
-        else if (no == 2) return (playerPos + Vector3.down + new Vector3(Random.Range(-maxDistance, maxDistance), -distance, 0));
-        else return (playerPos + Vector3.left + new Vector3(-distance, Random.Range(-maxDistance, maxDistance), 0));
+        if (no == 0) return (playerPos + Vector3.up + new Vector3(Random.Range(-maxDistance, maxDistance), distance, 0));// on the north of the player
+        else if (no == 1) return (playerPos + Vector3.right + new Vector3(distance, Random.Range(-maxDistance, maxDistance), 0));// on the west of the player
+        else if (no == 2) return (playerPos + Vector3.down + new Vector3(Random.Range(-maxDistance, maxDistance), -distance, 0));// on the south of the player
+        else return (playerPos + Vector3.left + new Vector3(-distance, Random.Range(-maxDistance, maxDistance), 0));// on the east of the player
     }
     protected void FillWave()
     {
         //fills up a arraylist with 
     }
 
-    GameObject EnemySpawned()
+    GameObject EnemySpawned()//this is to determine what type of enemy is spawned
     {
-        int value=10;
+        int value=10;//this is the maxiumum value of chance for the random chance
         int minutes = Mathf.RoundToInt(Mathf.RoundToInt(timer)/60);
         int addvalue = minutes % 5 == 0 ? 1 : minutes % 5;
+        //every 1 minute the chance of getting the new enemy to spawn increases
         GameObject selectedEnemy;
         if (minutes < 5) value = 10;
         else if (minutes < 10) value += 1 * addvalue;
@@ -122,12 +120,12 @@ public class WaveController : MonoBehaviour
         else if (minutes < 25) value += 30 + 1 * addvalue;
         else value += 40;
 
-        int enemyNo = Random.Range(1, value);
-        if (enemyNo <= 10) selectedEnemy = enemy;
-        else if (enemyNo <= 20) selectedEnemy = fastBoi;
-        else if (enemyNo <= 30) selectedEnemy = rangeBoi;
-        else if (enemyNo <= 40) selectedEnemy = bBM;
-        else { selectedEnemy = bigBoi; }
+        int enemyNo = Random.Range(1, value);//this is where the chance of an enemy spawn is
+        if (enemyNo <= 10) selectedEnemy = enemy;//this spawn normal enemy
+        else if (enemyNo <= 20) selectedEnemy = fastBoi;//this spawn fast enemy
+        else if (enemyNo <= 30) selectedEnemy = rangeBoi;//this spawn range enemy
+        else if (enemyNo <= 40) selectedEnemy = bBM;//this spawn big enemy
+        else { selectedEnemy = bigBoi; }//this spawn bigger enemy
 
         return selectedEnemy;
     }
