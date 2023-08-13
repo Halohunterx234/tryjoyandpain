@@ -16,6 +16,10 @@ public class NewStartingScene : MonoBehaviour
     public GameObject credits;
     public GameObject creditsWords;
 
+    public void Exit()
+    {
+        Application.Quit();
+    }
 
     public void Instruction()
     {
