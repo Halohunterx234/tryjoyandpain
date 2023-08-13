@@ -106,6 +106,10 @@ MonoBehaviour:
   - Regenerates +1 hp per 30 seconds
   - Reduce regen period to 20 seconds
   - Further reduces to 10 seconds and a additional +1 hp
+  supportLevelDescriptions:
+  - Regenerates 1 Health Every 30 Seconds
+  - Regenerates 1 Health Every 20 Seconds
+  - Regenerates 2 Health Every 10 Seconds
   hpRegenAmtLevels: 010000000100000002000000
   hpRegenPeriodLevels:
   - 30

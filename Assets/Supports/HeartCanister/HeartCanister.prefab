@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff0bdb674260b5040b105486c291ee7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  playerController: {fileID: 0}
   mod: {fileID: 11400000, guid: a1da97ae9ed8b10418641ff26df34c58, type: 2}
   level: 0
   isMax: 0
@@ -104,4 +106,8 @@ MonoBehaviour:
   - Increases Max Health by 5
   - Further increases Max Health by 10
   - NEVER DIEEEE! Max Health +15
+  supportLevelDescriptions:
+  - Additional 5 Health
+  - Additional 10 Health
+  - Addititonal 15 Health
   additionalHPLevels: 050000000a0000000f000000

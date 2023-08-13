@@ -106,6 +106,10 @@ MonoBehaviour:
   - Decreases cooldown of weapons by 10%
   - Further decreases weapon CD by 20%
   - CD Reduction furtherest down to 30%
+  supportLevelDescriptions:
+  - 10% CD Reduction
+  - 20% CD Reduction
+  - 30% CD Reduction
   cdReductionLevels:
   - 1.1
   - 1.2

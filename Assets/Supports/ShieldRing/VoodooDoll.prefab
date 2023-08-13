@@ -106,10 +106,16 @@ MonoBehaviour:
   - Gives a 5hp shield that regenerates every 20 seconds.
   - Now regenerates every 15 seconds
   - Shield health is increased to 10hp
+  supportLevelDescriptions:
+  - Gain a 5-HP Damage Absorbing Shield Every 20 Seconds
+  - Gain a 5-HP Damage Absorbing Shield Every 15 Seconds
+  - Gain a 10-HP Damage Absorbing Shield Every 15 Seconds
   shieldRegenAmtLevels: 05000000050000000a000000
   shieldRegenPeriodLevels:
   - 20
   - 15
   - 15
+  audioS: {fileID: 0}
+  audioShieldBreak: {fileID: 0}
   shield_ui: {fileID: 0}
   shieldimage: {fileID: 0}
