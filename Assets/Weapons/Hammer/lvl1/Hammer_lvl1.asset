@@ -31,6 +31,7 @@ MonoBehaviour:
   iProjectilePenetration: 1
   item_Desc: Throws a hammer in a random direction that pierces enemies before returning
     to you
+  item_LevelDesc: Shoots 1 Hammer | Deals 2 Dmg | 3 CD
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0

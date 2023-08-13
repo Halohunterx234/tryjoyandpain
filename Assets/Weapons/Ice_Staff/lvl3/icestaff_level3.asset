@@ -29,7 +29,9 @@ MonoBehaviour:
   iProjectileRot: -45
   iProjectileSize: 1.74
   iProjectilePenetration: 2
-  item_Desc: Gains an additional icicle and decreases cooldown
+  item_Desc: Gains an additional icicle with penetration,  and decreases cooldown
+  item_LevelDesc: Shoots 6 Icicles | Deals 4 Dmg | 4 CD | Slows Enemies On-Hit |
+    Penetrates 2 Enemies
   iProjectileRotDiff: 45
   iProjectileSpawnCount: 6
   projAIMode: 0

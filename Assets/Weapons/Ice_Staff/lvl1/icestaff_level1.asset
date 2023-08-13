@@ -30,6 +30,7 @@ MonoBehaviour:
   iProjectileSize: 1.74
   iProjectilePenetration: 1
   item_Desc: FIres multiple icicles around you that slows enemies hit
+  item_LevelDesc: Shoots 4 Icicles | Deals 1 Dmg | 5 CD | Slows Enemies On-Hit
   iProjectileRotDiff: 45
   iProjectileSpawnCount: 4
   projAIMode: 0

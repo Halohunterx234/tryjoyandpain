@@ -29,7 +29,8 @@ MonoBehaviour:
   iProjectileRot: 180
   iProjectileSize: 1.75
   iProjectilePenetration: 10
-  item_Desc: Decreases cooldown
+  item_Desc: Increased Penetration, Dmg + Lowered Cooldown
+  item_LevelDesc: Shoots a Slash | Deals 6 Dmg | 2 CD | Penetrates 10 Enemies
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0

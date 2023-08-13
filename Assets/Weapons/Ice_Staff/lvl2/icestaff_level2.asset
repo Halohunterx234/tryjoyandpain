@@ -19,7 +19,7 @@ MonoBehaviour:
   iProjectileXOffset: -3
   iProjectileYOffset: 1
   iProjectileSpawnDelay: 0
-  iProjectiledamage: 4
+  iProjectiledamage: 2
   iProjectileknockBack: 0.25
   CD: 0
   CDMax: 5
@@ -30,6 +30,7 @@ MonoBehaviour:
   iProjectileSize: 1.74
   iProjectilePenetration: 1
   item_Desc: Gains an additional icicle and increases damage dealt
+  item_LevelDesc: Shoots 5 Icicles | Deals 2 Dmg | 5 CD | Slows Enemies On-Hit
   iProjectileRotDiff: 45
   iProjectileSpawnCount: 5
   projAIMode: 0

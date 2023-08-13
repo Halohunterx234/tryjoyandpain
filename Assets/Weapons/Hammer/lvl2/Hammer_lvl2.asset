@@ -30,6 +30,7 @@ MonoBehaviour:
   iProjectileSize: 1
   iProjectilePenetration: 1
   item_Desc: Throws an additional hammer
+  item_LevelDesc: Shoots 2 Hammers | Deals 2 Dmg | 3 CD
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 2
   projAIMode: 0

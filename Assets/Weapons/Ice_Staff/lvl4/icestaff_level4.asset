@@ -19,7 +19,7 @@ MonoBehaviour:
   iProjectileXOffset: -3
   iProjectileYOffset: 1
   iProjectileSpawnDelay: 0
-  iProjectiledamage: 4
+  iProjectiledamage: 5
   iProjectileknockBack: 0.25
   CD: 0
   CDMax: 3
@@ -28,8 +28,11 @@ MonoBehaviour:
   iProjectileSpeed: 7.5
   iProjectileRot: -45
   iProjectileSize: 1.74
-  iProjectilePenetration: 2
-  item_Desc: Gains 2 additional projectiles and decreases cooldown
+  iProjectilePenetration: 3
+  item_Desc: Gains 2 additional projectiles with damage and penentration, and decreases
+    cooldown
+  item_LevelDesc: Shoots 8 Icicles | Deals 5 Dmg | 3 CD | Slows Enemies On-Hit |
+    Penetrates 3 Enemies
   iProjectileRotDiff: 45
   iProjectileSpawnCount: 8
   projAIMode: 0

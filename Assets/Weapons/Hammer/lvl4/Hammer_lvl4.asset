@@ -31,6 +31,8 @@ MonoBehaviour:
   iProjectilePenetration: 3
   item_Desc: Throws an additional hammer and lightning strikes enemies on hit, stunning
     them
+  item_LevelDesc: Shoots 4 Hammers | Deals 4 Dmg | 3 CD | Penetrates 3 Enemies |
+    Stuns Enemies On-Hit
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 4
   projAIMode: 0

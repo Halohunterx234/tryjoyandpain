@@ -30,6 +30,7 @@ MonoBehaviour:
   iProjectileSize: 1.5
   iProjectilePenetration: 5
   item_Desc: increases slash range and size
+  item_LevelDesc: Shoots a Slash | Deals 5 Dmg | 3 CD | Penetrates 5 Enemies
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0
