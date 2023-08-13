@@ -95,7 +95,7 @@ public class NewStartingScene : MonoBehaviour
         ima[num].sprite = startingSceneSprites[3];
         if (num == 1)
         {
-            profileRect.sizeDelta = new Vector2(30, 30);
+            profileRect.sizeDelta = new Vector2(40, 40);
         }       
     }
 
