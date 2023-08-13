@@ -5,6 +5,8 @@ using UnityEngine;
 public class LevelManagerController : MonoBehaviour
 {
     public Modifiers itemMod;
+    public AudioSource backgroundMusic;
+
 
     GameObject GameOver;
     // Start is called before the first frame update
@@ -22,6 +24,7 @@ public class LevelManagerController : MonoBehaviour
     
     public void GameIsOver()
     {
+        backgroundMusic.Stop();
         GameOver.SetActive(true);
     }
 
