@@ -23,7 +23,7 @@ public class Entity : MonoBehaviour
     public bool spawnsDamageTxt, spawnsXpOrb; //is true for all entiites except player
     //References
     public GameObject dmgTxt, xpOrb, hpPickUp;
-    private Color dmgColor = Color.red; //usual color for getting damaged
+    public Color dmgColor = Color.red; //usual color for getting damaged
     public ScoreManager scoreManager;
     public Modifiers itemMod, permaMod;
     public GameObject iceParticle;
@@ -52,6 +52,8 @@ public class Entity : MonoBehaviour
     public void GetDamaged(int dmg, Color debuff_color)
     {
         sr.color = debuff_color;
+        print(sr.color);
+        print(debuff_color);
         if (this.gameObject.GetComponent<Player>() && itemMod.shieldEnabledTrue == 1)
         {
             ShieldController sc = this.gameObject.GetComponentInChildren<ShieldController>();

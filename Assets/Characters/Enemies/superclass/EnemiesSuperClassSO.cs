@@ -10,11 +10,11 @@ public class EnemiesSuperClassSO : ScriptableObject
     [Header("Enemies stat")]
     [Range(0f, 30f)]
     public float moveSpeed;
-    [Range(0f, 50f)]
+    [Range(0f, 500f)]
     public int health;
     [Range(0f, 30f)]
     public int collisionDmg;
-    [Range(0f, 30f)]
+    [Range(0f, 300f)]
     public int exp;
 
     [Header("Particle Effect")]
