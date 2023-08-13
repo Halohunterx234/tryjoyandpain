@@ -52,8 +52,8 @@ public class Entity : MonoBehaviour
     public void GetDamaged(int dmg, Color debuff_color)
     {
         sr.color = debuff_color;
-        print(sr.color);
-        print(debuff_color);
+        print(dmg);
+        print(hp);
         if (this.gameObject.GetComponent<Player>() && itemMod.shieldEnabledTrue == 1)
         {
             ShieldController sc = this.gameObject.GetComponentInChildren<ShieldController>();

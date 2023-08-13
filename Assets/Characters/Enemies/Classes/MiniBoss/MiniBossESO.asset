@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b33d924579d1144c98d5dd6805e44a1, type: 3}
   m_Name: MiniBossESO
   m_EditorClassIdentifier: 
-  moveSpeed: 0.9
+  moveSpeed: 0.8
   health: 200
   collisionDmg: 3
   exp: 50
