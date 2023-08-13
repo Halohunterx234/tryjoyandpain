@@ -301,6 +301,10 @@ MonoBehaviour:
   - Increases movement speed by 10%
   - Further increases movement speed by 20%
   - MORE SPEEEEED!!! Up by 30%
+  supportLevelDescriptions:
+  - 10% Increased Movement SPD
+  - 20% Increased Movement SPD
+  - 30% Increased Movement SPD
   movementSpeedLevels:
   - 1.1
   - 1.2

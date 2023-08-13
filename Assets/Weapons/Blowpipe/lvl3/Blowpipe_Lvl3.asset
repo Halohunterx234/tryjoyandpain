@@ -22,7 +22,7 @@ MonoBehaviour:
   iProjectiledamage: 4
   iProjectileknockBack: 0
   CD: 0
-  CDMax: 2.5
+  CDMax: 2.3
   canActiviate: 0
   iProjectileDespawn: 2.5
   iProjectileSpeed: 15
@@ -30,6 +30,7 @@ MonoBehaviour:
   iProjectileSize: 1
   iProjectilePenetration: 1
   item_Desc: increases projectile speed and damage, applies poison upon hit
+  item_LevelDesc: Shoots 1 Dart | Deals 4 Dmg | 2.3 CD | Applies Poison On-Hit
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0

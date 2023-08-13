@@ -30,6 +30,7 @@ MonoBehaviour:
   iProjectileSize: 1
   iProjectilePenetration: 1
   item_Desc: increases projectile speed decreases cooldown
+  item_LevelDesc: Shoots 1 Dart | Deals 3 Dmg | 2.5 CD
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0

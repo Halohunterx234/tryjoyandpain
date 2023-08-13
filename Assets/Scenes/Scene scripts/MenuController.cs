@@ -119,7 +119,7 @@ public class MenuController : MonoBehaviour
             for (int i = 0; i < im.supportPair.Count; i++)
             {
                 ItemSlotManager p_ism = pItemSlots[i].GetComponent<ItemSlotManager>();
-                p_ism.SetData(im.supportSlots[i].GetComponent<InventorySlotManager>().obj);
+                p_ism.SetData(im.supportSlots[i].GetComponent<InventorySlotManager>().obj, true);
                 pItemSlots[i].gameObject.SetActive(true);
             }
         }
@@ -133,7 +133,7 @@ public class MenuController : MonoBehaviour
             for (int i = 0; i < im.weaponPair.Count; i++)
             {
                 ItemSlotManager p_ism = pWeaponSlots[i].GetComponent<ItemSlotManager>();
-                p_ism.SetData(im.weaponSlots[i].GetComponent<InventorySlotManager>().obj);
+                p_ism.SetData(im.weaponSlots[i].GetComponent<InventorySlotManager>().obj, true);
                 pWeaponSlots[i].gameObject.SetActive(true);
             }
         }

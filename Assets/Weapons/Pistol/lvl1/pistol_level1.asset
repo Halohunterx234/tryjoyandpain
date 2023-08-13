@@ -30,6 +30,7 @@ MonoBehaviour:
   iProjectileSize: 1
   iProjectilePenetration: 1
   item_Desc: Fires a projectile in direction you are facing
+  item_LevelDesc: Shoots 1 bullet | Deals 2 Dmg | 0.8 CD
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 1

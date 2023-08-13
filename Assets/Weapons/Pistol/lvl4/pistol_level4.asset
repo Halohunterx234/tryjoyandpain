@@ -30,6 +30,7 @@ MonoBehaviour:
   iProjectileSize: 1
   iProjectilePenetration: 2
   item_Desc: Shoots 2 projectiles in each direction, decreases cooldown
+  item_LevelDesc: Shoots 2 Bullets | Deals 3 Dmg | 0.4 CD
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 2
   projAIMode: 0

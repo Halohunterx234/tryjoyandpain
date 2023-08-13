@@ -30,6 +30,7 @@ MonoBehaviour:
   iProjectileSize: 1
   iProjectilePenetration: 1
   item_Desc: Increases damage and decrease cooldown. Poison is stronger.
+  item_LevelDesc: Shoots 1 Dart | Deals 6 Dmg | 2 CD | Applies Poison On-Hit
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 2
   projAIMode: 0

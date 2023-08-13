@@ -51,8 +51,9 @@ public class ItemSuperClassSO : ScriptableObject
     [Range(1f, 100f)]
     public int iProjectilePenetration;
 
-    [Header("Description")]
+    [Header("Descriptions")]
     public string item_Desc;
+    public string item_LevelDesc;
 
     [Header("Rotation Difference (For Multi-Projectile Types)")]
     public float iProjectileRotDiff;

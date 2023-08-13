@@ -30,6 +30,7 @@ MonoBehaviour:
   iProjectileSize: 1
   iProjectilePenetration: 1
   item_Desc: Shoots a dart at a nearby enemy
+  item_LevelDesc: Shoots 1 Dart | Deals 2 Dmg | 3 CD
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0

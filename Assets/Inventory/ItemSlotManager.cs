@@ -32,7 +32,7 @@ public class ItemSlotManager : MonoBehaviour
         inventoryManager.SelectWeapon(currentweapon);
     }
 
-    public void SetData(GameObject weapon)
+    public void SetData(GameObject weapon, bool pauseScreen=false)
     {
         this.gameObject.SetActive(true);
         currentweapon = weapon;
@@ -46,30 +46,46 @@ public class ItemSlotManager : MonoBehaviour
         if (weapon.GetComponent<WeaponController>())
         {
             WeaponController wc = weapon.GetComponent<WeaponController>();
-            if (wc.levelNum == 0)
+            if (!pauseScreen)
             {
-                name.text += " 'NEW!'";
+                if (wc.levelNum == 0)
+                {
+                    name.text += " 'NEW!'";
+                }
+                else if (wc.levelNum > 0)
+                {
+                    string nextLevel = (wc.levelNum + 1).ToString();
+                    name.text += ": LVL " + nextLevel;
+                }
+                description.text = wc.levels[wc.levelNum].get_projectiles()[0].item_Desc;
             }
-            else if (wc.levelNum > 0)
+            else
             {
-                string nextLevel = (wc.levelNum + 1).ToString();
-                name.text += ": LVL " + nextLevel;
+                name.text += ": LVL " + wc.levelNum;
+                description.text = wc.levels[wc.levelNum].get_projectiles()[0].item_LevelDesc;
             }
-            description.text = wc.levels[wc.levelNum].get_projectiles()[0].item_Desc;
         }
         else if (weapon.GetComponent<SupportSuperClass>())
         {
             SupportSuperClass ssc = weapon.GetComponent<SupportSuperClass>();
-            if (ssc.level == 0)
+            if (!pauseScreen)
             {
-                name.text += " 'NEW!' ";
+                if (ssc.level == 0)
+                {
+                    name.text += " 'NEW!' ";
+                }
+                else if (ssc.level > 0)
+                {
+                    string nextLevel = (ssc.level + 1).ToString();
+                    name.text += ": LVL " + nextLevel;
+                }
+                description.text = ssc.supportDescriptions[ssc.level];
             }
-            else if (ssc.level > 0)
+            else
             {
-                string nextLevel = (ssc.level + 1).ToString();
-                name.text += ": LVL " + nextLevel;
+                name.text += ": LVL " + ssc.level;
+                description.text = ssc.supportLevelDescriptions[ssc.level-1];
             }
-            description.text = ssc.supportDescriptions[ssc.level];
         }
     }
 

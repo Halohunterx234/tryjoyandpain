@@ -35,8 +35,8 @@ public class SupportSuperClass : MonoBehaviour
     public bool isMax;
 
     //Description
-    public List<string> supportDescriptions;
-
+    public List<string> supportDescriptions; //description for the next level
+    public List<string> supportLevelDescriptions; //description of the current level weapon
 
     // Start is called before the first frame update
     protected void Start()

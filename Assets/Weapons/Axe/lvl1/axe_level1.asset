@@ -30,6 +30,8 @@ MonoBehaviour:
   iProjectileSize: 1.15
   iProjectilePenetration: 3
   item_Desc: Swings in a large arc in the direction you are facing
+  item_LevelDesc: 'Swings a large arc slash | Deals 4 Dmg | Penetrates 3 Enemies
+    | '
   iProjectileRotDiff: 0
   iProjectileSpawnCount: 1
   projAIMode: 0
