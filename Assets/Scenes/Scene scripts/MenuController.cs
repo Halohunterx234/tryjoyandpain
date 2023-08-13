@@ -14,6 +14,8 @@ public class MenuController : MonoBehaviour
     //references
     InventoryManager im;
     public List<Image> button;
+    public List<Image> icon;
+    public List<Sprite> iconImage;
     public Color original;
     public Color changed;
 
@@ -98,8 +100,11 @@ public class MenuController : MonoBehaviour
     {
         button[0].color = original;
         button[1].color = original;
+        icon[0].sprite = iconImage[0];
+        icon[1].sprite = iconImage[1];
         if (changingColor)
         {
+            icon[i].sprite = iconImage[2];
             button[i].color = changed;
         }
 
