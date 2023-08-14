@@ -103,7 +103,7 @@ public class WaveController : MonoBehaviour
             firstWaveSpawned = true;
             aSource.clip = warning;
             aSource.Play();
-            Instantiate(firstWave,new Vector3(19,-10,0), Quaternion.identity);
+            Instantiate(firstWave,new Vector3(19,player.transform.position.y - 9,0), Quaternion.identity);
 
         }
 
@@ -111,6 +111,20 @@ public class WaveController : MonoBehaviour
         if ((Mathf.RoundToInt(timer) / 60) >= 20 && !secondWaveSpawned)
         {
             secondWaveSpawned = true;
+            aSource.clip = warning;
+            aSource.Play();
+            Instantiate(secondWave, new Vector3(-10, -10, 0), Quaternion.identity);
+        }
+
+        //spawn miniboss and big boi wave at 25:00
+        if ((Mathf.RoundToInt(timer) / 60) >= 25 )
+        {
+           
+            for(int i = 0; i < 3; i++)
+            {
+                Instantiate(miniboss, player.transform.position + (30 * Mathf.Abs(-player.transform.localScale.x) * Vector3.one), Quaternion.identity);
+            }
+           
             aSource.clip = warning;
             aSource.Play();
             Instantiate(secondWave, new Vector3(-10, -10, 0), Quaternion.identity);
