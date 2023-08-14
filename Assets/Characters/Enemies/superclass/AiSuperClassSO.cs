@@ -7,7 +7,8 @@ public enum enumAi
 {
     chase,
     shooting,
-    boss
+    boss,
+    wave
 }
 
 [CreateAssetMenu(menuName = "Create EnemyAI (reference)")]
@@ -30,6 +31,9 @@ public class AiSuperClassSO : ScriptableObject
                 shoot(player, moveSpeed, enemy);
                 break;
             case enumAi.boss:
+                boss(player, moveSpeed, enemy);
+                break;
+            case enumAi.wave:
                 boss(player, moveSpeed, enemy);
                 break;
         }
@@ -85,6 +89,23 @@ public class AiSuperClassSO : ScriptableObject
         else if (enemy.transform.position.x < player.transform.position.x && enemy.transform.localScale.x > 0)
         {
             enemy.transform.localScale = new Vector3(enemy.transform.localScale.x , enemy.transform.localScale.y);
+        }
+        return null;
+    }
+
+    public System.Action wave(GameObject player, float moveSpeed, GameObject enemy)
+    {
+        if (player == null) return null;
+        Rigidbody2D enemyrb = enemy.GetComponent<Rigidbody2D>();
+        enemyrb.velocity = Vector2.up * moveSpeed;
+        //Change the rotation if necessary
+        if (enemy.transform.position.x > player.transform.position.x && enemy.transform.localScale.x < 0)
+        {
+            enemy.transform.localScale = new Vector3(enemy.transform.localScale.x * -1, enemy.transform.localScale.y);
+        }
+        else if (enemy.transform.position.x < player.transform.position.x && enemy.transform.localScale.x > 0)
+        {
+            enemy.transform.localScale = new Vector3(enemy.transform.localScale.x * -1, enemy.transform.localScale.y);
         }
         return null;
     }
