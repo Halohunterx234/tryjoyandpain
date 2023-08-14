@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 2079322743}
   - component: {fileID: 2079322747}
   - component: {fileID: 2079322752}
+  - component: {fileID: 4628801546770618624}
+  - component: {fileID: 2079322756}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -68,6 +70,8 @@ MonoBehaviour:
   miniBossSpawned: 0
   time_text: {fileID: 0}
   time_text_string: 
+  aSource: {fileID: 0}
+  warning: {fileID: 0}
 --- !u!114 &7947867803627736195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +165,46 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7947867803627736192}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f8f7b6a83beae4d8c3778ea277c13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bk: {fileID: 0}
+  MainScreen: {fileID: 0}
+  WeaponsScreen: {fileID: 0}
+  ItemsScreen: {fileID: 0}
+  pItemSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  pWeaponSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  button:
+  - {fileID: 0}
+  - {fileID: 0}
+  icon:
+  - {fileID: 0}
+  - {fileID: 0}
+  iconImage:
+  - {fileID: 21300000, guid: 12b8445ceb8745b47be5c06f013f6f41, type: 3}
+  - {fileID: 21300000, guid: 82d55b44e537d8f439259f9ddaaeeaed, type: 3}
+  - {fileID: 21300000, guid: 1bf32bbf9a8348c4799ba31eb06468a7, type: 3}
+  original: {r: 1, g: 1, b: 1, a: 1}
+  changed: {r: 0.6039216, g: 0.20784314, b: 0, a: 1}
+--- !u!114 &4628801546770618624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7947867803627736192}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9f8f7b6a83beae4d8c3778ea277c13d, type: 3}
@@ -194,3 +238,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1bf32bbf9a8348c4799ba31eb06468a7, type: 3}
   original: {r: 1, g: 1, b: 1, a: 1}
   changed: {r: 0.6039216, g: 0.20784314, b: 0, a: 1}
+--- !u!114 &2079322756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7947867803627736192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27eff46ebff5a6c4da77d1dcf83482ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Dialogue: {fileID: 0}
+  dialoguetext: {fileID: 0}
+  textSpeed: 0.25
