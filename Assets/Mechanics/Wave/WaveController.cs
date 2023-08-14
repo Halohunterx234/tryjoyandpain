@@ -78,12 +78,7 @@ public class WaveController : MonoBehaviour
         }
         if (!onceOnly) CheckingActivation();
 
-        //spawns first push wave at 05:00 once only
-        if ((Mathf.RoundToInt(timer) / 60) >= 1 && !firstWaveSpawned)
-        {
-            firstWaveSpawned = true;
-            Instantiate(firstWave,new Vector3(45,-10,0), Quaternion.identity);
-        }
+       
 
         //spawn miniboss if its 07:00 once only
         if ((Mathf.RoundToInt(timer) / 60) >= 7 && !miniBossSpawned)
@@ -92,7 +87,19 @@ public class WaveController : MonoBehaviour
             Instantiate(miniboss, player.transform.position + (30*Mathf.Abs(-player.transform.localScale.x) * Vector3.one), Quaternion.identity);
         }
 
-        
+         //spawns first push wave at 10:00 once only
+        if ((Mathf.RoundToInt(timer) / 60) >= 10 && !firstWaveSpawned)
+        {
+            firstWaveSpawned = true;
+            Instantiate(firstWave,new Vector3(19,-10,0), Quaternion.identity);
+        }
+
+        //spawns second push wave at 20:00 once only
+        if ((Mathf.RoundToInt(timer) / 60) >= 20 && !secondWaveSpawned)
+        {
+            secondWaveSpawned = true;
+            Instantiate(secondWave, new Vector3(-10, -10, 0), Quaternion.identity);
+        }
 
     }
 

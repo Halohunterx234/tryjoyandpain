@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1698601411}
   - component: {fileID: 2079322743}
   - component: {fileID: 2079322747}
+  - component: {fileID: 2079322752}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -53,14 +54,20 @@ MonoBehaviour:
   waveTimer: 0
   waveMaxTimer: 7.5
   timer: 0
-  waveSwitched: 0
   player: {fileID: 0}
   enemy: {fileID: 4905509171078055955, guid: adb2781490e7e4bce83782469f0eb58e, type: 3}
   fastBoi: {fileID: 6924869932545276992, guid: f7902ab562b4d3b47a651033c898dbf4, type: 3}
   bBM: {fileID: 384422082934420416, guid: 7ff02d355dc0f3940b2eaaa33bbcf460, type: 3}
   bigBoi: {fileID: 922853541515137635, guid: 210929b0bceb18846994277990d6be82, type: 3}
-  switcher: {fileID: 0}
+  rangeBoi: {fileID: 6732619726832700673, guid: bf1c4ad248964564580d805d03d49c42, type: 3}
+  miniboss: {fileID: 3309564111878618265, guid: 5a8b8b289db09b341ab765533b27e7b0, type: 3}
+  firstWave: {fileID: 9149020555310989955, guid: f7dacbcdd176fa24587c1f8960213c4f, type: 3}
+  secondWave: {fileID: 368338834672835326, guid: 33fbcd320492ca34e88d063eb0549f03, type: 3}
+  firstWaveSpawned: 0
+  secondWaveSpawned: 0
+  miniBossSpawned: 0
   time_text: {fileID: 0}
+  time_text_string: 
 --- !u!114 &7947867803627736195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,11 +104,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  items:
+  allItems:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  unmaxedItems: []
   levelGUI: {fileID: 0}
   inventory: {fileID: 0}
   itemSlots:
@@ -111,6 +125,7 @@ MonoBehaviour:
   - {fileID: 0}
   gacha_itemList: []
   inventorySlots: []
+  joystick: {fileID: 0}
 --- !u!114 &2079322743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bb758b190a4864793489e63cec62c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemMod: {fileID: 0}
+  backgroundMusic: {fileID: 0}
 --- !u!114 &2079322747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,3 +154,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Score: 0
   ScoreMultiplier: 0
+--- !u!114 &2079322752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7947867803627736192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f8f7b6a83beae4d8c3778ea277c13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bk: {fileID: 0}
+  MainScreen: {fileID: 0}
+  WeaponsScreen: {fileID: 0}
+  ItemsScreen: {fileID: 0}
+  pItemSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  pWeaponSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  button:
+  - {fileID: 0}
+  - {fileID: 0}
+  icon:
+  - {fileID: 0}
+  - {fileID: 0}
+  iconImage:
+  - {fileID: 21300000, guid: 12b8445ceb8745b47be5c06f013f6f41, type: 3}
+  - {fileID: 21300000, guid: 82d55b44e537d8f439259f9ddaaeeaed, type: 3}
+  - {fileID: 21300000, guid: 1bf32bbf9a8348c4799ba31eb06468a7, type: 3}
+  original: {r: 1, g: 1, b: 1, a: 1}
+  changed: {r: 0.6039216, g: 0.20784314, b: 0, a: 1}
