@@ -101,8 +101,8 @@ public class WaveController : MonoBehaviour
         {
             List<string> dialogue = new List<string>() { 
                 "I'm getting chills up my spine, something's coming...",
-                " ", 
-                "" 
+                "I sense a presence, with supernatural powers... I gotta be careful.", 
+                "Finally, someone who's worthy enough to put up a challenge." 
             };
 
             dc.SpawnDialogue(dialogue[Random.Range(0, dialogue.Count - 1)]);
@@ -118,8 +118,8 @@ public class WaveController : MonoBehaviour
            
             List<string> dialogue = new List<string>() { 
                 "Wha...What are those footsteps I hear?",
-                "", 
-                "" 
+                "tsk, those cunning fools think they can corner me? Well, in fact they are the ones who are in a corner", 
+                "A huge horde of enemies are coming, I should exercise caution" 
             };
 
             dc.SpawnDialogue(dialogue[Random.Range(0, dialogue.Count - 1)]);
@@ -137,8 +137,8 @@ public class WaveController : MonoBehaviour
             
             List<string> dialogue = new List<string>() { 
                 "It's the footsteps again, but this time... heavier? Oh no...",
-                "",
-                "" 
+                "Even more enemies?? When will this ever end...",
+                "Time to ramp it up a notch!" 
             };
 
             dc.SpawnDialogue(dialogue[Random.Range(0, dialogue.Count - 1)]);
@@ -155,7 +155,7 @@ public class WaveController : MonoBehaviour
             List<string> dialogue = new List<string>() { 
                 "Oh no, RUNNNNNNNNNNNNN!!!!!", 
                 "The ground is trembling like crazy, there is no way this is good", 
-                "" 
+                "This is getting harder and harder... But I can't give up now, not for her." 
             };
 
             dc.SpawnDialogue(dialogue[Random.Range(0, dialogue.Count - 1)]);
