@@ -151,7 +151,7 @@ public class TitleManager : MonoBehaviour
 
     }
 
-    IEnumerator GoingToNextScreen(int chosenScreen)//reset the screen then have a delay
+    IEnumerator GoingToNextScreen(int chosenScreen)//reset the screen then have a delay then make the appropriate changes
     {
         for (int e =0; e < 5; e++)
         {
@@ -176,7 +176,7 @@ public class TitleManager : MonoBehaviour
         screen[chosenScreen].SetActive(true);
     }
 
-    IEnumerator ChangingColor(int num)
+    IEnumerator ChangingColor(int num)//have a delay then make the appropriate changes
     {
         yield return new WaitForSeconds(1.5f);
         if (num == 4)
@@ -197,13 +197,13 @@ public class TitleManager : MonoBehaviour
         
     }
 
-    IEnumerator Interaction(int imag, int sprit)
+    IEnumerator Interaction(int imag, int sprit)//have a delay then make the appropriate changes
     {
         yield return new WaitForSeconds(1.5f);
         imageUsedToHoldTheSprite[imag].sprite= startingSceneSprites[sprit];        
     }
 
-    IEnumerator RestartCredit()
+    IEnumerator RestartCredit()//have a delay then reset the credit icon
     {
         yield return new WaitForSeconds(1.5f);
         credits.SetActive(false);
