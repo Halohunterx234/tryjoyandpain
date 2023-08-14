@@ -153,7 +153,7 @@ public class TitleManager : MonoBehaviour
 
     IEnumerator GoingToNextScreen(int chosenScreen)//reset the screen then have a delay then make the appropriate changes
     {
-        for (int e =0; e < 5; e++)
+        for (int e =0; e < 5; e++)//this make all the screen unactive
         {
             if (screen[e].activeSelf)
             {
@@ -161,7 +161,7 @@ public class TitleManager : MonoBehaviour
             }
             screen[e].SetActive(false);
         }
-        if(previousScreen> chosenScreen)
+        if(previousScreen> chosenScreen)//determine what animation is used
         {
             pageFlipBack.SetActive(true);
             
@@ -176,7 +176,7 @@ public class TitleManager : MonoBehaviour
         screen[chosenScreen].SetActive(true);
     }
 
-    IEnumerator ChangingColor(int num)//have a delay then make the appropriate changes
+    IEnumerator ChangingColor(int num)//have a delay then change the designated bookmark
     {
         yield return new WaitForSeconds(1.5f);
         if (num == 4)
@@ -197,7 +197,7 @@ public class TitleManager : MonoBehaviour
         
     }
 
-    IEnumerator Interaction(int imag, int sprit)//have a delay then make the appropriate changes
+    IEnumerator Interaction(int imag, int sprit)//have a delay then it make the sprite to the correct sprite
     {
         yield return new WaitForSeconds(1.5f);
         imageUsedToHoldTheSprite[imag].sprite= startingSceneSprites[sprit];        
