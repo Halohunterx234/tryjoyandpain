@@ -24,23 +24,28 @@ public class DialogueController : MonoBehaviour
     // Spawn at 0 opacity till called
     void Start()
     {
+        //Setting of variables
         cd = 0; maxcd = Time.deltaTime / textSpeed;
         iswriting = false;
         dialoguetext = Dialogue.GetComponentsInChildren<Transform>()[5].GetComponent<Text>();
+        //Entrance dialogue
         SpawnDialogue(strings[Random.Range(0, strings.Count-1)]);
     }
 
     private void Update()
     {
+        //if text is to be generated
         if (iswriting)
         {
             if (dialoguetext.text.Length == textlength)
             {
+                //text is finished, can start to despawn the box
                 iswriting = false;
                 StartCoroutine(Despawn(3));
             }
             else
             {
+                //generate the text at a readable constant pace
                 if (cd >= maxcd)
                 {
                     cd = 0;
@@ -51,7 +56,9 @@ public class DialogueController : MonoBehaviour
             }
         }
     }
+
     //method to start appearing, increasing opacity as a transition
+    //set everything to default and zero
     public void SpawnDialogue(string newtext)
     {
         TransitionOpacity(1);
@@ -89,6 +96,7 @@ public class DialogueController : MonoBehaviour
         }
     }
 
+    //ienumerator to change the opacity over a period of time
     private IEnumerator changeopacity(Image img, float finalopacity)
     {
         WaitForEndOfFrame w = new WaitForEndOfFrame();
@@ -96,7 +104,6 @@ public class DialogueController : MonoBehaviour
         {
             while (img.color.a > finalopacity)
             {
-                print(img.color.a);
                 img.color = new Color(img.color.r, img.color.g, img.color.b, img.color.a - Time.deltaTime);
                 yield return w;
             }
@@ -111,6 +118,7 @@ public class DialogueController : MonoBehaviour
         }
     }
 
+    //overloaded version for text opacity
     private IEnumerator changeopacity(Text txt, float finalopacity)
     {
         WaitForEndOfFrame w = new WaitForEndOfFrame();

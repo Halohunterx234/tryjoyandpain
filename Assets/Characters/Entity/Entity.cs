@@ -49,13 +49,13 @@ public class Entity : MonoBehaviour
     {
         GetDamaged(dmg, dmgColor);
     }
+    //Method to control damage amd shield transfer if present
     public void GetDamaged(int dmg, Color debuff_color)
     {
         sr.color = debuff_color;
-        print(dmg);
-        print(hp);
         if (this.gameObject.GetComponent<Player>() && itemMod.shieldEnabledTrue == 1)
         {
+            //absorb damage if there is shield
             ShieldController sc = this.gameObject.GetComponentInChildren<ShieldController>();
             if (sc.shield > 0)
             {
@@ -83,21 +83,13 @@ public class Entity : MonoBehaviour
         CheckHealth();
     }
 
+    //getdamaged overloaded version that is for buffs only
     public void GetDamaged_ByBuff(int dmg, Color debuff_color)
     {
         GetDamaged(dmg, debuff_color);
-        /*
-        sr.color = debuff_color;
-        hp -= dmg;
-        //spawn dmg
-        if (spawnsDamageTxt)
-        {
-            GameObject damagetxt = Instantiate(dmgTxt, transform.position, Quaternion.identity);
-            damagetxt.GetComponent<DamageTextController>().ChangeText(dmg.ToString(), transform.position);
-        }
-        CheckHealth();
-        */
     }
+
+    //Deals with the loot and audio portion, basically the death part
     protected void CheckHealth()
     {
         OnCheckHealth();
@@ -137,17 +129,20 @@ public class Entity : MonoBehaviour
         }
     }
 
+    //left empty for inheritance
     protected virtual void OnCheckHealth()
     {
 
     } 
 
+    //Reset color to default after getting damaged
     public IEnumerator ResetColor()
     {
         yield return new WaitForSeconds(1);
         sr.color = Color.white;
     }
 
+    //Collision Code for both collision and trigger
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!this.gameObject.GetComponent<Player>() && collision.gameObject.GetComponent<Entity>())
@@ -175,6 +170,8 @@ public class Entity : MonoBehaviour
         }
     }
 
+    //Mechanic to deal damage to player if remaining in enemy contact for extended periods of time
+    //damage is also stacked with the number of enemies touching the player
     private void OnTriggerStay2D(Collider2D collision)
     {
         //if enemy is still touching the player

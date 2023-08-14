@@ -31,7 +31,7 @@ public abstract class Cultist : Entity
     }
 
 
-
+    //Simple cooldown method for any inherited members to use
     protected void CDUpdate()
     {
         if (CD >= CDMax)
@@ -47,7 +47,7 @@ public abstract class Cultist : Entity
         //run through each projectile under the levels
     }
 
-
+    //Run the ai mode every frame
     private void Update()
     {
         aiSO.StartAi(player, moveSpeed, this.gameObject);

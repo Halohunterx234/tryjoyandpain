@@ -18,7 +18,7 @@ public class AiSuperClassSO : ScriptableObject
     public enumAi aiMode;
 
    
-
+    //The different ai modes
     public void StartAi(GameObject player,float moveSpeed,GameObject enemy)
     {
 
@@ -39,12 +39,14 @@ public class AiSuperClassSO : ScriptableObject
         }
     }
 
+    //Simple logic to chase player
     public System.Action Chase(GameObject player,float moveSpeed,GameObject enemy)
     {
         if (player == null) return null;
         Rigidbody2D enemyrb = enemy.GetComponent<Rigidbody2D>();
         Vector3 playerDir = player.transform.position - enemy.transform.position;
         enemyrb.velocity = playerDir.normalized * moveSpeed;
+
         //Change the rotation if necessary
         if (enemy.transform.position.x > player.transform.position.x && enemy.transform.localScale.x < 0)
         {
@@ -80,6 +82,7 @@ public class AiSuperClassSO : ScriptableObject
         //no movement behaviour, it is to be coded inside the boss script directly
         if (player == null) return null;
         Rigidbody2D enemyrb = enemy.GetComponent<Rigidbody2D> ();
+
         //only change rotaton to be facing player
         Debug.Log("rotaitng");
         if (enemy.transform.position.x > player.transform.position.x && enemy.transform.localScale.x < 0)
@@ -98,6 +101,7 @@ public class AiSuperClassSO : ScriptableObject
         if (player == null) return null;
         Rigidbody2D enemyrb = enemy.GetComponent<Rigidbody2D>();
         enemyrb.velocity = Vector2.up * moveSpeed;
+
         //Change the rotation if necessary
         if (enemy.transform.position.x > player.transform.position.x && enemy.transform.localScale.x < 0)
         {
@@ -109,6 +113,7 @@ public class AiSuperClassSO : ScriptableObject
         }
         return null;
     }
+    //Portion of code to fire projectiles at enemies, 
     public IEnumerator StartFire(float delay, bool canfire, EnemiesSuperClassSO eISO, Transform firePoint,GameObject enemy, Vector3 playerDir)
     {
         if (canfire == false) yield break;
@@ -121,7 +126,7 @@ public class AiSuperClassSO : ScriptableObject
         canfire = true;
     }
     
-
+    //Set data from its scritpable object
     public void insertData(Cultist c, EnemiesSuperClassSO eSO)
     {
         c.hp = eSO.health;

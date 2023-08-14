@@ -52,11 +52,12 @@ public class MiniBossCultist : Cultist
             CD += Time.deltaTime;
         }
         //3: In the middle of shockwaving, continue to not do anything
+        //prevent movement from disrupting the attack
         else
         {
             return;
         }
-
+        //Rotation logic
         if (this.transform.position.x > player.transform.position.x && this.transform.localScale.x < 0)
         {
             this.transform.localScale = new Vector3(this.transform.localScale.x * -1, this.transform.localScale.y);
@@ -71,27 +72,32 @@ public class MiniBossCultist : Cultist
     private IEnumerator Shockwave()
     {
         WaitForEndOfFrame W = new WaitForEndOfFrame();
+
         //Sign that the miniboss is jumping
         yield return new WaitForSeconds(1);
         rb.velocity = new Vector2(0, 20);
+
         //start circle
         Vector3 playerPos = player.transform.position;
+
         //Shockwave multipler is the rate of growth that the inner circle grows, = the time before the boss descends
         float shockwaveMultipler = shockwaveGrowth * Time.deltaTime;
         GameObject warningcircle = Instantiate(circle, playerPos, Quaternion.identity);
         outercircle = warningcircle.GetComponentsInChildren<Transform>()[1].gameObject;
         innercircle = warningcircle.GetComponentsInChildren<Transform>()[2].gameObject;
+
         //let the innercircle scale in constant speed
         innercircle.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         outercircle.transform.localScale = new Vector3(shockwaveSize, shockwaveSize, shockwaveSize);
+
         //scale till reaches the outer circle
         while (innercircle.transform.localScale.x <= shockwaveSize + 0.2f)
         {
             innercircle.transform.localScale += new Vector3(shockwaveMultipler, shockwaveMultipler, shockwaveMultipler);
             yield return W;
         }
+
         //stop boss from ascending, and start its descent
-        print("landing");
         rb.velocity = Vector3.zero;
         StartCoroutine(Land(playerPos, warningcircle));
     }
@@ -103,6 +109,7 @@ public class MiniBossCultist : Cultist
         transform.position = playerPos + Vector3.up * 20;
         float dist = 0,
             totalDist = Vector2.Distance(transform.position, playerPos);
+
         //descend
         while (dist < totalDist)
         {
@@ -111,6 +118,7 @@ public class MiniBossCultist : Cultist
             dist += d;
             yield return w;
         }
+
         //if player is within the circle
         //deal damage
         //also let the boss continue moving
@@ -124,6 +132,8 @@ public class MiniBossCultist : Cultist
             entity.GetDamaged(5);
         }
         Destroy(circle);
+
+        
     }
 
     //generate CD
