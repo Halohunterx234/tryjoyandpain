@@ -33,15 +33,25 @@ public class WaveController : MonoBehaviour
     public bool secondWaveSpawned;
     public bool miniBossSpawned;
 
+    
     public TextMeshProUGUI time_text;
     public string time_text_string;
     float extra_c;
+
+    //Audio Stuff
+    public AudioSource aSource;
+    public AudioClip warning;
     private void Start()
     {
         player = FindObjectOfType<Player>().gameObject;
         waveTimer = waveMaxTimer;
         time_text = GameObject.Find("Timer").GetComponent<TextMeshProUGUI>();
+        aSource = GetComponent<AudioSource>();
+
+        //Event Spawn Fail-Saves
         miniBossSpawned = false;
+        firstWaveSpawned = false;
+        secondWaveSpawned = false;
     }
 
     private void Update()
@@ -91,13 +101,18 @@ public class WaveController : MonoBehaviour
         if ((Mathf.RoundToInt(timer) / 60) >= 10 && !firstWaveSpawned)
         {
             firstWaveSpawned = true;
+            aSource.clip = warning;
+            aSource.Play();
             Instantiate(firstWave,new Vector3(19,-10,0), Quaternion.identity);
+
         }
 
         //spawns second push wave at 20:00 once only
         if ((Mathf.RoundToInt(timer) / 60) >= 20 && !secondWaveSpawned)
         {
             secondWaveSpawned = true;
+            aSource.clip = warning;
+            aSource.Play();
             Instantiate(secondWave, new Vector3(-10, -10, 0), Quaternion.identity);
         }
 
