@@ -118,7 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xp: 1
   aSource: {fileID: 765451600697586532}
-  beep: {fileID: 8300000, guid: 41bc0bdfd24f9b242b2850f2b3a748cb, type: 3}
+  beep: {fileID: 8300000, guid: 39661abeb71bb4c41893cedb735483d4, type: 3}
 --- !u!82 &765451600697586532
 AudioSource:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 41bc0bdfd24f9b242b2850f2b3a748cb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 39661abeb71bb4c41893cedb735483d4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.577
   m_Pitch: 1

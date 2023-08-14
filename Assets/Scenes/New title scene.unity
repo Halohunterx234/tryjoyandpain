@@ -1449,9 +1449,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: de193ac6f1f3c2d4baff4955a714fcdd, type: 3}
   - {fileID: 21300000, guid: d38f0c93649659149a92116e48ceaff7, type: 3}
   imageUsedToHoldTheSprite:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 446689675}
+  - {fileID: 1533315624}
+  - {fileID: 566014378}
   screen:
   - {fileID: 2078199403}
   - {fileID: 759620600}
