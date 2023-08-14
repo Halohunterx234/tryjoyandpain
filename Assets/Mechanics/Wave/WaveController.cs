@@ -74,11 +74,11 @@ public class WaveController : MonoBehaviour
         }
         if (!onceOnly) CheckingActivation();  
 
-        //spawn miniboss if its 07:00
-        if ((Mathf.RoundToInt(timer) / 60) >= 1 && !miniBossSpawned)
+        //spawn miniboss if its 07:00 once only
+        if ((Mathf.RoundToInt(timer) / 60) >= 7 && !miniBossSpawned)
         {
             miniBossSpawned = true;
-            Instantiate(miniboss, player.transform.position + (10*Mathf.Abs(-player.transform.localScale.x) * Vector3.one), Quaternion.identity);
+            Instantiate(miniboss, player.transform.position + (30*Mathf.Abs(-player.transform.localScale.x) * Vector3.one), Quaternion.identity);
         }
     }
 
