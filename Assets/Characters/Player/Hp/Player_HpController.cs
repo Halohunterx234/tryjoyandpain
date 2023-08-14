@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Player_HpController : MonoBehaviour
-{
+{//this script is not use
     Player player;
     float barhp, barmaxhp, barminhp;
     // Start is called before the first frame update

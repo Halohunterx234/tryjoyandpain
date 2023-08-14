@@ -61,12 +61,6 @@ public class Projectiles : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine(projModes.DespawnTimer(iso.iProjectileDespawn, this.gameObject));
         projectilePenCount = 0;
-        /*
-        projectileModes.Add(0, BiDirectionalFire);
-        projectileModes.Add(1, AutoFire());
-        projectileModes[projectileMode]();
-        StartCoroutine(DespawnTimer(projectileDespawnTime));
-        */
         time = Time.time;
         
     }
