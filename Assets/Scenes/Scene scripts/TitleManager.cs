@@ -73,6 +73,8 @@ public class TitleManager : MonoBehaviour
         }
         else
         {
+
+            //else it will go back to the title page and unmark the bookmark
             StartCoroutine(Interaction(1,2));
             profileRect.sizeDelta = new Vector2(30, 30);
             StartCoroutine(GoingToNextScreen(4));
@@ -93,6 +95,8 @@ public class TitleManager : MonoBehaviour
         }
         else
         {
+
+            //else it will go back to the title page and unmark the bookmark
             StartCoroutine(Interaction(0, 0));
             StartCoroutine(GoingToNextScreen(4));
             StartCoroutine(ChangingColor(4));
@@ -111,14 +115,15 @@ public class TitleManager : MonoBehaviour
 
         }
         else
-        {     
+        {
+            //else it will go back to the title page and unmark the bookmark     
             StartCoroutine(GoingToNextScreen(4));
             StartCoroutine(ChangingColor(4));
             StartCoroutine(RestartCredit());
 
         }
     }
-    IEnumerator DelayCredit()
+    IEnumerator DelayCredit()//there will be a delay before resetting the bookmarks and making the appropriate changes
     {
         yield return new WaitForSeconds(1.5f);
         imageUsedToHoldTheSprite[0].sprite = startingSceneSprites[0];
@@ -129,7 +134,7 @@ public class TitleManager : MonoBehaviour
         creditsWords.SetActive(false);
     }
 
-    IEnumerator ChangeSpriteOfTheIcon(int num)
+    IEnumerator ChangeSpriteOfTheIcon(int num)//there will be a delay before resetting the bookmarks and making the appropriate changes
     {
         yield return new WaitForSeconds(1.5f);
         imageUsedToHoldTheSprite[0].sprite = startingSceneSprites[0];
@@ -146,7 +151,7 @@ public class TitleManager : MonoBehaviour
 
     }
 
-    IEnumerator GoingToNextScreen(int chosenScreen)
+    IEnumerator GoingToNextScreen(int chosenScreen)//reset the screen then have a delay
     {
         for (int e =0; e < 5; e++)
         {
@@ -165,7 +170,6 @@ public class TitleManager : MonoBehaviour
         {
             pageFlipForward.SetActive(true);
         }
-        //here is where the animator trigger is
         yield return new WaitForSeconds(1.5f);
         pageFlipForward.SetActive(false);
         pageFlipBack.SetActive(false);
