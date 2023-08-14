@@ -6,7 +6,8 @@ public class OpeningBook : MonoBehaviour
 {
     public GameObject book;
     public GameObject openingBook;
-    void Deactivate()
+   
+    public void Deactivate()
     {
         openingBook.SetActive(false);
         book.SetActive(true);
