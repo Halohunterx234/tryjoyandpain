@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public enum enumAi
 {
     chase,
     shooting,
+    boss
 }
 
 [CreateAssetMenu(menuName = "Create EnemyAI (reference)")]
@@ -26,6 +28,9 @@ public class AiSuperClassSO : ScriptableObject
                 break;
             case enumAi.shooting:
                 shoot(player, moveSpeed, enemy);
+                break;
+            case enumAi.boss:
+                boss(player, moveSpeed, enemy);
                 break;
         }
     }
@@ -66,7 +71,23 @@ public class AiSuperClassSO : ScriptableObject
         return null;
     }
 
-
+    public System.Action boss(GameObject player, float moveSpeed, GameObject enemy)
+    {
+        //no movement behaviour, it is to be coded inside the boss script directly
+        if (player == null) return null;
+        Rigidbody2D enemyrb = enemy.GetComponent<Rigidbody2D> ();
+        //only change rotaton to be facing player
+        Debug.Log("rotaitng");
+        if (enemy.transform.position.x > player.transform.position.x && enemy.transform.localScale.x < 0)
+        {
+            enemy.transform.localScale = new Vector3(enemy.transform.localScale.x * -1, enemy.transform.localScale.y);
+        }
+        else if (enemy.transform.position.x < player.transform.position.x && enemy.transform.localScale.x > 0)
+        {
+            enemy.transform.localScale = new Vector3(enemy.transform.localScale.x , enemy.transform.localScale.y);
+        }
+        return null;
+    }
     public IEnumerator StartFire(float delay, bool canfire, EnemiesSuperClassSO eISO, Transform firePoint,GameObject enemy, Vector3 playerDir)
     {
         if (canfire == false) yield break;
