@@ -80,7 +80,7 @@
     <Compile Include="Assets\Weapons\SuperClasses\WeaponController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
-    <Compile Include="Assets\Scenes\Scene scripts\NewStartingScene.cs" />
+    <Compile Include="Assets\Scenes\Scene scripts\TitleManager.cs" />
     <Compile Include="Assets\Mechanics\Weapons\Pistol\Pistol_BulletController.cs" />
     <Compile Include="Assets\Characters\Enemies\superclass\AiSuperClassSO.cs" />
     <Compile Include="Assets\Supports\LifeVial\LifeVialController.cs" />
