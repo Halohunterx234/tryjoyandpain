@@ -378,6 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
+  obj: {fileID: 0}
 --- !u!1 &3915066707792180252
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,6 +566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
+  obj: {fileID: 0}
 --- !u!1 &3915066707881477607
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,6 +1328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
+  obj: {fileID: 0}
 --- !u!1 &3915066708183080533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,6 +1591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
+  obj: {fileID: 0}
 --- !u!1 &3915066708294005734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1716,6 +1720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
+  obj: {fileID: 0}
 --- !u!1 &3915066708308076279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,6 +2258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
+  obj: {fileID: 0}
 --- !u!1 &3915066708423735020
 GameObject:
   m_ObjectHideFlags: 0
@@ -2984,6 +2990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
+  obj: {fileID: 0}
 --- !u!1 &3915066708940945731
 GameObject:
   m_ObjectHideFlags: 0
@@ -3641,6 +3648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
+  obj: {fileID: 0}
 --- !u!1 &3915066709111158309
 GameObject:
   m_ObjectHideFlags: 0
@@ -3867,6 +3875,7 @@ MonoBehaviour:
   dmgTxt: {fileID: 0}
   xpOrb: {fileID: 5607117518481939413, guid: cec8b4e111b7e014a9a89bd4f3bc2aca, type: 3}
   hpPickUp: {fileID: 3180707872294438903, guid: feac4d7df149e234d886f5c99b129786, type: 3}
+  dmgColor: {r: 1, g: 0, b: 0, a: 1}
   scoreManager: {fileID: 0}
   itemMod: {fileID: 11400000, guid: a1da97ae9ed8b10418641ff26df34c58, type: 2}
   permaMod: {fileID: 11400000, guid: 7803b61e7d7cb3e41b03db370d959389, type: 2}
@@ -4668,6 +4677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
+  obj: {fileID: 0}
 --- !u!1 &3915066709573306161
 GameObject:
   m_ObjectHideFlags: 0
@@ -4720,6 +4730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
+  obj: {fileID: 0}
 --- !u!1 &3915066709591866433
 GameObject:
   m_ObjectHideFlags: 0
