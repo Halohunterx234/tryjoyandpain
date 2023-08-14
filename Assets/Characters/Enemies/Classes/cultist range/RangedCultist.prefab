@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6732619726832700677}
   - component: {fileID: 579010311402184385}
   - component: {fileID: 6732619726832700924}
+  - component: {fileID: 1109037831}
   m_Layer: 6
   m_Name: RangedCultist
   m_TagString: Untagged
@@ -247,6 +248,7 @@ MonoBehaviour:
   dmgTxt: {fileID: 927180895340560702, guid: 69a2125715ff05c46937114dc83fd516, type: 3}
   xpOrb: {fileID: 5607117518481939413, guid: cec8b4e111b7e014a9a89bd4f3bc2aca, type: 3}
   hpPickUp: {fileID: 3180707872294438903, guid: feac4d7df149e234d886f5c99b129786, type: 3}
+  dmgColor: {r: 1, g: 0, b: 0, a: 1}
   scoreManager: {fileID: 0}
   itemMod: {fileID: 0}
   permaMod: {fileID: 0}
@@ -256,3 +258,23 @@ MonoBehaviour:
   CD: 0
   CDMax: 0
   enemyProjectile: {fileID: 6633657437012144077, guid: 36860575e477b9142ac45bae3cf58101, type: 3}
+--- !u!95 &1109037831
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6732619726832700673}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7577ecd19957a5942bf811dfbe095a13, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

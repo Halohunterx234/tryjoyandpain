@@ -34,7 +34,7 @@ public class AiSuperClassSO : ScriptableObject
                 boss(player, moveSpeed, enemy);
                 break;
             case enumAi.wave:
-                boss(player, moveSpeed, enemy);
+                wave(player, moveSpeed, enemy);
                 break;
         }
     }
