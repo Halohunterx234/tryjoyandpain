@@ -16,9 +16,12 @@ public class ShieldController : MonoBehaviour
     public int maxShield, shield;
     public float maxCD, cd;
 
+    public bool startRegen;
+
     Transform player;
     private void Start()
     {
+        startRegen = true;
         offset = new Vector3(0, -0.75f, 0);
         //start off with a maxed out shield
         cd = maxCD;
@@ -38,13 +41,15 @@ public class ShieldController : MonoBehaviour
             cd = 0;
             shield = maxShield;
             SetShield();
+            startRegen = false;
         }
-        else cd += Time.deltaTime;
+        else if (startRegen) cd += Time.deltaTime;
     }
 
     //update the shield ui
     public void SetShield()
     {
+        if (shield < maxShield && !startRegen) startRegen = true;
         if (shield <= 0)
         {
             controller.ShieldBreak();
