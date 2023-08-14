@@ -103,7 +103,7 @@ public class WaveController : MonoBehaviour
             firstWaveSpawned = true;
             aSource.clip = warning;
             aSource.Play();
-            Instantiate(firstWave,new Vector3(19,-10,0), Quaternion.identity);
+            Instantiate(firstWave,new Vector3(19,player.transform.position.y - 9,0), Quaternion.identity);
 
         }
 
