@@ -19,13 +19,15 @@ public class DialogueController : MonoBehaviour
     float cd, maxcd; //speed of text
     bool iswriting;
 
+    //entrance dialogue text
+    public List<string> strings = new List<string>() { "Sister, I am coming for you.","Today..... is the day, that I will avenge my mother.  ", "I still cannot believe the events that have happened the past few weeks. Yet, here I am today. And I will end it all.", "I have a gun and I am going to pew pew all over the place!!!"};
     // Spawn at 0 opacity till called
     void Start()
     {
         cd = 0; maxcd = Time.deltaTime / textSpeed;
         iswriting = false;
         dialoguetext = Dialogue.GetComponentsInChildren<Transform>()[5].GetComponent<Text>();
-        StartCoroutine(Despawn(0));
+        SpawnDialogue(strings[Random.Range(0, strings.Count-1)]);
     }
 
     private void Update()

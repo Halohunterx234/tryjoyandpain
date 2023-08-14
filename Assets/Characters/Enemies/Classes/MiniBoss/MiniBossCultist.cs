@@ -26,6 +26,9 @@ public class MiniBossCultist : Cultist
     //layermask
     public LayerMask playerLayer;
 
+    //shockwave sound
+    public AudioSource shockwaveAS;
+
     private void Awake()
     {
         isMoving = true;
@@ -112,6 +115,7 @@ public class MiniBossCultist : Cultist
         //deal damage
         //also let the boss continue moving
         isMoving = true;
+        shockwaveAS.Play();
         bool withincircle = Physics2D.OverlapCircle(transform.position, (shockwaveSize + 0.1f)/2, playerLayer);
         if (withincircle)
         {
