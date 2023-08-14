@@ -27,6 +27,10 @@ public class WaveController : MonoBehaviour
 
     //bosses
     public GameObject miniboss;
+    public GameObject firstWave;
+    public GameObject secondWave;
+    public bool firstWaveSpawned;
+    public bool secondWaveSpawned;
     public bool miniBossSpawned;
 
     public TextMeshProUGUI time_text;
@@ -72,7 +76,14 @@ public class WaveController : MonoBehaviour
             enemyCount = 1;
             timeOfActivation = Time.time;
         }
-        if (!onceOnly) CheckingActivation();  
+        if (!onceOnly) CheckingActivation();
+
+        //spawns first push wave at 05:00 once only
+        if ((Mathf.RoundToInt(timer) / 60) >= 1 && !firstWaveSpawned)
+        {
+            firstWaveSpawned = true;
+            Instantiate(firstWave,new Vector3(45,-10,0), Quaternion.identity);
+        }
 
         //spawn miniboss if its 07:00 once only
         if ((Mathf.RoundToInt(timer) / 60) >= 7 && !miniBossSpawned)
@@ -80,6 +91,9 @@ public class WaveController : MonoBehaviour
             miniBossSpawned = true;
             Instantiate(miniboss, player.transform.position + (30*Mathf.Abs(-player.transform.localScale.x) * Vector3.one), Quaternion.identity);
         }
+
+        
+
     }
 
     protected void CheckingActivation()
