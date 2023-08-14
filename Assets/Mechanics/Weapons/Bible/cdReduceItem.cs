@@ -30,7 +30,7 @@ public class cdReduceItem : MonoBehaviour
     }
     private void UpdateWeapons()
     {
-        print("updated weapons");
+        //Get a updated list of obtained weapons
         int children = player.transform.childCount;
         for (int i = 0; i < children; i++)
         {
@@ -41,6 +41,7 @@ public class cdReduceItem : MonoBehaviour
             }
         }
     }
+    //Update the max cd of the obtained weapons accordingly
     private void CDReduce()
     {
         foreach (GameObject weapon in available_weapons)

@@ -6,7 +6,7 @@ using UnityEngine;
 public class WaveController : MonoBehaviour
 {
     [SerializeField]
-    protected int waveCount;
+    protected int waveCount; //the current wave
     [SerializeField]
     protected int enemyCount;//amount of enemy spawned in a wave
     [SerializeField]
@@ -19,6 +19,7 @@ public class WaveController : MonoBehaviour
     private bool onceOnly=true;
     private float timeOfActivation;
 
+    //enemy types
     public GameObject player, enemy;
     public GameObject fastBoi;
     public GameObject bBM;
@@ -27,6 +28,8 @@ public class WaveController : MonoBehaviour
 
     //bosses
     public GameObject miniboss;
+
+    //waves
     public GameObject firstWave;
     public GameObject secondWave;
     public bool firstWaveSpawned;
@@ -34,7 +37,7 @@ public class WaveController : MonoBehaviour
     public bool miniBossSpawned;
     public bool hellWaveOneSpawned;
 
-    
+    //timer
     public TextMeshProUGUI time_text;
     public string time_text_string;
     float extra_c;
@@ -43,10 +46,12 @@ public class WaveController : MonoBehaviour
     public AudioSource aSource;
     public AudioClip warning;
 
+    //Dialogue stuff
     DialogueController dc;
 
     private void Start()
     {
+        //Set references
         player = FindObjectOfType<Player>().gameObject;
         waveTimer = waveMaxTimer;
         time_text = GameObject.Find("Timer").GetComponent<TextMeshProUGUI>();
@@ -64,10 +69,12 @@ public class WaveController : MonoBehaviour
     {        
         if (player == null) return;
         timer += Time.deltaTime;
+        //Convert the current timer into string to throw into timer text
         string minutes = (Mathf.RoundToInt(timer) / 60) >= 10 ? (Mathf.RoundToInt(timer) / 60).ToString() : "0" + (Mathf.RoundToInt(timer) / 60).ToString();
         string seconds = (Mathf.RoundToInt(timer) % 60) >= 10 ? (Mathf.RoundToInt(timer) % 60).ToString() : "0" + (Mathf.RoundToInt(timer) % 60).ToString();
         time_text.text = minutes + ":" + seconds;
         time_text_string = minutes + ":" + seconds;//this is just timer text
+        //spawn a new wave every x number of seconds
         if (waveTimer >= waveMaxTimer)
         {
             waveTimer = 0;
@@ -178,6 +185,7 @@ public class WaveController : MonoBehaviour
         if (Time.time >= timeOfActivation + 1f) onceOnly = true;
     }
 
+    //spawn a balanced number of enemies in all directions around the player
     protected void SpawnWave()
     {
         float indiv_c = enemyCount < 4 ? 1 : enemyCount / 4 ;//indiv_c is the amount of enemy spawned

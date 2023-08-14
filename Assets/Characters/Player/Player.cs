@@ -117,49 +117,9 @@ public class Player : Entity
             }
 
         }
-        /*else if (Input.touchCount > 0)
-            {
-                if (isPressed)
-            {
-                movePos = Vector2.zero;
-                isPressed = false;
-            }
-                Touch touch = Input.GetTouch(0);
-                if (touch.phase == TouchPhase.Ended)
-                {
-                Vector2 pos = mainCam.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, mainCam.nearClipPlane));
-                movePos = pos;
-                isPressed = true;
-                }
-            }
-          else if (isPressed)
-        {
-
-            if (Vector2.Distance(movePos, transform.position) > 0.001f)
-            {
-                print(movePos);
-                var step = moveSpeed * Time.deltaTime;
-                print(step);
-                transform.position = Vector2.MoveTowards(transform.position, movePos, step);
-
-                if (transform.localScale.x >= 0 && (movePos.x > transform.position.x))
-                {
-                    transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
-                }
-                else if (transform.localScale.x <= 0 && movePos.x < transform.position.x)
-                {
-                    transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
-                }
-            }
-            else isPressed = false;
-        }
-        
-        //Every two seconds, we fire all weapons that the player has
-        FireWeapons();*/
-
         
     }
-
+    //Movement function
     void Move(float hDir, float vDir)
     {
         if (hDir != 0)
@@ -189,6 +149,7 @@ public class Player : Entity
 
     }
 
+    //To update the hp bar
     protected override void OnCheckHealth()
     {
         //add a hp bar

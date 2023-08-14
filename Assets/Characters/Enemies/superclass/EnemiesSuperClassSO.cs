@@ -7,6 +7,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Create new Enemies")]
 public class EnemiesSuperClassSO : ScriptableObject
 {
+    //Stats for enemies 
+
     [Header("Enemies stat")]
     [Range(0f, 30f)]
     public float moveSpeed;
