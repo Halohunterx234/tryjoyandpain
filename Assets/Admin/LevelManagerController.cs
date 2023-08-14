@@ -8,25 +8,32 @@ public class LevelManagerController : MonoBehaviour
     public AudioSource backgroundMusic;
 
 
-    GameObject GameOver;
+    public GameObject GameOver;
+    public GameObject restart;
+    public GameObject victory;
+    public GameObject bookFlipping;
+    public GameObject returnGame;
     // Start is called before the first frame update
-    void Start()
-    {
-        GameOver = GameObject.Find("GameOver");
-        GameOver.SetActive(false);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
     public void GameIsOver()
     {
         backgroundMusic.Stop();
+        bookFlipping.SetActive(true);
+        returnGame.SetActive(false);
         GameOver.SetActive(true);
+        restart.SetActive(true);
     }
 
+    private void Update()
+    {
+        if(Time.time >= 30 * 60)
+        {
+            backgroundMusic.Stop();
+            bookFlipping.SetActive(true);
+            returnGame.SetActive(false);
+            victory.SetActive(true);
+            restart.SetActive(true);
+        }
+    }
 
 }
