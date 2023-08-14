@@ -32,6 +32,7 @@ public class WaveController : MonoBehaviour
     public bool firstWaveSpawned;
     public bool secondWaveSpawned;
     public bool miniBossSpawned;
+    public bool hellWaveOneSpawned;
 
     
     public TextMeshProUGUI time_text;
@@ -41,17 +42,22 @@ public class WaveController : MonoBehaviour
     //Audio Stuff
     public AudioSource aSource;
     public AudioClip warning;
+
+    DialogueController dc;
+
     private void Start()
     {
         player = FindObjectOfType<Player>().gameObject;
         waveTimer = waveMaxTimer;
         time_text = GameObject.Find("Timer").GetComponent<TextMeshProUGUI>();
         aSource = GetComponent<AudioSource>();
+        dc = FindObjectOfType<DialogueController>();
 
         //Event Spawn Fail-Saves
         miniBossSpawned = false;
         firstWaveSpawned = false;
         secondWaveSpawned = false;
+        hellWaveOneSpawned = false;
     }
 
     private void Update()
@@ -93,13 +99,31 @@ public class WaveController : MonoBehaviour
         //spawn miniboss if its 07:00 once only
         if ((Mathf.RoundToInt(timer) / 60) >= 7 && !miniBossSpawned)
         {
+            List<string> dialogue = new List<string>() { 
+                "I'm getting chills up my spine, something's coming...",
+                " ", 
+                "" 
+            };
+
+            dc.SpawnDialogue(dialogue[Random.Range(0, dialogue.Count - 1)]);
+
+
             miniBossSpawned = true;
             Instantiate(miniboss, player.transform.position + (30*Mathf.Abs(-player.transform.localScale.x) * Vector3.one), Quaternion.identity);
         }
 
-         //spawns first push wave at 10:00 once only
-        if ((Mathf.RoundToInt(timer) / 60) >= 10 && !firstWaveSpawned)
+         //spawns first push wave at 13:00 once only
+        if ((Mathf.RoundToInt(timer) / 60) >= 13 && !firstWaveSpawned)
         {
+           
+            List<string> dialogue = new List<string>() { 
+                "Wha...What are those footsteps I hear?",
+                "", 
+                "" 
+            };
+
+            dc.SpawnDialogue(dialogue[Random.Range(0, dialogue.Count - 1)]);
+
             firstWaveSpawned = true;
             aSource.clip = warning;
             aSource.Play();
@@ -110,6 +134,15 @@ public class WaveController : MonoBehaviour
         //spawns second push wave at 20:00 once only
         if ((Mathf.RoundToInt(timer) / 60) >= 20 && !secondWaveSpawned)
         {
+            
+            List<string> dialogue = new List<string>() { 
+                "It's the footsteps again, but this time... heavier? Oh no...",
+                "",
+                "" 
+            };
+
+            dc.SpawnDialogue(dialogue[Random.Range(0, dialogue.Count - 1)]);
+
             secondWaveSpawned = true;
             aSource.clip = warning;
             aSource.Play();
@@ -117,14 +150,22 @@ public class WaveController : MonoBehaviour
         }
 
         //spawn miniboss and big boi wave at 25:00
-        if ((Mathf.RoundToInt(timer) / 60) >= 25 )
+        if ((Mathf.RoundToInt(timer) / 60) >= 25 && !hellWaveOneSpawned)
         {
-           
-            for(int i = 0; i < 3; i++)
+            List<string> dialogue = new List<string>() { 
+                "Oh no, RUNNNNNNNNNNNNN!!!!!", 
+                "The ground is trembling like crazy, there is no way this is good", 
+                "" 
+            };
+
+            dc.SpawnDialogue(dialogue[Random.Range(0, dialogue.Count - 1)]);
+
+            for (int i = 0; i < 3; i++)
             {
                 Instantiate(miniboss, player.transform.position + (30 * Mathf.Abs(-player.transform.localScale.x) * Vector3.one), Quaternion.identity);
             }
            
+            hellWaveOneSpawned = true;
             aSource.clip = warning;
             aSource.Play();
             Instantiate(secondWave, new Vector3(-10, -10, 0), Quaternion.identity);

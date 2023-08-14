@@ -82,27 +82,6 @@ public class TitleManager : MonoBehaviour
         }
     }
 
-    public void Settings()
-    {
-        if (imageUsedToHoldTheSprite[0].sprite == startingSceneSprites[0])
-        {
-            //if this is pressed with the original sprite icon
-            //it will go to the setting screen and mark the bookmark
-            StartCoroutine(ChangeSpriteOfTheIcon(0));
-            StartCoroutine(RestartCredit());
-            StartCoroutine(GoingToNextScreen(0));
-            StartCoroutine(ChangingColor(0));
-        }
-        else
-        {
-
-            //else it will go back to the title page and unmark the bookmark
-            StartCoroutine(Interaction(0, 0));
-            StartCoroutine(GoingToNextScreen(4));
-            StartCoroutine(ChangingColor(4));
-        }
-    }
-
     public void Credits()
     {
         if (!credits.activeInHierarchy)
@@ -126,7 +105,6 @@ public class TitleManager : MonoBehaviour
     IEnumerator DelayCredit()//there will be a delay before resetting the bookmarks and making the appropriate changes
     {
         yield return new WaitForSeconds(1.5f);
-        imageUsedToHoldTheSprite[0].sprite = startingSceneSprites[0];
         imageUsedToHoldTheSprite[1].sprite = startingSceneSprites[1];
         imageUsedToHoldTheSprite[2].sprite = startingSceneSprites[2];
         profileRect.sizeDelta = new Vector2(30, 30);
@@ -137,7 +115,6 @@ public class TitleManager : MonoBehaviour
     IEnumerator ChangeSpriteOfTheIcon(int num)//there will be a delay before resetting the bookmarks and making the appropriate changes
     {
         yield return new WaitForSeconds(1.5f);
-        imageUsedToHoldTheSprite[0].sprite = startingSceneSprites[0];
         imageUsedToHoldTheSprite[1].sprite = startingSceneSprites[1];
         imageUsedToHoldTheSprite[2].sprite = startingSceneSprites[2];
         credits.SetActive(false);
@@ -153,7 +130,7 @@ public class TitleManager : MonoBehaviour
 
     IEnumerator GoingToNextScreen(int chosenScreen)//reset the screen then have a delay then make the appropriate changes
     {
-        for (int e =0; e < 5; e++)//this make all the screen unactive
+        for (int e =1; e < 5; e++)//this make all the screen unactive
         {
             if (screen[e].activeSelf)
             {
@@ -181,14 +158,13 @@ public class TitleManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         if (num == 4)
         {
-            imageBehindIcon[0].color = originalColor;
             imageBehindIcon[1].color = originalColor;
             imageBehindIcon[2].color = originalColor;
             imageBehindIcon[3].color = originalColor;
         }
         else
         {
-            for(int i=0; i < 4; i++)
+            for(int i=1; i < 4; i++)
                 {
                 if (i == num) imageBehindIcon[i].color = changedcolor;
                 else imageBehindIcon[i].color = originalColor;     
