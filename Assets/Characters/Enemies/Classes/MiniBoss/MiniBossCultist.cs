@@ -115,8 +115,9 @@ public class MiniBossCultist : Cultist
         bool withincircle = Physics2D.OverlapCircle(transform.position, (shockwaveSize + 0.1f)/2, playerLayer);
         if (withincircle)
         {
+            //deal 5 damage to enemies
             Entity entity = player.GetComponent<Entity>();
-            entity.GetDamaged(3);
+            entity.GetDamaged(5);
         }
         Destroy(circle);
     }
