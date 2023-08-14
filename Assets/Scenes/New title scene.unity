@@ -3390,7 +3390,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1146690287
 Transform:
   m_ObjectHideFlags: 0
@@ -5555,7 +5555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1941421243
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5978,7 +5978,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2070912255
 Transform:
   m_ObjectHideFlags: 0
@@ -6250,7 +6250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7604991596796774338, guid: 17783e1d6623aca4bae2ab3f16ef1425, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7604991596796774339, guid: 17783e1d6623aca4bae2ab3f16ef1425, type: 3}
       propertyPath: m_Pivot.x
@@ -6336,7 +6336,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7604991596796774336, guid: 17783e1d6623aca4bae2ab3f16ef1425, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 17783e1d6623aca4bae2ab3f16ef1425, type: 3}
 --- !u!1 &7604991595808542943 stripped
 GameObject:
@@ -6357,3 +6358,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   book: {fileID: 1941421242}
   openingBook: {fileID: 7604991595808542943}
+--- !u!95 &7604991595808542948
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7604991595808542943}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 70a7a10eaa1bb5a47957e6536ef5a26c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
