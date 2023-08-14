@@ -89,6 +89,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Weapons\SuperClasses\AImodes\FireAI.cs" />
     <Compile Include="Assets\Supports\FlurryBoots\FlurryBootsController.cs" />
+    <Compile Include="Assets\Characters\Enemies\Classes\WaveEvent2\Wave2_BBM.cs" />
     <Compile Include="Assets\Inventory\ItemSlotManager.cs" />
     <Compile Include="Assets\Mechanics\Weapons\DamageIndicators\DamageTextController.cs" />
     <Compile Include="Assets\Supports\HolyBible\HolyBibleController.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Assets\Characters\Player\Hp\being used\PlayerHealth.cs" />
     <Compile Include="Assets\Weapons\Axe\AxeSuperClass.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
+    <Compile Include="Assets\Scenes\Scene scripts\Parallax.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Mechanics\Health_Pickup\HealthPickupController.cs" />
     <Compile Include="Assets\Weapons\Ice_Staff\IceStaffSuperClass.cs" />
@@ -104,6 +106,7 @@
     <Compile Include="Assets\Characters\Enemies\Classes\MiniBoss\MiniBossCultist.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Mechanics\Weapons\Classes\DirFire.cs" />
+    <Compile Include="Assets\Scenes\Scene scripts\Scroller.cs" />
     <Compile Include="Assets\Mechanics\Modifiers\Modifiers.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\Mechanics\Weapons\Shit\Arua_Damage.cs" />
@@ -129,6 +132,7 @@
     <Compile Include="Assets\Characters\Enemies\Classes\cultist fast boi\Cultist_FB.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Mechanics\Score\ScoreManager.cs" />
+    <Compile Include="Assets\Characters\Enemies\Classes\WaveEvent1\Wave1_Cultist.cs" />
     <Compile Include="Assets\Scenes\Scene scripts\MenuController.cs" />
     <Compile Include="Assets\Weapons\Blowpipe\BlowpipeSuperClass.cs" />
     <Compile Include="Assets\Mechanics\Xp\XpController.cs" />
@@ -157,14 +161,12 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
+    <Compile Include="Assets\Scenes\Scene scripts\OpeningBook.cs" />
     <Compile Include="Assets\Mechanics\Xp\XpOrbController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-    <Compile Include="Assets\Characters\Enemies\Classes\WaveEvent\Wave1_Cultist.cs" />
-    <Compile Include="Assets\Scenes\Scene scripts\Scroller.cs" />
-    <Compile Include="Assets\Scenes\Scene scripts\Parallax.cs" />
-    <Compile Include="Assets\Scenes\Scene scripts\OpeningBook.cs" />
+    <Compile Include="Assets\Prefabs\Ui\DialogueController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
