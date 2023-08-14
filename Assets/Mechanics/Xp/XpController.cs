@@ -20,6 +20,8 @@ public class XpController : MonoBehaviour
     public AudioSource aSource;
     public AudioClip dingDing;
     public GameObject exptxt;
+
+    public GameObject lvlUpPopUp;
     //References
     GameObject player;
     VirtualJoystick vjoy;
@@ -84,10 +86,22 @@ public class XpController : MonoBehaviour
             xplvltext.text = xplvl.ToString();
             vjoy.OnPointerUp(new PointerEventData(EventSystem.current));
             joystick.SetActive(false);
- 
-            im.SpawnWeapons();
+
+            StartCoroutine(LvlUpDelay());
+            //im.SpawnWeapons();
         }
         
     }
+    
+    IEnumerator LvlUpDelay()
+    {
+        lvlUpPopUp.SetActive(true);
+        Time.timeScale = 0f;
 
+        yield return new  WaitForSecondsRealtime(1);
+        
+        im.SpawnWeapons();
+        lvlUpPopUp.SetActive(false);
+    }
+   
 }
