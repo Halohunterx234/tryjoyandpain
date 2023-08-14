@@ -10,7 +10,7 @@ public class StartScene : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(gameScene);
-    }
+    }//it load the game
 
     public void Instructions()
     {

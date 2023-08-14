@@ -19,10 +19,10 @@ public class PlayerHealth : MonoBehaviour
         //allows the health bar to be visible
         slide.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + offset);
     }
+
     //sets the health bar and updates it appropriately
     public void SetHealth(float health, float maxHealth, float minHealth)
     {
-        //slide.gameObject.SetActive(health < maxHealth);
         print("hp = " + health);
         slide.maxValue = maxHealth;
         slide.minValue = minHealth;

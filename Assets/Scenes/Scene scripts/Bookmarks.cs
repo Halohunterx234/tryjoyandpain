@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bookmarks : MonoBehaviour
-{
+{//this script is not used in the final product
     public GameObject titleScreen;
 
     public GameObject instructionScreen;
