@@ -29,8 +29,9 @@ public class BookFlip : MonoBehaviour
         book.SetActive(true);
         SetData();
         bookFlipping.SetActive(false);
-    } 
+    }
 
+    
     public void activate()
     {
         if (book.activeSelf) return;
@@ -41,6 +42,7 @@ public class BookFlip : MonoBehaviour
         book.SetActive(false);
     }
 
+    //exit the pause menu
     public void Exit()
     {
         Time.timeScale = 1;
@@ -50,6 +52,7 @@ public class BookFlip : MonoBehaviour
         book.SetActive(false);
     }
     
+    //set data
     public void SetData()
     {
         TimeTxt.GetComponent<Text>().text = wc.time_text_string;
