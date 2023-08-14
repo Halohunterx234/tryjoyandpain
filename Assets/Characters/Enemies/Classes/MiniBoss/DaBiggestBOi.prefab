@@ -124,6 +124,17 @@ MonoBehaviour:
   eSO: {fileID: 11400000, guid: c1012ed6e2f869347bb381b94b5a5406, type: 2}
   CD: 0
   CDMax: 0
+  isMoving: 0
+  minCD: 1
+  maxCD: 2.03
+  shockwaveSize: 13.08
+  shockwaveGrowth: 3.95
+  circle: {fileID: 886923477749787404, guid: c7a67a26c2afbb44db3b64f0583a1a6f, type: 3}
+  innercircle: {fileID: 0}
+  outercircle: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!50 &3309564111878618268
 Rigidbody2D:
   serializedVersion: 4
