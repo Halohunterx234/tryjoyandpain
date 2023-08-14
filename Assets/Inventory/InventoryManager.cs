@@ -175,6 +175,7 @@ public class InventoryManager : MonoBehaviour
         AddItemToInventory(ssc);
     }
 
+    //method to add item to inventory
     public void AddItemToInventory(WeaponController wc)
     {
         for (int i = 0; i < weaponSlots.Count; i++)
@@ -190,6 +191,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    //method to add item to inventory
     public void AddItemToInventory(SupportSuperClass ssc)
     {
         for (int i = 0; i < supportSlots.Count; i++)
@@ -204,6 +206,8 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+
+    //method to upgrade items
     public void UpgradeItem(WeaponController wc)
     {
         wc.UpdateWeaponLevel();
@@ -213,6 +217,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    //method to upgrade items
     public void UpgradeItem(SupportSuperClass ssc)
     {
         ssc.LevelUp();

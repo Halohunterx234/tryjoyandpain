@@ -17,5 +17,6 @@ public class CameraController : MonoBehaviour
     {
         if (player == null) return;
         transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10f);
+        //if player still lives, follow te player
     }
 }
