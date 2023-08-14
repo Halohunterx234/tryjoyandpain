@@ -20,6 +20,8 @@ public class XpOrbController : MonoBehaviour
         isPickedUp = false;
     }
 
+    //Set the xp value of the orb, this is in accordance to the enemy's ESO
+    //size of the xp orb scales with the amout too
     public void SetXP(int xp)
     {
         this.xp = xp;
@@ -34,7 +36,7 @@ public class XpOrbController : MonoBehaviour
         if (isPickedUp) return;
         if (collision != null && collision.gameObject.GetComponent<Player>())
         {
-            
+            //if the xp orb is picked up by the player
             StartCoroutine(beepbeepboopboop());
 
             XpController xpC = FindObjectOfType<XpController>();
@@ -43,6 +45,7 @@ public class XpOrbController : MonoBehaviour
         }
     }
 
+    //Play sound effect
     IEnumerator beepbeepboopboop()
     {
         isPickedUp = true;

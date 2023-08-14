@@ -22,7 +22,8 @@ public class Player_HpController : MonoBehaviour
         transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 10f, player.transform.position.z);
 
     }
-
+    
+    //Set data of the hp bar
     public void Set_Values(int hp, int maxhp, int minhp)
     {
         barhp = hp; barmaxhp = maxhp; barminhp = minhp; 

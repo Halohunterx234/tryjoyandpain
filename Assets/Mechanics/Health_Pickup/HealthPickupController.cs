@@ -15,6 +15,8 @@ public class HealthPickupController : MonoBehaviour
         isPickedUp = false;
         
     }
+
+    //when is picked up by player
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -25,7 +27,7 @@ public class HealthPickupController : MonoBehaviour
             StartCoroutine(makeDingDing());
            
            
-
+            //add health if player isnt at max health or dead
             if (player.hp != player.maxHp || player.hp <= 0)
             {
                 player.ModifyHp(1);
@@ -33,6 +35,7 @@ public class HealthPickupController : MonoBehaviour
             //Destroy(this.gameObject);
         }
     }
+    //play sound 
     IEnumerator makeDingDing()
     {
         isPickedUp = true;

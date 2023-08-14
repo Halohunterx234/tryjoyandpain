@@ -54,6 +54,7 @@ public class BuffSuperClass : MonoBehaviour
        CD_Update(Time.deltaTime);
     }
 
+    //set data of the buff
     public void init_buff(buff buff_ref)
     {
         currentBuff = buff_ref;
@@ -83,6 +84,7 @@ public class BuffSuperClass : MonoBehaviour
         }
         entity = entity_go.GetComponent<Entity>();
         buff_cd = 0; buff_currentLength = 0;
+
         //start the debuff immediately from t=0s if buff type is constant;
         if (buff_type == BuffType.Constant) buff_Proc();
         buff_component = buff_script;
@@ -91,6 +93,7 @@ public class BuffSuperClass : MonoBehaviour
     {
         //set the color of the entity to the color of the debuff
         if (sr.color != buff_color) sr.color = buff_color;
+
         //proc buff when the cooldown is up
         if (buff_type == BuffType.DoT && buff_cd >= buff_cdMax)
         {
@@ -99,6 +102,7 @@ public class BuffSuperClass : MonoBehaviour
         }
         buff_cd += time;
         buff_currentLength += time;
+
         //when the buff is up, disable it
         if (buff_currentLength >= buff_length)
         {
@@ -112,7 +116,9 @@ public class BuffSuperClass : MonoBehaviour
     {
         print(buff_type);
         sr = this.gameObject.GetComponent<SpriteRenderer>();
-        //if (sr.color != buff_color) sr.color = buff_color;
+
+        //if its DoT, do damage
+        //if it affects speed, debuff it accordingly
         if (buff_type == BuffType.DoT)
         {
             entity.GetDamaged(buff_damage, buff_color);
@@ -126,14 +132,17 @@ public class BuffSuperClass : MonoBehaviour
         }
     }
 
+    //revert buff changes
     public void Disable(BuffSuperClass buff, bool DoDestroy=false)
     {
+        //if affects speed, revert the speed to original
         if (buff_speedScale != 1)
         {
             //entity.moveSpeed = og_speed;
             entity.moveSpeed /= buff_speedScale;
             Debug.Log("entity" + entity.moveSpeed);
         }
+        //destroy buff component
         if (DoDestroy)
         {
             sr.color = Color.white;

@@ -28,6 +28,7 @@ public class XpController : MonoBehaviour
 
     private void Awake()
     {
+        //Calculate some stuff
         xp = 0;
         xplvl = 1;
         xpMax = CalculateNextLvlXP(xplvl, xp);
@@ -38,6 +39,7 @@ public class XpController : MonoBehaviour
     }
     private void Start()
     {
+        //Set references
         xpBar = GetComponent<Slider>();
         aSource = GetComponent<AudioSource>();
         xpBar.maxValue = xpMax; xpBar.minValue = xp; xpBar.value = xp;
@@ -46,6 +48,7 @@ public class XpController : MonoBehaviour
     }
     private void Update()
     {
+        //legacy aura 
         if (xplvl == 2 && !ar.isOn)
         {
             ar.isOn = true;
@@ -53,17 +56,19 @@ public class XpController : MonoBehaviour
     }
     int CalculateNextLvlXP(int lvl, int xp)
     {
-        //formula
+        //formula to get next lvl xp
         return (Mathf.RoundToInt(lvl*5+Mathf.Log10(Mathf.Pow(lvl, 2)))*2)+xp;
     }
 
     public void AddXP(int newXP)
     {
+        //give player xp
+        //spawn text below player that shows how much xp they obtained
         xp += newXP;
-        
         GameObject expText = Instantiate(exptxt, player.transform.position - new Vector3(0.5f, 1f, 0), Quaternion.identity);
         expText.GetComponent<ExpIndicator>().ChangeText(newXP.ToString());
         xpBar.value = xp;
+        //if xp exceeds next level requirements, level up!
         if (xp > xpMax)
         {
             xplvl++;
@@ -82,6 +87,8 @@ public class XpController : MonoBehaviour
         
     }
     
+    //delay the pop-up
+    //prevents users from accidentally upgrading
     IEnumerator LvlUpDelay()
     {
         lvlUpPopUp.SetActive(true);
