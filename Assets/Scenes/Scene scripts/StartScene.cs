@@ -11,7 +11,7 @@ public class StartScene : MonoBehaviour
     private void Start()
     {
         if (!usedForLoading) return;
-        StartCoroutine(LoadingGame());
+        StartCoroutine(LoadingGame());//if this script is used in the loading scene then it will load async to the game scene
     }
     public void StartGame()
     {
@@ -22,5 +22,5 @@ public class StartScene : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         SceneManager.LoadSceneAsync(gameScene);
-    }
+    }//there will be a delay before loading the game scene
 }
