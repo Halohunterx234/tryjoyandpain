@@ -17,6 +17,8 @@ public class MiniBossCultist : Cultist
     public float shockwaveSize;
     [Range(0f, 20f)]
     public float shockwaveGrowth;
+    [Range(0f, 50f)]
+    public float jumpStrength;
 
     //gameobject references
     public GameObject circle, innercircle, outercircle;
@@ -52,6 +54,14 @@ public class MiniBossCultist : Cultist
             return;
         }
 
+        if (this.transform.position.x > player.transform.position.x && this.transform.localScale.x < 0)
+        {
+            this.transform.localScale = new Vector3(this.transform.localScale.x * -1, this.transform.localScale.y);
+        }
+        else if (this.transform.position.x < player.transform.position.x && this.transform.localScale.x > 0)
+        {
+            this.transform.localScale = new Vector3(this.transform.localScale.x * -1, this.transform.localScale.y);
+        }
     }
     
     //shockwave attack
@@ -69,7 +79,7 @@ public class MiniBossCultist : Cultist
         innercircle = warningcircle.GetComponentsInChildren<Transform>()[2].gameObject;
         innercircle.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         outercircle.transform.localScale = new Vector3(shockwaveSize, shockwaveSize, shockwaveSize);
-        while (innercircle.transform.localScale.x <= shockwaveSize + 0.1f)
+        while (innercircle.transform.localScale.x <= shockwaveSize + 0.2f)
         {
             innercircle.transform.localScale += new Vector3(shockwaveMultipler, shockwaveMultipler, shockwaveMultipler);
             yield return W;
@@ -88,7 +98,7 @@ public class MiniBossCultist : Cultist
 
         while (dist < totalDist)
         {
-            float d = moveSpeed * Time.deltaTime * 20;
+            float d = moveSpeed * Time.deltaTime * jumpStrength;
             transform.position = Vector3.MoveTowards(this.transform.position, playerPos, d);
             dist += d;
             yield return w;

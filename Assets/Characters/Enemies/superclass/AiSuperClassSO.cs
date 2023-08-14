@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public enum enumAi
@@ -76,13 +77,14 @@ public class AiSuperClassSO : ScriptableObject
         if (player == null) return null;
         Rigidbody2D enemyrb = enemy.GetComponent<Rigidbody2D> ();
         //only change rotaton to be facing player
+        Debug.Log("rotaitng");
         if (enemy.transform.position.x > player.transform.position.x && enemy.transform.localScale.x < 0)
         {
             enemy.transform.localScale = new Vector3(enemy.transform.localScale.x * -1, enemy.transform.localScale.y);
         }
         else if (enemy.transform.position.x < player.transform.position.x && enemy.transform.localScale.x > 0)
         {
-            enemy.transform.localScale = new Vector3(enemy.transform.localScale.x * -1, enemy.transform.localScale.y);
+            enemy.transform.localScale = new Vector3(enemy.transform.localScale.x , enemy.transform.localScale.y);
         }
         return null;
     }

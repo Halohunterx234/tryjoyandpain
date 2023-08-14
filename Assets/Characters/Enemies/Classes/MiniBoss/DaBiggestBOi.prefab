@@ -125,10 +125,11 @@ MonoBehaviour:
   CD: 0
   CDMax: 0
   isMoving: 0
-  minCD: 1
-  maxCD: 2.03
+  minCD: 8
+  maxCD: 12
   shockwaveSize: 13.08
-  shockwaveGrowth: 3.95
+  shockwaveGrowth: 3.76
+  jumpStrength: 30
   circle: {fileID: 886923477749787404, guid: c7a67a26c2afbb44db3b64f0583a1a6f, type: 3}
   innercircle: {fileID: 0}
   outercircle: {fileID: 0}

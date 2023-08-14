@@ -25,6 +25,10 @@ public class WaveController : MonoBehaviour
     public GameObject bigBoi;
     public GameObject rangeBoi;
 
+    //bosses
+    public GameObject miniboss;
+    public bool miniBossSpawned;
+
     public TextMeshProUGUI time_text;
     public string time_text_string;
     float extra_c;
@@ -33,6 +37,7 @@ public class WaveController : MonoBehaviour
         player = FindObjectOfType<Player>().gameObject;
         waveTimer = waveMaxTimer;
         time_text = GameObject.Find("Timer").GetComponent<TextMeshProUGUI>();
+        miniBossSpawned = false;
     }
 
     private void Update()
@@ -68,6 +73,13 @@ public class WaveController : MonoBehaviour
             timeOfActivation = Time.time;
         }
         if (!onceOnly) CheckingActivation();  
+
+        //spawn miniboss if its 07:00
+        if ((Mathf.RoundToInt(timer) / 60) >= 1 && !miniBossSpawned)
+        {
+            miniBossSpawned = true;
+            Instantiate(miniboss, player.transform.position + (10*Mathf.Abs(-player.transform.localScale.x) * Vector3.one), Quaternion.identity);
+        }
     }
 
     protected void CheckingActivation()
