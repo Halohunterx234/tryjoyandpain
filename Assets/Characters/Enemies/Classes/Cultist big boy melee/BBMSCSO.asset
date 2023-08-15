@@ -15,7 +15,7 @@ MonoBehaviour:
   moveSpeed: 1
   health: 12
   collisionDmg: 1
-  exp: 2
+  exp: 3
   particleSize: 2
   iProjectileXOffset: 0
   iProjectileYOffset: 0
