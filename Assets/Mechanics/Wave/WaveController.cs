@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -225,10 +225,10 @@ public class WaveController : MonoBehaviour
         //every 1 minute the chance of getting the new enemy to spawn increases
         GameObject selectedEnemy;
         if (minutes < 5) value = 10;
-        else if (minutes < 10) value += 1 * addvalue;
-        else if (minutes < 15) value += 10 + 1 * addvalue;
-        else if (minutes < 20) value += 20 + 1 * addvalue;
-        else if (minutes < 25) value += 30 + 1 * addvalue;
+        else if (minutes < 10) value += 5 +1 * addvalue;
+        else if (minutes < 15) value += 15 + 1 * addvalue;
+        else if (minutes < 20) value += 25 + 1 * addvalue;
+        else if (minutes < 25) value += 35 + 1 * addvalue;
         else value += 40;
 
         int enemyNo = Random.Range(1, value);//this is where the chance of an enemy spawn is
