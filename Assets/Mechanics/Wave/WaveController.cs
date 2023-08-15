@@ -32,10 +32,14 @@ public class WaveController : MonoBehaviour
     //waves
     public GameObject firstWave;
     public GameObject secondWave;
+    public GameObject thirdWave;
     public bool firstWaveSpawned;
     public bool secondWaveSpawned;
+    public bool thirdWaveSpawned;
     public bool miniBossSpawned;
+    
     public bool hellWaveOneSpawned;
+    public bool hellWaveTwoSpawned;
 
     //timer
     public TextMeshProUGUI time_text;
@@ -62,7 +66,9 @@ public class WaveController : MonoBehaviour
         miniBossSpawned = false;
         firstWaveSpawned = false;
         secondWaveSpawned = false;
+        thirdWaveSpawned = false;
         hellWaveOneSpawned = false;
+        hellWaveTwoSpawned = false;
     }
 
     private void Update()
@@ -119,8 +125,8 @@ public class WaveController : MonoBehaviour
             Instantiate(miniboss, player.transform.position + (30*Mathf.Abs(-player.transform.localScale.x) * Vector3.one), Quaternion.identity);
         }
 
-         //spawns first push wave at 13:00 once only
-        if ((Mathf.RoundToInt(timer) / 60) >= 13 && !firstWaveSpawned)
+         //spawns first push wave at 5:00 once only
+        if ((Mathf.RoundToInt(timer) / 60) >= 5 && !firstWaveSpawned)
         {
            
             List<string> dialogue = new List<string>() { 
@@ -138,8 +144,8 @@ public class WaveController : MonoBehaviour
 
         }
 
-        //spawns second push wave at 20:00 once only
-        if ((Mathf.RoundToInt(timer) / 60) >= 20 && !secondWaveSpawned)
+        //spawns second push wave at 12:00 once only
+        if ((Mathf.RoundToInt(timer) / 60) >= 12 && !secondWaveSpawned)
         {
             
             List<string> dialogue = new List<string>() { 
@@ -156,8 +162,28 @@ public class WaveController : MonoBehaviour
             Instantiate(secondWave, new Vector3(-10, -10, 0), Quaternion.identity);
         }
 
-        //spawn miniboss and big boi wave at 25:00
-        if ((Mathf.RoundToInt(timer) / 60) >= 25 && !hellWaveOneSpawned)
+        //spawns second push wave at 16:00 once only
+        if ((Mathf.RoundToInt(timer) / 60) >= 16 && !thirdWaveSpawned)
+        {
+
+            List<string> dialogue = new List<string>() {
+                "It's the footsteps again, but this time... heavier? Oh no...",
+                "Even more enemies?? When will this ever end...",
+                "Time to ramp it up a notch!"
+            };
+
+            dc.SpawnDialogue(dialogue[Random.Range(0, dialogue.Count - 1)]);
+
+            thirdWaveSpawned = true;
+            aSource.clip = warning;
+            aSource.Play();
+            Instantiate(thirdWave, new Vector3( 46, 5, 0), Quaternion.identity);
+        }
+
+
+
+        //spawn miniboss and big boi wave at 22:00
+        if ((Mathf.RoundToInt(timer) / 60) >= 22 && !hellWaveOneSpawned)
         {
             List<string> dialogue = new List<string>() { 
                 "Oh no, RUNNNNNNNNNNNNN!!!!!", 
@@ -167,15 +193,43 @@ public class WaveController : MonoBehaviour
 
             dc.SpawnDialogue(dialogue[Random.Range(0, dialogue.Count - 1)]);
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 5; i++)
             {
-                Instantiate(miniboss, player.transform.position + (30 * Mathf.Abs(-player.transform.localScale.x) * Vector3.one), Quaternion.identity);
+                Instantiate(miniboss, player.transform.position + new Vector3(0, i, 0) + (30 * Mathf.Abs(-player.transform.localScale.x) * Vector3.one), Quaternion.identity);
             }
            
             hellWaveOneSpawned = true;
             aSource.clip = warning;
             aSource.Play();
-            Instantiate(secondWave, new Vector3(-10, -10, 0), Quaternion.identity);
+            Instantiate(thirdWave, player.transform.position + new Vector3(0, -10, 0), Quaternion.identity);
+        }
+
+        //spawn miniboss and big boi wave at 26:00
+        if ((Mathf.RoundToInt(timer) / 60) >= 26 && !hellWaveTwoSpawned)
+        {
+            List<string> dialogue = new List<string>() {
+                "Oh no, RUNNNNNNNNNNNNN!!!!!",
+                "The ground is trembling like crazy, there is no way this is good",
+                "This is getting harder and harder... But I can't give up now, not for her."
+            };
+
+            dc.SpawnDialogue(dialogue[Random.Range(0, dialogue.Count - 1)]);
+
+            for (int i = 0; i < 10; i++)
+            {
+                Instantiate(miniboss, player.transform.position + new Vector3(0, i, 0) + (30 * Mathf.Abs(-player.transform.localScale.x) * Vector3.one), Quaternion.identity);
+               
+            }
+            for( int i = 0; i < 5; i++)
+            {
+                Instantiate(thirdWave, player.transform.position + new Vector3(0, -10+i*2, 0), Quaternion.identity);
+            }
+
+
+            hellWaveTwoSpawned = true;
+            aSource.clip = warning;
+            aSource.Play();
+           
         }
 
     }

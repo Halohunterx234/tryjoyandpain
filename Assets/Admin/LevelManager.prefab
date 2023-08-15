@@ -67,10 +67,13 @@ MonoBehaviour:
   miniboss: {fileID: 3309564111878618265, guid: 5a8b8b289db09b341ab765533b27e7b0, type: 3}
   firstWave: {fileID: 9149020555310989955, guid: f7dacbcdd176fa24587c1f8960213c4f, type: 3}
   secondWave: {fileID: 368338834672835326, guid: 33fbcd320492ca34e88d063eb0549f03, type: 3}
+  thirdWave: {fileID: 2091572801694274406, guid: 6527ed8a50bd21846b2612a391732f41, type: 3}
   firstWaveSpawned: 0
   secondWaveSpawned: 0
+  thirdWaveSpawned: 0
   miniBossSpawned: 0
   hellWaveOneSpawned: 0
+  hellWaveTwoSpawned: 0
   time_text: {fileID: 0}
   time_text_string: 
   aSource: {fileID: 3325405811437185209}
