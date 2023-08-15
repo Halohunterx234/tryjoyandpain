@@ -57,7 +57,8 @@ public class Projectiles : MonoBehaviour
 
     private void Start()
     {
-        player = FindObjectOfType<Player>().gameObject;
+        if (FindObjectOfType<Player>() == null) return;
+        else player = FindObjectOfType<Player>().gameObject;
         
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine(projModes.DespawnTimer(iso.iProjectileDespawn, this.gameObject));
@@ -67,7 +68,7 @@ public class Projectiles : MonoBehaviour
     }
     private void Update()
     {
-        if (player = null)
+        if (player == null)
         {
             return;
         }
@@ -167,6 +168,7 @@ public class Projectiles : MonoBehaviour
                     newBSC.init_buff(iso.buff);
                 }
             }
+            //Projectile penetration
             projectilePenCount++;
             if (projectilePenCount >= projectilePenMax)
             {
