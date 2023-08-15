@@ -22,6 +22,7 @@ public class LevelManagerController : MonoBehaviour
         returnGame.SetActive(false);
         GameOver.SetActive(true);
         restart.SetActive(true);
+        Time.timeScale = 1;
     }
 
     private void Update()

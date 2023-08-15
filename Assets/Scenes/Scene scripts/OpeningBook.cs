@@ -6,10 +6,20 @@ public class OpeningBook : MonoBehaviour
 {
     public GameObject book;
     public GameObject openingBook;
-   
+    public bool usedInGameScene;
+    BookFlip bookflip;
     public void Deactivate()
     {
-        openingBook.SetActive(false);
-        book.SetActive(true);
+        if (!usedInGameScene)
+        {
+            openingBook.SetActive(false);
+            book.SetActive(true);
+        }
+        else
+        {
+            bookflip = GetComponent<BookFlip>();
+            bookflip.deactivate();
+        }
+
     }
 }

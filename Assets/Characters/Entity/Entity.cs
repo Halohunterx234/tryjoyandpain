@@ -121,7 +121,15 @@ public class Entity : MonoBehaviour
             }
             scoreManager = FindObjectOfType<ScoreManager>();
             scoreManager.Calc_KillCount(1);
-            Destroy(this.gameObject);
+            if (this.gameObject.GetComponent<Player>())
+            {
+                this.gameObject.SetActive(false);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+
         }
         else
         {
