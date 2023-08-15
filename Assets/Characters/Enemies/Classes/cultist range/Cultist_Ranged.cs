@@ -12,6 +12,10 @@ public class Cultist_Ranged : Cultist
     }
     public override void OnFire()
     {
+        if(player = null)
+        {
+            return;
+        }  
         print("firing");
         GameObject enemyProj = Instantiate(enemyProjectile, transform.position + ((player.transform.position) - (transform.position)).normalized*0.1f, Quaternion.identity);
         Rigidbody2D rb = enemyProj.GetComponent<Rigidbody2D>();
