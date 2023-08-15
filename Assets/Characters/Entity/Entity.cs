@@ -95,6 +95,9 @@ public class Entity : MonoBehaviour
         OnCheckHealth();
         if (hp <= minHp)
         {
+            GameObject dying_vfx = Instantiate(bloodEffect, transform.position, Quaternion.identity);
+            dying_vfx.transform.localScale *= particleSize;
+            Destroy(dying_vfx, 0.7f);
             //drop xp orbs
             if (spawnsXpOrb)
             {
@@ -105,13 +108,10 @@ public class Entity : MonoBehaviour
                 {
                     Instantiate(hpPickUp, transform.position, Quaternion.identity);
                 }
-                GameObject dying_vfx = Instantiate(bloodEffect, transform.position, Quaternion.identity);
-                dying_vfx.transform.localScale *= particleSize;
                 AudioSource dyingVFXAS = dying_vfx.AddComponent<AudioSource>();
                 dyingVFXAS.clip = dyingAS.clip;
                 dyingVFXAS.playOnAwake = false;
                 dyingVFXAS.Play();
-                Destroy(dying_vfx, 0.7f);
             }
             if (this.gameObject.GetComponent<Player>())
             {
