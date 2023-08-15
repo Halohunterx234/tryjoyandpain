@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d259f16a64566164aa2959dd4c3e99af, type: 3}
   m_Name: W3BBAiSo
   m_EditorClassIdentifier: 
-  aiMode: 0
+  aiMode: 3
