@@ -13,6 +13,7 @@ public class LevelManagerController : MonoBehaviour
     public GameObject victory;
     public GameObject bookFlipping;
     public GameObject returnGame;
+    private bool onlyOnce=true;
     // Start is called before the first frame update
 
     public void GameIsOver()
@@ -27,8 +28,9 @@ public class LevelManagerController : MonoBehaviour
 
     private void Update()
     {
-        if(Time.time >= 30 * 60)
+        if(Time.time >= 30*60 && onlyOnce==true )
         {
+            onlyOnce = false;
             backgroundMusic.Stop();
             bookFlipping.SetActive(true);
             returnGame.SetActive(false);

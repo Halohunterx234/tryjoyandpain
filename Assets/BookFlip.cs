@@ -29,9 +29,9 @@ public class BookFlip : MonoBehaviour
         book.SetActive(true);
         SetData();
         bookFlipping.SetActive(false);
+        print(bookFlipping.activeSelf);
     }
 
-    
     public void activate()
     {
         if (book.activeSelf) return;
@@ -61,6 +61,6 @@ public class BookFlip : MonoBehaviour
         CD.GetComponent<Text>().text = "-0."+itemMod.cdModifier.ToString()+"x";
         Speed.GetComponent<Text>().text = "+0."+itemMod.speedModifier.ToString()+"x";
         LifeRegen.GetComponent<Text>().text = itemMod.lifeRegenAmtModifier.ToString();
-        Time.timeScale = 0; 
+        Time.timeScale = 0;
     }
 }
