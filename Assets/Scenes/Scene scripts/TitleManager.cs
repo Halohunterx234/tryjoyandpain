@@ -11,6 +11,7 @@ public class TitleManager : MonoBehaviour
     //array of the sprites used for the icons
     public Image[] imageUsedToHoldTheSprite= new Image[3];
     //array of the imageUsedToHoldTheSprite
+    public GameObject[] buttonForIcon= new GameObject[3];
     public GameObject[] screen = new GameObject[5];
     //array of screens 
     public Image[] imageBehindIcon = new Image[4];
@@ -130,6 +131,10 @@ public class TitleManager : MonoBehaviour
 
     IEnumerator GoingToNextScreen(int chosenScreen)//reset the screen then have a delay then make the appropriate changes
     {
+        foreach(GameObject Icon in buttonForIcon)
+        {
+            Icon.SetActive(false);
+        }
         for (int e =1; e < 5; e++)//this make all the screen unactive
         {
             if (screen[e].activeSelf)
@@ -148,6 +153,10 @@ public class TitleManager : MonoBehaviour
             pageFlipForward.SetActive(true);
         }
         yield return new WaitForSeconds(1.5f);
+        foreach (GameObject Icon in buttonForIcon)
+        {
+            Icon.SetActive(true);
+        }
         pageFlipForward.SetActive(false);
         pageFlipBack.SetActive(false);
         screen[chosenScreen].SetActive(true);

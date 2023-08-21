@@ -1374,6 +1374,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1533315624}
   - {fileID: 566014378}
+  buttonForIcon:
+  - {fileID: 1653088250}
+  - {fileID: 194768538}
+  - {fileID: 546390930}
   screen:
   - {fileID: 2078199403}
   - {fileID: 759620600}
@@ -6358,6 +6362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   book: {fileID: 1941421242}
   openingBook: {fileID: 7604991595808542943}
+  usedInGameScene: 0
 --- !u!95 &7604991595808542948
 Animator:
   serializedVersion: 4
