@@ -17,6 +17,7 @@ public class DamageTextController : MonoBehaviour
 
     public void ChangeText(string dmg, Vector3 enemyPos)
     {
+        if (FindObjectOfType<Player>() == null) return;
         txt = this.gameObject.GetComponent<TextMeshPro>();
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         txt.text = dmg;
