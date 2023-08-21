@@ -43,6 +43,12 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("New title scene");
     }
 
+    public void Restart()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Game Scene");
+    }
+
     //unpause game and go back to the level
     public void BackToGame()
     {
