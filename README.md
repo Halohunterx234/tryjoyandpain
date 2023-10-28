@@ -1,5 +1,5 @@
 # tryjoyandpain
-studio project year 2 sem 1
+Year 2 Semester 1 Studio Project! Platform: 2D Mobile Game
 
 Our game!!
 -A rogue-like reverse bullet hell
